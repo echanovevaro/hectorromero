@@ -43,12 +43,13 @@ function App() {
 
             <motion.nav
               variants={{
-                hidden: { opacity: 0, x: -30 },
+                hidden: { opacity: 0, x: -200 },
                 visible: { opacity: 1, x: 0 },
               }}
               initial="hidden"
               animate="visible"
               exit="hidden"
+              transition={{ duration: 1 }}
               className="text-white font-light fixed left-0 top-0 bottom-0 right-0 flex flex-col p-4 pt-6 bg-gray-300 border-r overflow-y-auto bg-opacity-40 backdrop-blur"
             >
               <div className="flex items-start justify-end">
