@@ -30,7 +30,7 @@ function App() {
           </div>
         </nav>
         <div className="flex h-4/6 justify-center items-end">
-          <h1 className="text-2xl font-light">héctor romero</h1>
+          <h1 className="text-xl font-extralight">héctor romero</h1>
         </div>
       </main>
       <AnimatePresence>
@@ -49,7 +49,7 @@ function App() {
               initial="hidden"
               animate="visible"
               exit="hidden"
-              className="text-white font-light fixed left-0 top-0 h-100 bottom-0 flex flex-col w-full max-w-sm p-4 pt-6 bg-gray-300 border-r overflow-y-auto bg-opacity-40 backdrop-blur"
+              className="text-white font-light fixed left-0 top-0 bottom-0 right-0 flex flex-col p-4 pt-6 bg-gray-300 border-r overflow-y-auto bg-opacity-40 backdrop-blur"
             >
               <div className="flex items-start justify-end">
                 <button
