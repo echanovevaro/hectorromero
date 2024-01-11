@@ -1,10 +1,6 @@
 @keyframes zoom {
   0% {
     transform: scale(4) rotate(-65deg);
-    filter: blur(8px);
-  }
-  40% {
-    filter: blur(0px);
   }
   100% {
     transform: scale(1) rotate(0deg);
