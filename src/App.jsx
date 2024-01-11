@@ -30,7 +30,7 @@ function App() {
           </div>
         </nav>
         <div className="flex h-4/6 justify-center items-end">
-          <h1 className="text-xl font-extralight">héctor romero</h1>
+          <h1 className="text-2xl font-light">héctor romero</h1>
         </div>
       </main>
       <AnimatePresence>
