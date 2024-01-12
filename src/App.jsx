@@ -33,6 +33,7 @@ function App() {
           <h1 className="text-2xl font-light">héctor romero</h1>
         </div>
       </main>
+      <div className="blur" />
       <AnimatePresence>
         {openMenu && (
           <div className={`navbar-menu relative z-50`}>
