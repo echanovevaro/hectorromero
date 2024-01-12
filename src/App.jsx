@@ -8,9 +8,10 @@ function App() {
 
   return (
     <>
-      <main className="text-white">
+      <div className="background" />
+      <main className="text-white w-screen h-screen">
         <nav className="p-4 flex justify-end">
-          <div className="lg:hidden">
+          <div className="lg:hidden z-10">
             <button
               className="navbar-burger pt-3"
               onClick={() => {
@@ -29,7 +30,7 @@ function App() {
             </button>
           </div>
         </nav>
-        <div className="flex h-4/6 justify-center items-end">
+        <div className="mt-8 flex h-4/6 justify-center items-end">
           <h1 className="text-2xl font-light">héctor romero</h1>
         </div>
       </main>
