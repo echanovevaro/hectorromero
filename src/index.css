@@ -1,4 +1,106 @@
-/* FILEPATH: /C:/Users/echan/Desktop/hector/Pintura hector/HectorApp/src/index.css */
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+:root {
+  --foreground-rgb: 0, 0, 0;
+  --background-start-rgb: 214, 219, 220;
+  --background-end-rgb: 255, 255, 255;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --foreground-rgb: 255, 255, 255;
+    --background-start-rgb: 0, 0, 0;
+    --background-end-rgb: 0, 0, 0;
+  }
+}
+
+/* body {
+  color: rgb(var(--foreground-rgb));
+  background: linear-gradient(
+      to bottom,
+      transparent,
+      rgb(var(--background-end-rgb))
+    )
+    rgb(var(--background-start-rgb));
+} */
+
+@keyframes zoom {
+  0% {
+    transform: scale(4) rotate(-65deg);
+  }
+
+  50% {
+    transform: scale(1) rotate(0deg);
+  }
+
+  100% {
+    transform: scale(1.06) rotate(0deg);
+  }
+}
+
+@keyframes blur {
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 0;
+    display: none;
+  }
+}
+
+@keyframes fade-in {
+  from {
+    opacity: 0;
+    transform: translate(0, 4rem);
+  }
+  to {
+    opacity: 0.7;
+    transform: translate(0, 0);
+  }
+}
+
+@media screen and (max-width: 1024px) {
+  .wrapper {
+    position: absolute;
+    inset: 0;
+    overflow: hidden;
+    z-index: -1;
+    overflow: hidden;
+  }
+
+  .background {
+    background-image: url("/26b.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: left;
+    transform-origin: center;
+    position: absolute;
+    inset: 0;
+    animation: zoom 5s ease-in forwards;
+  }
+
+  .blur {
+    position: absolute;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.1);
+    animation: blur 3s ease-in forwards;
+    backdrop-filter: blur(4px);
+    z-index: 51;
+    overflow: hidden;
+  }
+
+  #logo-landing {
+    animation: fade-in 1.5s ease-in-out forwards;
+    animation-delay: 2s;
+    opacity: 0;
+  }
+}
+
+@media (orientation: landscape) {
+  .background {
+    background-image: url("/26b-landscape.jpg");
+    background-position: center;
+  }
+}
