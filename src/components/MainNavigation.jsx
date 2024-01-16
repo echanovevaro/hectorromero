@@ -1,11 +1,14 @@
 import { useState } from "react"
 import { AnimatePresence, motion } from "framer-motion"
-import { Link, useLocation } from "react-router-dom"
+import { Form as RouterForm, Link, useLocation } from "react-router-dom"
+import { useAuthContext } from "../context/authContext"
 
 export default function MainNavigation() {
+  const { currentUser } = useAuthContext()
   const { pathname } = useLocation()
   const [openMenu, setOpenMenu] = useState(false)
   const [openSubMenu, setOpenSubMenu] = useState(false)
+
   return (
     <>
       <div className="fixed top-0 left-0 right-0 z-20">
@@ -19,6 +22,9 @@ export default function MainNavigation() {
           <h1 className={`text-lg text-neutral-600`}>
             <span className={pathname === "/" ? "hidden" : "inline-block"}>
               héctor romero
+              {currentUser && (
+                <span className="text-neutral-300"> ADMIN MODE</span>
+              )}
             </span>
           </h1>
           <div className="lg:hidden z-10">
@@ -171,6 +177,21 @@ export default function MainNavigation() {
                       CONTACTO
                     </a>
                   </li>
+                  {currentUser && (
+                    <li>
+                      <RouterForm
+                        method="post"
+                        action="/logout"
+                      >
+                        <button
+                          type="submit"
+                          onClick={() => setOpenMenu(false)}
+                        >
+                          DESCONECTAR
+                        </button>
+                      </RouterForm>
+                    </li>
+                  )}
                 </ul>
               </div>
             </motion.nav>
