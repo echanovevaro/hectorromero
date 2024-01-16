@@ -1,21 +1,12 @@
-import { Link } from "react-router-dom"
-import { gallery } from "../../serieBloques.json"
+import { useQuery } from "@tanstack/react-query"
 import Gallery from "../components/Gallery"
-import { useAuthContext } from "../context/authContext"
+import { fetchBloques } from "../http"
 
 export default function Bloques() {
-  const { currentUser } = useAuthContext()
-  return (
-    <>
-      {currentUser && (
-        <Link
-          className="absolute top-20 right-8 text-sky-400 z-50"
-          to="/obra/bloques/new"
-        >
-          Añadir
-        </Link>
-      )}
-      <Gallery collection={gallery} />
-    </>
-  )
+  const { data } = useQuery({
+    queryKey: ["bloques"],
+    queryFn: fetchBloques,
+  })
+  console.log("data", data)
+  return <Gallery coleccion={data} />
 }

@@ -145,7 +145,12 @@ export default function MainNavigation() {
                           </Link>
                         </li>
                         <li>
-                          <a>serie iluminados</a>
+                          <Link
+                            to="/obra/iluminados"
+                            onClick={() => setOpenMenu(false)}
+                          >
+                            serie iluminados
+                          </Link>
                         </li>
                         <li>
                           <a>serie wire</a>

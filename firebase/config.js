@@ -2,7 +2,7 @@ import { v4 } from "uuid"
 import { initializeApp } from "firebase/app"
 import { getAuth } from "firebase/auth"
 import { getStorage, ref, uploadBytes, getDownloadURL } from "firebase/storage"
-import { getFirestore } from "firebase/firestore"
+import { getFirestore, collection, addDoc, getDocs } from "firebase/firestore"
 
 const firebaseConfig = {
   apiKey: "AIzaSyA2nhtKwaqfSH3guh7ACQXPchv_w7uW7ko",
@@ -24,4 +24,17 @@ export async function uploadFile(file) {
   await uploadBytes(storageRef, file)
   const url = await getDownloadURL(storageRef)
   return url
+}
+
+export async function add(collectionName, doc) {
+  await addDoc(collection(db, collectionName), doc)
+}
+
+export async function getAll(collectionName) {
+  const querySnapshot = await getDocs(collection(db, collectionName))
+  const data = []
+  querySnapshot.forEach((doc) => {
+    data.push({ ...doc.data(), id: doc.id })
+  })
+  return data
 }

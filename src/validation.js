@@ -23,8 +23,7 @@ export const obraNewSchema = z.object({
     .refine(
       (files) => ACCEPTED_IMAGE_MIME_TYPES.includes(files?.[0]?.type),
       "Sólo .jpg, .jpeg o .png son válidos."
-    )
-    .transform((files) => files.length > 0 && files[0]),
+    ),
   // imagenURL: z.string().url("URL no válida"),
   // serie: z
   //   .string()

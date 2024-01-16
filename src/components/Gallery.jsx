@@ -1,17 +1,22 @@
 import { motion, AnimatePresence } from "framer-motion"
-import { useRef, useState } from "react"
-export default function Gallery({ collection }) {
+import { Suspense, useRef, useState } from "react"
+import { Link, useLocation } from "react-router-dom"
+import { useAuthContext } from "../context/authContext"
+
+export default function Gallery({ coleccion }) {
   const [counter, setCounter] = useState(0)
   const ref = useRef(0)
   const [loaded, setLoaded] = useState(true)
+  const { pathname } = useLocation()
+  const { currentUser } = useAuthContext()
 
   const slideLeft = () => {
-    counter > 0 ? setCounter(counter - 1) : setCounter(collection.length - 1)
+    counter > 0 ? setCounter(counter - 1) : setCounter(coleccion.length - 1)
     setLoaded(false)
   }
 
   const slideRight = () => {
-    counter < collection.length - 1 ? setCounter(counter + 1) : setCounter(0)
+    counter < coleccion.length - 1 ? setCounter(counter + 1) : setCounter(0)
     setLoaded(false)
   }
 
@@ -27,12 +32,21 @@ export default function Gallery({ collection }) {
   }
 
   return (
-    <div className="absolute landscape:relative landscape:mt-[75px] inset-0 flex items-center justify-center flex-col lg:hidden overflow-hidden">
+    <div className="absolute landscape:relative landscape:mt-[75px] inset-0 flex items-center justify-center flex-col gap-4 lg:hidden overflow-hidden">
+      {currentUser && loaded && (
+        <Link
+          className={`${loaded ? "text-sky-400 z-50" : "hidden"}`}
+          to={`${pathname}/new`}
+        >
+          Añadir
+        </Link>
+      )}
+
       <div className="flex items-center justify-center gap-2">
         <div>
           <button onClick={slideLeft}>
             <svg
-              className="mt-[-2.5rem] w-4 h-4 mx-2 text-gray-400"
+              className="w-4 h-4 mx-2 text-gray-400"
               aria-hidden="true"
               xmlns="http://www.w3.org/2000/svg"
               fill="none"
@@ -48,54 +62,37 @@ export default function Gallery({ collection }) {
             </svg>
           </button>
         </div>
-        {collection?.map((obra, index) => (
-          <AnimatePresence key={obra.id}>
-            {counter == index && (
-              <div className="flex flex-col items-center justify-end gap-1">
-                <motion.img
-                  variants={{
-                    hidden: { opacity: 0 },
-                    visible: { opacity: 1 },
-                  }}
-                  initial="hidden"
-                  animate="visible"
-                  transition={{ duration: 2 }}
-                  src={obra.imageUrl}
-                  alt={obra.title}
-                  className="inline-block object-cover overflow-hidden max-h-[65vh]"
-                  onPanStart={onPanStart}
-                  onPanEnd={onPanEnd}
-                  onLoad={() => setLoaded(true)}
-                />
-                {loaded && (
-                  <motion.div
+        <div className="w-[75vw]">
+          {coleccion?.map((obra, index) => (
+            <AnimatePresence key={obra.id}>
+              {counter == index && (
+                <div className="flex flex-col items-center justify-end gap-1">
+                  {!loaded && <div className="w-[80vw]">&nbsp;</div>}
+
+                  <motion.img
                     variants={{
-                      hidden: { x: -50, opacity: 0 },
-                      visible: { x: 0, opacity: 1 },
+                      hidden: { opacity: 0 },
+                      visible: { opacity: 1 },
                     }}
                     initial="hidden"
                     animate="visible"
-                    transition={{ duration: 1 }}
-                    className="text-center"
-                  >
-                    <div className="flex items-center flex-col landscape:flex-row justify-center landscape:gap-2">
-                      <h1 className="text-neutral-600 text-sm landscape:text-xs">
-                        {obra.title}
-                      </h1>
-                      <p className="text-neutral-400 text-sm landscape:text-xs">
-                        {obra.description}
-                      </p>
-                    </div>
-                  </motion.div>
-                )}
-              </div>
-            )}
-          </AnimatePresence>
-        ))}
+                    transition={{ duration: 2 }}
+                    src={obra.imagenURL}
+                    alt={obra.titulo}
+                    className="inline-block object-cover overflow-hidden max-h-[65vh]"
+                    onPanStart={onPanStart}
+                    onPanEnd={onPanEnd}
+                    onLoad={() => setLoaded(true)}
+                  />
+                </div>
+              )}
+            </AnimatePresence>
+          ))}
+        </div>
         <div>
           <button onClick={slideRight}>
             <svg
-              className="mt-[-2.5rem] w-4 h-4 mx-2 text-gray-400"
+              className="w-4 h-4 mx-2 text-gray-400"
               aria-hidden="true"
               xmlns="http://www.w3.org/2000/svg"
               fill="none"
@@ -112,11 +109,37 @@ export default function Gallery({ collection }) {
           </button>
         </div>
       </div>
-
-      <ul className="flex items-center justify-center gap-3 mt-6 mb-6 landscape:mt-2">
-        {collection?.map((_, index) => (
+      <div>
+        {coleccion?.map((obra, index) => {
+          if (loaded && counter == index)
+            return (
+              <motion.div
+                variants={{
+                  hidden: { x: -50, opacity: 0 },
+                  visible: { x: 0, opacity: 1 },
+                }}
+                initial="hidden"
+                animate="visible"
+                transition={{ duration: 1 }}
+                className="text-center"
+              >
+                <div className="flex items-center flex-col landscape:flex-row justify-center landscape:gap-2">
+                  <h1 className="text-neutral-600 text-sm landscape:text-xs">
+                    {obra.titulo}
+                  </h1>
+                  <p className="text-neutral-400 text-sm landscape:text-xs">
+                    {obra.descripcion}
+                  </p>
+                </div>
+              </motion.div>
+            )
+        })}
+      </div>
+      <ul className="flex items-center justify-center gap-3 mb-6">
+        {coleccion?.map((_, index) => (
           <button
             key={index}
+            className={`${loaded ? "block" : "hidden"}`}
             onClick={() => setCounter(index)}
           >
             <li

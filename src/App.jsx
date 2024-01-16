@@ -1,4 +1,5 @@
 import { RouterProvider, createBrowserRouter } from "react-router-dom"
+import { QueryClientProvider } from "@tanstack/react-query"
 import Root from "./pages/Root"
 import Bloques from "./pages/Bloques"
 import Landing from "./pages/Landing"
@@ -6,6 +7,7 @@ import Login, { action as loginAction } from "./pages/Login"
 import { AuthProvider } from "./context/authContext"
 import { logOutWithRedirect } from "./utils/auth"
 import BloquesNew, { action as newBloqueAction } from "./pages/BloquesNew"
+import { queryClient } from "./http"
 
 function App() {
   const router = createBrowserRouter([
@@ -22,6 +24,7 @@ function App() {
           path: "obra/bloques",
           element: <Bloques />,
         },
+
         {
           path: "obra/bloques/new",
           element: <BloquesNew />,
@@ -42,7 +45,9 @@ function App() {
 
   return (
     <AuthProvider>
-      <RouterProvider router={router} />
+      <QueryClientProvider client={queryClient}>
+        <RouterProvider router={router} />
+      </QueryClientProvider>
     </AuthProvider>
   )
 }

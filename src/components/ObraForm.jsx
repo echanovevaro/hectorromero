@@ -1,8 +1,8 @@
 import { useActionData, useNavigation, useSubmit } from "react-router-dom"
-import { obraSchema } from "../validation"
+import { obraNewSchema } from "../validation"
 import { useForm } from "react-hook-form"
 import { zodResolver } from "@hookform/resolvers/zod"
-import { uploadFile } from "../../firebase/config"
+// import { uploadFile } from "../../firebase/config"
 import { useState } from "react"
 
 function ObraForm({ serie, obra }) {
@@ -17,7 +17,7 @@ function ObraForm({ serie, obra }) {
     handleSubmit,
     formState: { errors },
   } = useForm({
-    resolver: zodResolver(obraSchema),
+    resolver: zodResolver(obraNewSchema),
     defaultValues: {
       titulo: obra?.titulo || "",
       descripcion: obra?.descripcion || "",
@@ -40,7 +40,9 @@ function ObraForm({ serie, obra }) {
     formData.append("descripcion", data.descripcion)
     formData.append("serie", serie)
     formData.append("imagen", data.imagen[0])
-    submit(formData, { method: "POST" })
+    // formData.append("ext", data.imagen[0].name.split(".").pop())
+    console.log("imagen", data.imagen[0])
+    submit(formData, { method: "POST", encType: "multipart/form-data" })
   }
 
   return (
