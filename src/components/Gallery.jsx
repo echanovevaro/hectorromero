@@ -42,7 +42,11 @@ export default function Gallery({ coleccion }) {
         </Link>
       )}
 
-      <div className="flex items-center justify-center gap-2">
+      <div
+        className={`flex items-center justify-center gap-2 ${
+          loaded ? "" : "mb-[2.7rem]"
+        }`}
+      >
         <div>
           <button onClick={slideLeft}>
             <svg
@@ -114,7 +118,7 @@ export default function Gallery({ coleccion }) {
       </div>
       <div>
         {coleccion?.map((obra, index) => {
-          if (counter == index)
+          if (loaded && counter == index)
             return (
               <motion.div
                 variants={{
