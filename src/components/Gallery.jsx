@@ -75,17 +75,17 @@ export default function Gallery({ coleccion }) {
             </svg>
           </button>
         </div>
-        <div className="w-[75vw]">
+        <div className="w-[75vw] relative">
           {coleccion?.map((obra, index) => (
             <div
               key={obra.id}
-              className="flex flex-col items-center justify-end gap-1 relative"
+              className="flex flex-col items-center justify-end gap-1"
             >
               {counter == index && (
                 <>
                   {!loaded && (
                     <div
-                      class="absolute z-50 h-8 w-8 animate-spin rounded-full border-4 border-solid border-current border-r-transparent align-[-0.125em] text-neutral-300 motion-reduce:animate-[spin_1.5s_linear_infinite]"
+                      class="absolute h-8 w-8 animate-spin rounded-full border-4 border-solid border-current border-r-transparent align-[-0.125em] text-neutral-300 motion-reduce:animate-[spin_1.5s_linear_infinite]"
                       role="status"
                     >
                       <span class="!absolute !-m-px !h-px !w-px !overflow-hidden !whitespace-nowrap !border-0 !p-0 ![clip:rect(0,0,0,0)]">
