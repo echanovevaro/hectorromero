@@ -39,7 +39,7 @@ export default function Gallery({ coleccion }) {
   }, []);
 
   return (
-    <div className="absolute landscape:relative landscape:mt-[75px] inset-0 flex items-center justify-center flex-col gap-4 lg:hidden overflow-hidden">
+    <div className="absolute landscape:inline-block landscape:mt-[75px] inset-0 flex items-center justify-center flex-col gap-4 lg:hidden overflow-hidden">
       {currentUser && loaded && (
         <Link
           className={`${loaded ? "text-sky-400 z-50" : "hidden"}`}
@@ -75,7 +75,7 @@ export default function Gallery({ coleccion }) {
             </svg>
           </button>
         </div>
-        <div className="w-[75vw] relative">
+        <div className="w-[75vw]">
           {coleccion?.map((obra, index) => (
             <div
               key={obra.id}
@@ -85,7 +85,7 @@ export default function Gallery({ coleccion }) {
                 <>
                   {!loaded && (
                     <div
-                      class="absolute -z-50 h-8 w-8 animate-spin rounded-full border-4 border-solid border-current border-r-transparent align-[-0.125em] text-neutral-300 motion-reduce:animate-[spin_1.5s_linear_infinite]"
+                      class="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 h-8 w-8 animate-spin rounded-full border-4 border-solid border-current border-r-transparent align-[-0.125em] text-neutral-300 motion-reduce:animate-[spin_1.5s_linear_infinite]"
                       role="status"
                     >
                       <span class="!absolute !-m-px !h-px !w-px !overflow-hidden !whitespace-nowrap !border-0 !p-0 ![clip:rect(0,0,0,0)]">
