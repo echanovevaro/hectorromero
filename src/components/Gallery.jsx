@@ -39,7 +39,7 @@ export default function Gallery({ coleccion }) {
   }, []);
 
   return (
-    <div className="absolute landscape:inline-block landscape:mt-[75px] inset-0 flex items-center justify-center flex-col gap-4 lg:hidden overflow-hidden landscape:overflow-auto">
+    <div className="absolute landscape:static landscape:mt-[75px] inset-0 flex items-center justify-center flex-col gap-4 lg:hidden overflow-hidden landscape:overflow-auto">
       {currentUser && loaded && (
         <Link
           className={`${loaded ? "text-sky-400 z-50" : "hidden"}`}
@@ -141,6 +141,7 @@ export default function Gallery({ coleccion }) {
           if (loaded && counter == index)
             return (
               <motion.div
+                key={obra.id}
                 variants={{
                   hidden: { x: -10, opacity: 0 },
                   visible: { x: 0, opacity: 1 },
