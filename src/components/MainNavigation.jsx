@@ -23,7 +23,7 @@ export default function MainNavigation() {
             <span className={pathname === "/" ? "hidden" : "inline-block"}>
               héctor romero
               {currentUser && (
-                <span className="text-neutral-300"> ADMIN MODE</span>
+                <span className="text-neutral-300 ml-1"> ADMIN MODE</span>
               )}
             </span>
           </h1>

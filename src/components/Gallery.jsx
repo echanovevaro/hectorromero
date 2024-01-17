@@ -46,7 +46,9 @@ export default function Gallery({ coleccion }) {
         <div>
           <button onClick={slideLeft}>
             <svg
-              className="w-4 h-4 mx-2 text-gray-400"
+              className={`w-4 h-4 mx-2 text-gray-400 ${
+                loaded ? "block" : "hidden"
+              }`}
               aria-hidden="true"
               xmlns="http://www.w3.org/2000/svg"
               fill="none"
@@ -64,35 +66,36 @@ export default function Gallery({ coleccion }) {
         </div>
         <div className="w-[75vw]">
           {coleccion?.map((obra, index) => (
-            <AnimatePresence key={obra.id}>
+            <div
+              key={obra.id}
+              className="flex flex-col items-center justify-end gap-1"
+            >
               {counter == index && (
-                <div className="flex flex-col items-center justify-end gap-1">
-                  {!loaded && <div className="w-[80vw]">&nbsp;</div>}
-
-                  <motion.img
-                    variants={{
-                      hidden: { opacity: 0 },
-                      visible: { opacity: 1 },
-                    }}
-                    initial="hidden"
-                    animate="visible"
-                    transition={{ duration: 2 }}
-                    src={obra.imagenURL}
-                    alt={obra.titulo}
-                    className="inline-block object-cover overflow-hidden max-h-[65vh]"
-                    onPanStart={onPanStart}
-                    onPanEnd={onPanEnd}
-                    onLoad={() => setLoaded(true)}
-                  />
-                </div>
+                <motion.img
+                  variants={{
+                    hidden: { opacity: 0 },
+                    visible: { opacity: 1 },
+                  }}
+                  initial="hidden"
+                  animate="visible"
+                  transition={{ duration: 1 }}
+                  src={obra.imagenURL}
+                  alt={obra.titulo}
+                  className="inline-block object-cover overflow-hidden max-h-[65vh]"
+                  onPanStart={onPanStart}
+                  onPanEnd={onPanEnd}
+                  onLoad={() => setLoaded(true)}
+                />
               )}
-            </AnimatePresence>
+            </div>
           ))}
         </div>
         <div>
           <button onClick={slideRight}>
             <svg
-              className="w-4 h-4 mx-2 text-gray-400"
+              className={`w-4 h-4 mx-2 text-gray-400 ${
+                loaded ? "block" : "hidden"
+              }`}
               aria-hidden="true"
               xmlns="http://www.w3.org/2000/svg"
               fill="none"
@@ -111,11 +114,11 @@ export default function Gallery({ coleccion }) {
       </div>
       <div>
         {coleccion?.map((obra, index) => {
-          if (loaded && counter == index)
+          if (counter == index)
             return (
               <motion.div
                 variants={{
-                  hidden: { x: -50, opacity: 0 },
+                  hidden: { x: -10, opacity: 0 },
                   visible: { x: 0, opacity: 1 },
                 }}
                 initial="hidden"
