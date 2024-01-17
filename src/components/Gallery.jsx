@@ -1,35 +1,42 @@
-import { motion, AnimatePresence } from "framer-motion"
-import { Suspense, useRef, useState } from "react"
-import { Link, useLocation } from "react-router-dom"
-import { useAuthContext } from "../context/authContext"
+import { motion } from "framer-motion";
+import { useEffect, useRef, useState } from "react";
+import { Link, useLocation } from "react-router-dom";
+import { useAuthContext } from "../context/authContext";
 
 export default function Gallery({ coleccion }) {
-  const [counter, setCounter] = useState(0)
-  const ref = useRef(0)
-  const [loaded, setLoaded] = useState(true)
-  const { pathname } = useLocation()
-  const { currentUser } = useAuthContext()
+  const [counter, setCounter] = useState(0);
+  const ref = useRef(0);
+  const firstImgRef = useRef(null);
+  const [loaded, setLoaded] = useState(false);
+  const { pathname } = useLocation();
+  const { currentUser } = useAuthContext();
 
   const slideLeft = () => {
-    counter > 0 ? setCounter(counter - 1) : setCounter(coleccion.length - 1)
-    setLoaded(false)
-  }
+    counter > 0 ? setCounter(counter - 1) : setCounter(coleccion.length - 1);
+    setLoaded(false);
+  };
 
   const slideRight = () => {
-    counter < coleccion.length - 1 ? setCounter(counter + 1) : setCounter(0)
-    setLoaded(false)
-  }
+    counter < coleccion.length - 1 ? setCounter(counter + 1) : setCounter(0);
+    setLoaded(false);
+  };
 
   function onPanStart(_, info) {
-    ref.current = info.point.x
+    ref.current = info.point.x;
   }
   function onPanEnd(_, info) {
     if (info.point.x < ref.current) {
-      slideRight()
+      slideRight();
     } else if (info.point.x > ref.current) {
-      slideLeft()
+      slideLeft();
     }
   }
+
+  useEffect(() => {
+    if (firstImgRef.current?.complete) {
+      setLoaded(true);
+    }
+  }, []);
 
   return (
     <div className="absolute landscape:relative landscape:mt-[75px] inset-0 flex items-center justify-center flex-col gap-4 lg:hidden overflow-hidden">
@@ -72,24 +79,37 @@ export default function Gallery({ coleccion }) {
           {coleccion?.map((obra, index) => (
             <div
               key={obra.id}
-              className="flex flex-col items-center justify-end gap-1"
+              className="flex flex-col items-center justify-end gap-1 relative"
             >
               {counter == index && (
-                <motion.img
-                  variants={{
-                    hidden: { opacity: 0 },
-                    visible: { opacity: 1 },
-                  }}
-                  initial="hidden"
-                  animate="visible"
-                  transition={{ duration: 1 }}
-                  src={obra.imagenURL}
-                  alt={obra.titulo}
-                  className="inline-block object-cover overflow-hidden max-h-[65vh]"
-                  onPanStart={onPanStart}
-                  onPanEnd={onPanEnd}
-                  onLoad={() => setLoaded(true)}
-                />
+                <>
+                  {!loaded && (
+                    <div
+                      class="absolute h-8 w-8 animate-spin rounded-full border-4 border-solid border-current border-r-transparent align-[-0.125em] text-neutral-300 motion-reduce:animate-[spin_1.5s_linear_infinite]"
+                      role="status"
+                    >
+                      <span class="!absolute !-m-px !h-px !w-px !overflow-hidden !whitespace-nowrap !border-0 !p-0 ![clip:rect(0,0,0,0)]">
+                        Loading...
+                      </span>
+                    </div>
+                  )}
+                  <motion.img
+                    variants={{
+                      hidden: { opacity: 0 },
+                      visible: { opacity: 1 },
+                    }}
+                    ref={firstImgRef}
+                    initial="hidden"
+                    animate="visible"
+                    transition={{ duration: 1 }}
+                    src={obra.imagenURL}
+                    alt={obra.titulo}
+                    className="inline-block object-cover overflow-hidden max-h-[65vh]"
+                    onPanStart={onPanStart}
+                    onPanEnd={onPanEnd}
+                    onLoad={() => setLoaded(true)}
+                  />
+                </>
               )}
             </div>
           ))}
@@ -139,7 +159,7 @@ export default function Gallery({ coleccion }) {
                   </p>
                 </div>
               </motion.div>
-            )
+            );
         })}
       </div>
       <ul className="flex items-center justify-center gap-3 mb-6">
@@ -158,5 +178,5 @@ export default function Gallery({ coleccion }) {
         ))}
       </ul>
     </div>
-  )
+  );
 }
