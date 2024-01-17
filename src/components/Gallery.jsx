@@ -85,7 +85,7 @@ export default function Gallery({ coleccion }) {
                 <>
                   {!loaded && (
                     <div
-                      class="absolute -z-1 inset-x-auto top-[40vh] h-8 w-8 animate-spin rounded-full border-4 border-solid border-current border-r-transparent align-[-0.125em] text-neutral-300 motion-reduce:animate-[spin_1.5s_linear_infinite]"
+                      class="absolute -z-1 inset-x-auto top-[40vh] landscape:top-1/3 h-8 w-8 animate-spin rounded-full border-4 border-solid border-current border-r-transparent align-[-0.125em] text-neutral-300 motion-reduce:animate-[spin_1.5s_linear_infinite]"
                       role="status"
                     >
                       <span class="!absolute !-m-px !h-px !w-px !overflow-hidden !whitespace-nowrap !border-0 !p-0 ![clip:rect(0,0,0,0)]">
@@ -150,13 +150,9 @@ export default function Gallery({ coleccion }) {
                 transition={{ duration: 1 }}
                 className="text-center"
               >
-                <div className="flex items-center flex-col landscape:flex-row justify-center landscape:gap-2">
-                  <h1 className="text-neutral-600 text-sm landscape:text-xs">
-                    {obra.titulo}
-                  </h1>
-                  <p className="text-neutral-400 text-sm landscape:text-xs">
-                    {obra.descripcion}
-                  </p>
+                <div className="flex items-center flex-col justify-center">
+                  <h1 className="text-neutral-600 text-sm">{obra.titulo}</h1>
+                  <p className="text-neutral-400 text-sm">{obra.descripcion}</p>
                 </div>
               </motion.div>
             );
