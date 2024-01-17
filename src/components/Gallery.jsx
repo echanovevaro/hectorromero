@@ -39,7 +39,7 @@ export default function Gallery({ coleccion }) {
   }, []);
 
   return (
-    <div className="absolute landscape:inline-block landscape:mt-[75px] inset-0 flex items-center justify-center flex-col gap-4 lg:hidden overflow-hidden">
+    <div className="absolute landscape:inline-block landscape:mt-[75px] inset-0 flex items-center justify-center flex-col gap-4 lg:hidden overflow-hidden landscape:overflow-auto">
       {currentUser && loaded && (
         <Link
           className={`${loaded ? "text-sky-400 z-50" : "hidden"}`}
