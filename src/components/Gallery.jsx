@@ -33,22 +33,22 @@ export default function Gallery({ coleccion }) {
     }
   }
 
-  function fullscreen() {
-    const elem = document.getElementById("fullPage");
-    if (elem.requestFullscreen) {
-      elem.requestFullscreen();
-    } else if (elem.webkitRequestFullscreen) {
-      /* Safari */
-      elem.webkitRequestFullscreen();
-    } else if (elem.msRequestFullscreen) {
-      /* IE11 */
-      elem.msRequestFullscreen();
-    }
-  }
+  // function fullscreen() {
+  //   const elem = document.getElementById("fullPage");
+  //   if (elem.requestFullscreen) {
+  //     elem.requestFullscreen();
+  //   } else if (elem.webkitRequestFullscreen) {
+  //     /* Safari */
+  //     elem.webkitRequestFullscreen();
+  //   } else if (elem.msRequestFullscreen) {
+  //     /* IE11 */
+  //     elem.msRequestFullscreen();
+  //   }
+  // }
 
-  function handleExitFullScreenClick() {
-    document.webkitExitFullscreen();
-  }
+  // function handleExitFullScreenClick() {
+  //   document.webkitExitFullscreen();
+  // }
 
   useEffect(() => {
     if (firstImgRef.current?.complete) {
@@ -134,12 +134,13 @@ export default function Gallery({ coleccion }) {
                     {fullPage && (
                       <motion.div
                         variants={{
-                          hidden: { x: "-100dvw" },
-                          visible: { x: 0 },
+                          hidden: { y: "-100dvh" },
+                          visible: { y: 0 },
                         }}
                         initial="hidden"
                         animate="visible"
                         exit="hidden"
+                        transition={{ duration: 0.8, type: "spring" }}
                         id="fullPage"
                         className="absolute inset-0 bg-contain bg-no-repeat bg-center bg-white z-[100]"
                         style={{ backgroundImage: `url(${obra.imagenURL})` }}
