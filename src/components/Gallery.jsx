@@ -1,4 +1,4 @@
-import { motion } from "framer-motion";
+import { AnimatePresence, motion } from "framer-motion";
 import { useEffect, useRef, useState } from "react";
 import { Link, useLocation } from "react-router-dom";
 import { useAuthContext } from "../context/authContext";
@@ -128,20 +128,28 @@ export default function Gallery({ coleccion }) {
                     onLoad={() => setLoaded(true)}
                     onClick={() => {
                       setFullPage(true);
-                      fullscreen();
                     }}
                   />
-                  <div
-                    id="fullPage"
-                    className={`absolute inset-0 bg-contain bg-no-repeat bg-center bg-white z-[100] ${
-                      fullPage ? "block" : "hidden"
-                    }`}
-                    style={{ backgroundImage: `url(${obra.imagenURL})` }}
-                    onClick={() => {
-                      handleExitFullScreenClick();
-                      setFullPage(false);
-                    }}
-                  />
+                  <AnimatePresence>
+                    {fullPage && (
+                      <motion.div
+                        variants={{
+                          hidden: { x: "-100dvw" },
+                          visible: { x: 0 },
+                        }}
+                        initial="hidden"
+                        animate="visible"
+                        exit="hidden"
+                        transition={{ duration: 1 }}
+                        id="fullPage"
+                        className="absolute inset-0 bg-contain bg-no-repeat bg-center bg-white z-[100]"
+                        style={{ backgroundImage: `url(${obra.imagenURL})` }}
+                        onClick={() => {
+                          setFullPage(false);
+                        }}
+                      />
+                    )}
+                  </AnimatePresence>
                 </>
               )}
             </div>
