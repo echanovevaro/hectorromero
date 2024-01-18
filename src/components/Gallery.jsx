@@ -137,9 +137,13 @@ export default function Gallery({ coleccion }) {
                       fullPage ? "block" : "hidden"
                     }`}
                     style={{ backgroundImage: `url(${obra.imagenURL})` }}
+                    onClick={() => {
+                      handleExitFullScreenClick();
+                      setFullPage(false);
+                    }}
                   >
                     <button
-                      className="absolute top-0 right-0 p-2"
+                      className="absolute top-0 right-0 p-4"
                       onClick={() => {
                         handleExitFullScreenClick();
                         setFullPage(false);
