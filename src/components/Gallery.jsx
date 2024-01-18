@@ -32,6 +32,10 @@ export default function Gallery({ coleccion }) {
     }
   }
 
+  function openFullscreen() {
+    document.getElementById("image")?.requestFullscreen();
+  }
+
   useEffect(() => {
     if (firstImgRef.current?.complete) {
       setLoaded(true);
@@ -98,6 +102,7 @@ export default function Gallery({ coleccion }) {
                       hidden: { opacity: 0 },
                       visible: { opacity: 1 },
                     }}
+                    id="image"
                     ref={firstImgRef}
                     initial="hidden"
                     animate="visible"
@@ -108,6 +113,7 @@ export default function Gallery({ coleccion }) {
                     onPanStart={onPanStart}
                     onPanEnd={onPanEnd}
                     onLoad={() => setLoaded(true)}
+                    onClick={openFullscreen}
                   />
                 </>
               )}
