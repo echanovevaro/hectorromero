@@ -98,6 +98,7 @@ export default function Gallery({ coleccion }) {
                       hidden: { opacity: 0 },
                       visible: { opacity: 1 },
                     }}
+                    whileTap={{ scale: 1.5 }}
                     ref={firstImgRef}
                     initial="hidden"
                     animate="visible"
