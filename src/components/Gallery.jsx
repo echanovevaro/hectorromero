@@ -10,6 +10,7 @@ export default function Gallery({ coleccion }) {
   const [loaded, setLoaded] = useState(false);
   const { pathname } = useLocation();
   const { currentUser } = useAuthContext();
+  const [fullPage, setFullPage] = useState(false);
 
   const slideLeft = () => {
     counter > 0 ? setCounter(counter - 1) : setCounter(coleccion.length - 1);
@@ -30,6 +31,23 @@ export default function Gallery({ coleccion }) {
     } else if (info.point.x > ref.current) {
       slideLeft();
     }
+  }
+
+  function fullscreen() {
+    const elem = document.getElementById("fullPage");
+    if (elem.requestFullscreen) {
+      elem.requestFullscreen();
+    } else if (elem.webkitRequestFullscreen) {
+      /* Safari */
+      elem.webkitRequestFullscreen();
+    } else if (elem.msRequestFullscreen) {
+      /* IE11 */
+      elem.msRequestFullscreen();
+    }
+  }
+
+  function handleExitFullScreenClick() {
+    document.webkitExitFullscreen();
   }
 
   useEffect(() => {
@@ -85,10 +103,10 @@ export default function Gallery({ coleccion }) {
                 <>
                   {!loaded && (
                     <div
-                      class="absolute -z-1 inset-x-auto top-[40vh] h-8 w-8 animate-spin rounded-full border-4 border-solid border-current border-r-transparent align-[-0.125em] text-neutral-300 motion-reduce:animate-[spin_1.5s_linear_infinite]"
+                      className="absolute -z-1 inset-x-auto top-[40vh] h-8 w-8 animate-spin rounded-full border-4 border-solid border-current border-r-transparent align-[-0.125em] text-neutral-300 motion-reduce:animate-[spin_1.5s_linear_infinite]"
                       role="status"
                     >
-                      <span class="!absolute !-m-px !h-px !w-px !overflow-hidden !whitespace-nowrap !border-0 !p-0 ![clip:rect(0,0,0,0)]">
+                      <span className="!absolute !-m-px !h-px !w-px !overflow-hidden !whitespace-nowrap !border-0 !p-0 ![clip:rect(0,0,0,0)]">
                         Loading...
                       </span>
                     </div>
@@ -108,7 +126,41 @@ export default function Gallery({ coleccion }) {
                     onPanStart={onPanStart}
                     onPanEnd={onPanEnd}
                     onLoad={() => setLoaded(true)}
+                    onClick={() => {
+                      setFullPage(true);
+                      fullscreen();
+                    }}
                   />
+                  <div
+                    id="fullPage"
+                    className={`absolute inset-0 bg-contain bg-no-repeat bg-center bg-white z-[100] ${
+                      fullPage ? "block" : "hidden"
+                    }`}
+                    style={{ backgroundImage: `url(${obra.imagenURL})` }}
+                  >
+                    <button
+                      className="absolute top-0 right-0 p-2"
+                      onClick={() => {
+                        handleExitFullScreenClick();
+                        setFullPage(false);
+                      }}
+                    >
+                      <svg
+                        className="h-6 w-6 text-neutral-400 cursor-pointer"
+                        xmlns="http://www.w3.org/2000/svg"
+                        fill="none"
+                        viewBox="0 0 24 24"
+                        stroke="currentColor"
+                      >
+                        <path
+                          strokeLinecap="round"
+                          strokeLinejoin="round"
+                          strokeWidth={2}
+                          d="M6 18L18 6M6 6l12 12"
+                        />
+                      </svg>
+                    </button>
+                  </div>
                 </>
               )}
             </div>
