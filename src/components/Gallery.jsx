@@ -140,7 +140,6 @@ export default function Gallery({ coleccion }) {
                         initial="hidden"
                         animate="visible"
                         exit="hidden"
-                        transition={{ duration: 1 }}
                         id="fullPage"
                         className="absolute inset-0 bg-contain bg-no-repeat bg-center bg-white z-[100]"
                         style={{ backgroundImage: `url(${obra.imagenURL})` }}
