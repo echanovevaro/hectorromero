@@ -1,11 +1,12 @@
 import { useActionData, useNavigation, useSubmit } from "react-router-dom"
-import { obraNewSchema } from "../validation"
+import { obraEditSchema, obraSchema } from "../validation"
 import { useForm } from "react-hook-form"
 import { zodResolver } from "@hookform/resolvers/zod"
 // import { uploadFile } from "../../firebase/config"
 import { useState } from "react"
 
-function ObraForm({ serie, obra }) {
+function ObraForm({ obra }) {
+  console.log(obra)
   const [imagePreview, setImagePreview] = useState(null)
   const error = useActionData()
   const navigation = useNavigation()
@@ -17,31 +18,25 @@ function ObraForm({ serie, obra }) {
     handleSubmit,
     formState: { errors },
   } = useForm({
-    resolver: zodResolver(obraNewSchema),
+    resolver: zodResolver(obra ? obraEditSchema : obraSchema),
     defaultValues: {
       titulo: obra?.titulo || "",
       descripcion: obra?.descripcion || "",
-      imagenURL: obra?.imagenURL || "",
       imagen: undefined,
     },
   })
 
   const onSubmit = (data) => {
-    console.log("data", data)
     const formData = new FormData()
-    console.log("formData", formData)
-    if (obra) {
-      formData.append("id", obra.id)
-      if (!data.imagen) {
-        formData.append("imagenURL", obra.imagenURL)
-      }
-    }
     formData.append("titulo", data.titulo)
     formData.append("descripcion", data.descripcion)
-    formData.append("serie", serie)
-    formData.append("imagen", data.imagen[0])
-    // formData.append("ext", data.imagen[0].name.split(".").pop())
-    console.log("imagen", data.imagen[0])
+    if (obra) {
+      formData.append("id", obra.id)
+      formData.append("imagenRef", obra.imagenRef)
+    }
+    if (!obra || data.imagen[0]) {
+      formData.append("imagen", data.imagen[0])
+    }
     submit(formData, { method: "POST", encType: "multipart/form-data" })
   }
 
@@ -102,18 +97,6 @@ function ObraForm({ serie, obra }) {
                 )}
               </div>
 
-              {obra && (
-                <>
-                  <img
-                    src={obra.imagenURL}
-                    className="p-2.5 w-full"
-                  />
-                  <input
-                    type="hidden"
-                    {...register("imagenURL")}
-                  />
-                </>
-              )}
               <div>
                 <label
                   htmlFor="imagen"
@@ -132,9 +115,9 @@ function ObraForm({ serie, obra }) {
                       : null
                   }
                 />
-                {imagePreview && (
+                {(imagePreview || obra) && (
                   <img
-                    src={imagePreview}
+                    src={imagePreview || obra.imagenURL}
                     alt="preview"
                     className="mt-2"
                   />

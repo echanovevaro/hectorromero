@@ -1,8 +1,25 @@
 import { v4 } from "uuid"
 import { initializeApp } from "firebase/app"
 import { getAuth } from "firebase/auth"
-import { getStorage, ref, uploadBytes, getDownloadURL } from "firebase/storage"
-import { getFirestore, collection, addDoc, getDocs } from "firebase/firestore"
+import {
+  getStorage,
+  ref,
+  uploadBytes,
+  getDownloadURL,
+  deleteObject,
+} from "firebase/storage"
+import {
+  getFirestore,
+  collection,
+  addDoc,
+  getDocs,
+  doc,
+  getDoc,
+  query,
+  orderBy,
+  updateDoc,
+  deleteDoc,
+} from "firebase/firestore"
 
 const firebaseConfig = {
   apiKey: "AIzaSyA2nhtKwaqfSH3guh7ACQXPchv_w7uW7ko",
@@ -20,21 +37,42 @@ export const auth = getAuth(app)
 export const db = getFirestore(app)
 
 export async function uploadFile(file) {
-  const storageRef = ref(storage, v4())
+  const refToUpload = v4()
+  const storageRef = ref(storage, refToUpload)
   await uploadBytes(storageRef, file)
   const url = await getDownloadURL(storageRef)
-  return url
+  return { url, ref: refToUpload }
+}
+
+export async function deleteFile(reference) {
+  const storageRef = ref(storage, reference)
+  await deleteObject(storageRef)
 }
 
 export async function add(collectionName, doc) {
   await addDoc(collection(db, collectionName), doc)
 }
 
+export async function update(collectionName, id, document) {
+  const docRef = doc(db, collectionName, id)
+  await updateDoc(docRef, document)
+}
+export async function remove(collectionName, id) {
+  await deleteDoc(doc(db, collectionName, id))
+}
 export async function getAll(collectionName) {
-  const querySnapshot = await getDocs(collection(db, collectionName))
+  const q = query(collection(db, collectionName), orderBy("createdAt", "asc"))
+  const querySnapshot = await getDocs(q)
   const data = []
   querySnapshot.forEach((doc) => {
     data.push({ ...doc.data(), id: doc.id })
   })
   return data
+}
+
+export async function getById(collectionName, id) {
+  const docRef = doc(db, collectionName, id)
+  const docSnap = await getDoc(docRef)
+  const document = docSnap.data()
+  return { ...document, id: docSnap.id }
 }

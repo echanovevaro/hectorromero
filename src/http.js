@@ -1,11 +1,21 @@
 import { QueryClient } from "@tanstack/react-query"
-import { getAll } from "../firebase/config"
+import { getAll, getById } from "../firebase/config"
 
 export const queryClient = new QueryClient()
 
-export const fetchBloques = async () => {
+export const fetchAll = async (serie) => {
   try {
-    return await getAll("bloques")
+    return await getAll(serie)
+  } catch (error) {
+    console.log(error)
+    throw new Error("Ha ocurrido un error leyendo de bbdd", { status: 500 })
+  }
+}
+
+export const fetchOne = async (serie, id) => {
+  try {
+    const data = await getById(serie, id)
+    return data
   } catch (error) {
     console.log(error)
     throw new Error("Ha ocurrido un error leyendo de bbdd", { status: 500 })

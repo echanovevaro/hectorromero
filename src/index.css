@@ -2,6 +2,11 @@
 @tailwind components;
 @tailwind utilities;
 
+* {
+  box-sizing: border-box;
+  min-width: 0;
+}
+
 :root {
   --foreground-rgb: 0, 0, 0;
   --background-start-rgb: 214, 219, 220;
@@ -16,15 +21,9 @@
   }
 }
 
-/* body {
-  color: rgb(var(--foreground-rgb));
-  background: linear-gradient(
-      to bottom,
-      transparent,
-      rgb(var(--background-end-rgb))
-    )
-    rgb(var(--background-start-rgb));
-} */
+body {
+  min-height: 100dvh;
+}
 
 @keyframes zoom {
   0% {
@@ -44,6 +43,7 @@
   from {
     opacity: 1;
   }
+
   to {
     opacity: 0;
     display: none;
@@ -55,6 +55,7 @@
     opacity: 0;
     transform: translate(0, 4rem);
   }
+
   to {
     opacity: 0.7;
     transform: translate(0, 0);
@@ -104,3 +105,39 @@
     background-position: center;
   }
 }
+
+/* Modal */
+.dialogContainer {
+  margin: 1rem;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 100;
+}
+
+.customModal {
+  padding: 1.5rem;
+  padding-top: 0.5rem;
+  padding-bottom: 0;
+  border: none;
+  border-radius: 6px;
+  z-index: 100;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.26);
+}
+
+.backdrop {
+  height: 100vh;
+  width: 100%;
+  background: rgba(0, 0, 0, 0.5);
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 99;
+}
+
+/* Fin modal */

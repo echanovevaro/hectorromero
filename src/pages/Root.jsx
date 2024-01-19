@@ -5,6 +5,7 @@ function Root() {
   return (
     <>
       <MainNavigation />
+      <div id="modal" />
       <Outlet />
     </>
   )

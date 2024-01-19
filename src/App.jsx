@@ -1,13 +1,14 @@
 import { RouterProvider, createBrowserRouter } from "react-router-dom"
 import { QueryClientProvider } from "@tanstack/react-query"
 import Root from "./pages/Root"
-import Bloques from "./pages/Bloques"
 import Landing from "./pages/Landing"
 import Login, { action as loginAction } from "./pages/Login"
 import { AuthProvider } from "./context/authContext"
-import { logOutWithRedirect } from "./utils/auth"
-import BloquesNew, { action as newBloqueAction } from "./pages/BloquesNew"
+import { logOutWithRedirect, deleteAction } from "./utils/actions"
+import SerieNew, { action as newAction } from "./pages/SerieNew"
 import { queryClient } from "./http"
+import SerieUpdate, { action as updateAction } from "./pages/SerieUpdate"
+import Serie from "./pages/Serie"
 
 function App() {
   const router = createBrowserRouter([
@@ -21,14 +22,23 @@ function App() {
           element: <Landing />,
         },
         {
-          path: "obra/bloques",
-          element: <Bloques />,
+          path: "obra/:serie",
+          element: <Serie />,
         },
 
         {
-          path: "obra/bloques/new",
-          element: <BloquesNew />,
-          action: newBloqueAction,
+          path: "obra/:serie/new",
+          element: <SerieNew />,
+          action: newAction,
+        },
+        {
+          path: "obra/:serie/:id/edit",
+          element: <SerieUpdate />,
+          action: updateAction,
+        },
+        {
+          path: "obra/:serie/:id/delete",
+          action: deleteAction,
         },
         {
           path: "login",

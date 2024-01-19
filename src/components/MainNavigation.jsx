@@ -1,17 +1,17 @@
-import { useState } from "react";
-import { AnimatePresence, motion } from "framer-motion";
-import { Form as RouterForm, Link, useLocation } from "react-router-dom";
-import { useAuthContext } from "../context/authContext";
+import { useState } from "react"
+import { AnimatePresence, motion } from "framer-motion"
+import { Form as RouterForm, Link, useLocation } from "react-router-dom"
+import { useAuthContext } from "../context/authContext"
 
 export default function MainNavigation() {
-  const { currentUser } = useAuthContext();
-  const { pathname } = useLocation();
-  const [openMenu, setOpenMenu] = useState(false);
-  const [openSubMenu, setOpenSubMenu] = useState(false);
+  const { currentUser } = useAuthContext()
+  const { pathname } = useLocation()
+  const [openMenu, setOpenMenu] = useState(false)
+  const [openSubMenu, setOpenSubMenu] = useState(false)
 
   return (
     <>
-      <div className="fixed top-0 left-0 right-0 z-20">
+      <div className="fixed top-0 left-0 right-0 z-[200]">
         <nav
           className={`px-8 py-2 flex justify-between items-center ${
             pathname === "/"
@@ -27,12 +27,12 @@ export default function MainNavigation() {
               )}
             </span>
           </h1>
-          <div className="lg:hidden z-10">
+          <div className="lg:hidden z-[101]">
             <button
               className="navbar-burger pt-3"
               onClick={() => {
-                setOpenMenu(true);
-                setOpenSubMenu(false);
+                setOpenMenu(true)
+                setOpenSubMenu(false)
               }}
             >
               <svg
@@ -49,7 +49,7 @@ export default function MainNavigation() {
       </div>
       <AnimatePresence>
         {openMenu && (
-          <div className={`navbar-menu relative z-50`}>
+          <div className={`navbar-menu relative z-[500]`}>
             <motion.nav
               variants={{
                 hidden: { opacity: 0, x: -200 },
@@ -85,7 +85,10 @@ export default function MainNavigation() {
               <div className="h-full flex items-center justify-center">
                 <ul className="flex flex-col gap-6 items-center mt-[-3rem]">
                   <li>
-                    <Link to="/" onClick={() => setOpenMenu(false)}>
+                    <Link
+                      to="/"
+                      onClick={() => setOpenMenu(false)}
+                    >
                       INICIO
                     </Link>
                   </li>
@@ -156,23 +159,35 @@ export default function MainNavigation() {
                     )}
                   </AnimatePresence>
                   <li>
-                    <a href="#tecnologias" onClick={() => setOpenMenu(false)}>
+                    <a
+                      href="#tecnologias"
+                      onClick={() => setOpenMenu(false)}
+                    >
                       EXPOSICIONES
                     </a>
                   </li>
                   <li>
-                    <a href="#proyectos" onClick={() => setOpenMenu(false)}>
+                    <a
+                      href="#proyectos"
+                      onClick={() => setOpenMenu(false)}
+                    >
                       SOBRE MÍ
                     </a>
                   </li>
                   <li>
-                    <a href="#experiencia" onClick={() => setOpenMenu(false)}>
+                    <a
+                      href="#experiencia"
+                      onClick={() => setOpenMenu(false)}
+                    >
                       CONTACTO
                     </a>
                   </li>
                   {currentUser && (
                     <li>
-                      <RouterForm method="post" action="/logout">
+                      <RouterForm
+                        method="post"
+                        action="/logout"
+                      >
                         <button
                           type="submit"
                           onClick={() => setOpenMenu(false)}
@@ -189,5 +204,5 @@ export default function MainNavigation() {
         )}
       </AnimatePresence>
     </>
-  );
+  )
 }
