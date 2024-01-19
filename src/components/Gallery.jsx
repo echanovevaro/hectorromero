@@ -200,7 +200,7 @@ export default function Gallery({ coleccion }) {
             );
         })}
       </div>
-      <ul className="flex items-center justify-center gap-3 mb-6">
+      <ul className="flex items-center justify-center gap-2 mb-6 flex-wrap w-[75vw]">
         {coleccion?.map((_, index) => (
           <button
             key={index}
