@@ -12,40 +12,40 @@ export default function MainNavigation() {
   return (
     <>
       <div className="fixed top-0 left-0 right-0 z-[200]">
-        <nav
-          className={`px-8 py-2 flex justify-between items-center ${
-            pathname === "/"
-              ? "text-white"
-              : "text-neutral-600 bg-white backdrop-blur bg-opacity-80"
-          }`}
-        >
-          <h1 className={`text-lg text-neutral-600`}>
-            <span className={pathname === "/" ? "hidden" : "inline-block"}>
-              héctor romero
-              {currentUser && (
-                <span className="text-neutral-300 ml-1"> ADMIN MODE</span>
-              )}
-            </span>
-          </h1>
-          <div className="lg:hidden z-[10]">
-            <button
-              className="navbar-burger pt-3"
-              onClick={() => {
-                setOpenMenu(true);
-                setOpenSubMenu(false);
-              }}
-            >
-              <svg
-                className="block h-4 w-4 fill-current"
-                viewBox="0 0 20 20"
-                xmlns="http://www.w3.org/2000/svg"
+        {pathname !== "/" && (
+          <motion.nav
+            initial={{ oppacity: 0 }}
+            animate={{ opacity: 1 }}
+            className={`px-8 py-2 flex justify-between items-center text-neutral-600 bg-white backdrop-blur bg-opacity-80`}
+          >
+            <h1 className={`text-lg text-neutral-600`}>
+              <span className={pathname === "/" ? "hidden" : "inline-block"}>
+                héctor romero
+                {currentUser && (
+                  <span className="text-neutral-300 ml-1"> ADMIN MODE</span>
+                )}
+              </span>
+            </h1>
+            <div className="lg:hidden z-[10]">
+              <button
+                className="navbar-burger pt-3"
+                onClick={() => {
+                  setOpenMenu(true);
+                  setOpenSubMenu(false);
+                }}
               >
-                <title>Mobile menu</title>
-                <path d="M0 3h20v2H0V3zm0 6h20v2H0V9zm0 6h20v2H0v-2z" />
-              </svg>
-            </button>
-          </div>
-        </nav>
+                <svg
+                  className="block h-4 w-4 fill-current"
+                  viewBox="0 0 20 20"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <title>Mobile menu</title>
+                  <path d="M0 3h20v2H0V3zm0 6h20v2H0V9zm0 6h20v2H0v-2z" />
+                </svg>
+              </button>
+            </div>
+          </motion.nav>
+        )}
       </div>
       <AnimatePresence>
         {openMenu && (
