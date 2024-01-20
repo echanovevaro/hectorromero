@@ -1,13 +1,13 @@
-import { useState } from "react"
-import { AnimatePresence, motion } from "framer-motion"
-import { Form as RouterForm, Link, useLocation } from "react-router-dom"
-import { useAuthContext } from "../context/authContext"
+import { useState } from "react";
+import { AnimatePresence, motion } from "framer-motion";
+import { Form as RouterForm, Link, useLocation } from "react-router-dom";
+import { useAuthContext } from "../context/authContext";
 
 export default function MainNavigation() {
-  const { currentUser } = useAuthContext()
-  const { pathname } = useLocation()
-  const [openMenu, setOpenMenu] = useState(false)
-  const [openSubMenu, setOpenSubMenu] = useState(false)
+  const { currentUser } = useAuthContext();
+  const { pathname } = useLocation();
+  const [openMenu, setOpenMenu] = useState(false);
+  const [openSubMenu, setOpenSubMenu] = useState(false);
 
   return (
     <>
@@ -31,8 +31,8 @@ export default function MainNavigation() {
             <button
               className="navbar-burger pt-3"
               onClick={() => {
-                setOpenMenu(true)
-                setOpenSubMenu(false)
+                setOpenMenu(true);
+                setOpenSubMenu(false);
               }}
             >
               <svg
@@ -58,8 +58,8 @@ export default function MainNavigation() {
               initial="hidden"
               animate="visible"
               exit="hidden"
-              transition={{ duration: 1 }}
-              className="text-white font-light fixed left-0 top-0 bottom-0 right-0 flex flex-col p-4 pt-6 bg-gray-500 overflow-y-auto bg-opacity-40 backdrop-blur"
+              transition={{ duration: 0.8, type: "spring" }}
+              className="text-white font-light fixed inset-0 flex flex-col p-4 pt-6 bg-gray-500 overflow-y-auto bg-opacity-40 backdrop-blur"
             >
               <div className="flex items-start justify-end">
                 <button
@@ -85,10 +85,7 @@ export default function MainNavigation() {
               <div className="h-full flex items-center justify-center">
                 <ul className="flex flex-col gap-6 items-center mt-[-3rem]">
                   <li>
-                    <Link
-                      to="/"
-                      onClick={() => setOpenMenu(false)}
-                    >
+                    <Link to="/" onClick={() => setOpenMenu(false)}>
                       INICIO
                     </Link>
                   </li>
@@ -133,7 +130,7 @@ export default function MainNavigation() {
                         initial="hidden"
                         animate="visible"
                         exit="hidden"
-                        transition={{ duration: 0.5 }}
+                        transition={{ duration: 0.5, type: "spring" }}
                         className="flex items-center flex-col gap-1 text-gray-950 uppercase"
                       >
                         <li>
@@ -159,35 +156,23 @@ export default function MainNavigation() {
                     )}
                   </AnimatePresence>
                   <li>
-                    <a
-                      href="#tecnologias"
-                      onClick={() => setOpenMenu(false)}
-                    >
+                    <a href="#tecnologias" onClick={() => setOpenMenu(false)}>
                       EXPOSICIONES
                     </a>
                   </li>
                   <li>
-                    <a
-                      href="#proyectos"
-                      onClick={() => setOpenMenu(false)}
-                    >
+                    <a href="#proyectos" onClick={() => setOpenMenu(false)}>
                       SOBRE MÍ
                     </a>
                   </li>
                   <li>
-                    <a
-                      href="#experiencia"
-                      onClick={() => setOpenMenu(false)}
-                    >
+                    <a href="#experiencia" onClick={() => setOpenMenu(false)}>
                       CONTACTO
                     </a>
                   </li>
                   {currentUser && (
                     <li>
-                      <RouterForm
-                        method="post"
-                        action="/logout"
-                      >
+                      <RouterForm method="post" action="/logout">
                         <button
                           type="submit"
                           onClick={() => setOpenMenu(false)}
@@ -204,5 +189,5 @@ export default function MainNavigation() {
         )}
       </AnimatePresence>
     </>
-  )
+  );
 }
