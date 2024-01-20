@@ -200,7 +200,17 @@ export default function Gallery({ coleccion }) {
                   <AnimatePresence>
                     {fullPage && (
                       <>
-                        <div className="bg-white absolute h-full w-full z-[150] top-0 left-0" />
+                        <motion.div
+                          variants={{
+                            hidden: { y: "-100dvh" },
+                            visible: { y: 0 },
+                          }}
+                          initial="hidden"
+                          animate="visible"
+                          exit="hidden"
+                          transition={{ duration: 0.8 }}
+                          className="bg-white absolute h-full w-full z-[150] top-0 left-0"
+                        />
                         <motion.div
                           variants={{
                             hidden: { y: "-100dvh" },
