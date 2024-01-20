@@ -1,6 +1,6 @@
 import { AnimatePresence, motion } from "framer-motion";
 import { useEffect, useRef, useState } from "react";
-import { Link, useLocation, useParams, useSubmit } from "react-router-dom";
+import { Link, useParams, useSubmit } from "react-router-dom";
 import { useAuthContext } from "../context/authContext";
 import Modal from "./Modal";
 
@@ -11,7 +11,6 @@ export default function Gallery({ coleccion }) {
   const ref = useRef(0);
   const firstImgRef = useRef(null);
   const [loaded, setLoaded] = useState(false);
-  const { pathname } = useLocation();
   const { currentUser } = useAuthContext();
   const [fullPage, setFullPage] = useState(false);
   const { serie } = useParams();
@@ -44,7 +43,7 @@ export default function Gallery({ coleccion }) {
     setIsDeleting(false);
     submit(formData, {
       method: "delete",
-      action: `${pathname}/${obra.id}/delete`,
+      action: `/obra/${serie}/${obra.id}/delete`,
     });
   }
 
@@ -64,7 +63,7 @@ export default function Gallery({ coleccion }) {
         <div className="flex items-center mt-[3.5rem] text-sky-400">
           <Link
             className={`${loaded ? "z-50" : "hidden"}`}
-            to={`${pathname}/new`}
+            to={`/obra/${serie}/new`}
           >
             Añadir
           </Link>
@@ -161,7 +160,7 @@ export default function Gallery({ coleccion }) {
                       <div className="absolute bottom-[1rem] right-[1rem] flex items-center gap-2 text-white">
                         <Link
                           className={`${loaded ? "z-50" : "hidden"}`}
-                          to={`${pathname}/${obra.id}/edit `}
+                          to={`/obra/${serie}/${obra.id}/edit `}
                         >
                           <svg
                             xmlns="http://www.w3.org/2000/svg"
