@@ -7,7 +7,7 @@ function Landing() {
   useEffect(() => {
     setTimeout(() => {
       navigate("/obra/bloques");
-    }, 3500);
+    }, 3000);
   }, []);
   return (
     <div>
