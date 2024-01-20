@@ -1,6 +1,6 @@
 import { AnimatePresence, motion } from "framer-motion";
 import { useEffect, useRef, useState } from "react";
-import { Link, useLocation, useSubmit } from "react-router-dom";
+import { Link, useLocation, useParams, useSubmit } from "react-router-dom";
 import { useAuthContext } from "../context/authContext";
 import Modal from "./Modal";
 
@@ -14,6 +14,7 @@ export default function Gallery({ coleccion }) {
   const { pathname } = useLocation();
   const { currentUser } = useAuthContext();
   const [fullPage, setFullPage] = useState(false);
+  const { serie } = useParams();
 
   const slideLeft = () => {
     counter > 0 ? setCounter(counter - 1) : setCounter(coleccion.length - 1);
@@ -48,10 +49,12 @@ export default function Gallery({ coleccion }) {
   }
 
   useEffect(() => {
+    setCounter(0);
+    setLoaded(false);
     if (firstImgRef.current?.complete) {
       setLoaded(true);
     }
-  }, []);
+  }, [serie]);
 
   return (
     <div
