@@ -39,7 +39,11 @@ export default function MainNavigation() {
   };
 
   useEffect(() => {
-    document.getElementById("burguer").classList.toggle("open");
+    if (isOpen) {
+      document.getElementById("burguer").classList.add("open");
+    } else {
+      document.getElementById("burguer").classList.remove("open");
+    }
   }, [isOpen]);
 
   return (
