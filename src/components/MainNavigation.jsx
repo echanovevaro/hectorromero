@@ -86,112 +86,134 @@ export default function MainNavigation() {
           <div></div>
           <div></div>
         </button>
-        <motion.ul variants={ulVariants}>
-          <motion.li
-            variants={liVariants}
-            whileHover={{ scale: 1.1 }}
-            whileTap={{ scale: 0.95 }}
-          >
-            {pathname !== "/" ? (
-              <Link to="/">INICIO</Link>
-            ) : (
-              <span onClick={toggleOpen}>INICIO</span>
-            )}
-          </motion.li>
-          <motion.li
-            variants={liVariants}
-            whileHover={{ scale: 1.1 }}
-            whileTap={{ scale: 0.95 }}
-          >
-            <button className="flex items-center">
-              <span>OBRA</span>
-              <svg
-                className="w-2.5 h-2.5 ms-3"
-                aria-hidden="true"
-                xmlns="http://www.w3.org/2000/svg"
-                fill="none"
-                viewBox="0 0 10 6"
+        <AnimatePresence>
+          {isOpen && (
+            <motion.ul variants={ulVariants} exit={ulVariants.closed}>
+              <motion.li
+                initial={liVariants.closed}
+                variants={liVariants}
+                exit={liVariants.closed}
+                whileHover={{ scale: 1.1 }}
+                whileTap={{ scale: 0.95 }}
               >
-                <path
-                  stroke="currentColor"
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth={2}
-                  d="m1 1 4 4 4-4"
-                />
-              </svg>
-            </button>
-          </motion.li>
-          <motion.li
-            variants={liVariants}
-            whileHover={{ scale: 1.1 }}
-            whileTap={{ scale: 0.95 }}
-            className="ms-10 mb-[10px] mt-[-10px] uppercase"
-          >
-            {pathname !== "/obra/bloques" ? (
-              <Link to="/obra/bloques">serie bloques</Link>
-            ) : (
-              <span onClick={toggleOpen}>serie bloques</span>
-            )}
-          </motion.li>
-          <motion.li
-            variants={liVariants}
-            whileHover={{ scale: 1.1 }}
-            whileTap={{ scale: 0.95 }}
-            className="ms-10 mb-[10px] uppercase"
-          >
-            {pathname !== "/obra/iluminados" ? (
-              <Link to="/obra/iluminados">serie iluminados</Link>
-            ) : (
-              <span onClick={toggleOpen}>serie iluminados</span>
-            )}
-          </motion.li>
+                {pathname !== "/" ? (
+                  <Link to="/">INICIO</Link>
+                ) : (
+                  <span onClick={toggleOpen}>INICIO</span>
+                )}
+              </motion.li>
+              <motion.li
+                initial={liVariants.closed}
+                variants={liVariants}
+                exit={liVariants.closed}
+                whileHover={{ scale: 1.1 }}
+                whileTap={{ scale: 0.95 }}
+              >
+                <button className="flex items-center">
+                  <span>OBRA</span>
+                  <svg
+                    className="w-2.5 h-2.5 ms-3"
+                    aria-hidden="true"
+                    xmlns="http://www.w3.org/2000/svg"
+                    fill="none"
+                    viewBox="0 0 10 6"
+                  >
+                    <path
+                      stroke="currentColor"
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      strokeWidth={2}
+                      d="m1 1 4 4 4-4"
+                    />
+                  </svg>
+                </button>
+              </motion.li>
+              <motion.li
+                initial={liVariants.closed}
+                variants={liVariants}
+                exit={liVariants.closed}
+                whileHover={{ scale: 1.1 }}
+                whileTap={{ scale: 0.95 }}
+                className="ms-10 mb-[10px] mt-[-10px] uppercase"
+              >
+                {pathname !== "/obra/bloques" ? (
+                  <Link to="/obra/bloques">serie bloques</Link>
+                ) : (
+                  <span onClick={toggleOpen}>serie bloques</span>
+                )}
+              </motion.li>
+              <motion.li
+                initial={liVariants.closed}
+                variants={liVariants}
+                exit={liVariants.closed}
+                whileHover={{ scale: 1.1 }}
+                whileTap={{ scale: 0.95 }}
+                className="ms-10 mb-[10px] uppercase"
+              >
+                {pathname !== "/obra/iluminados" ? (
+                  <Link to="/obra/iluminados">serie iluminados</Link>
+                ) : (
+                  <span onClick={toggleOpen}>serie iluminados</span>
+                )}
+              </motion.li>
 
-          <motion.li
-            variants={liVariants}
-            whileHover={{ scale: 1.1 }}
-            whileTap={{ scale: 0.95 }}
-            className="ms-10 uppercase"
-          >
-            {pathname !== "/obra/wire" ? (
-              <Link to="/obra/wire">serie wire</Link>
-            ) : (
-              <span onClick={toggleOpen}>serie wire</span>
-            )}
-          </motion.li>
-          <motion.li
-            variants={liVariants}
-            whileHover={{ scale: 1.1 }}
-            whileTap={{ scale: 0.95 }}
-          >
-            <span>EXPOSICIONES</span>
-          </motion.li>
-          <motion.li
-            variants={liVariants}
-            whileHover={{ scale: 1.1 }}
-            whileTap={{ scale: 0.95 }}
-          >
-            <span>SOBRE MÍ</span>
-          </motion.li>
-          <motion.li
-            variants={liVariants}
-            whileHover={{ scale: 1.1 }}
-            whileTap={{ scale: 0.95 }}
-          >
-            <span>CONTACTO</span>
-          </motion.li>
-          {currentUser && (
-            <motion.li
-              variants={liVariants}
-              whileHover={{ scale: 1.1 }}
-              whileTap={{ scale: 0.95 }}
-            >
-              <RouterForm method="post" action="/logout">
-                <button type="submit">DESCONECTAR</button>
-              </RouterForm>
-            </motion.li>
+              <motion.li
+                initial={liVariants.closed}
+                variants={liVariants}
+                exit={liVariants.closed}
+                whileHover={{ scale: 1.1 }}
+                whileTap={{ scale: 0.95 }}
+                className="ms-10 uppercase"
+              >
+                {pathname !== "/obra/wire" ? (
+                  <Link to="/obra/wire">serie wire</Link>
+                ) : (
+                  <span onClick={toggleOpen}>serie wire</span>
+                )}
+              </motion.li>
+              <motion.li
+                initial={liVariants.closed}
+                variants={liVariants}
+                exit={liVariants.closed}
+                whileHover={{ scale: 1.1 }}
+                whileTap={{ scale: 0.95 }}
+              >
+                <span>EXPOSICIONES</span>
+              </motion.li>
+              <motion.li
+                initial={liVariants.closed}
+                variants={liVariants}
+                exit={liVariants.closed}
+                whileHover={{ scale: 1.1 }}
+                whileTap={{ scale: 0.95 }}
+              >
+                <span>SOBRE MÍ</span>
+              </motion.li>
+              <motion.li
+                initial={liVariants.closed}
+                variants={liVariants}
+                exit={liVariants.closed}
+                whileHover={{ scale: 1.1 }}
+                whileTap={{ scale: 0.95 }}
+              >
+                <span>CONTACTO</span>
+              </motion.li>
+              {currentUser && (
+                <motion.li
+                  initial={liVariants.closed}
+                  variants={liVariants}
+                  exit={liVariants.closed}
+                  whileHover={{ scale: 1.1 }}
+                  whileTap={{ scale: 0.95 }}
+                >
+                  <RouterForm method="post" action="/logout">
+                    <button type="submit">DESCONECTAR</button>
+                  </RouterForm>
+                </motion.li>
+              )}
+            </motion.ul>
           )}
-        </motion.ul>
+        </AnimatePresence>
       </motion.nav>
     </motion.div>
   );
