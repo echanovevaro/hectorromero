@@ -16,6 +16,7 @@ function Root() {
   return (
     <AnimatePresence mode="wait">
       <motion.div
+        className="text-sm"
         key={location.pathname}
         initial={{ opacity: 0 }}
         animate={{

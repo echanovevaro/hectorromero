@@ -1,25 +1,26 @@
-import { useEffect } from "react";
-import { useNavigate } from "react-router-dom";
+import { useEffect, useState } from "react";
+import MainNavigation from "../components/MainNavigation";
 
 function Landing() {
-  const navigate = useNavigate();
+  const [showMenu, setShowMenu] = useState(false);
 
   useEffect(() => {
     setTimeout(() => {
-      navigate("/obra/bloques");
-    }, 3000);
+      setShowMenu(true);
+    }, 3500);
   }, []);
   return (
     <div>
+      {showMenu && <MainNavigation />}
       <div className="wrapper">
         <div className="background" />
       </div>
       <main className="text-white fixed bottom-0 right-0 left-0 top-0 z-10">
-        <div className="flex h-5/6 justify-center items-end">
+        {/* <div className="flex h-5/6 justify-center items-end">
           <h1 id="logo-landing" className="text-2xl font-light">
             héctor romero
           </h1>
-        </div>
+        </div> */}
       </main>
       <div className="blur" />
     </div>
