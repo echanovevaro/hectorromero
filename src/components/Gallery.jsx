@@ -1,76 +1,76 @@
-import { AnimatePresence, motion } from "framer-motion"
-import { useEffect, useRef, useState } from "react"
-import { Link, useParams, useSubmit } from "react-router-dom"
-import { useAuthContext } from "../context/authContext"
-import Modal from "./Modal"
-import MainNavigation from "./MainNavigation"
+import { AnimatePresence, motion } from "framer-motion";
+import { useEffect, useRef, useState } from "react";
+import { Link, useParams, useSubmit } from "react-router-dom";
+import { useAuthContext } from "../context/authContext";
+import Modal from "./Modal";
+import MainNavigation from "./MainNavigation";
 
 export default function Gallery({ coleccion }) {
-  const submit = useSubmit()
-  const [isDeleting, setIsDeleting] = useState(false)
-  const [counter, setCounter] = useState(0)
-  const ref = useRef(0)
-  const firstImgRef = useRef(null)
-  const [loaded, setLoaded] = useState(false)
-  const { currentUser } = useAuthContext()
-  const [fullPage, setFullPage] = useState(false)
-  const { serie } = useParams()
+  const submit = useSubmit();
+  const [isDeleting, setIsDeleting] = useState(false);
+  const [counter, setCounter] = useState(0);
+  const ref = useRef(0);
+  const firstImgRef = useRef(null);
+  const [loaded, setLoaded] = useState(false);
+  const { currentUser } = useAuthContext();
+  const [fullPage, setFullPage] = useState(false);
+  const { serie } = useParams();
 
   const slideLeft = () => {
-    counter > 0 ? setCounter(counter - 1) : setCounter(coleccion.length - 1)
-    setLoaded(false)
-  }
+    counter > 0 ? setCounter(counter - 1) : setCounter(coleccion.length - 1);
+    setLoaded(false);
+  };
 
   const slideRight = () => {
-    counter < coleccion.length - 1 ? setCounter(counter + 1) : setCounter(0)
-    setLoaded(false)
-  }
+    counter < coleccion.length - 1 ? setCounter(counter + 1) : setCounter(0);
+    setLoaded(false);
+  };
 
   function onPanStart(_, info) {
-    ref.current = info.point.x
+    ref.current = info.point.x;
   }
   function onPanEnd(_, info) {
     if (info.point.x < ref.current) {
-      slideRight()
+      slideRight();
     } else if (info.point.x > ref.current) {
-      slideLeft()
+      slideLeft();
     }
   }
 
   function handleDelete(obra) {
-    const formData = new FormData()
-    formData.append("ref", obra.imagenRef)
-    setCounter(0)
-    setIsDeleting(false)
+    const formData = new FormData();
+    formData.append("ref", obra.imagenRef);
+    setCounter(0);
+    setIsDeleting(false);
     submit(formData, {
       method: "delete",
       action: `/obra/${serie}/${obra.id}/delete`,
-    })
+    });
   }
 
   useEffect(() => {
-    setCounter(0)
-    setLoaded(false)
+    setCounter(0);
+    setLoaded(false);
     if (firstImgRef.current?.complete) {
-      setLoaded(true)
+      setLoaded(true);
     }
-  }, [serie])
+  }, [serie]);
 
   useEffect(() => {
     const imgLoader = function (obra) {
-      var link = document.createElement("link")
-      link.rel = "preload"
-      link.as = "image"
-      link.href = obra.imagenURL
+      var link = document.createElement("link");
+      link.rel = "preload";
+      link.as = "image";
+      link.href = obra.imagenURL;
 
-      const head = document.head
-      console.log(head)
-      document.head.appendChild(link)
-    }
+      const head = document.head;
+      console.log(head);
+      document.head.appendChild(link);
+    };
     coleccion?.forEach((obra) => {
-      imgLoader(obra)
-    })
-  }, [coleccion])
+      imgLoader(obra);
+    });
+  }, [coleccion]);
 
   return (
     <>
@@ -172,7 +172,7 @@ export default function Gallery({ coleccion }) {
                         onPanEnd={onPanEnd}
                         onLoad={() => setLoaded(true)}
                         onClick={() => {
-                          setFullPage(true)
+                          setFullPage(true);
                         }}
                       />
                       {currentUser && loaded && (
@@ -229,7 +229,7 @@ export default function Gallery({ coleccion }) {
                             initial="hidden"
                             animate="visible"
                             exit="hidden"
-                            transition={{ duration: 0.8 }}
+                            transition={{ duration: 0.8, type: "spring" }}
                             className="bg-white absolute h-full w-full z-[150] top-0 left-0"
                           />
                           <motion.div
@@ -247,7 +247,7 @@ export default function Gallery({ coleccion }) {
                               backgroundImage: `url(${obra.imagenURL})`,
                             }}
                             onClick={() => {
-                              setFullPage(false)
+                              setFullPage(false);
                             }}
                           />
                         </>
@@ -302,7 +302,7 @@ export default function Gallery({ coleccion }) {
                     </p>
                   </div>
                 </motion.div>
-              )
+              );
           })}
         </div>
         <ul className="flex items-center justify-center gap-2 mb-6 flex-wrap w-[75vw]">
@@ -322,5 +322,5 @@ export default function Gallery({ coleccion }) {
         </ul>
       </div>
     </>
-  )
+  );
 }
