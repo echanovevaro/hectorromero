@@ -102,7 +102,7 @@ export default function MainNavigation() {
                         stroke="currentColor"
                         strokeLinecap="round"
                         strokeLinejoin="round"
-                        strokeWidth={2}
+                        strokeWidth={1}
                         d="m1 1 4 4 4-4"
                       />
                     </svg>
