@@ -15,18 +15,15 @@ export default function Gallery({ coleccion }) {
   const { currentUser } = useAuthContext()
   const [fullPage, setFullPage] = useState(false)
   const { serie } = useParams()
-  const [xOffset, setXOffset] = useState(0)
 
   const slideLeft = () => {
     counter > 0 ? setCounter(counter - 1) : setCounter(coleccion.length - 1)
     setLoaded(false)
-    setXOffset(-10)
   }
 
   const slideRight = () => {
     counter < coleccion.length - 1 ? setCounter(counter + 1) : setCounter(0)
     setLoaded(false)
-    setXOffset(10)
   }
 
   function onPanStart(_, info) {
@@ -74,24 +71,6 @@ export default function Gallery({ coleccion }) {
       imgLoader(obra)
     })
   }, [coleccion])
-
-  const variantsImg = {
-    visible: {
-      x: 0,
-    },
-    hidden: (custom) => ({
-      x: custom,
-    }),
-  }
-
-  const variantsText = {
-    visible: {
-      opacity: 1,
-    },
-    hidden: {
-      opacity: 0,
-    },
-  }
 
   return (
     <>
@@ -178,8 +157,10 @@ export default function Gallery({ coleccion }) {
                     )}
                     <div className="relative">
                       <motion.img
-                        custom={xOffset}
-                        variants={variantsImg}
+                        variants={{
+                          hidden: { opacity: 0 },
+                          visible: { opacity: 1 },
+                        }}
                         ref={firstImgRef}
                         initial="hidden"
                         animate="visible"
@@ -305,7 +286,10 @@ export default function Gallery({ coleccion }) {
               return (
                 <motion.div
                   key={obra.id}
-                  variants={variantsText}
+                  variants={{
+                    hidden: { x: -10, opacity: 0 },
+                    visible: { x: 0, opacity: 1 },
+                  }}
                   initial="hidden"
                   animate="visible"
                   transition={{ duration: 1 }}
