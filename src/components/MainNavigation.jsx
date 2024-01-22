@@ -1,15 +1,20 @@
-import { useEffect, useState } from "react";
-import { AnimatePresence, motion, useCycle } from "framer-motion";
-import { Form as RouterForm, Link, useLocation } from "react-router-dom";
-import { useAuthContext } from "../context/authContext";
+import { useEffect, useState } from "react"
+import { AnimatePresence, motion } from "framer-motion"
+import { Form as RouterForm, Link, useLocation } from "react-router-dom"
+import { useAuthContext } from "../context/authContext"
 
 export default function MainNavigation() {
-  const { currentUser } = useAuthContext();
-  const [isOpen, setIsOpen] = useState(false);
-  const { pathname } = useLocation();
+  const { currentUser } = useAuthContext()
+  const [isOpen, setIsOpen] = useState(false)
+  const { pathname } = useLocation()
 
   function toggleOpen() {
-    setIsOpen(!isOpen);
+    setIsOpen(!isOpen)
+  }
+
+  const divVariants = {
+    open: { opacity: 1 },
+    closed: { opacity: 0, transition: { delay: 0.5 } },
   }
 
   const ulVariants = {
@@ -25,7 +30,7 @@ export default function MainNavigation() {
         staggerDirection: -1,
       },
     },
-  };
+  }
 
   const liVariants = {
     open: {
@@ -42,63 +47,30 @@ export default function MainNavigation() {
         y: { stiffness: 1000 },
       },
     },
-  };
+  }
 
   useEffect(() => {
     if (isOpen) {
-      document.getElementById("burguer").classList.add("open");
+      document.getElementById("burguer").classList.add("open")
     } else {
-      document.getElementById("burguer").classList.remove("open");
+      document.getElementById("burguer").classList.remove("open")
     }
-  }, [isOpen]);
+  }, [isOpen])
 
   return (
-    <motion.div
-      className="fixed top-0 left-0 right-0 z-[200]"
-      initial={{ y: -60 }}
-      animate={{ y: 0 }}
-      transition={{ duration: 0.5 }}
-    >
-      <nav
-        className={`px-8 py-6 flex justify-between items-center text-neutral-500 bg-white shadow-md lg:hidden uppercase`}
-      >
+    <>
+      {" "}
+      <nav>
         <AnimatePresence>
           {isOpen && (
             <motion.div
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              exit={{ opacity: 0, transition: { delay: 0.5 } }}
-              className={`background-menu`}
-            />
-          )}
-        </AnimatePresence>
-        <h1>
-          <span>
-            héctor romero
-            {currentUser && (
-              <span className="text-neutral-300 ml-1"> ADMIN MODE</span>
-            )}
-          </span>
-        </h1>
-        <button
-          id="burguer"
-          onClick={() => {
-            toggleOpen();
-          }}
-        >
-          <div></div>
-          <div></div>
-          <div></div>
-        </button>
-        <AnimatePresence>
-          {isOpen && (
-            <div className="w-full absolute top-0 left-0 z-[-1]">
-              <motion.ul
-                variants={ulVariants}
-                initial={false}
-                animate="open"
-                exit="closed"
-              >
+              variants={divVariants}
+              initial={false}
+              animate="open"
+              exit="closed"
+              className="w-full min-h-full absolute top-0 left-0 z-20 bg-white"
+            >
+              <motion.ul variants={ulVariants}>
                 <motion.li
                   variants={liVariants}
                   initial={liVariants.closed}
@@ -207,16 +179,58 @@ export default function MainNavigation() {
                     whileHover={{ scale: 1.1 }}
                     whileTap={{ scale: 0.95 }}
                   >
-                    <RouterForm method="post" action="/logout">
+                    <RouterForm
+                      method="post"
+                      action="/logout"
+                    >
                       <button type="submit">DESCONECTAR</button>
                     </RouterForm>
                   </motion.li>
                 )}
               </motion.ul>
-            </div>
+            </motion.div>
           )}
         </AnimatePresence>
       </nav>
-    </motion.div>
-  );
+      <motion.div
+        className="fixed top-0 left-0 right-0 z-[200]"
+        initial={{ y: -60 }}
+        animate={{ y: 0 }}
+        transition={{ duration: 0.5 }}
+      >
+        <nav
+          className={`px-8 py-6 flex justify-between items-center bg-white shadow-md z-10 lg:hidden uppercase`}
+        >
+          {/* <AnimatePresence>
+            {isOpen && (
+              <motion.div
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                exit={{ opacity: 0, transition: { delay: 0.5 } }}
+                className={`background-menu`}
+              />
+            )}
+          </AnimatePresence> */}
+          <h1>
+            <span>
+              héctor romero
+              {currentUser && (
+                <span className="text-neutral-300 ml-1"> ADMIN MODE</span>
+              )}
+            </span>
+          </h1>
+          <button
+            id="burguer"
+            onClick={() => {
+              toggleOpen()
+            }}
+          >
+            <div></div>
+            <div></div>
+            <div></div>
+          </button>
+        </nav>
+      </motion.div>
+    </>
+  )
 }

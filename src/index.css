@@ -154,6 +154,7 @@ body {
   left: 0;
   z-index: 99;
 }
+
 /* Fin modal */
 
 .background-menu {
@@ -169,6 +170,7 @@ body {
 nav ul {
   margin-top: 4rem;
   padding: 3rem;
+  width: fit-content;
 }
 
 nav li {
@@ -187,7 +189,7 @@ nav li {
   gap: 0.281rem;
 }
 
-#burguer > div {
+#burguer>div {
   background: #666;
   height: 1px;
   width: 100%;
@@ -200,10 +202,12 @@ nav li {
 #burguer.open div:nth-child(1) {
   transform: rotate(42deg);
 }
+
 #burguer.open div:nth-child(2) {
   width: 0%;
   opacity: 0;
 }
+
 #burguer.open div:nth-child(3) {
   transform: rotate(-42deg);
 }
