@@ -100,7 +100,7 @@ body {
     position: absolute;
     inset: 0;
     background: rgba(0, 0, 0, 0.1);
-    animation: blur 1s ease-in forwards;
+    animation: blur 2s ease-in forwards;
     backdrop-filter: blur(0.1px);
     z-index: 51;
     overflow: hidden;
