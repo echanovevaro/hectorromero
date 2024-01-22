@@ -84,10 +84,7 @@ export default function Gallery({ coleccion }) {
       >
         {currentUser && (
           <div className="flex items-center mt-[3.5rem] text-sky-400">
-            <Link
-              className={`${loaded ? "z-50" : "hidden"}`}
-              to={`/obra/${serie}/new`}
-            >
+            <Link className="z-50" to={`/obra/${serie}/new`}>
               Añadir
             </Link>
           </div>
