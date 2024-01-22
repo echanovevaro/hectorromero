@@ -14,10 +14,17 @@ export default function MainNavigation() {
 
   const ulVariants = {
     open: {
-      transition: { staggerChildren: 0.07, delayChildren: 0.2 },
+      transition: {
+        staggerChildren: 0.07,
+        delayChildren: 0.2,
+      },
     },
     closed: {
-      transition: { staggerChildren: 0.05, staggerDirection: -1 },
+      transition: {
+        when: "beforeChildren",
+        staggerChildren: 0.05,
+        staggerDirection: -1,
+      },
     },
   };
 
@@ -53,9 +60,7 @@ export default function MainNavigation() {
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.8 }}
     >
-      <motion.nav
-        initial={false}
-        animate={isOpen ? "open" : "closed"}
+      <nav
         className={`px-8 py-6 flex justify-between items-center text-neutral-500 bg-white shadow-md lg:hidden uppercase`}
       >
         <AnimatePresence>
@@ -88,11 +93,15 @@ export default function MainNavigation() {
         </button>
         <AnimatePresence>
           {isOpen && (
-            <motion.ul variants={ulVariants} exit={ulVariants.closed}>
+            <motion.ul
+              variants={ulVariants}
+              initial={false}
+              animate="open"
+              exit="closed"
+            >
               <motion.li
-                initial={liVariants.closed}
                 variants={liVariants}
-                exit={liVariants.closed}
+                initial={liVariants.closed}
                 whileHover={{ scale: 1.1 }}
                 whileTap={{ scale: 0.95 }}
               >
@@ -103,9 +112,8 @@ export default function MainNavigation() {
                 )}
               </motion.li>
               <motion.li
-                initial={liVariants.closed}
                 variants={liVariants}
-                exit={liVariants.closed}
+                initial={liVariants.closed}
                 whileHover={{ scale: 1.1 }}
                 whileTap={{ scale: 0.95 }}
               >
@@ -131,7 +139,6 @@ export default function MainNavigation() {
               <motion.li
                 initial={liVariants.closed}
                 variants={liVariants}
-                exit={liVariants.closed}
                 whileHover={{ scale: 1.1 }}
                 whileTap={{ scale: 0.95 }}
                 className="ms-10 mb-[10px] mt-[-10px] uppercase"
@@ -145,7 +152,6 @@ export default function MainNavigation() {
               <motion.li
                 initial={liVariants.closed}
                 variants={liVariants}
-                exit={liVariants.closed}
                 whileHover={{ scale: 1.1 }}
                 whileTap={{ scale: 0.95 }}
                 className="ms-10 mb-[10px] uppercase"
@@ -160,7 +166,6 @@ export default function MainNavigation() {
               <motion.li
                 initial={liVariants.closed}
                 variants={liVariants}
-                exit={liVariants.closed}
                 whileHover={{ scale: 1.1 }}
                 whileTap={{ scale: 0.95 }}
                 className="ms-10 uppercase"
@@ -174,7 +179,6 @@ export default function MainNavigation() {
               <motion.li
                 initial={liVariants.closed}
                 variants={liVariants}
-                exit={liVariants.closed}
                 whileHover={{ scale: 1.1 }}
                 whileTap={{ scale: 0.95 }}
               >
@@ -183,7 +187,6 @@ export default function MainNavigation() {
               <motion.li
                 initial={liVariants.closed}
                 variants={liVariants}
-                exit={liVariants.closed}
                 whileHover={{ scale: 1.1 }}
                 whileTap={{ scale: 0.95 }}
               >
@@ -192,7 +195,6 @@ export default function MainNavigation() {
               <motion.li
                 initial={liVariants.closed}
                 variants={liVariants}
-                exit={liVariants.closed}
                 whileHover={{ scale: 1.1 }}
                 whileTap={{ scale: 0.95 }}
               >
@@ -202,7 +204,6 @@ export default function MainNavigation() {
                 <motion.li
                   initial={liVariants.closed}
                   variants={liVariants}
-                  exit={liVariants.closed}
                   whileHover={{ scale: 1.1 }}
                   whileTap={{ scale: 0.95 }}
                 >
@@ -214,7 +215,7 @@ export default function MainNavigation() {
             </motion.ul>
           )}
         </AnimatePresence>
-      </motion.nav>
+      </nav>
     </motion.div>
   );
 }
