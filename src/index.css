@@ -82,7 +82,7 @@ body {
     animation: zoom 6s ease-in forwards;
   }
 
-  .blur {
+  /* .blur {
     position: absolute;
     inset: 0;
     background: rgba(0, 0, 0, 0.1);
@@ -96,7 +96,7 @@ body {
     animation: fade-in 0.5s ease-in-out forwards;
     animation-delay: 2s;
     opacity: 0;
-  }
+  } */
 }
 
 @media (orientation: landscape) {
