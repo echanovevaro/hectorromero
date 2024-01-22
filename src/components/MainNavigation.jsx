@@ -92,7 +92,7 @@ export default function MainNavigation() {
         </button>
         <AnimatePresence>
           {isOpen && (
-            <div className="w-full h-full absolute top-0 left-0 z-[-1]">
+            <div className="w-full absolute top-0 left-0 z-[-1]">
               <motion.ul
                 variants={ulVariants}
                 initial={false}
