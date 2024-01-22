@@ -167,9 +167,8 @@ body {
 }
 
 nav ul {
-  padding: 25px;
-  position: absolute;
-  top: 90px;
+  margin-top: 4rem;
+  padding: 4rem;
 }
 
 nav li {
