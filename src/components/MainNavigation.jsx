@@ -89,10 +89,10 @@ export default function MainNavigation() {
                   whileHover={{ scale: 1.1 }}
                   whileTap={{ scale: 0.95 }}
                 >
-                  <button className="flex items-center">
+                  <button className="flex items-center gap-2">
                     <span>OBRA</span>
                     <svg
-                      className="w-2.5 h-2.5 ms-3"
+                      className="w-2.5 h-2.5"
                       aria-hidden="true"
                       xmlns="http://www.w3.org/2000/svg"
                       fill="none"
