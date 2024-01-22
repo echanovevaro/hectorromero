@@ -39,6 +39,20 @@ body {
   }
 }
 
+@keyframes zoom-landscape {
+  0% {
+    transform: scale(4) rotate(-64deg);
+  }
+
+  50% {
+    transform: scale(1) rotate(0deg);
+  }
+
+  100% {
+    transform: scale(1.06) rotate(0deg);
+  }
+}
+
 @keyframes blur {
   from {
     opacity: 1;
@@ -68,6 +82,7 @@ body {
     inset: 0;
     overflow: hidden;
     z-index: -1;
+    overflow: hidden;
   }
 
   .background {
@@ -81,17 +96,17 @@ body {
     animation: zoom 6s ease-in forwards;
   }
 
-  /* .blur {
+  .blur {
     position: absolute;
     inset: 0;
     background: rgba(0, 0, 0, 0.1);
-    animation: blur 3s ease-in forwards;
+    animation: blur 1s ease-in forwards;
     backdrop-filter: blur(0.1px);
     z-index: 51;
     overflow: hidden;
   }
 
-  #logo-landing {
+  /* #logo-landing {
     animation: fade-in 0.5s ease-in-out forwards;
     animation-delay: 2s;
     opacity: 0;
@@ -99,8 +114,10 @@ body {
 }
 
 @media (orientation: landscape) {
-  .wrapper {
-    overflow-y: auto;
+  .background {
+    background-image: url("/26b-landscape.jpg");
+    background-position: center;
+    animation: zoom-landscape 6s ease-in forwards;
   }
 }
 

@@ -22,7 +22,7 @@ function Landing() {
           </h1>
         </div> */}
       </main>
-      {/* <div className="blur" /> */}
+      <div className="blur" />
     </div>
   );
 }
