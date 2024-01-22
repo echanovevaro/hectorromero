@@ -155,6 +155,7 @@ nav ul {
   padding: 25px;
   position: absolute;
   top: 90px;
+  overflow-y: scroll;
 }
 
 nav li {
