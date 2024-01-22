@@ -7,7 +7,7 @@ function Landing() {
   useEffect(() => {
     setTimeout(() => {
       setShowMenu(true);
-    }, 3500);
+    }, 2500);
   }, []);
   return (
     <div>

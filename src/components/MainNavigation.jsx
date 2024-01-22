@@ -21,7 +21,6 @@ export default function MainNavigation() {
     },
     closed: {
       transition: {
-        when: "beforeChildren",
         staggerChildren: 0.05,
         staggerDirection: -1,
       },
@@ -56,9 +55,9 @@ export default function MainNavigation() {
   return (
     <motion.div
       className="fixed top-0 left-0 right-0 z-[200]"
-      initial={{ opacity: 0, y: -30 }}
-      animate={{ opacity: 1, y: 0 }}
-      transition={{ duration: 0.8 }}
+      initial={{ y: -60 }}
+      animate={{ y: 0 }}
+      transition={{ duration: 0.5 }}
     >
       <nav
         className={`px-8 py-6 flex justify-between items-center text-neutral-500 bg-white shadow-md lg:hidden uppercase`}

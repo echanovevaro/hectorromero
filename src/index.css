@@ -27,15 +27,15 @@ body {
 
 @keyframes zoom {
   0% {
-    transform: scale(4) rotate(-65deg);
+    transform: scale(4) rotate(-64deg);
   }
 
   50% {
-    transform: scale(1) rotate(0deg);
+    transform: scale(1) rotate(0deg) translateY(3rem);
   }
 
   100% {
-    transform: scale(1.06) rotate(0deg);
+    transform: scale(1.06) rotate(0deg) translateY(3rem);
   }
 }
 
@@ -62,7 +62,7 @@ body {
   }
 }
 
-@media screen and (max-width: 1024px) {
+@media screen and (max-width: 1023px) {
   .wrapper {
     position: absolute;
     inset: 0;
@@ -87,7 +87,7 @@ body {
     inset: 0;
     background: rgba(0, 0, 0, 0.1);
     animation: blur 3s ease-in forwards;
-    backdrop-filter: blur(4px);
+    backdrop-filter: blur(0.1px);
     z-index: 51;
     overflow: hidden;
   }
