@@ -1,60 +1,76 @@
-import { AnimatePresence, motion } from "framer-motion";
-import { useEffect, useRef, useState } from "react";
-import { Link, useParams, useSubmit } from "react-router-dom";
-import { useAuthContext } from "../context/authContext";
-import Modal from "./Modal";
-import MainNavigation from "./MainNavigation";
+import { AnimatePresence, motion } from "framer-motion"
+import { useEffect, useRef, useState } from "react"
+import { Link, useParams, useSubmit } from "react-router-dom"
+import { useAuthContext } from "../context/authContext"
+import Modal from "./Modal"
+import MainNavigation from "./MainNavigation"
 
 export default function Gallery({ coleccion }) {
-  const submit = useSubmit();
-  const [isDeleting, setIsDeleting] = useState(false);
-  const [counter, setCounter] = useState(0);
-  const ref = useRef(0);
-  const firstImgRef = useRef(null);
-  const [loaded, setLoaded] = useState(false);
-  const { currentUser } = useAuthContext();
-  const [fullPage, setFullPage] = useState(false);
-  const { serie } = useParams();
+  const submit = useSubmit()
+  const [isDeleting, setIsDeleting] = useState(false)
+  const [counter, setCounter] = useState(0)
+  const ref = useRef(0)
+  const firstImgRef = useRef(null)
+  const [loaded, setLoaded] = useState(false)
+  const { currentUser } = useAuthContext()
+  const [fullPage, setFullPage] = useState(false)
+  const { serie } = useParams()
 
   const slideLeft = () => {
-    counter > 0 ? setCounter(counter - 1) : setCounter(coleccion.length - 1);
-    setLoaded(false);
-  };
+    counter > 0 ? setCounter(counter - 1) : setCounter(coleccion.length - 1)
+    setLoaded(false)
+  }
 
   const slideRight = () => {
-    counter < coleccion.length - 1 ? setCounter(counter + 1) : setCounter(0);
-    setLoaded(false);
-  };
+    counter < coleccion.length - 1 ? setCounter(counter + 1) : setCounter(0)
+    setLoaded(false)
+  }
 
   function onPanStart(_, info) {
-    ref.current = info.point.x;
+    ref.current = info.point.x
   }
   function onPanEnd(_, info) {
     if (info.point.x < ref.current) {
-      slideRight();
+      slideRight()
     } else if (info.point.x > ref.current) {
-      slideLeft();
+      slideLeft()
     }
   }
 
   function handleDelete(obra) {
-    const formData = new FormData();
-    formData.append("ref", obra.imagenRef);
-    setCounter(0);
-    setIsDeleting(false);
+    const formData = new FormData()
+    formData.append("ref", obra.imagenRef)
+    setCounter(0)
+    setIsDeleting(false)
     submit(formData, {
       method: "delete",
       action: `/obra/${serie}/${obra.id}/delete`,
-    });
+    })
   }
 
   useEffect(() => {
-    setCounter(0);
-    setLoaded(false);
+    setCounter(0)
+    setLoaded(false)
     if (firstImgRef.current?.complete) {
-      setLoaded(true);
+      setLoaded(true)
     }
-  }, [serie]);
+  }, [serie])
+
+  useEffect(() => {
+    const imgLoader = function (obra) {
+      var link = document.createElement("link")
+      link.rel = "preload"
+      link.as = "image"
+      link.href = obra.imagenURL
+
+      const head = document.head
+      console.log(head)
+      document.head.appendChild(link)
+    }
+    coleccion?.forEach((obra) => {
+      imgLoader(obra)
+    })
+  }, [coleccion])
 
   return (
     <>
@@ -80,7 +96,7 @@ export default function Gallery({ coleccion }) {
           <div>
             <button onClick={slideLeft}>
               <svg
-                className={`w-4 h-4 mx-2 text-gray-400 ${
+                className={`w-4 h-4 mx-2 mt-10 text-neutral-400 ${
                   loaded ? "block" : "hidden"
                 }`}
                 aria-hidden="true"
@@ -92,13 +108,13 @@ export default function Gallery({ coleccion }) {
                   stroke="currentColor"
                   strokeLinecap="round"
                   strokeLinejoin="round"
-                  strokeWidth={2}
+                  strokeWidth={1}
                   d="M7 1 1.3 6.326a.91.91 0 0 0 0 1.348L7 13"
                 />
               </svg>
             </button>
           </div>
-          <div className="w-[75vw]">
+          <div className="w-[75vw] mt-10">
             {coleccion?.map((obra, index) => (
               <div
                 key={obra.id}
@@ -156,7 +172,7 @@ export default function Gallery({ coleccion }) {
                         onPanEnd={onPanEnd}
                         onLoad={() => setLoaded(true)}
                         onClick={() => {
-                          setFullPage(true);
+                          setFullPage(true)
                         }}
                       />
                       {currentUser && loaded && (
@@ -231,7 +247,7 @@ export default function Gallery({ coleccion }) {
                               backgroundImage: `url(${obra.imagenURL})`,
                             }}
                             onClick={() => {
-                              setFullPage(false);
+                              setFullPage(false)
                             }}
                           />
                         </>
@@ -245,7 +261,7 @@ export default function Gallery({ coleccion }) {
           <div>
             <button onClick={slideRight}>
               <svg
-                className={`w-4 h-4 mx-2 text-gray-400 ${
+                className={`w-4 h-4 mt-10 mx-2 text-neutral-400 ${
                   loaded ? "block" : "hidden"
                 }`}
                 aria-hidden="true"
@@ -257,7 +273,7 @@ export default function Gallery({ coleccion }) {
                   stroke="currentColor"
                   strokeLinecap="round"
                   strokeLinejoin="round"
-                  strokeWidth={2}
+                  strokeWidth={1}
                   d="m1 13 5.7-5.326a.909.909 0 0 0 0-1.348L1 1"
                 />
               </svg>
@@ -286,7 +302,7 @@ export default function Gallery({ coleccion }) {
                     </p>
                   </div>
                 </motion.div>
-              );
+              )
           })}
         </div>
         <ul className="flex items-center justify-center gap-2 mb-6 flex-wrap w-[75vw]">
@@ -306,5 +322,5 @@ export default function Gallery({ coleccion }) {
         </ul>
       </div>
     </>
-  );
+  )
 }
