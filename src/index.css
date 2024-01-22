@@ -68,7 +68,6 @@ body {
     inset: 0;
     overflow: hidden;
     z-index: -1;
-    overflow: hidden;
   }
 
   .background {
@@ -100,9 +99,8 @@ body {
 }
 
 @media (orientation: landscape) {
-  .background {
-    background-image: url("/26b-landscape.jpg");
-    background-position: center;
+  .wrapper {
+    overflow-y: auto;
   }
 }
 
@@ -155,7 +153,6 @@ nav ul {
   padding: 25px;
   position: absolute;
   top: 90px;
-  overflow-y: scroll;
 }
 
 nav li {
