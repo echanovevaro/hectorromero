@@ -128,10 +128,10 @@ export default function MainNavigation() {
                   whileTap={{ scale: 0.95 }}
                   className="ms-10 mb-[10px] uppercase"
                 >
-                  {pathname !== "/obra/iluminados" ? (
-                    <Link to="/obra/iluminados">serie iluminados</Link>
+                  {pathname !== "/obra/wood" ? (
+                    <Link to="/obra/wood">serie wood</Link>
                   ) : (
-                    <span onClick={toggleOpen}>serie iluminados</span>
+                    <span onClick={toggleOpen}>serie wood</span>
                   )}
                 </motion.li>
 
