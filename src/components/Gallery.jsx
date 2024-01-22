@@ -96,9 +96,7 @@ export default function Gallery({ coleccion }) {
           <div>
             <button onClick={slideLeft}>
               <svg
-                className={`w-4 h-4 mx-2 mt-10 text-neutral-400 ${
-                  loaded ? "block" : "hidden"
-                }`}
+                className={`w-4 h-4 mx-2 mt-10 ${loaded ? "block" : "hidden"}`}
                 aria-hidden="true"
                 xmlns="http://www.w3.org/2000/svg"
                 fill="none"
@@ -261,9 +259,7 @@ export default function Gallery({ coleccion }) {
           <div>
             <button onClick={slideRight}>
               <svg
-                className={`w-4 h-4 mt-10 mx-2 text-neutral-400 ${
-                  loaded ? "block" : "hidden"
-                }`}
+                className={`w-4 h-4 mt-10 mx-2 ${loaded ? "block" : "hidden"}`}
                 aria-hidden="true"
                 xmlns="http://www.w3.org/2000/svg"
                 fill="none"
