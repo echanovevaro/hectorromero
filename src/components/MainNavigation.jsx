@@ -59,7 +59,6 @@ export default function MainNavigation() {
 
   return (
     <>
-      {" "}
       <nav>
         <AnimatePresence>
           {isOpen && (
@@ -68,7 +67,7 @@ export default function MainNavigation() {
               initial={false}
               animate="open"
               exit="closed"
-              className="w-full min-h-full absolute top-0 left-0 z-20 bg-white font-light"
+              className="h-full fixed inset-0 z-20 bg-white font-light"
             >
               <motion.ul variants={ulVariants}>
                 <motion.li
