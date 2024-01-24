@@ -11,12 +11,6 @@ function Landing() {
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true, amount: "all" });
 
-  const styleContent1 = {
-    transform: isInView ? "none" : "translateX(-60px)",
-    opacity: isInView ? 1 : 0,
-    transition: "all 1s cubic-bezier(0.17, 0.55, 0.55, 1)",
-  };
-
   useEffect(() => {
     setTimeout(() => {
       setShowMenu(true);
@@ -62,11 +56,12 @@ function Landing() {
           </motion.button>
         )}
       </div>
-      <section id="scroll" className="mt-[100dvh] flex justify-start z-[-1]">
-        <div
-          ref={ref}
-          className="bg-white w-screen z-10 pt-[4rem] h-screen landscape:h-full"
-        >
+      <section
+        ref={ref}
+        id="scroll"
+        className="mt-[100dvh] flex justify-start z-[-1]"
+      >
+        <div className="bg-white w-screen z-10 pt-[4rem] h-screen landscape:h-full">
           {/* <h1
             ref={ref}
             className="uppercase mt-10 px-[3rem] "
@@ -79,7 +74,14 @@ function Landing() {
             New section
           </h1> */}
           <div className="square lg:hidden">
-            <div className="content1" style={styleContent1}>
+            <div
+              className="content1"
+              style={{
+                transform: isInView ? "none" : "translateX(-60px)",
+                opacity: isInView ? 1 : 0,
+                transition: "all 1s cubic-bezier(0.17, 0.55, 0.55, 1)",
+              }}
+            >
               <img src="/Entorno bloqueador 50x50cm-compressed.jpg" />
             </div>
             <div
