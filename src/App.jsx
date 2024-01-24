@@ -62,9 +62,9 @@ function App() {
   return (
     <AuthProvider>
       <QueryClientProvider client={queryClient}>
-        {/* <ParallaxProvider> */}
-        <RouterProvider router={router} />
-        {/* </ParallaxProvider> */}
+        <ParallaxProvider>
+          <RouterProvider router={router} />
+        </ParallaxProvider>
       </QueryClientProvider>
     </AuthProvider>
   );

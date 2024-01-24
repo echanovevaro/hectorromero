@@ -5,11 +5,17 @@ import { useInView, motion } from "framer-motion";
 
 function Landing() {
   const [showMenu, setShowMenu] = useState(false);
-  // const parallax = useParallax({
-  //   speed: -200,
-  // });
+  const parallax = useParallax({
+    speed: -200,
+  });
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true });
+
+  const styleContent1 = {
+    transform: isInView ? "none" : "translateX(-60px)",
+    opacity: isInView ? 1 : 0,
+    transition: "all 1s cubic-bezier(0.17, 0.55, 0.55, 1)",
+  };
 
   useEffect(() => {
     setTimeout(() => {
@@ -19,7 +25,7 @@ function Landing() {
   return (
     <>
       {showMenu && <MainNavigation />}
-      <div className="wrapper">
+      <div ref={parallax.ref} className="wrapper">
         <div className="background" />
         <div className="blur" />
         {showMenu && (
@@ -31,9 +37,10 @@ function Landing() {
             }}
             whileTap={{ scale: 0.95 }}
             onClick={() =>
-              document
-                .getElementById("scroll")
-                .scrollIntoView({ behavior: "smooth" })
+              ref.current?.scrollIntoView({
+                block: "start",
+                behavior: "smooth",
+              })
             }
             className="w-screen h-full flex justify-center items-end pb-[2rem] gap-1 text-white z-[500] text-xl"
           >
@@ -69,14 +76,7 @@ function Landing() {
             New section
           </h1> */}
           <div ref={ref} className="square lg:hidden">
-            <div
-              className="content1"
-              style={{
-                transform: isInView ? "none" : "translateX(-60px)",
-                opacity: isInView ? 1 : 0,
-                transition: "all 1s cubic-bezier(0.17, 0.55, 0.55, 1)",
-              }}
-            >
+            <div className="content1" style={styleContent1}>
               <img src="/Entorno bloqueador 50x50cm-compressed.jpg" />
             </div>
             <div
