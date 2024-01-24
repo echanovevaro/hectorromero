@@ -61,10 +61,7 @@ function Landing() {
         )}
       </div>
       <section id="scroll" className="mt-[100dvh] flex justify-start z-[-1]">
-        <div
-          ref={ref}
-          className="bg-white w-screen z-10 pt-[4rem] h-screen landscape:h-full"
-        >
+        <div className="bg-white w-screen z-10 pt-[4rem] h-screen landscape:h-full">
           {/* <h1
             ref={ref}
             className="uppercase mt-10 px-[3rem] "
@@ -76,7 +73,7 @@ function Landing() {
           >
             New section
           </h1> */}
-          <div className="square lg:hidden">
+          <div ref={ref} className="square lg:hidden">
             <div
               className="content1"
               style={{
