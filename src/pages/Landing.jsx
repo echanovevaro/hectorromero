@@ -9,7 +9,7 @@ function Landing() {
     speed: -200,
   });
   const ref = useRef(null);
-  const isInView = useInView(ref, { once: true });
+  const isInView = useInView(ref, { once: true, amount: 0.5 });
 
   useEffect(() => {
     setTimeout(() => {
