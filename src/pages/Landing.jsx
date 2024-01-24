@@ -2,10 +2,7 @@ import { useEffect, useRef, useState } from "react";
 import MainNavigation from "../components/MainNavigation";
 import { useParallax } from "react-scroll-parallax";
 import { useInView, motion } from "framer-motion";
-import {
-  LazyLoadImage,
-  trackWindowScroll,
-} from "react-lazy-load-image-component";
+import { LazyLoadImage } from "react-lazy-load-image-component";
 
 function Landing() {
   const [showMenu, setShowMenu] = useState(false);
@@ -86,10 +83,7 @@ function Landing() {
                 transition: "all 1s cubic-bezier(0.17, 0.55, 0.55, 1)",
               }}
             >
-              <LazyLoadImage
-                src="/Entorno bloqueador 50x50cm-compressed.jpg"
-                effect="opacity"
-              />
+              <LazyLoadImage src="/Entorno bloqueador 50x50cm-compressed.jpg" />
             </div>
             <div
               className="content1Title"
@@ -110,10 +104,7 @@ function Landing() {
                 transition: "all 1s cubic-bezier(0.17, 0.55, 0.55, 1)",
               }}
             >
-              <LazyLoadImage
-                src="/tensión 50x50 cm-compressed.jpg"
-                effect="opacity"
-              />
+              <LazyLoadImage src="/tensión 50x50 cm-compressed.jpg" />
             </div>
             <div
               className="content2Title"
@@ -132,10 +123,7 @@ function Landing() {
                 transition: "all 1s cubic-bezier(0.17, 0.55, 0.55, 1)",
               }}
             >
-              <LazyLoadImage
-                src="/Futuro bloque 120x194cm-compressed.jpg"
-                effect="opacity"
-              />
+              <LazyLoadImage src="/Futuro bloque 120x194cm-compressed.jpg" />
             </div>
             <div
               className="content3Title"
@@ -153,10 +141,7 @@ function Landing() {
                 transition: "all 1s cubic-bezier(0.17, 0.55, 0.55, 1)",
               }}
             >
-              <LazyLoadImage
-                src="/Blo questions 39x43 cm-compressed.jpg"
-                effect="opacity"
-              />
+              <LazyLoadImage src="/Blo questions 39x43 cm-compressed.jpg" />
             </div>
             <div
               className="content4Title"
@@ -175,7 +160,7 @@ function Landing() {
                 transition: "all 1s cubic-bezier(0.17, 0.55, 0.55, 1)",
               }}
             >
-              <LazyLoadImage src="/20200608_202759.gif" effect="opacity" />
+              <LazyLoadImage src="/20200608_202759.gif" />
             </div>
             <div
               className="content6"
@@ -185,7 +170,7 @@ function Landing() {
                 transition: "all 1s cubic-bezier(0.17, 0.55, 0.55, 1)",
               }}
             >
-              <LazyLoadImage src="/20200608_202759.gif" effect="opacity" />
+              <LazyLoadImage src="/20200608_202759.gif" />
             </div>
             <div
               className="content5-6Title"
@@ -209,4 +194,4 @@ function Landing() {
     </>
   );
 }
-export default trackWindowScroll(Landing);
+export default Landing;
