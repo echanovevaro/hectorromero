@@ -1,12 +1,18 @@
 import { useEffect, useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
-import { Form as RouterForm, Link, useLocation } from "react-router-dom";
+import {
+  Form as RouterForm,
+  Link,
+  useLocation,
+  useNavigate,
+} from "react-router-dom";
 import { useAuthContext } from "../context/authContext";
 
 export default function MainNavigation() {
   const { currentUser } = useAuthContext();
   const [isOpen, setIsOpen] = useState(false);
   const { pathname } = useLocation();
+  const navigate = useNavigate();
 
   function toggleOpen() {
     setIsOpen(!isOpen);
@@ -88,7 +94,10 @@ export default function MainNavigation() {
                   whileHover={{ scale: 1.1 }}
                   whileTap={{ scale: 0.95 }}
                 >
-                  <button className="flex items-center gap-2">
+                  <button
+                    className="flex items-center gap-2"
+                    onClick={() => navigate("/obra")}
+                  >
                     <span>OBRA</span>
                     <svg
                       className="w-2.5 h-2.5"

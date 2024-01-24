@@ -10,7 +10,7 @@ import { queryClient } from "./http";
 import SerieUpdate, { action as updateAction } from "./pages/SerieUpdate";
 import Serie from "./pages/Serie";
 import { ParallaxProvider } from "react-scroll-parallax";
-import About from "./pages/About";
+import Obra from "./pages/Obra";
 
 function App() {
   const router = createBrowserRouter([
@@ -43,8 +43,8 @@ function App() {
           action: deleteAction,
         },
         {
-          path: "about",
-          element: <About />,
+          path: "obra",
+          element: <Obra />,
         },
         {
           path: "login",

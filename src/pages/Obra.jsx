@@ -2,7 +2,7 @@ import { useInView } from "framer-motion";
 import MainNavigation from "../components/MainNavigation";
 import { useRef } from "react";
 
-function About() {
+function Obra() {
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true });
   return (
@@ -119,4 +119,4 @@ function About() {
     </>
   );
 }
-export default About;
+export default Obra;
