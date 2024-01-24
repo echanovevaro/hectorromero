@@ -10,6 +10,7 @@ import { queryClient } from "./http";
 import SerieUpdate, { action as updateAction } from "./pages/SerieUpdate";
 import Serie from "./pages/Serie";
 import { ParallaxProvider } from "react-scroll-parallax";
+import About from "./pages/About";
 
 function App() {
   const router = createBrowserRouter([
@@ -40,6 +41,10 @@ function App() {
         {
           path: "obra/:serie/:id/delete",
           action: deleteAction,
+        },
+        {
+          path: "about",
+          element: <About />,
         },
         {
           path: "login",

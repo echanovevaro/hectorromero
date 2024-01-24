@@ -128,7 +128,13 @@ function Landing() {
             >
               <span className="border-t border-neutral-300">Futuro bloque</span>
             </div>
-            <div className="content4">
+            <div
+              className="content4"
+              style={{
+                opacity: isInView ? 1 : 0,
+                transition: "all 1s cubic-bezier(0.17, 0.55, 0.55, 1) 0.5s",
+              }}
+            >
               <img src="/Blo questions 39x43 cm-compressed.jpg" />
             </div>
             <div
