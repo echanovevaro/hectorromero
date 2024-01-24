@@ -2,6 +2,10 @@ import { useEffect, useRef, useState } from "react";
 import MainNavigation from "../components/MainNavigation";
 import { useParallax } from "react-scroll-parallax";
 import { useInView, motion } from "framer-motion";
+import {
+  LazyLoadImage,
+  trackWindowScroll,
+} from "react-lazy-load-image-component";
 
 function Landing() {
   const [showMenu, setShowMenu] = useState(false);
@@ -12,52 +16,16 @@ function Landing() {
   const isInView = useInView(ref, { once: true });
 
   useEffect(() => {
-    const imgLoader = function (href) {
-      var link = document.createElement("link");
-      link.rel = "preload";
-      link.as = "image";
-      link.href = href;
-
-      const head = document.head;
-      document.head.appendChild(link);
-    };
-    [
-      "/20200608_202759.gif",
-      "/Blo questions 39x43 cm-compressed.jpg",
-      "/Entorno bloqueador 50x50cm-compressed.jpg",
-      "/Futuro bloque 120x194cm-compressed.jpg",
-      "/Te bloqueo(57x28 cm)-compressed.jpg",
-      "/tensión 50x50 cm-compressed.jpg",
-    ].forEach((url) => imgLoader(url));
     const timeout = setTimeout(() => {
       setShowMenu(true);
     }, 2500);
 
     return () => {
       clearTimeout(timeout);
-      const links = document.querySelector('link[rel="preload"]');
-      if (links && links.length > 0) {
-        links.forEach((el) => el.remove());
-      }
     };
   }, []);
   return (
     <>
-      {/* <div id="preload" className="hidden">
-        <img src="/20200608_202759.gif" width="1" height="1" alt="Image 01" />
-        <img
-          src="/Blo questions 39x43 cm-compressed.jpg"
-          width="1"
-          height="1"
-          alt="Image 02"
-        />
-        <img
-          src="Entorno bloqueador 50x50cm-compressed.jpg"
-          width="1"
-          height="1"
-          alt="Image 03"
-        />
-      </div> */}
       {showMenu && <MainNavigation />}
       <div ref={parallax.ref} className="wrapper">
         <div className="background" />
@@ -118,7 +86,7 @@ function Landing() {
                 transition: "all 1s cubic-bezier(0.17, 0.55, 0.55, 1)",
               }}
             >
-              <img src="/Entorno bloqueador 50x50cm-compressed.jpg" />
+              <LazyLoadImage src="/Entorno bloqueador 50x50cm-compressed.jpg" />
             </div>
             <div
               className="content1Title"
@@ -139,7 +107,7 @@ function Landing() {
                 transition: "all 1s cubic-bezier(0.17, 0.55, 0.55, 1)",
               }}
             >
-              <img src="/tensión 50x50 cm-compressed.jpg" />
+              <LazyLoadImage src="/tensión 50x50 cm-compressed.jpg" />
             </div>
             <div
               className="content2Title"
@@ -158,7 +126,7 @@ function Landing() {
                 transition: "all 1s cubic-bezier(0.17, 0.55, 0.55, 1)",
               }}
             >
-              <img src="/Futuro bloque 120x194cm-compressed.jpg" />
+              <LazyLoadImage src="/Futuro bloque 120x194cm-compressed.jpg" />
             </div>
             <div
               className="content3Title"
@@ -176,7 +144,7 @@ function Landing() {
                 transition: "all 1s cubic-bezier(0.17, 0.55, 0.55, 1)",
               }}
             >
-              <img src="/Blo questions 39x43 cm-compressed.jpg" />
+              <LazyLoadImage src="/Blo questions 39x43 cm-compressed.jpg" />
             </div>
             <div
               className="content4Title"
@@ -195,7 +163,7 @@ function Landing() {
                 transition: "all 1s cubic-bezier(0.17, 0.55, 0.55, 1)",
               }}
             >
-              <img src="/20200608_202759.gif" />
+              <LazyLoadImage src="/20200608_202759.gif" />
             </div>
             <div
               className="content6"
@@ -205,7 +173,7 @@ function Landing() {
                 transition: "all 1s cubic-bezier(0.17, 0.55, 0.55, 1)",
               }}
             >
-              <img src="/20200608_202759.gif" />
+              <LazyLoadImage src="/20200608_202759.gif" />
             </div>
             <div
               className="content5-6Title"
@@ -229,4 +197,4 @@ function Landing() {
     </>
   );
 }
-export default Landing;
+export default trackWindowScroll(Landing);
