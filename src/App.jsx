@@ -1,14 +1,15 @@
-import { RouterProvider, createBrowserRouter } from "react-router-dom"
-import { QueryClientProvider } from "@tanstack/react-query"
-import Root from "./pages/Root"
-import Landing from "./pages/Landing"
-import Login, { action as loginAction } from "./pages/Login"
-import { AuthProvider } from "./context/authContext"
-import { logOutWithRedirect, deleteAction } from "./utils/actions"
-import SerieNew, { action as newAction } from "./pages/SerieNew"
-import { queryClient } from "./http"
-import SerieUpdate, { action as updateAction } from "./pages/SerieUpdate"
-import Serie from "./pages/Serie"
+import { RouterProvider, createBrowserRouter } from "react-router-dom";
+import { QueryClientProvider } from "@tanstack/react-query";
+import Root from "./pages/Root";
+import Landing from "./pages/Landing";
+import Login, { action as loginAction } from "./pages/Login";
+import { AuthProvider } from "./context/authContext";
+import { logOutWithRedirect, deleteAction } from "./utils/actions";
+import SerieNew, { action as newAction } from "./pages/SerieNew";
+import { queryClient } from "./http";
+import SerieUpdate, { action as updateAction } from "./pages/SerieUpdate";
+import Serie from "./pages/Serie";
+import { ParallaxProvider } from "react-scroll-parallax";
 
 function App() {
   const router = createBrowserRouter([
@@ -51,15 +52,17 @@ function App() {
         },
       ],
     },
-  ])
+  ]);
 
   return (
     <AuthProvider>
       <QueryClientProvider client={queryClient}>
-        <RouterProvider router={router} />
+        <ParallaxProvider>
+          <RouterProvider router={router} />
+        </ParallaxProvider>
       </QueryClientProvider>
     </AuthProvider>
-  )
+  );
 }
 
-export default App
+export default App;
