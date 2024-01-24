@@ -22,11 +22,9 @@ function Landing() {
       document.head.appendChild(link);
     };
     [
-      "/26b-landscape.jpg",
-      "/26b.jpg",
       "/20200608_202759.gif",
       "/Blo questions 39x43 cm-compressed.jpg",
-      "Entorno bloqueador 50x50cm-compressed.jpg",
+      "/Entorno bloqueador 50x50cm-compressed.jpg",
       "/Futuro bloque 120x194cm-compressed.jpg",
       "/Te bloqueo(57x28 cm)-compressed.jpg",
       "/tensión 50x50 cm-compressed.jpg",
@@ -45,6 +43,21 @@ function Landing() {
   }, []);
   return (
     <>
+      {/* <div id="preload" className="hidden">
+        <img src="/20200608_202759.gif" width="1" height="1" alt="Image 01" />
+        <img
+          src="/Blo questions 39x43 cm-compressed.jpg"
+          width="1"
+          height="1"
+          alt="Image 02"
+        />
+        <img
+          src="Entorno bloqueador 50x50cm-compressed.jpg"
+          width="1"
+          height="1"
+          alt="Image 03"
+        />
+      </div> */}
       {showMenu && <MainNavigation />}
       <div ref={parallax.ref} className="wrapper">
         <div className="background" />
