@@ -36,8 +36,9 @@ function Landing() {
             whileTap={{ scale: 0.95 }}
             onClick={() => {
               let pageHeight = window.innerHeight;
+              let scroll = pageHeight - window.scrollY;
               window.scrollBy({
-                top: pageHeight,
+                top: scroll,
                 left: 0,
                 behavior: "smooth",
               });
