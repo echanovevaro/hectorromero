@@ -12,6 +12,10 @@ function Landing() {
   const isInView1 = useInView(ref1, { once: true });
   const ref2 = useRef(null);
   const isInView2 = useInView(ref2, { once: true });
+  const ref3 = useRef(null);
+  const isInView3 = useInView(ref3, { once: true });
+  const ref4 = useRef(null);
+  const isInView4 = useInView(ref4, { once: true });
 
   useEffect(() => {
     const timeout = setTimeout(() => {
@@ -90,7 +94,7 @@ function Landing() {
             <div
               className="content1Title"
               style={{
-                opacity: isInView2 ? 1 : 0,
+                opacity: isInView3 ? 1 : 0,
                 transition: "all 0.5s cubic-bezier(0.17, 0.55, 0.55, 1) 1s",
               }}
             >
@@ -111,17 +115,18 @@ function Landing() {
             <div
               className="content2Title"
               style={{
-                opacity: isInView2 ? 1 : 0,
+                opacity: isInView3 ? 1 : 0,
                 transition: "all 0.5s cubic-bezier(0.17, 0.55, 0.55, 1) 1s",
               }}
             >
               <span className="border-t border-neutral-300">Tensión</span>
             </div>
             <div
+              ref={ref4}
               className="content3"
               style={{
-                transform: isInView2 ? "none" : "translateY(60px)",
-                opacity: isInView2 ? 1 : 0,
+                transform: isInView4 ? "none" : "translateY(60px)",
+                opacity: isInView4 ? 1 : 0,
                 transition: "all 1s cubic-bezier(0.17, 0.55, 0.55, 1)",
               }}
             >
@@ -130,7 +135,7 @@ function Landing() {
             <div
               className="content3Title"
               style={{
-                opacity: isInView2 ? 1 : 0,
+                opacity: isInView3 ? 1 : 0,
                 transition: "all 0.5s cubic-bezier(0.17, 0.55, 0.55, 1) 1s",
               }}
             >
@@ -149,17 +154,18 @@ function Landing() {
             <div
               className="content4Title"
               style={{
-                opacity: isInView2 ? 1 : 0,
+                opacity: isInView3 ? 1 : 0,
                 transition: "all 0.5s cubic-bezier(0.17, 0.55, 0.55, 1) 1s",
               }}
             >
               <span className="border-t border-neutral-300">Blo questions</span>
             </div>
             <div
+              ref={ref3}
               className="content5"
               style={{
-                transform: isInView2 ? "none" : "translateX(-60px)",
-                opacity: isInView2 ? 1 : 0,
+                transform: isInView3 ? "none" : "translateX(-60px)",
+                opacity: isInView3 ? 1 : 0,
                 transition: "all 1s cubic-bezier(0.17, 0.55, 0.55, 1)",
               }}
             >
@@ -168,8 +174,8 @@ function Landing() {
             <div
               className="content6"
               style={{
-                transform: isInView2 ? "none" : "translateX(60px)",
-                opacity: isInView2 ? 1 : 0,
+                transform: isInView3 ? "none" : "translateX(60px)",
+                opacity: isInView3 ? 1 : 0,
                 transition: "all 1s cubic-bezier(0.17, 0.55, 0.55, 1)",
               }}
             >
@@ -178,7 +184,7 @@ function Landing() {
             <div
               className="content5-6Title"
               style={{
-                opacity: isInView2 ? 1 : 0,
+                opacity: isInView3 ? 1 : 0,
                 transition: "all 0.5s cubic-bezier(0.17, 0.55, 0.55, 1) 1s",
               }}
             >
