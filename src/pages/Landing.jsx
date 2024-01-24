@@ -1,28 +1,25 @@
-import { useEffect, useRef, useState } from "react"
-import MainNavigation from "../components/MainNavigation"
-import { useParallax } from "react-scroll-parallax"
-import { useInView, motion } from "framer-motion"
+import { useEffect, useRef, useState } from "react";
+import MainNavigation from "../components/MainNavigation";
+import { useParallax } from "react-scroll-parallax";
+import { useInView, motion } from "framer-motion";
 
 function Landing() {
-  const [showMenu, setShowMenu] = useState(false)
+  const [showMenu, setShowMenu] = useState(false);
   const parallax = useParallax({
     speed: -200,
-  })
-  const ref = useRef(null)
-  const isInView = useInView(ref, { once: true })
+  });
+  const ref = useRef(null);
+  const isInView = useInView(ref, { once: true });
 
   useEffect(() => {
     setTimeout(() => {
-      setShowMenu(true)
-    }, 2500)
-  }, [])
+      setShowMenu(true);
+    }, 2500);
+  }, []);
   return (
     <>
       {showMenu && <MainNavigation />}
-      <div
-        ref={parallax.ref}
-        className="wrapper"
-      >
+      <div ref={parallax.ref} className="wrapper">
         <div className="background" />
         <div className="blur" />
         {showMenu && (
@@ -58,10 +55,7 @@ function Landing() {
           </motion.button>
         )}
       </div>
-      <section
-        id="scroll"
-        className="mt-[100dvh] flex justify-start z-[-1]"
-      >
+      <section id="scroll" className="mt-[100dvh] flex justify-start z-[-1]">
         <div className="bg-white w-screen z-10 pt-[4rem] h-screen landscape:h-full">
           {/* <h1
             ref={ref}
@@ -74,19 +68,12 @@ function Landing() {
           >
             New section
           </h1> */}
-          <div
-            ref={ref}
-            className="square lg:hidden"
-            style={{
-              opacity: isInView ? 1 : 0,
-              transition: "all 0.9s cubic-bezier(0.17, 0.55, 0.55, 1) 0.5s",
-            }}
-          >
+          <div ref={ref} className="square lg:hidden">
             <div
               className="content1"
               style={{
                 transform: isInView ? "none" : "translateX(-60px)",
-                transition: "all 1s cubic-bezier(0.17, 0.55, 0.55, 1) 0.5s",
+                transition: "all 1s cubic-bezier(0.17, 0.55, 0.55, 1)",
               }}
             >
               <img src="/Entorno bloqueador 50x50cm-compressed.jpg" />
@@ -95,7 +82,7 @@ function Landing() {
               className="content1Title"
               style={{
                 opacity: isInView ? 1 : 0,
-                transition: "all 0.5s cubic-bezier(0.17, 0.55, 0.55, 1) 1.5s",
+                transition: "all 0.5s cubic-bezier(0.17, 0.55, 0.55, 1) 1s",
               }}
             >
               <span className="border-t border-neutral-300">
@@ -106,7 +93,7 @@ function Landing() {
               className="content2"
               style={{
                 transform: isInView ? "none" : "translateY(-60px)",
-                transition: "all 1s cubic-bezier(0.17, 0.55, 0.55, 1) 0.5s",
+                transition: "all 1s cubic-bezier(0.17, 0.55, 0.55, 1)",
               }}
             >
               <img src="/tensión 50x50 cm-compressed.jpg" />
@@ -115,7 +102,7 @@ function Landing() {
               className="content2Title"
               style={{
                 opacity: isInView ? 1 : 0,
-                transition: "all 0.5s cubic-bezier(0.17, 0.55, 0.55, 1) 1.5s",
+                transition: "all 0.5s cubic-bezier(0.17, 0.55, 0.55, 1) 1s",
               }}
             >
               <span className="border-t border-neutral-300">Tensión</span>
@@ -124,7 +111,7 @@ function Landing() {
               className="content3"
               style={{
                 transform: isInView ? "none" : "translateY(60px)",
-                transition: "all 1s cubic-bezier(0.17, 0.55, 0.55, 1) 0.5s",
+                transition: "all 1s cubic-bezier(0.17, 0.55, 0.55, 1)",
               }}
             >
               <img src="/Futuro bloque 120x194cm-compressed.jpg" />
@@ -133,7 +120,7 @@ function Landing() {
               className="content3Title"
               style={{
                 opacity: isInView ? 1 : 0,
-                transition: "all 0.5s cubic-bezier(0.17, 0.55, 0.55, 1) 1.5s",
+                transition: "all 0.5s cubic-bezier(0.17, 0.55, 0.55, 1) 1s",
               }}
             >
               <span className="border-t border-neutral-300">Futuro bloque</span>
@@ -145,7 +132,7 @@ function Landing() {
               className="content4Title"
               style={{
                 opacity: isInView ? 1 : 0,
-                transition: "all 0.5s cubic-bezier(0.17, 0.55, 0.55, 1) 1.5s",
+                transition: "all 0.5s cubic-bezier(0.17, 0.55, 0.55, 1) 1s",
               }}
             >
               <span className="border-t border-neutral-300">Blo questions</span>
@@ -154,7 +141,7 @@ function Landing() {
               className="content5"
               style={{
                 transform: isInView ? "none" : "translateX(-60px)",
-                transition: "all 1s cubic-bezier(0.17, 0.55, 0.55, 1) 0.5s",
+                transition: "all 1s cubic-bezier(0.17, 0.55, 0.55, 1)",
               }}
             >
               <img src="/20200608_202759.gif" />
@@ -163,7 +150,7 @@ function Landing() {
               className="content6"
               style={{
                 transform: isInView ? "none" : "translateX(60px)",
-                transition: "all 1s cubic-bezier(0.17, 0.55, 0.55, 1) 0.5s",
+                transition: "all 1s cubic-bezier(0.17, 0.55, 0.55, 1)",
               }}
             >
               <img src="/20200608_202759.gif" />
@@ -172,7 +159,7 @@ function Landing() {
               className="content5-6Title"
               style={{
                 opacity: isInView ? 1 : 0,
-                transition: "all 0.5s cubic-bezier(0.17, 0.55, 0.55, 1) 1.5s",
+                transition: "all 0.5s cubic-bezier(0.17, 0.55, 0.55, 1) 1s",
               }}
             >
               <span className="border-t border-neutral-300">Te bloqueo</span>
@@ -188,6 +175,6 @@ function Landing() {
         </div> 
       </main> */}
     </>
-  )
+  );
 }
-export default Landing
+export default Landing;
