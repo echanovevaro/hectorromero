@@ -8,8 +8,10 @@ function Landing() {
   const parallax = useParallax({
     speed: -200,
   });
-  const ref = useRef(null);
-  const isInView = useInView(ref, { once: true });
+  const ref1 = useRef(null);
+  const isInView1 = useInView(ref1, { once: true });
+  const ref2 = useRef(null);
+  const isInView2 = useInView(ref2, { once: true });
 
   useEffect(() => {
     const timeout = setTimeout(() => {
@@ -75,11 +77,11 @@ function Landing() {
           </h1> */}
           <div className="square lg:hidden">
             <div
-              ref={ref}
+              ref={ref1}
               className="content1"
               style={{
-                transform: isInView ? "none" : "translateX(-60px)",
-                opacity: isInView ? 1 : 0,
+                transform: isInView1 ? "none" : "translateX(-60px)",
+                opacity: isInView1 ? 1 : 0,
                 transition: "all 1s cubic-bezier(0.17, 0.55, 0.55, 1)",
               }}
             >
@@ -88,7 +90,7 @@ function Landing() {
             <div
               className="content1Title"
               style={{
-                opacity: isInView ? 1 : 0,
+                opacity: isInView2 ? 1 : 0,
                 transition: "all 0.5s cubic-bezier(0.17, 0.55, 0.55, 1) 1s",
               }}
             >
@@ -98,9 +100,10 @@ function Landing() {
             </div>
             <div
               className="content2"
+              ref={ref1}
               style={{
-                transform: isInView ? "none" : "translateY(-60px)",
-                opacity: isInView ? 1 : 0,
+                transform: isInView2 ? "none" : "translateY(-60px)",
+                opacity: isInView2 ? 1 : 0,
                 transition: "all 1s cubic-bezier(0.17, 0.55, 0.55, 1)",
               }}
             >
@@ -109,7 +112,7 @@ function Landing() {
             <div
               className="content2Title"
               style={{
-                opacity: isInView ? 1 : 0,
+                opacity: isInView2 ? 1 : 0,
                 transition: "all 0.5s cubic-bezier(0.17, 0.55, 0.55, 1) 1s",
               }}
             >
@@ -118,8 +121,8 @@ function Landing() {
             <div
               className="content3"
               style={{
-                transform: isInView ? "none" : "translateY(60px)",
-                opacity: isInView ? 1 : 0,
+                transform: isInView2 ? "none" : "translateY(60px)",
+                opacity: isInView2 ? 1 : 0,
                 transition: "all 1s cubic-bezier(0.17, 0.55, 0.55, 1)",
               }}
             >
@@ -128,7 +131,7 @@ function Landing() {
             <div
               className="content3Title"
               style={{
-                opacity: isInView ? 1 : 0,
+                opacity: isInView2 ? 1 : 0,
                 transition: "all 0.5s cubic-bezier(0.17, 0.55, 0.55, 1) 1s",
               }}
             >
@@ -137,7 +140,7 @@ function Landing() {
             <div
               className="content4"
               style={{
-                opacity: isInView ? 1 : 0,
+                opacity: isInView2 ? 1 : 0,
                 transition: "all 1s cubic-bezier(0.17, 0.55, 0.55, 1)",
               }}
             >
@@ -146,7 +149,7 @@ function Landing() {
             <div
               className="content4Title"
               style={{
-                opacity: isInView ? 1 : 0,
+                opacity: isInView2 ? 1 : 0,
                 transition: "all 0.5s cubic-bezier(0.17, 0.55, 0.55, 1) 1s",
               }}
             >
@@ -155,8 +158,8 @@ function Landing() {
             <div
               className="content5"
               style={{
-                transform: isInView ? "none" : "translateX(-60px)",
-                opacity: isInView ? 1 : 0,
+                transform: isInView2 ? "none" : "translateX(-60px)",
+                opacity: isInView2 ? 1 : 0,
                 transition: "all 1s cubic-bezier(0.17, 0.55, 0.55, 1)",
               }}
             >
@@ -165,8 +168,8 @@ function Landing() {
             <div
               className="content6"
               style={{
-                transform: isInView ? "none" : "translateX(60px)",
-                opacity: isInView ? 1 : 0,
+                transform: isInView2 ? "none" : "translateX(60px)",
+                opacity: isInView2 ? 1 : 0,
                 transition: "all 1s cubic-bezier(0.17, 0.55, 0.55, 1)",
               }}
             >
@@ -175,7 +178,7 @@ function Landing() {
             <div
               className="content5-6Title"
               style={{
-                opacity: isInView ? 1 : 0,
+                opacity: isInView2 ? 1 : 0,
                 transition: "all 0.5s cubic-bezier(0.17, 0.55, 0.55, 1) 1s",
               }}
             >
