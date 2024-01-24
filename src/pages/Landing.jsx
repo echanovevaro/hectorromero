@@ -1,25 +1,28 @@
-import { useEffect, useRef, useState } from "react";
-import MainNavigation from "../components/MainNavigation";
-import { useParallax } from "react-scroll-parallax";
-import { useInView, motion } from "framer-motion";
+import { useEffect, useRef, useState } from "react"
+import MainNavigation from "../components/MainNavigation"
+import { useParallax } from "react-scroll-parallax"
+import { useInView, motion } from "framer-motion"
 
 function Landing() {
-  const [showMenu, setShowMenu] = useState(false);
+  const [showMenu, setShowMenu] = useState(false)
   const parallax = useParallax({
     speed: -200,
-  });
-  const ref = useRef(null);
-  const isInView = useInView(ref);
+  })
+  const ref = useRef(null)
+  const isInView = useInView(ref)
 
   useEffect(() => {
     setTimeout(() => {
-      setShowMenu(true);
-    }, 2500);
-  }, []);
+      setShowMenu(true)
+    }, 2500)
+  }, [])
   return (
     <>
       {showMenu && <MainNavigation />}
-      <div ref={parallax.ref} className="wrapper">
+      <div
+        ref={parallax.ref}
+        className="wrapper"
+      >
         <div className="background" />
         <div className="blur" />
         {showMenu && (
@@ -55,11 +58,14 @@ function Landing() {
           </motion.button>
         )}
       </div>
-      <section id="scroll" className="mt-[100dvh] flex justify-start z-[-1]">
-        <div className="bg-white w-screen z-10 p-[3rem] pt-[4rem]">
-          <h1
+      <section
+        id="scroll"
+        className="mt-[100dvh] flex justify-start z-[-1]"
+      >
+        <div className="bg-white w-screen z-10 pt-[4rem] h-screen">
+          {/* <h1
             ref={ref}
-            className="uppercase mt-10"
+            className="uppercase mt-10 px-[3rem] "
             style={{
               transform: isInView ? "none" : "translateX(-60px)",
               opacity: isInView ? 1 : 0,
@@ -67,7 +73,60 @@ function Landing() {
             }}
           >
             New section
-          </h1>
+          </h1> */}
+          <div
+            ref={ref}
+            className="square lg:hidden"
+            style={{
+              transform: isInView ? "none" : "translateX(-60px)",
+              opacity: isInView ? 1 : 0,
+              transition: "all 0.9s cubic-bezier(0.17, 0.55, 0.55, 1) 0.5s",
+            }}
+          >
+            <div className="content1">
+              <img src="/Entorno bloqueador 50x50cm-compressed.jpg" />
+            </div>
+            <div className="content1Title">
+              <span className="border-t border-neutral-300 text-[0.5rem]">
+                Entorno bloqueador
+              </span>
+            </div>
+            <div className="content2">
+              <img src="/tensión 50x50 cm-compressed.jpg" />
+            </div>
+            <div className="content2Title">
+              <span className="border-t border-neutral-300 text-[0.5rem]">
+                Tensión
+              </span>
+            </div>
+            <div className="content3">
+              <img src="/Futuro bloque 120x194cm-compressed.jpg" />
+            </div>
+            <div className="content3Title">
+              <span className="border-t border-neutral-300 text-[0.5rem]">
+                Futuro bloque
+              </span>
+            </div>
+            <div className="content4">
+              <img src="/Blo questions 39x43 cm-compressed.jpg" />
+            </div>
+            <div className="content4Title">
+              <span className="border-t border-neutral-300 text-[0.5rem]">
+                Blo questions
+              </span>
+            </div>
+            <div className="content5">
+              <img src="/20200608_202759.gif" />
+            </div>
+            <div className="content6">
+              <img src="/20200608_202759.gif" />
+            </div>
+            <div className="content5-6Title">
+              <span className="border-t border-neutral-300 text-[0.5rem]">
+                Te bloqueo
+              </span>
+            </div>
+          </div>
         </div>
       </section>
       {/* <main className="text-white fixed bottom-0 right-0 left-0 top-0 z-[-1]">
@@ -78,6 +137,6 @@ function Landing() {
         </div> 
       </main> */}
     </>
-  );
+  )
 }
-export default Landing;
+export default Landing

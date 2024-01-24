@@ -21,10 +21,6 @@
   }
 }
 
-body {
-  min-height: 100dvh;
-}
-
 @keyframes zoom {
   0% {
     transform: scale(4) rotate(-64deg);
@@ -146,7 +142,7 @@ body {
 }
 
 .backdrop {
-  height: 100vh;
+  height: 100dvh;
   width: 100%;
   background: rgba(0, 0, 0, 0.5);
   position: fixed;
@@ -210,4 +206,106 @@ nav li {
 
 #burguer.open div:nth-child(3) {
   transform: rotate(-42deg);
+}
+
+.square {
+  padding: 1rem;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-template-rows: repeat(5, 1fr);
+  gap: 0.4rem;
+}
+
+
+.square img {
+  filter: grayscale(100%);
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.square img:hover {
+  filter: grayscale(0%);
+}
+
+
+.content1 {
+  grid-row: 1 / 3;
+  grid-column: 1 / 3;
+}
+
+.content1Title {
+  grid-row: 1 / 2;
+  grid-column: 3 / 5;
+  position: relative;
+}
+
+.content2Title {
+  grid-row: 2 / 3;
+  grid-column: 4 / 5;
+  position: relative;
+}
+
+.content3Title {
+  grid-row: 3 / 4;
+  grid-column: 1 / 2;
+  position: relative;
+}
+
+.content4Title {
+  grid-row: 4 / 5;
+  grid-column: 2 / 3;
+  position: relative;
+}
+
+.content5-6Title {
+  grid-row: -1 / -2;
+  grid-column: -1 / -2;
+  position: relative;
+}
+
+.content3Title span,
+.content4Title span {
+  left: auto !important;
+  right: 0 !important;
+}
+
+.square span {
+  position: absolute;
+  top: 0;
+  left: 0;
+  line-height: 0.8rem;
+}
+
+.content2 {
+  grid-row: 2/3;
+  grid-column: 3/ 4;
+}
+
+.content3 {
+  grid-row: 3/4;
+  grid-column: 2/ 3;
+}
+
+.content4 {
+  grid-row: 3/5;
+  grid-column: 3/5;
+}
+
+.content5 {
+  grid-column: 2/3;
+  grid-row: 5/6;
+}
+
+.content6 {
+  grid-column: 3/4;
+  grid-row: 5/6;
+}
+
+.content5 img {
+  object-position: left;
+}
+
+.content6 img {
+  object-position: right;
 }
