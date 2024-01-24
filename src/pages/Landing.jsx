@@ -30,11 +30,7 @@ function Landing() {
               transition: { duration: 1 },
             }}
             whileTap={{ scale: 0.95 }}
-            onClick={() =>
-              document
-                .getElementById("scroll")
-                .scrollIntoView({ behavior: "smooth" })
-            }
+            onClick={() => document.getElementById("scroll").scrollIntoView()}
             className="w-screen h-full flex justify-center items-end pb-[2rem] gap-1 text-white z-[500] text-xl"
           >
             <span className="z-[500]">scroll</span>
@@ -74,7 +70,7 @@ function Landing() {
               style={{
                 transform: isInView ? "none" : "translateX(-60px)",
                 opacity: isInView ? 1 : 0,
-                transition: "all 1s cubic-bezier(0.17, 0.55, 0.55, 1) 1s",
+                transition: "all 1s cubic-bezier(0.17, 0.55, 0.55, 1) 0.5s",
               }}
             >
               <img src="/Entorno bloqueador 50x50cm-compressed.jpg" />
@@ -83,7 +79,7 @@ function Landing() {
               className="content1Title"
               style={{
                 opacity: isInView ? 1 : 0,
-                transition: "all 0.5s cubic-bezier(0.17, 0.55, 0.55, 1) 2s",
+                transition: "all 0.5s cubic-bezier(0.17, 0.55, 0.55, 1) 1.5s",
               }}
             >
               <span className="border-t border-neutral-300">
@@ -95,7 +91,7 @@ function Landing() {
               style={{
                 transform: isInView ? "none" : "translateY(-60px)",
                 opacity: isInView ? 1 : 0,
-                transition: "all 1s cubic-bezier(0.17, 0.55, 0.55, 1) 1s",
+                transition: "all 1s cubic-bezier(0.17, 0.55, 0.55, 1) 0.5s",
               }}
             >
               <img src="/tensión 50x50 cm-compressed.jpg" />
@@ -104,7 +100,7 @@ function Landing() {
               className="content2Title"
               style={{
                 opacity: isInView ? 1 : 0,
-                transition: "all 0.5s cubic-bezier(0.17, 0.55, 0.55, 1) 2s",
+                transition: "all 0.5s cubic-bezier(0.17, 0.55, 0.55, 1) 1.5s",
               }}
             >
               <span className="border-t border-neutral-300">Tensión</span>
@@ -114,7 +110,7 @@ function Landing() {
               style={{
                 transform: isInView ? "none" : "translateY(60px)",
                 opacity: isInView ? 1 : 0,
-                transition: "all 1s cubic-bezier(0.17, 0.55, 0.55, 1) 1s",
+                transition: "all 1s cubic-bezier(0.17, 0.55, 0.55, 1) 0.5s",
               }}
             >
               <img src="/Futuro bloque 120x194cm-compressed.jpg" />
@@ -123,7 +119,7 @@ function Landing() {
               className="content3Title"
               style={{
                 opacity: isInView ? 1 : 0,
-                transition: "all 0.5s cubic-bezier(0.17, 0.55, 0.55, 1) 2s",
+                transition: "all 0.5s cubic-bezier(0.17, 0.55, 0.55, 1) 1.5s",
               }}
             >
               <span className="border-t border-neutral-300">Futuro bloque</span>
@@ -135,7 +131,7 @@ function Landing() {
               className="content4Title"
               style={{
                 opacity: isInView ? 1 : 0,
-                transition: "all 0.5s cubic-bezier(0.17, 0.55, 0.55, 1) 2s",
+                transition: "all 0.5s cubic-bezier(0.17, 0.55, 0.55, 1) 1.5s",
               }}
             >
               <span className="border-t border-neutral-300">Blo questions</span>
@@ -145,7 +141,7 @@ function Landing() {
               style={{
                 transform: isInView ? "none" : "translateX(-60px)",
                 opacity: isInView ? 1 : 0,
-                transition: "all 1s cubic-bezier(0.17, 0.55, 0.55, 1) 1s",
+                transition: "all 1s cubic-bezier(0.17, 0.55, 0.55, 1) 0.5s",
               }}
             >
               <img src="/20200608_202759.gif" />
@@ -155,7 +151,7 @@ function Landing() {
               style={{
                 transform: isInView ? "none" : "translateX(60px)",
                 opacity: isInView ? 1 : 0,
-                transition: "all 1s cubic-bezier(0.17, 0.55, 0.55, 1) 1s",
+                transition: "all 1s cubic-bezier(0.17, 0.55, 0.55, 1) 0.5s",
               }}
             >
               <img src="/20200608_202759.gif" />
@@ -164,7 +160,7 @@ function Landing() {
               className="content5-6Title"
               style={{
                 opacity: isInView ? 1 : 0,
-                transition: "all 0.5s cubic-bezier(0.17, 0.55, 0.55, 1) 2s",
+                transition: "all 0.5s cubic-bezier(0.17, 0.55, 0.55, 1) 1.5s",
               }}
             >
               <span className="border-t border-neutral-300">Te bloqueo</span>
