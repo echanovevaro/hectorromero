@@ -8,14 +8,6 @@ function Landing() {
   const parallax = useParallax({
     speed: -200,
   });
-  const ref1 = useRef(null);
-  const isInView1 = useInView(ref1, { once: true });
-  const ref2 = useRef(null);
-  const isInView2 = useInView(ref2, { once: true });
-  const ref3 = useRef(null);
-  const isInView3 = useInView(ref3, { once: true });
-  const ref4 = useRef(null);
-  const isInView4 = useInView(ref4, { once: true });
 
   useEffect(() => {
     const timeout = setTimeout(() => {
@@ -80,114 +72,39 @@ function Landing() {
             New section
           </h1> */}
           <div className="square lg:hidden">
-            <div
-              ref={ref1}
-              className="content1"
-              style={{
-                transform: isInView1 ? "none" : "translateX(-60px)",
-                opacity: isInView1 ? 1 : 0,
-                transition: "all 1s cubic-bezier(0.17, 0.55, 0.55, 1)",
-              }}
-            >
+            <div className="content1">
               <img src="/Entorno bloqueador 50x50cm-compressed.jpg" />
             </div>
-            <div
-              className="content1Title"
-              style={{
-                opacity: isInView4 ? 1 : 0,
-                transition: "all 0.5s cubic-bezier(0.17, 0.55, 0.55, 1) 1s",
-              }}
-            >
+            <div className="content1Title">
               <span className="border-t border-neutral-300">
                 Entorno bloqueador
               </span>
             </div>
-            <div
-              className="content2"
-              ref={ref2}
-              style={{
-                transform: isInView2 ? "none" : "translateY(-60px)",
-                opacity: isInView2 ? 1 : 0,
-                transition: "all 1s cubic-bezier(0.17, 0.55, 0.55, 1)",
-              }}
-            >
+            <div className="content2">
               <img src="/tensión 50x50 cm-compressed.jpg" />
             </div>
-            <div
-              className="content2Title"
-              style={{
-                opacity: isInView4 ? 1 : 0,
-                transition: "all 0.5s cubic-bezier(0.17, 0.55, 0.55, 1) 1s",
-              }}
-            >
+            <div className="content2Title">
               <span className="border-t border-neutral-300">Tensión</span>
             </div>
-            <div
-              ref={ref3}
-              className="content3"
-              style={{
-                transform: isInView3 ? "none" : "translateY(60px)",
-                opacity: isInView3 ? 1 : 0,
-                transition: "all 1s cubic-bezier(0.17, 0.55, 0.55, 1)",
-              }}
-            >
+            <div className="content3">
               <img src="/Futuro bloque 120x194cm-compressed.jpg" />
             </div>
-            <div
-              className="content3Title"
-              style={{
-                opacity: isInView4 ? 1 : 0,
-                transition: "all 0.5s cubic-bezier(0.17, 0.55, 0.55, 1) 1s",
-              }}
-            >
+            <div className="content3Title">
               <span className="border-t border-neutral-300">Futuro bloque</span>
             </div>
-            <div
-              className="content4"
-              style={{
-                opacity: isInView4 ? 1 : 0,
-                transition: "all 1s cubic-bezier(0.17, 0.55, 0.55, 1)",
-              }}
-            >
+            <div className="content4">
               <img src="/Blo questions 39x43 cm-compressed.jpg" />
             </div>
-            <div
-              className="content4Title"
-              style={{
-                opacity: isInView4 ? 1 : 0,
-                transition: "all 0.5s cubic-bezier(0.17, 0.55, 0.55, 1) 1s",
-              }}
-            >
+            <div className="content4Title">
               <span className="border-t border-neutral-300">Blo questions</span>
             </div>
-            <div
-              ref={ref4}
-              className="content5"
-              style={{
-                transform: isInView4 ? "none" : "translateX(-60px)",
-                opacity: isInView4 ? 1 : 0,
-                transition: "all 1s cubic-bezier(0.17, 0.55, 0.55, 1)",
-              }}
-            >
+            <div className="content5">
               <img src="/20200608_202759.gif" />
             </div>
-            <div
-              className="content6"
-              style={{
-                transform: isInView4 ? "none" : "translateX(60px)",
-                opacity: isInView4 ? 1 : 0,
-                transition: "all 1s cubic-bezier(0.17, 0.55, 0.55, 1)",
-              }}
-            >
+            <div className="content6">
               <img src="/20200608_202759.gif" />
             </div>
-            <div
-              className="content5-6Title"
-              style={{
-                opacity: isInView4 ? 1 : 0,
-                transition: "all 0.5s cubic-bezier(0.17, 0.55, 0.55, 1) 1s",
-              }}
-            >
+            <div className="content5-6Title">
               <span className="border-t border-neutral-300">Te bloqueo</span>
             </div>
           </div>
