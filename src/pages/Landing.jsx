@@ -100,7 +100,7 @@ function Landing() {
             </div>
             <div
               className="content2"
-              ref={ref1}
+              ref={ref2}
               style={{
                 transform: isInView2 ? "none" : "translateY(-60px)",
                 opacity: isInView2 ? 1 : 0,
