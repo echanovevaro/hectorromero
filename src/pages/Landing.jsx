@@ -100,10 +100,9 @@ function Landing() {
             </div>
             <div
               className="content2"
-              ref={ref2}
               style={{
-                transform: isInView2 ? "none" : "translateY(-60px)",
-                opacity: isInView2 ? 1 : 0,
+                transform: isInView1 ? "none" : "translateY(-60px)",
+                opacity: isInView1 ? 1 : 0,
                 transition: "all 1s cubic-bezier(0.17, 0.55, 0.55, 1)",
               }}
             >
@@ -139,6 +138,7 @@ function Landing() {
             </div>
             <div
               className="content4"
+              ref={ref2}
               style={{
                 opacity: isInView2 ? 1 : 0,
                 transition: "all 1s cubic-bezier(0.17, 0.55, 0.55, 1)",
