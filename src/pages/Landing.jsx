@@ -37,7 +37,7 @@ function Landing() {
             }}
             whileTap={{ scale: 0.95 }}
             onClick={() =>
-              ref.current?.scrollIntoView({
+              document.getElementById("scroll").scrollIntoView({
                 block: "start",
                 behavior: "smooth",
               })
