@@ -73,8 +73,9 @@ function Landing() {
           >
             New section
           </h1> */}
-          <div ref={ref} className="square lg:hidden">
+          <div className="square lg:hidden">
             <div
+              ref={ref}
               className="content1"
               style={{
                 transform: isInView ? "none" : "translateX(-60px)",
