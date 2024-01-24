@@ -5,9 +5,9 @@ import { useInView, motion } from "framer-motion";
 
 function Landing() {
   const [showMenu, setShowMenu] = useState(false);
-  const parallax = useParallax({
-    speed: -200,
-  });
+  // const parallax = useParallax({
+  //   speed: -200,
+  // });
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true });
 
@@ -19,7 +19,7 @@ function Landing() {
   return (
     <>
       {showMenu && <MainNavigation />}
-      <div ref={parallax.ref} className="wrapper">
+      <div className="wrapper">
         <div className="background" />
         <div className="blur" />
         {showMenu && (
