@@ -86,7 +86,10 @@ function Landing() {
                 transition: "all 1s cubic-bezier(0.17, 0.55, 0.55, 1)",
               }}
             >
-              <LazyLoadImage src="/Entorno bloqueador 50x50cm-compressed.jpg" />
+              <LazyLoadImage
+                src="/Entorno bloqueador 50x50cm-compressed.jpg"
+                effect="opacity"
+              />
             </div>
             <div
               className="content1Title"
@@ -107,7 +110,10 @@ function Landing() {
                 transition: "all 1s cubic-bezier(0.17, 0.55, 0.55, 1)",
               }}
             >
-              <LazyLoadImage src="/tensión 50x50 cm-compressed.jpg" />
+              <LazyLoadImage
+                src="/tensión 50x50 cm-compressed.jpg"
+                effect="opacity"
+              />
             </div>
             <div
               className="content2Title"
@@ -126,7 +132,10 @@ function Landing() {
                 transition: "all 1s cubic-bezier(0.17, 0.55, 0.55, 1)",
               }}
             >
-              <LazyLoadImage src="/Futuro bloque 120x194cm-compressed.jpg" />
+              <LazyLoadImage
+                src="/Futuro bloque 120x194cm-compressed.jpg"
+                effect="opacity"
+              />
             </div>
             <div
               className="content3Title"
@@ -144,7 +153,10 @@ function Landing() {
                 transition: "all 1s cubic-bezier(0.17, 0.55, 0.55, 1)",
               }}
             >
-              <LazyLoadImage src="/Blo questions 39x43 cm-compressed.jpg" />
+              <LazyLoadImage
+                src="/Blo questions 39x43 cm-compressed.jpg"
+                effect="opacity"
+              />
             </div>
             <div
               className="content4Title"
@@ -163,7 +175,7 @@ function Landing() {
                 transition: "all 1s cubic-bezier(0.17, 0.55, 0.55, 1)",
               }}
             >
-              <LazyLoadImage src="/20200608_202759.gif" />
+              <LazyLoadImage src="/20200608_202759.gif" effect="opacity" />
             </div>
             <div
               className="content6"
@@ -173,7 +185,7 @@ function Landing() {
                 transition: "all 1s cubic-bezier(0.17, 0.55, 0.55, 1)",
               }}
             >
-              <LazyLoadImage src="/20200608_202759.gif" />
+              <LazyLoadImage src="/20200608_202759.gif" effect="opacity" />
             </div>
             <div
               className="content5-6Title"
