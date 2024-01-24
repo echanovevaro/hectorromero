@@ -30,7 +30,11 @@ function Landing() {
               transition: { duration: 1 },
             }}
             whileTap={{ scale: 0.95 }}
-            onClick={() => document.getElementById("scroll").scrollIntoView()}
+            onClick={() =>
+              document
+                .getElementById("scroll")
+                .scrollIntoView({ behavior: "smooth" })
+            }
             className="w-screen h-full flex justify-center items-end pb-[2rem] gap-1 text-white z-[500] text-xl"
           >
             <span className="z-[500]">scroll</span>
