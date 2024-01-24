@@ -12,9 +12,36 @@ function Landing() {
   const isInView = useInView(ref, { once: true });
 
   useEffect(() => {
-    setTimeout(() => {
+    const imgLoader = function (href) {
+      var link = document.createElement("link");
+      link.rel = "preload";
+      link.as = "image";
+      link.href = href;
+
+      const head = document.head;
+      document.head.appendChild(link);
+    };
+    [
+      "/26b-landscape.jpg",
+      "/26b.jpg",
+      "/20200608_202759.gif",
+      "/Blo questions 39x43 cm-compressed.jpg",
+      "Entorno bloqueador 50x50cm-compressed.jpg",
+      "/Futuro bloque 120x194cm-compressed.jpg",
+      "/Te bloqueo(57x28 cm)-compressed.jpg",
+      "/tensión 50x50 cm-compressed.jpg",
+    ].forEach((url) => imgLoader(url));
+    const timeout = setTimeout(() => {
       setShowMenu(true);
     }, 2500);
+
+    return () => {
+      clearTimeout(timeout);
+      const links = document.querySelector('link[rel="preload"]');
+      if (links && links.length > 0) {
+        links.forEach((el) => el.remove());
+      }
+    };
   }, []);
   return (
     <>

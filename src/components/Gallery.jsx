@@ -74,6 +74,13 @@ export default function Gallery({ coleccion }) {
     coleccion?.forEach((obra) => {
       imgLoader(obra);
     });
+
+    return () => {
+      const links = document.querySelector('link[rel="preload"]');
+      if (links && links.length > 0) {
+        links.forEach((el) => el.remove());
+      }
+    };
   }, [coleccion]);
 
   return (
