@@ -38,7 +38,7 @@ function Landing() {
                 .getElementById("scroll")
                 .scrollIntoView({ behavior: "smooth" })
             }
-            className="w-screen h-full flex justify-center items-end pb-28 gap-1 text-white z-[500] text-xl"
+            className="w-screen h-full flex justify-center items-end pb-[2rem] gap-1 text-white z-[500] text-xl"
           >
             <span className="z-[500]">scroll</span>
             <svg
@@ -62,7 +62,7 @@ function Landing() {
         id="scroll"
         className="mt-[100dvh] flex justify-start z-[-1]"
       >
-        <div className="bg-white w-screen z-10 pt-[4rem] h-screen">
+        <div className="bg-white w-screen z-10 pt-[4rem] h-screen landscape:h-full">
           {/* <h1
             ref={ref}
             className="uppercase mt-10 px-[3rem] "
