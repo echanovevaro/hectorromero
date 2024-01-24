@@ -38,7 +38,7 @@ function Landing() {
                 .getElementById("scroll")
                 .scrollIntoView({ behavior: "smooth" })
             }
-            className="w-screen h-full flex flex-col justify-end items-center pb-28 gap-1 text-white z-[500] text-xl"
+            className="w-screen h-full flex justify-center items-end pb-28 gap-1 text-white z-[500] text-xl"
           >
             <span className="z-[500]">scroll</span>
             <svg
@@ -52,7 +52,7 @@ function Landing() {
               <path
                 strokeLinecap="round"
                 strokeLinejoin="round"
-                d="m9 12.75 3 3m0 0 3-3m-3 3v-7.5M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z"
+                d="m19.5 8.25-7.5 7.5-7.5-7.5"
               />
             </svg>
           </motion.button>
