@@ -43,7 +43,7 @@ function Landing() {
                 behavior: "smooth",
               });
             }}
-            className="w-screen h-full flex justify-center items-end pb-[2rem] gap-1 text-white z-[500] text-xl"
+            className="w-screen h-full flex justify-center items-end pb-[2rem] gap-1 text-white z-[500] text-lg"
           >
             <span className="z-[500]">scroll</span>
             <svg
@@ -65,7 +65,9 @@ function Landing() {
       </div>
       <section id="scroll" className="mt-[100dvh] flex justify-start z-[-1]">
         <div className="bg-white w-screen z-10 pt-[4rem] landscape:h-full">
-          <h1 className="px-[3rem] mt-[2rem] font-light uppercase">obra</h1>
+          <h1 className="px-[3rem] mt-[2rem] font-light uppercase text-base">
+            obra
+          </h1>
           <ObraMenu />
         </div>
       </section>
