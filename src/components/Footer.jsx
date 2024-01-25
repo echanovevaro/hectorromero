@@ -1,6 +1,6 @@
 const Footer = () => {
   return (
-    <footer className="square-footer lg:hidden  text-xs border-t border-neutral-400">
+    <footer className="square-footer lg:hidden font-light text-xs border-t border-neutral-400">
       <div className="brand text-sm">
         <img src="/faviconweb.png" alt="hector romero" />
         {/* <h1 className="uppercase">Héctor Romero</h1> */}
