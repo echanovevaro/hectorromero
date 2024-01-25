@@ -108,7 +108,7 @@ const Footer = () => {
       </ul>
       <ul className="copy">
         <li className="text-base">CRÉDITOS</li>
-        <li>©hectorromero 2024.</li>
+        <li>©Héctor Romero 2024.</li>
         <li>
           web{" "}
           <a
