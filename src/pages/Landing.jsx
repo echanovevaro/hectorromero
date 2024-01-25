@@ -76,7 +76,7 @@ function Landing() {
           >
             New section
           </h1> */}
-          <div ref={ref} className="square lg:hidden text-sm">
+          <div ref={ref} className="square lg:hidden text-sm font-light">
             <div
               className="content1"
               style={{
@@ -94,7 +94,7 @@ function Landing() {
                 transition: "all 0.5s cubic-bezier(0.17, 0.55, 0.55, 1) 1s",
               }}
             >
-              <span className="border-t border-neutral-500">
+              <span className="border-t border-neutral-400">
                 Entorno bloqueador
               </span>
             </div>
@@ -115,7 +115,7 @@ function Landing() {
                 transition: "all 0.5s cubic-bezier(0.17, 0.55, 0.55, 1) 1s",
               }}
             >
-              <span className="border-t border-neutral-500">Tensión</span>
+              <span className="border-t border-neutral-400">Tensión</span>
             </div>
             <div
               className="content3"
@@ -134,7 +134,7 @@ function Landing() {
                 transition: "all 0.5s cubic-bezier(0.17, 0.55, 0.55, 1) 1s",
               }}
             >
-              <span className="border-t border-neutral-500">Futuro bloque</span>
+              <span className="border-t border-neutral-400">Futuro bloque</span>
             </div>
             <div
               className="content4"
@@ -152,7 +152,7 @@ function Landing() {
                 transition: "all 0.5s cubic-bezier(0.17, 0.55, 0.55, 1) 1s",
               }}
             >
-              <span className="border-t border-neutral-500">Blo questions</span>
+              <span className="border-t border-neutral-400">Blo questions</span>
             </div>
             <div
               className="content5"
@@ -181,7 +181,7 @@ function Landing() {
                 transition: "all 0.5s cubic-bezier(0.17, 0.55, 0.55, 1) 1s",
               }}
             >
-              <span className="border-t border-neutral-500">Te bloqueo</span>
+              <span className="border-t border-neutral-400">Te bloqueo</span>
             </div>
           </div>
         </div>

@@ -318,7 +318,7 @@ export default function Gallery({ coleccion }) {
             >
               <li
                 className={`h-1 w-1 rounded-full  ${
-                  counter == index ? "bg-gray-600" : "bg-gray-400"
+                  counter == index ? "bg-gray-500" : "bg-gray-300"
                 }`}
               />
             </button>
