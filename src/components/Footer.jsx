@@ -8,14 +8,14 @@ const Footer = () => {
       <ul className="legal">
         <li>
           <ul>
-            <li className="text-lg">LEGAL</li>
+            <li>LEGAL</li>
             <li>aviso legal</li>
           </ul>
         </li>
 
         <li>
           <ul>
-            <li className="text-lg">SÍGUEME</li>
+            <li>SÍGUEME</li>
             <li>
               <ul className="redes">
                 <li>
@@ -86,28 +86,28 @@ const Footer = () => {
         </li>
       </ul>
       <ul className="contacto">
-        <li className="text-lg">CONTACTO</li>
+        <li>CONTACTO</li>
         <li>(+34)645 97 90 39</li>
         <li>
           <a href="mailto:art@hectoromero.es">art@hectoromero.es</a>
         </li>
       </ul>
       <ul className="mapa">
-        <li className="text-lg">MAPA</li>
+        <li>MAPA</li>
         <li>obra</li>
         <li>exposiciones</li>
         <li>premios</li>
         <li>sobre mí</li>
       </ul>
-      <ul className="series">
-        <li className="text-lg">OBRA</li>
+      <ul>
+        <li>OBRA</li>
         <li>bloques</li>
         <li>wood</li>
         <li>iluminados</li>
         <li>wire</li>
       </ul>
       <ul className="copy">
-        <li className="text-lg">CRÉDITOS</li>
+        <li>CRÉDITOS</li>
         <li>©hectorromero 2024.</li>
         <li>
           web{" "}
