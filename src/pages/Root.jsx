@@ -1,21 +1,21 @@
-import { useLocation, useOutlet } from "react-router-dom"
-import MainNavigation from "../components/MainNavigation"
-import { AnimatePresence, motion } from "framer-motion"
-import { useState } from "react"
+import { useLocation, useOutlet } from "react-router-dom";
+import MainNavigation from "../components/MainNavigation";
+import { AnimatePresence, motion } from "framer-motion";
+import { useState } from "react";
 
 const AnimatedOutlet = () => {
-  const o = useOutlet()
-  const [outlet] = useState(o)
+  const o = useOutlet();
+  const [outlet] = useState(o);
 
-  return <>{outlet}</>
-}
+  return <>{outlet}</>;
+};
 
 function Root() {
-  const location = useLocation()
+  const location = useLocation();
   return (
     <AnimatePresence mode="wait">
       <motion.div
-        className="text-sm text-neutral-500"
+        className="text-sm text-neutral-500 bg-white"
         key={location.pathname}
         initial={{ opacity: 0 }}
         animate={{
@@ -28,7 +28,7 @@ function Root() {
         <AnimatedOutlet />
       </motion.div>
     </AnimatePresence>
-  )
+  );
 }
 
-export default Root
+export default Root;

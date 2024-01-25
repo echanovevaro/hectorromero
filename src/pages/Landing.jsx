@@ -2,14 +2,14 @@ import { useEffect, useRef, useState } from "react";
 import MainNavigation from "../components/MainNavigation";
 import { useParallax } from "react-scroll-parallax";
 import { useInView, motion } from "framer-motion";
+import ObraMenu from "../components/ObraMenu";
+import Footer from "../components/Footer";
 
 function Landing() {
   const [showMenu, setShowMenu] = useState(false);
   const parallax = useParallax({
     speed: -200,
   });
-  const ref = useRef(null);
-  const isInView = useInView(ref, { once: true });
 
   useEffect(() => {
     const timeout = setTimeout(() => {
@@ -43,7 +43,7 @@ function Landing() {
                 behavior: "smooth",
               });
             }}
-            className="w-screen h-full flex justify-center items-end pb-[2rem] gap-1 text-white z-[500] text-lg"
+            className="w-screen h-full flex justify-center items-end pb-[2rem] gap-1 text-white z-[500] text-xl"
           >
             <span className="z-[500]">scroll</span>
             <svg
@@ -64,135 +64,12 @@ function Landing() {
         )}
       </div>
       <section id="scroll" className="mt-[100dvh] flex justify-start z-[-1]">
-        <div className="bg-white w-screen z-10 pt-[4rem] h-screen landscape:h-full">
-          {/* <h1
-            ref={ref}
-            className="uppercase mt-10 px-[3rem] "
-            style={{
-              transform: isInView ? "none" : "translateX(-60px)",
-              opacity: isInView ? 1 : 0,
-              transition: "all 0.9s cubic-bezier(0.17, 0.55, 0.55, 1) 0.5s",
-            }}
-          >
-            New section
-          </h1> */}
-          <div ref={ref} className="square lg:hidden text-xs font-light">
-            <div
-              className="content1"
-              style={{
-                transform: isInView ? "none" : "translateX(-60px)",
-                opacity: isInView ? 1 : 0,
-                transition: "all 1s cubic-bezier(0.17, 0.55, 0.55, 1)",
-              }}
-            >
-              <img src="/Entorno bloqueador 50x50cm-compressed.jpg" />
-            </div>
-            <div
-              className="content1Title"
-              style={{
-                opacity: isInView ? 1 : 0,
-                transition: "all 0.5s cubic-bezier(0.17, 0.55, 0.55, 1) 1s",
-              }}
-            >
-              <span className="border-t border-neutral-400">
-                Entorno bloqueador
-              </span>
-            </div>
-            <div
-              className="content2"
-              style={{
-                transform: isInView ? "none" : "translateY(-60px)",
-                opacity: isInView ? 1 : 0,
-                transition: "all 1s cubic-bezier(0.17, 0.55, 0.55, 1)",
-              }}
-            >
-              <img src="/tensión 50x50 cm-compressed.jpg" />
-            </div>
-            <div
-              className="content2Title"
-              style={{
-                opacity: isInView ? 1 : 0,
-                transition: "all 0.5s cubic-bezier(0.17, 0.55, 0.55, 1) 1s",
-              }}
-            >
-              <span className="border-t border-neutral-400">Tensión</span>
-            </div>
-            <div
-              className="content3"
-              style={{
-                transform: isInView ? "none" : "translateY(60px)",
-                opacity: isInView ? 1 : 0,
-                transition: "all 1s cubic-bezier(0.17, 0.55, 0.55, 1)",
-              }}
-            >
-              <img src="/Futuro bloque 120x194cm-compressed.jpg" />
-            </div>
-            <div
-              className="content3Title"
-              style={{
-                opacity: isInView ? 1 : 0,
-                transition: "all 0.5s cubic-bezier(0.17, 0.55, 0.55, 1) 1s",
-              }}
-            >
-              <span className="border-t border-neutral-400">Futuro bloque</span>
-            </div>
-            <div
-              className="content4"
-              style={{
-                opacity: isInView ? 1 : 0,
-                transition: "all 1s cubic-bezier(0.17, 0.55, 0.55, 1)",
-              }}
-            >
-              <img src="/Blo questions 39x43 cm-compressed.jpg" />
-            </div>
-            <div
-              className="content4Title"
-              style={{
-                opacity: isInView ? 1 : 0,
-                transition: "all 0.5s cubic-bezier(0.17, 0.55, 0.55, 1) 1s",
-              }}
-            >
-              <span className="border-b border-neutral-400">Blo questions</span>
-            </div>
-            <div
-              className="content5"
-              style={{
-                transform: isInView ? "none" : "translateX(-60px)",
-                opacity: isInView ? 1 : 0,
-                transition: "all 1s cubic-bezier(0.17, 0.55, 0.55, 1)",
-              }}
-            >
-              <img src="/20200608_202759.gif" />
-            </div>
-            <div
-              className="content6"
-              style={{
-                transform: isInView ? "none" : "translateX(60px)",
-                opacity: isInView ? 1 : 0,
-                transition: "all 1s cubic-bezier(0.17, 0.55, 0.55, 1)",
-              }}
-            >
-              <img src="/20200608_202759.gif" />
-            </div>
-            <div
-              className="content5-6Title"
-              style={{
-                opacity: isInView ? 1 : 0,
-                transition: "all 0.5s cubic-bezier(0.17, 0.55, 0.55, 1) 1s",
-              }}
-            >
-              <span className="border-t border-neutral-400">Te bloqueo</span>
-            </div>
-          </div>
+        <div className="bg-white w-screen z-10 pt-[4rem] landscape:h-full">
+          <h1 className="px-[3rem] mt-[2rem] font-light uppercase">obra</h1>
+          <ObraMenu />
         </div>
       </section>
-      {/* <main className="text-white fixed bottom-0 right-0 left-0 top-0 z-[-1]">
-        <div className="flex h-5/6 justify-center items-end">
-          <h1 id="logo-landing" className="text-2xl font-light">
-            héctor romero
-          </h1>
-        </div> 
-      </main> */}
+      <Footer />
     </>
   );
 }
