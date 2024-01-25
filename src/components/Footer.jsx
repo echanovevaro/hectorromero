@@ -15,7 +15,7 @@ const Footer = () => {
 
         <li>
           <ul>
-            <li className="text-lg">SÍGUENOS</li>
+            <li className="text-lg">SÍGUEME</li>
             <li>
               <ul className="redes">
                 <li>
