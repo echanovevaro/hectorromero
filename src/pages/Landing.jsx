@@ -76,7 +76,7 @@ function Landing() {
           >
             New section
           </h1> */}
-          <div ref={ref} className="square lg:hidden text-sm font-light">
+          <div ref={ref} className="square lg:hidden text-xs">
             <div
               className="content1"
               style={{
@@ -152,7 +152,7 @@ function Landing() {
                 transition: "all 0.5s cubic-bezier(0.17, 0.55, 0.55, 1) 1s",
               }}
             >
-              <span className="border-t border-neutral-400">Blo questions</span>
+              <span className="border-b border-neutral-400">Blo questions</span>
             </div>
             <div
               className="content5"

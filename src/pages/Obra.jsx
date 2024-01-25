@@ -84,7 +84,7 @@ function Obra() {
             transition: "all 0.5s cubic-bezier(0.17, 0.55, 0.55, 1) 1s",
           }}
         >
-          <span className="border-t border-neutral-400">Blo questions</span>
+          <span className="border-b border-neutral-400">Blo questions</span>
         </div>
         <div
           className="content5"

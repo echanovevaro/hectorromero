@@ -264,11 +264,15 @@ nav li {
   right: 0 !important;
 }
 
+.content4Title span {
+  top: auto !important;
+  bottom: 0;
+}
+
 .square span {
   position: absolute;
   top: 0;
   left: 0;
-  line-height: 1rem;
 }
 
 .content2 {
