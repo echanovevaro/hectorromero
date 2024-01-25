@@ -108,7 +108,6 @@ const Footer = () => {
       </ul>
       <ul className="copy">
         <li className="text-base">CRÉDITOS</li>
-        <li>©Héctor Romero 2024.</li>
         <li>
           web{" "}
           <a
@@ -118,6 +117,7 @@ const Footer = () => {
             álvaro riaño
           </a>
         </li>
+        <li>©Héctor Romero 2024.</li>
       </ul>
     </footer>
   );
