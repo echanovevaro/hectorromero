@@ -8,7 +8,7 @@ function Obra() {
   return (
     <>
       <MainNavigation />
-      <div ref={ref} className="square mt-[5rem] lg:hidden text-xs">
+      <div ref={ref} className="square mt-[5rem] lg:hidden text-xs font-light">
         <div
           className="content1"
           style={{

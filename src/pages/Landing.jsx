@@ -76,7 +76,7 @@ function Landing() {
           >
             New section
           </h1> */}
-          <div ref={ref} className="square lg:hidden text-xs">
+          <div ref={ref} className="square lg:hidden text-xs font-light">
             <div
               className="content1"
               style={{
