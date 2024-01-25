@@ -309,7 +309,7 @@ export default function Gallery({ coleccion }) {
               );
           })}
         </div>
-        <ul className="flex items-center justify-center gap-2 mb-6 flex-wrap w-[75vw]">
+        <ul className="flex items-center justify-center gap-3 mb-6 flex-wrap w-[75vw]">
           {coleccion?.map((_, index) => (
             <button
               key={index}
@@ -318,7 +318,7 @@ export default function Gallery({ coleccion }) {
             >
               <li
                 className={`h-1 w-1 rounded-full  ${
-                  counter == index ? "bg-gray-600" : "bg-gray-300"
+                  counter == index ? "bg-gray-600" : "bg-gray-400"
                 }`}
               />
             </button>

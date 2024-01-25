@@ -96,7 +96,13 @@ export default function MainNavigation() {
                 >
                   <button
                     className="flex items-center gap-2"
-                    onClick={() => navigate("/obra")}
+                    onClick={() => {
+                      if (pathname !== "/obra") {
+                        navigate("/obra");
+                      } else {
+                        toggleOpen();
+                      }
+                    }}
                   >
                     <span>OBRA</span>
                     <svg

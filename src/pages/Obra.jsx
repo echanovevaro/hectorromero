@@ -8,7 +8,7 @@ function Obra() {
   return (
     <>
       <MainNavigation />
-      <div ref={ref} className="square mt-[5rem] lg:hidden">
+      <div ref={ref} className="square mt-[5rem] lg:hidden text-sm">
         <div
           className="content1"
           style={{
@@ -26,7 +26,7 @@ function Obra() {
             transition: "all 0.5s cubic-bezier(0.17, 0.55, 0.55, 1) 1s",
           }}
         >
-          <span className="border-t border-neutral-300">
+          <span className="border-t border-neutral-500">
             Entorno bloqueador
           </span>
         </div>
@@ -47,7 +47,7 @@ function Obra() {
             transition: "all 0.5s cubic-bezier(0.17, 0.55, 0.55, 1) 1s",
           }}
         >
-          <span className="border-t border-neutral-300">Tensión</span>
+          <span className="border-t border-neutral-500">Tensión</span>
         </div>
         <div
           className="content3"
@@ -66,7 +66,7 @@ function Obra() {
             transition: "all 0.5s cubic-bezier(0.17, 0.55, 0.55, 1) 1s",
           }}
         >
-          <span className="border-t border-neutral-300">Futuro bloque</span>
+          <span className="border-t border-neutral-500">Futuro bloque</span>
         </div>
         <div
           className="content4"
@@ -84,7 +84,7 @@ function Obra() {
             transition: "all 0.5s cubic-bezier(0.17, 0.55, 0.55, 1) 1s",
           }}
         >
-          <span className="border-t border-neutral-300">Blo questions</span>
+          <span className="border-t border-neutral-500">Blo questions</span>
         </div>
         <div
           className="content5"
@@ -113,7 +113,7 @@ function Obra() {
             transition: "all 0.5s cubic-bezier(0.17, 0.55, 0.55, 1) 1s",
           }}
         >
-          <span className="border-t border-neutral-300">Te bloqueo</span>
+          <span className="border-t border-neutral-500">Te bloqueo</span>
         </div>
       </div>
     </>
