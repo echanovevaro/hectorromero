@@ -388,3 +388,7 @@ nav li {
   align-items: flex-start;
   gap: 0.1rem;
 }
+
+p {
+  margin-bottom: 1.5rem;
+}

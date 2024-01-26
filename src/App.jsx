@@ -11,6 +11,9 @@ import SerieUpdate, { action as updateAction } from "./pages/SerieUpdate";
 import Serie from "./pages/Serie";
 import { ParallaxProvider } from "react-scroll-parallax";
 import Obra from "./pages/Obra";
+import Legal from "./pages/Legal";
+import Privacidad from "./pages/Privacidad";
+import Proteccion from "./pages/Proteccion";
 
 function App() {
   const router = createBrowserRouter([
@@ -45,6 +48,18 @@ function App() {
         {
           path: "obra",
           element: <Obra />,
+        },
+        {
+          path: "legal",
+          element: <Legal />,
+        },
+        {
+          path: "privacidad",
+          element: <Privacidad />,
+        },
+        {
+          path: "proteccion",
+          element: <Proteccion />,
         },
         {
           path: "login",
