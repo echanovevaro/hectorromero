@@ -1,18 +1,16 @@
-import { useRef } from "react"
-import { useInView } from "framer-motion"
-import MainNavigation from "../components/MainNavigation"
+import { useRef } from "react";
+import { useInView } from "framer-motion";
+import MainNavigation from "../components/MainNavigation";
+import Footer from "../components/Footer";
 
 function Obra() {
-  const ref = useRef(null)
-  const isInView = useInView(ref, { once: true })
+  const ref = useRef(null);
+  const isInView = useInView(ref, { once: true });
   return (
     <>
       <MainNavigation />
-      <div className="bg-white w-screen z-10 pt-[4rem] h-screen landscape:h-full">
-        <div
-          ref={ref}
-          className="square lg:hidden text-xs font-light"
-        >
+      <div className="bg-white w-screen z-10 pt-[4rem] pb-[2rem] landscape:h-full">
+        <div ref={ref} className="square lg:hidden text-xs font-light">
           <div
             className="content1"
             style={{
@@ -121,7 +119,8 @@ function Obra() {
           </div>
         </div>
       </div>
+      <Footer />
     </>
-  )
+  );
 }
-export default Obra
+export default Obra;
