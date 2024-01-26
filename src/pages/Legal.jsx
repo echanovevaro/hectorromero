@@ -1,9 +1,11 @@
 import { Link } from "react-router-dom";
 import MainNavigation from "../components/MainNavigation";
+import ScrollToTop from "../components/ScrollToTop";
 
 const Legal = () => {
   return (
     <>
+      <ScrollToTop />
       <MainNavigation />
       <div className="mt-[1rem] p-[3rem] ">
         <ol className="list-decimal">
