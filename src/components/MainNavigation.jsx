@@ -207,23 +207,11 @@ export default function MainNavigation() {
         <nav
           className={`px-8 py-6 flex justify-between items-center bg-white shadow-md z-10 lg:hidden uppercase`}
         >
-          {/* <AnimatePresence>
-            {isOpen && (
-              <motion.div
-                initial={{ opacity: 0 }}
-                animate={{ opacity: 1 }}
-                exit={{ opacity: 0, transition: { delay: 0.5 } }}
-                className={`background-menu`}
-              />
-            )}
-          </AnimatePresence> */}
           <h1>
-            <span>
-              héctor romero
-              {currentUser && (
-                <span className="text-neutral-300 ml-1"> ADMIN MODE</span>
-              )}
-            </span>
+            <Link to="/">héctor romero</Link>
+            {currentUser && (
+              <span className="text-neutral-300 ml-1"> ADMIN MODE</span>
+            )}
           </h1>
           <button
             id="burguer"
