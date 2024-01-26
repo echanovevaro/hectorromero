@@ -149,11 +149,12 @@ nav ul {
   margin-top: 4rem;
   padding: 2rem;
   width: fit-content;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
 }
 
 nav li {
-  list-style: none;
-  margin-bottom: 1rem;
   display: flex;
   align-items: center;
   cursor: pointer;
