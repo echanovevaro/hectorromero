@@ -94,7 +94,7 @@ export default function Gallery({ coleccion }) {
         </div>
       )}
       <div
-        className={`flex items-center justify-center gap-2 ${
+        className={`flex items-center justify-center px-2 gap-1 ${
           loaded ? "" : "mb-[2.7rem]"
         }`}
       >
@@ -117,7 +117,7 @@ export default function Gallery({ coleccion }) {
             </svg>
           </button>
         </div>
-        <div className="w-[75vw] mt-10">
+        <div className="w-full mt-10">
           {coleccion?.map((obra, index) => (
             <div
               key={obra.id}

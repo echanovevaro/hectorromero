@@ -1,3 +1,4 @@
+import Footer from "../components/Footer";
 import MainNavigation from "../components/MainNavigation";
 import ScrollToTop from "../components/ScrollToTop";
 
@@ -63,6 +64,7 @@ const Proteccion = () => {
           imperiosos, o en el ejercicio o defensa de reclamaciones.
         </p>
       </div>
+      <Footer />
     </>
   );
 };

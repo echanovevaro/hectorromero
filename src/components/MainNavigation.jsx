@@ -205,7 +205,7 @@ export default function MainNavigation() {
         transition={{ duration: 0.5 }}
       >
         <nav
-          className={`px-8 py-6 flex justify-between items-center bg-white shadow-md z-10 lg:hidden uppercase`}
+          className={`px-4 py-6 flex justify-between items-center bg-white shadow-md z-10 lg:hidden uppercase`}
         >
           <h1>
             <Link to="/">héctor romero</Link>

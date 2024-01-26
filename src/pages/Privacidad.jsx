@@ -1,3 +1,4 @@
+import Footer from "../components/Footer";
 import MainNavigation from "../components/MainNavigation";
 import ScrollToTop from "../components/ScrollToTop";
 
@@ -224,6 +225,7 @@ const Privacidad = () => {
           </p>
         </ol>
       </div>
+      <Footer />
     </>
   );
 };

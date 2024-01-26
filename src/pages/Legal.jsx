@@ -1,6 +1,7 @@
 import { Link } from "react-router-dom";
 import MainNavigation from "../components/MainNavigation";
 import ScrollToTop from "../components/ScrollToTop";
+import Footer from "../components/Footer";
 
 const Legal = () => {
   return (
@@ -271,6 +272,7 @@ const Legal = () => {
           </p>
         </ol>
       </div>
+      <Footer />
     </>
   );
 };
