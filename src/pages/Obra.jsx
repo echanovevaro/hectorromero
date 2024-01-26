@@ -11,7 +11,7 @@ function Obra() {
     <>
       <ScrollToTop />
       <MainNavigation />
-      <div className="bg-white w-screen z-10 pt-[4rem] pb-[2rem] landscape:h-full">
+      <div className="bg-white w-screen z-10 pt-[4rem] pb-[2rem] landscape:h-full min-h-[70dvh]">
         <div ref={ref} className="square lg:hidden text-xs font-light">
           <div
             className="content1"
