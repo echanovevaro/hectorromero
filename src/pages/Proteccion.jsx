@@ -1,8 +1,10 @@
 import MainNavigation from "../components/MainNavigation";
+import ScrollToTop from "../components/ScrollToTop";
 
 const Proteccion = () => {
   return (
     <>
+      <ScrollToTop />
       <MainNavigation />
       <div className="mt-[1rem] p-[3rem] ">
         <h1 className="mt-[3rem] mb-[1rem] text-base">
