@@ -128,24 +128,24 @@ export default function MainNavigation() {
                   initial={liVariants.closed}
                   variants={liVariants}
                   whileTap={{ scale: 1.1 }}
-                  className="ms-10 mt-[-0.25rem] uppercase"
+                  className="ms-10 mt-[-0.5remrem]"
                 >
                   {pathname !== "/obra/bloques" ? (
-                    <Link to="/obra/bloques">serie bloques</Link>
+                    <Link to="/obra/bloques">bloques</Link>
                   ) : (
-                    <span onClick={toggleOpen}>serie bloques</span>
+                    <span onClick={toggleOpen}>bloques</span>
                   )}
                 </motion.li>
                 <motion.li
                   initial={liVariants.closed}
                   variants={liVariants}
                   whileTap={{ scale: 1.1 }}
-                  className="ms-10 mt-[-0.25rem] uppercase"
+                  className="ms-10 mt-[-0.5rem]"
                 >
                   {pathname !== "/obra/wood" ? (
-                    <Link to="/obra/wood">serie wood</Link>
+                    <Link to="/obra/wood">wood</Link>
                   ) : (
-                    <span onClick={toggleOpen}>serie wood</span>
+                    <span onClick={toggleOpen}>wood</span>
                   )}
                 </motion.li>
 
@@ -153,12 +153,24 @@ export default function MainNavigation() {
                   initial={liVariants.closed}
                   variants={liVariants}
                   whileTap={{ scale: 1.1 }}
-                  className="ms-10 mt-[-0.25rem] uppercase"
+                  className="ms-10 mt-[-0.5rem]"
                 >
                   {pathname !== "/obra/wire" ? (
-                    <Link to="/obra/wire">serie wire</Link>
+                    <Link to="/obra/wire">wire</Link>
                   ) : (
-                    <span onClick={toggleOpen}>serie wire</span>
+                    <span onClick={toggleOpen}>wire</span>
+                  )}
+                </motion.li>
+                <motion.li
+                  initial={liVariants.closed}
+                  variants={liVariants}
+                  whileTap={{ scale: 1.1 }}
+                  className="ms-10 mt-[-0.4rem]"
+                >
+                  {pathname !== "/obra/iluminados" ? (
+                    <Link to="/obra/iluminados">iluminados</Link>
+                  ) : (
+                    <span onClick={toggleOpen}>iluminados</span>
                   )}
                 </motion.li>
                 <motion.li
