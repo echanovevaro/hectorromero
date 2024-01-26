@@ -298,7 +298,9 @@ export default function Gallery({ coleccion }) {
               >
                 <div className="flex items-center flex-col justify-center">
                   <h1 className="text-neutral-600 text-sm">{obra.titulo}</h1>
-                  <p className="text-neutral-400 text-sm">{obra.descripcion}</p>
+                  <span className="text-neutral-400 text-sm">
+                    {obra.descripcion}
+                  </span>
                 </div>
               </motion.div>
             );
