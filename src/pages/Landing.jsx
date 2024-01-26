@@ -65,7 +65,7 @@ function Landing() {
       </div>
       <section id="scroll" className="mt-[100dvh] flex justify-start z-[-1]">
         <div className="bg-white w-screen z-10 pt-[4rem] pb-[2rem] landscape:h-full">
-          <h1 className="px-[3rem] mt-[2rem] font-light uppercase text-base">
+          <h1 className="px-[1rem] mt-[2rem] font-light uppercase text-base">
             obra
           </h1>
           <ObraMenu />
