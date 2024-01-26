@@ -43,7 +43,7 @@ function Landing() {
                 behavior: "smooth",
               });
             }}
-            className="w-screen h-full flex justify-center items-end pb-[2rem] gap-1 text-white z-[500] text-lg"
+            className="w-screen h-full flex justify-end flex-col items-center pb-[2rem] gap-1 text-white z-[500] text-lg"
           >
             <span className="z-[500]">scroll</span>
             <svg
