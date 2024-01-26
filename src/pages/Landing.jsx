@@ -36,7 +36,7 @@ function Landing() {
             whileTap={{ scale: 0.95 }}
             onClick={() => {
               let pageHeight = window.innerHeight;
-              let scroll = pageHeight - window.scrollY - 60;
+              let scroll = pageHeight - window.scrollY - 65;
               window.scrollBy({
                 top: scroll,
                 left: 0,
@@ -64,8 +64,8 @@ function Landing() {
         )}
       </div>
       <section id="scroll" className="mt-[100dvh] flex justify-start z-[-1]">
-        <div className="bg-white w-screen z-10 pb-[5rem] landscape:h-full">
-          <h1 className="px-[1rem] mt-[2rem] mb-[1rem] font-light uppercase text-base">
+        <div className="bg-white w-screen z-10 pb-[5.5rem] landscape:h-full">
+          <h1 className="px-[1rem] mt-[2rem] mb-[0.5rem] font-light uppercase text-base">
             obra
           </h1>
           <ObraMenu />
