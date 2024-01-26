@@ -1,11 +1,14 @@
-import { useInView } from "framer-motion";
-import { useRef } from "react";
+import { useInView } from "framer-motion"
+import { useRef } from "react"
 
 const ObraMenu = () => {
-  const ref = useRef(null);
-  const isInView = useInView(ref, { once: true });
+  const ref = useRef(null)
+  const isInView = useInView(ref, { once: true })
   return (
-    <div ref={ref} className="square lg:hidden text-xs font-light">
+    <div
+      ref={ref}
+      className="square lg:hidden text-xs font-light"
+    >
       <div
         className="content1"
         style={{
@@ -14,7 +17,7 @@ const ObraMenu = () => {
           transition: "all 1s cubic-bezier(0.17, 0.55, 0.55, 1)",
         }}
       >
-        <img src="/Entorno bloqueador 50x50cm-compressed.jpg" />
+        <img src="/obra-1.jpg" />
       </div>
       <div
         className="content1Title"
@@ -33,7 +36,7 @@ const ObraMenu = () => {
           transition: "all 1s cubic-bezier(0.17, 0.55, 0.55, 1)",
         }}
       >
-        <img src="/tensión 50x50 cm-compressed.jpg" />
+        <img src="/obra-2.jpg" />
       </div>
       <div
         className="content2Title"
@@ -52,7 +55,7 @@ const ObraMenu = () => {
           transition: "all 1s cubic-bezier(0.17, 0.55, 0.55, 1)",
         }}
       >
-        <img src="/Futuro bloque 120x194cm-compressed.jpg" />
+        <img src="/obra-3.jpg" />
       </div>
       <div
         className="content3Title"
@@ -70,7 +73,7 @@ const ObraMenu = () => {
           transition: "all 1s cubic-bezier(0.17, 0.55, 0.55, 1)",
         }}
       >
-        <img src="/Blo questions 39x43 cm-compressed.jpg" />
+        <img src="/obra-4.gif" />
       </div>
       <div
         className="content4Title"
@@ -89,7 +92,7 @@ const ObraMenu = () => {
           transition: "all 1s cubic-bezier(0.17, 0.55, 0.55, 1)",
         }}
       >
-        <img src="/20200608_202759.gif" />
+        <img src="/obra-5-6.jpg" />
       </div>
       <div
         className="content6"
@@ -99,7 +102,7 @@ const ObraMenu = () => {
           transition: "all 1s cubic-bezier(0.17, 0.55, 0.55, 1)",
         }}
       >
-        <img src="/20200608_202759.gif" />
+        <img src="/obra-5-6.jpg" />
       </div>
       <div
         className="content5-6Title"
@@ -111,7 +114,7 @@ const ObraMenu = () => {
         <span className="border-t border-neutral-400">Te bloqueo</span>
       </div>
     </div>
-  );
-};
+  )
+}
 
-export default ObraMenu;
+export default ObraMenu

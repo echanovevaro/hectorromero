@@ -1,6 +1,6 @@
+import { useRef } from "react"
 import { useInView } from "framer-motion"
 import MainNavigation from "../components/MainNavigation"
-import { useRef } from "react"
 
 function Obra() {
   const ref = useRef(null)
@@ -21,7 +21,7 @@ function Obra() {
               transition: "all 1s cubic-bezier(0.17, 0.55, 0.55, 1)",
             }}
           >
-            <img src="/obra-1.jpg" />
+            <img src="/Entorno bloqueador 50x50cm-compressed.jpg" />
           </div>
           <div
             className="content1Title"
@@ -42,7 +42,7 @@ function Obra() {
               transition: "all 1s cubic-bezier(0.17, 0.55, 0.55, 1)",
             }}
           >
-            <img src="/obra-2.jpg" />
+            <img src="/tensión 50x50 cm-compressed.jpg" />
           </div>
           <div
             className="content2Title"
@@ -61,7 +61,7 @@ function Obra() {
               transition: "all 1s cubic-bezier(0.17, 0.55, 0.55, 1)",
             }}
           >
-            <img src="/obra-3.jpg" />
+            <img src="/Futuro bloque 120x194cm-compressed.jpg" />
           </div>
           <div
             className="content3Title"
@@ -79,7 +79,7 @@ function Obra() {
               transition: "all 1s cubic-bezier(0.17, 0.55, 0.55, 1)",
             }}
           >
-            <img src="/obra-4.gif" />
+            <img src="/Blo questions 39x43 cm-compressed.jpg" />
           </div>
           <div
             className="content4Title"
@@ -98,7 +98,7 @@ function Obra() {
               transition: "all 1s cubic-bezier(0.17, 0.55, 0.55, 1)",
             }}
           >
-            <img src="/obra-5-6.jpg" />
+            <img src="/20200608_202759.gif" />
           </div>
           <div
             className="content6"
@@ -108,7 +108,7 @@ function Obra() {
               transition: "all 1s cubic-bezier(0.17, 0.55, 0.55, 1)",
             }}
           >
-            <img src="/obra-5-6.jpg" />
+            <img src="/20200608_202759.gif" />
           </div>
           <div
             className="content5-6Title"
