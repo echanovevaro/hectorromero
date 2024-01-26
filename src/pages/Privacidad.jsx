@@ -169,7 +169,7 @@ const Privacidad = () => {
             <li>
               Interponer una reclamación en la autoridad de control (
               <a
-                href="http://www.aepd/"
+                href="http://www.aepd.es/"
                 target="_blank"
                 className="text-sky-400 underline"
               >
