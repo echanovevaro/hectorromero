@@ -199,7 +199,6 @@ nav li {
 }
 .square-footer {
   padding: 1rem;
-  padding-right: 2rem !important;
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   grid-template-rows: repeat(2, 1fr);
@@ -365,7 +364,7 @@ nav li {
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
-  align-items: center;
+  align-items: flex-end;
   gap: 0.1rem;
 }
 
