@@ -77,7 +77,7 @@ export default function MainNavigation() {
               animate="open"
               exit="closed"
               transition={{ duration: 0.5 }}
-              className="h-full fixed inset-0 z-20 bg-white font-light"
+              className="h-full fixed inset-0 z-20 bg-white font-light text-base"
             >
               <motion.ul variants={ulVariants}>
                 <motion.li
@@ -128,7 +128,7 @@ export default function MainNavigation() {
                   initial={liVariants.closed}
                   variants={liVariants}
                   whileTap={{ scale: 1.1 }}
-                  className="ms-10 mb-[10px] mt-[-10px] uppercase"
+                  className="ms-10 mb-[0.5rem] mt-[-0.5rem] uppercase"
                 >
                   {pathname !== "/obra/bloques" ? (
                     <Link to="/obra/bloques">serie bloques</Link>
@@ -140,7 +140,7 @@ export default function MainNavigation() {
                   initial={liVariants.closed}
                   variants={liVariants}
                   whileTap={{ scale: 1.1 }}
-                  className="ms-10 mb-[10px] uppercase"
+                  className="ms-10 mb-[0.5rem] uppercase"
                 >
                   {pathname !== "/obra/wood" ? (
                     <Link to="/obra/wood">serie wood</Link>
