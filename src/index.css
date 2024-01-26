@@ -198,10 +198,10 @@ nav li {
   gap: 0.4rem;
 }
 .square-footer {
-  padding: 1rem;
+  padding: 1.5rem;
   display: grid;
   grid-template-columns: repeat(4, 1fr);
-  grid-template-rows: repeat(2, 1fr);
+  grid-template-rows: repeat(1fr, 0.5fr);
   gap: 2rem;
 }
 
