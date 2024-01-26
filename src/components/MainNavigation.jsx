@@ -83,9 +83,7 @@ export default function MainNavigation() {
                 <motion.li
                   variants={liVariants}
                   initial={liVariants.closed}
-                  whileHover={{ scale: 1.1 }}
-                  whileTap={{ scale: 0.95 }}
-                  transition={{ delay: 1 }}
+                  whileTap={{ scale: 1.1 }}
                 >
                   {pathname !== "/" ? (
                     <Link to="/">INICIO</Link>
@@ -96,9 +94,7 @@ export default function MainNavigation() {
                 <motion.li
                   variants={liVariants}
                   initial={liVariants.closed}
-                  whileHover={{ scale: 1.1 }}
-                  whileTap={{ scale: 0.95 }}
-                  transition={{ delay: 1 }}
+                  whileTap={{ scale: 1.1 }}
                 >
                   <button
                     className="flex items-center gap-2"
@@ -131,9 +127,7 @@ export default function MainNavigation() {
                 <motion.li
                   initial={liVariants.closed}
                   variants={liVariants}
-                  whileHover={{ scale: 1.1 }}
-                  whileTap={{ scale: 0.95 }}
-                  transition={{ delay: 1 }}
+                  whileTap={{ scale: 1.1 }}
                   className="ms-10 mb-[10px] mt-[-10px] uppercase"
                 >
                   {pathname !== "/obra/bloques" ? (
@@ -145,9 +139,7 @@ export default function MainNavigation() {
                 <motion.li
                   initial={liVariants.closed}
                   variants={liVariants}
-                  whileHover={{ scale: 1.1 }}
-                  whileTap={{ scale: 0.95 }}
-                  transition={{ delay: 1 }}
+                  whileTap={{ scale: 1.1 }}
                   className="ms-10 mb-[10px] uppercase"
                 >
                   {pathname !== "/obra/wood" ? (
@@ -160,9 +152,7 @@ export default function MainNavigation() {
                 <motion.li
                   initial={liVariants.closed}
                   variants={liVariants}
-                  whileHover={{ scale: 1.1 }}
-                  whileTap={{ scale: 0.95 }}
-                  transition={{ delay: 1 }}
+                  whileTap={{ scale: 1.1 }}
                   className="ms-10 uppercase"
                 >
                   {pathname !== "/obra/wire" ? (
@@ -174,27 +164,21 @@ export default function MainNavigation() {
                 <motion.li
                   initial={liVariants.closed}
                   variants={liVariants}
-                  whileHover={{ scale: 1.1 }}
-                  whileTap={{ scale: 0.95 }}
-                  transition={{ delay: 1 }}
+                  whileTap={{ scale: 1.1 }}
                 >
                   <span>EXPOSICIONES</span>
                 </motion.li>
                 <motion.li
                   initial={liVariants.closed}
                   variants={liVariants}
-                  whileHover={{ scale: 1.1 }}
-                  whileTap={{ scale: 0.95 }}
-                  transition={{ delay: 1 }}
+                  whileTap={{ scale: 1.1 }}
                 >
                   <span>SOBRE MÍ</span>
                 </motion.li>
                 <motion.li
                   initial={liVariants.closed}
                   variants={liVariants}
-                  whileHover={{ scale: 1.1 }}
-                  whileTap={{ scale: 0.95 }}
-                  transition={{ delay: 1 }}
+                  whileTap={{ scale: 1.1 }}
                 >
                   <span>CONTACTO</span>
                 </motion.li>
@@ -202,9 +186,7 @@ export default function MainNavigation() {
                   <motion.li
                     initial={liVariants.closed}
                     variants={liVariants}
-                    whileHover={{ scale: 1.1 }}
-                    whileTap={{ scale: 0.95 }}
-                    transition={{ delay: 1 }}
+                    whileTap={{ scale: 1.1 }}
                   >
                     <RouterForm method="post" action="/logout">
                       <button type="submit">DESCONECTAR</button>

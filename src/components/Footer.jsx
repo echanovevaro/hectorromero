@@ -1,3 +1,6 @@
+import { motion } from "framer-motion";
+import { Link } from "react-router-dom";
+
 const Footer = () => {
   return (
     <footer className="square-footer lg:hidden font-light text-xs border-t border-neutral-400">
@@ -9,7 +12,7 @@ const Footer = () => {
         <li>
           <ul>
             <li className="text-base">LEGAL</li>
-            <li>aviso legal</li>
+            <motion.li whileTap={{ scale: 1.1 }}>aviso legal</motion.li>
           </ul>
         </li>
 
@@ -18,7 +21,7 @@ const Footer = () => {
             <li className="text-base">SÍGUEME</li>
             <li>
               <ul className="redes">
-                <li>
+                <motion.li whileTap={{ scale: 1.1 }}>
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
                     x="0px"
@@ -48,8 +51,8 @@ const Footer = () => {
                       </g>
                     </g>
                   </svg>
-                </li>
-                <li>
+                </motion.li>
+                <motion.li whileTap={{ scale: 1.1 }}>
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
                     x="0px"
@@ -79,7 +82,7 @@ const Footer = () => {
                       </g>
                     </g>
                   </svg>
-                </li>
+                </motion.li>
               </ul>
             </li>
           </ul>
@@ -88,35 +91,44 @@ const Footer = () => {
       <ul className="contacto">
         <li className="text-base">CONTACTO</li>
         <li>(+34)645 97 90 39</li>
-        <li>
+        <motion.li whileTap={{ scale: 1.1 }}>
           <a href="mailto:art@hectoromero.es">art@hectoromero.es</a>
-        </li>
+        </motion.li>
       </ul>
       <ul className="mapa">
         <li className="text-base">MAPA</li>
-        <li>obra</li>
-        <li>exposiciones</li>
-        <li>premios</li>
-        <li>sobre mí</li>
+        <motion.li whileTap={{ scale: 1.1 }}>
+          <Link to="/obra">obra</Link>
+        </motion.li>
+        <motion.li whileTap={{ scale: 1.1 }}>exposiciones</motion.li>
+        <motion.li whileTap={{ scale: 1.1 }}>premios</motion.li>
+        <motion.li whileTap={{ scale: 1.1 }}>sobre mí</motion.li>
       </ul>
       <ul>
         <li className="text-base">OBRA</li>
-        <li>bloques</li>
-        <li>wood</li>
-        <li>iluminados</li>
-        <li>wire</li>
+        <motion.li whileTap={{ scale: 1.1 }}>
+          <Link to="/obra/bloques">bloques</Link>
+        </motion.li>
+        <motion.li whileTap={{ scale: 1.1 }}>
+          <Link to="/obra/wood">wood</Link>
+        </motion.li>
+        <motion.li whileTap={{ scale: 1.1 }}>
+          <Link to="/obra/iluminados">iluminados</Link>
+        </motion.li>
+        <motion.li whileTap={{ scale: 1.1 }}>
+          <Link to="/obra/wire">wire</Link>
+        </motion.li>
       </ul>
       <ul className="copy">
         <li className="text-base">CRÉDITOS</li>
-        <li>
-          web{" "}
+        <motion.li whileTap={{ scale: 1.1 }}>
           <a
             href="https://joyful-heliotrope-2ee6a6.netlify.app"
             target="_black"
           >
-            álvaro riaño
+            web álvaro riaño
           </a>
-        </li>
+        </motion.li>
         <li>©Héctor Romero 2024.</li>
       </ul>
     </footer>
