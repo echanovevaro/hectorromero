@@ -77,7 +77,7 @@ export default function MainNavigation() {
               animate="open"
               exit="closed"
               transition={{ duration: 0.5 }}
-              className="h-full fixed inset-0 z-20 bg-white font-light text-base"
+              className="h-full fixed inset-0 z-20 bg-white font-extralight text-base text-neutral-400"
             >
               <motion.ul variants={ulVariants}>
                 <motion.li
