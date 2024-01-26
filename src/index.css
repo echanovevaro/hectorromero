@@ -375,3 +375,9 @@ nav li {
 p {
   margin-bottom: 1.5rem;
 }
+
+footer {
+  border-radius: 0px;
+  background: #ffffff;
+  box-shadow: inset 5px 5px 5px #f2f2f2, inset -5px -5px 5px #ffffff;
+}
