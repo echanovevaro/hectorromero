@@ -101,7 +101,7 @@ const Footer = () => {
         </li>
       </ul>
       <ul className="contacto">
-        <li className="text-base">CONTACTO</li>
+        {/* <li className="text-base">CONTACTO</li> */}
         <li>(+34)645 97 90 39</li>
         <motion.li whileTap={{ scale: 1.1 }}>
           <a href="mailto:art@hectoromero.es">art@hectoromero.es</a>
@@ -132,7 +132,7 @@ const Footer = () => {
         </motion.li>
       </ul>
       <ul className="copy">
-        <li className="text-base">CRÉDITOS</li>
+        {/* <li className="text-base">CRÉDITOS</li> */}
         <motion.li whileTap={{ scale: 1.1 }}>
           <a
             href="https://joyful-heliotrope-2ee6a6.netlify.app"
