@@ -4,7 +4,6 @@ import { useParallax } from "react-scroll-parallax";
 import { useInView, motion } from "framer-motion";
 import ObraMenu from "../components/ObraMenu";
 import Footer from "../components/Footer";
-import ScrollToTop from "../components/ScrollToTop";
 
 function Landing() {
   const [showMenu, setShowMenu] = useState(false);
@@ -23,7 +22,6 @@ function Landing() {
   }, []);
   return (
     <>
-      <ScrollToTop />
       {showMenu && <MainNavigation />}
       <div ref={parallax.ref} className="wrapper">
         <div className="background" />
