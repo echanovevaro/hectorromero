@@ -1,7 +1,7 @@
 import { useEffect, useRef, useState } from "react";
 import MainNavigation from "../components/MainNavigation";
 import { useParallax } from "react-scroll-parallax";
-import { useInView, motion } from "framer-motion";
+import { motion } from "framer-motion";
 import ObraMenu from "../components/ObraMenu";
 import Footer from "../components/Footer";
 
@@ -36,7 +36,7 @@ function Landing() {
             whileTap={{ scale: 0.95 }}
             onClick={() => {
               let pageHeight = window.innerHeight;
-              let scroll = pageHeight - window.scrollY;
+              let scroll = pageHeight - window.scrollY - 60;
               window.scrollBy({
                 top: scroll,
                 left: 0,
@@ -64,8 +64,8 @@ function Landing() {
         )}
       </div>
       <section id="scroll" className="mt-[100dvh] flex justify-start z-[-1]">
-        <div className="bg-white w-screen z-10 pt-[4rem] pb-[2rem] landscape:h-full">
-          <h1 className="px-[1rem] mt-[2rem] font-light uppercase text-base">
+        <div className="bg-white w-screen z-10 pb-[5rem] landscape:h-full">
+          <h1 className="px-[1rem] mt-[2rem] mb-[1rem] font-light uppercase text-base">
             obra
           </h1>
           <ObraMenu />
