@@ -2,12 +2,14 @@ import { useRef } from "react";
 import { useInView } from "framer-motion";
 import MainNavigation from "../components/MainNavigation";
 import Footer from "../components/Footer";
+import ScrollToTop from "../components/ScrollToTop";
 
 function Obra() {
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true });
   return (
     <>
+      <ScrollToTop />
       <MainNavigation />
       <div className="bg-white w-screen z-10 pt-[4rem] pb-[2rem] landscape:h-full">
         <div ref={ref} className="square lg:hidden text-xs font-light">

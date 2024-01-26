@@ -4,6 +4,7 @@ import { useParams } from "react-router-dom";
 import { fetchAll } from "../http";
 import Footer from "../components/Footer";
 import MainNavigation from "../components/MainNavigation";
+import ScrollToTop from "../components/ScrollToTop";
 
 export default function Serie() {
   const { serie } = useParams();
@@ -13,12 +14,15 @@ export default function Serie() {
     queryFn: () => fetchAll(serie),
   });
   return (
-    <div className="overflow-y-scroll">
-      <MainNavigation />
-      <div className="h-screen">
-        <Gallery coleccion={data} />
+    <>
+      <ScrollToTop />
+      <div className="overflow-y-scroll">
+        <MainNavigation />
+        <div className="h-screen">
+          <Gallery coleccion={data} />
+        </div>
+        <Footer />
       </div>
-      <Footer />
-    </div>
+    </>
   );
 }
