@@ -84,7 +84,7 @@ export default function Gallery({ coleccion }) {
 
   return (
     <>
-      <h1 className="uppercase pt-[5rem] text-base opacity-[0.7] ms-[1rem] justify-self-start w-full font-light">
+      <h1 className="uppercase pt-[5.5rem] text-base opacity-[0.7] ms-[1rem] justify-self-start w-full font-light">
         {serie}
       </h1>
       <div
@@ -174,7 +174,7 @@ export default function Gallery({ coleccion }) {
                         transition={{ duration: 1 }}
                         src={obra.imagenURL}
                         alt={obra.titulo}
-                        className="inline-block object-cover overflow-hidden max-h-[65vh] touch-pinch-zoom"
+                        className="inline-block object-cover overflow-hidden max-h-[70vh] touch-pinch-zoom"
                         onPanStart={onPanStart}
                         onPanEnd={onPanEnd}
                         onLoad={() => setLoaded(true)}
