@@ -300,41 +300,39 @@ export default function Gallery({ coleccion }) {
                   transition={{ duration: 1 }}
                   className="text-center"
                 >
-                  <div className="flex items-center flex-col justify-center">
-                    <h1 className="text-neutral-600 text-sm">{obra.titulo}</h1>
-                    <span className="text-neutral-400 text-sm">
-                      {obra.descripcion}
-                    </span>
+                  <div className="flex items-center flex-col justify-center font-light">
+                    <h1 className="text-neutral-600">{obra.titulo}</h1>
+                    <span className="text-neutral-400">{obra.descripcion}</span>
                   </div>
                 </motion.div>
               );
           })}
         </div>
-        <ul className="flex items-center justify-center gap-2.5 flex-wrap w-[80vw] text-neutral-300">
+        <div className="w-[80vw]">
           {coleccion?.map((_, index, arr) => {
             if (counter === index)
               return (
-                <button
+                <ul
                   key={index}
-                  className={`${loaded ? "block" : "hidden"}`}
-                  onClick={() => setCounter(index)}
+                  className={`flex justify-center items-center gap-[0.5rem] font-thin text-neutral-600 ${
+                    loaded ? "block" : "hidden"
+                  }`}
                 >
                   {/* <li
                 className={`h-1 w-1 rounded-full  ${
                   counter == index ? "bg-gray-500" : "bg-gray-300"
                 }`}
               /> */}
-                  <li className="flex flex-col justify-center items-center gap-[0.14rem] text-base">
-                    <span>{`${("00" + (counter + 1)).slice(-2)}`}</span>
-
-                    <span className="border-t border-neutral-300">{`${(
-                      "00" + arr.length
-                    ).slice(-2)}`}</span>
+                  <li className="text-lg">
+                    {`${("00" + (counter + 1)).slice(-2)}`}
                   </li>
-                </button>
+
+                  <li className="text-neutral-400 text-xs">|</li>
+                  <li>{`${("00" + arr.length).slice(-2)}`}</li>
+                </ul>
               );
           })}
-        </ul>
+        </div>
       </div>
     </>
   );
