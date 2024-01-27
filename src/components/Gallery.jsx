@@ -314,7 +314,7 @@ export default function Gallery({ coleccion }) {
               return (
                 <ul
                   key={index}
-                  className={`flex justify-center items-center gap-[0.5rem] font-thin text-neutral-700 ${
+                  className={`flex justify-center items-center gap-[0.5rem] font-thin text-neutral-700 text.lg ${
                     loaded ? "block" : "hidden"
                   }`}
                 >
@@ -323,12 +323,12 @@ export default function Gallery({ coleccion }) {
                   counter == index ? "bg-gray-500" : "bg-gray-300"
                 }`}
               /> */}
-                  <li className="text-lg">
-                    {`${("00" + (counter + 1)).slice(-2)}`}
-                  </li>
+                  <li>{`${("00" + (counter + 1)).slice(-2)}`}</li>
 
-                  <li className="text-neutral-400 text-xs">|</li>
-                  <li>{`${("00" + arr.length).slice(-2)}`}</li>
+                  <li className="text-neutral-400">|</li>
+                  <li className="text-neutral-400">{`${(
+                    "00" + arr.length
+                  ).slice(-2)}`}</li>
                 </ul>
               );
           })}
