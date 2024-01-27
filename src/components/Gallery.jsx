@@ -84,12 +84,10 @@ export default function Gallery({ coleccion }) {
 
   return (
     <>
-      <h1 className="uppercase pt-[5.5rem] text-base opacity-[0.7] ms-[1rem] justify-self-start w-full font-light">
-        {serie}
-      </h1>
-      <div
-        className={`absolute top-0 inset-y-0 inset-x-0 flex items-center justify-center flex-col gap-2 lg:hidden pt-[7rem]`}
-      >
+      <div className="flex gap-1">
+        <h1 className="uppercase pt-[5.5rem] text-base opacity-[0.7] ms-[1rem] justify-self-start w-full font-light">
+          {serie}
+        </h1>{" "}
         {currentUser && (
           <div className="flex items-center mt-[3.5rem] text-sky-400">
             <Link className="z-50" to={`/obra/${serie}/new`}>
@@ -97,6 +95,10 @@ export default function Gallery({ coleccion }) {
             </Link>
           </div>
         )}
+      </div>
+      <div
+        className={`absolute top-0 inset-y-0 inset-x-0 flex items-center justify-center flex-col gap-2 lg:hidden pt-[7rem]`}
+      >
         <div
           className={`flex items-center justify-center gap-1 ${
             loaded ? "" : "mb-[2.7rem]"
