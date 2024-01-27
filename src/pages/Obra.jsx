@@ -12,7 +12,7 @@ function Obra() {
       <ScrollToTop />
       <MainNavigation />
       <div className="bg-white w-screen z-10 pt-[6rem] pb-[2rem] landscape:h-full min-h-[70dvh]">
-        <h1 className="uppercase text-base opacity-[0.7] self-start ms-[1rem] justify-self-start font-thin">
+        <h1 className="uppercase text-base opacity-[0.7] self-start ms-[1rem] justify-self-start font-light">
           obra
         </h1>
         <div ref={ref} className="square lg:hidden text-xs font-light">

@@ -7,7 +7,7 @@ const Proteccion = () => {
     <>
       <ScrollToTop />
       <MainNavigation />
-      <h1 className="uppercase mt-[6rem] text-base opacity-[0.7] self-start ms-[1rem] justify-self-start font-thin">
+      <h1 className="uppercase mt-[6rem] text-base opacity-[0.7] self-start ms-[1rem] justify-self-start font-light">
         PROTECCIÓN DE DATOS
       </h1>
       <div className="pt-[1rem] p-[3rem] ">
