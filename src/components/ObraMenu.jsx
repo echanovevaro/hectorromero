@@ -1,6 +1,6 @@
-import { useInView } from "framer-motion";
+import { useInView, motion } from "framer-motion";
 import { useRef } from "react";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 const ObraMenu = () => {
   const ref = useRef(null);
@@ -20,15 +20,22 @@ const ObraMenu = () => {
       >
         <img src="/obra-1.jpg" />
       </div>
-      <div
+      <motion.div
         className="content1Title"
         style={{
           opacity: isInView ? 1 : 0,
           transition: "all 0.5s cubic-bezier(0.17, 0.55, 0.55, 1) 1s",
         }}
       >
-        <span className="border-t border-neutral-400">Bloques</span>
-      </div>
+        <Link to="obra/bloques">
+          <motion.span
+            className="border-t border-neutral-400"
+            whileTap={{ scale: 1.1, border: "none" }}
+          >
+            Bloques
+          </motion.span>
+        </Link>
+      </motion.div>
       <div
         className="content2"
         style={{
@@ -47,7 +54,14 @@ const ObraMenu = () => {
           transition: "all 0.5s cubic-bezier(0.17, 0.55, 0.55, 1) 1s",
         }}
       >
-        <span className="border-t border-neutral-400">Wire</span>
+        <Link to="obra/wire">
+          <motion.span
+            className="border-t border-neutral-400"
+            whileTap={{ scale: 1.1, border: "none" }}
+          >
+            Wire
+          </motion.span>
+        </Link>
       </div>
       <div
         className="content3"
@@ -66,7 +80,14 @@ const ObraMenu = () => {
           transition: "all 0.5s cubic-bezier(0.17, 0.55, 0.55, 1) 1s",
         }}
       >
-        <span className="border-t border-neutral-400">Iluminados</span>
+        <Link to="obra/iluminados">
+          <motion.span
+            className="border-t border-neutral-400"
+            whileTap={{ scale: 1.1, border: "none" }}
+          >
+            Iluminados
+          </motion.span>
+        </Link>
       </div>
       <div
         className="content4"
@@ -84,7 +105,12 @@ const ObraMenu = () => {
           transition: "all 0.5s cubic-bezier(0.17, 0.55, 0.55, 1) 1s",
         }}
       >
-        <span className="border-b border-neutral-400">Animaciones</span>
+        <motion.span
+          className="border-t border-neutral-400"
+          whileTap={{ scale: 1.1, border: "none" }}
+        >
+          Animaciones
+        </motion.span>
       </div>
       <div
         className="content5"
@@ -115,7 +141,14 @@ const ObraMenu = () => {
           transition: "all 0.5s cubic-bezier(0.17, 0.55, 0.55, 1) 1s",
         }}
       >
-        <span className="border-t border-neutral-400">Wood</span>
+        <Link to="obra/wood">
+          <motion.span
+            className="border-t border-neutral-400"
+            whileTap={{ scale: 1.1, border: "none" }}
+          >
+            Wood
+          </motion.span>
+        </Link>
       </div>
     </div>
   );
