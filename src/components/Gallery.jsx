@@ -84,11 +84,11 @@ export default function Gallery({ coleccion }) {
 
   return (
     <>
-      <h1 className="uppercase pt-[5rem] text-base opacity-[0.7] ms-[1rem] justify-self-start w-full">
+      <h1 className="uppercase pt-[5.5rem] text-base opacity-[0.7] ms-[1rem] justify-self-start w-full">
         {serie}
       </h1>
       <div
-        className={`absolute top-0 landscape:pt-[5rem] inset-y-0 inset-x-0 landscape:-pb-[3.5rem] flex items-center justify-center flex-col gap-4 lg:hidden pt-[5rem] `}
+        className={`absolute top-0 landscape:pt-[6rem] inset-y-0 inset-x-0 landscape:-pb-[3.5rem] flex items-center justify-center flex-col gap-4 lg:hidden pt-[7rem] `}
       >
         {currentUser && (
           <div className="flex items-center mt-[3.5rem] text-sky-400">
