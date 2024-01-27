@@ -128,7 +128,7 @@ export default function MainNavigation() {
                   initial={liVariants.closed}
                   variants={liVariants}
                   whileTap={{ scale: 1.1 }}
-                  className="ms-10 mt-[-0.3remrem] text-sm"
+                  className="ms-10 mt-[-0.3remrem]"
                 >
                   {pathname !== "/obra/bloques" ? (
                     <Link to="/obra/bloques">bloques</Link>
@@ -140,7 +140,7 @@ export default function MainNavigation() {
                   initial={liVariants.closed}
                   variants={liVariants}
                   whileTap={{ scale: 1.1 }}
-                  className="ms-10 mt-[-0.3rem] text-sm"
+                  className="ms-10 mt-[-0.3rem]"
                 >
                   {pathname !== "/obra/wood" ? (
                     <Link to="/obra/wood">wood</Link>
@@ -153,7 +153,7 @@ export default function MainNavigation() {
                   initial={liVariants.closed}
                   variants={liVariants}
                   whileTap={{ scale: 1.1 }}
-                  className="ms-10 mt-[-0.3rem] text-sm"
+                  className="ms-10 mt-[-0.3rem]"
                 >
                   {pathname !== "/obra/wire" ? (
                     <Link to="/obra/wire">wire</Link>
@@ -165,7 +165,7 @@ export default function MainNavigation() {
                   initial={liVariants.closed}
                   variants={liVariants}
                   whileTap={{ scale: 1.1 }}
-                  className="ms-10 mt-[-0.3rem] text-sm"
+                  className="ms-10 mt-[-0.3rem]"
                 >
                   {pathname !== "/obra/iluminados" ? (
                     <Link to="/obra/iluminados">iluminados</Link>
