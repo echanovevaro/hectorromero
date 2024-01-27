@@ -7,7 +7,7 @@ const Privacidad = () => {
     <>
       <ScrollToTop />
       <MainNavigation />
-      <h1 className="uppercase mt-[6rem] text-base opacity-[0.7] self-start ms-[1rem] justify-self-start">
+      <h1 className="uppercase mt-[6rem] text-base opacity-[0.7] self-start ms-[1rem] justify-self-start font-thin">
         POLÍTICA DE PRIVACIDAD
       </h1>
       <div className="p-[3rem] pt-[1rem]">

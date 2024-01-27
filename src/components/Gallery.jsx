@@ -91,7 +91,7 @@ export default function Gallery({ coleccion }) {
         className={`absolute top-0 inset-y-0 inset-x-0 flex items-center justify-center flex-col gap-2 lg:hidden pt-[7rem]`}
       >
         {currentUser && (
-          <div className="flex items-center mt-[3.5rem] text-sky-400">
+          <div className="flex items-center mt-[3.5rem] text-sky-400 text-thin">
             <Link className="z-50" to={`/obra/${serie}/new`}>
               Añadir
             </Link>
@@ -300,8 +300,8 @@ export default function Gallery({ coleccion }) {
                   transition={{ duration: 1 }}
                   className="text-center"
                 >
-                  <div className="flex items-center flex-col justify-center font-light">
-                    <h1 className="text-neutral-600">{obra.titulo}</h1>
+                  <div className="flex items-center flex-col justify-center font-thin">
+                    <h1 className="text-neutral-700">{obra.titulo}</h1>
                     <span className="text-neutral-400">{obra.descripcion}</span>
                   </div>
                 </motion.div>
@@ -314,7 +314,7 @@ export default function Gallery({ coleccion }) {
               return (
                 <ul
                   key={index}
-                  className={`flex justify-center items-center gap-[0.5rem] font-thin text-neutral-600 ${
+                  className={`flex justify-center items-center gap-[0.5rem] font-thin text-neutral-700 ${
                     loaded ? "block" : "hidden"
                   }`}
                 >
