@@ -3,6 +3,8 @@ import { loginSchema, passwordSchema } from "../validation";
 import {
   sendPasswordResetEmail,
   signInWithEmailAndPassword,
+  browserSessionPersistence,
+  setPersistence,
 } from "firebase/auth";
 import { auth } from "../../firebase/config";
 import { useAuthContext } from "../context/authContext";
