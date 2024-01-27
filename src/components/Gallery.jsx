@@ -84,16 +84,14 @@ export default function Gallery({ coleccion }) {
 
   return (
     <>
-      <div className="flex gap-1">
+      <div className="flex justify-start items-center gap-1">
         <h1 className="uppercase pt-[5.5rem] text-base opacity-[0.7] ms-[1rem] justify-self-start w-full font-light">
           {serie}
         </h1>{" "}
         {currentUser && (
-          <div className="flex items-center mt-[3.5rem] text-sky-400">
-            <Link className="z-50" to={`/obra/${serie}/new`}>
-              Añadir
-            </Link>
-          </div>
+          <Link className="z-50 text-sky-400" to={`/obra/${serie}/new`}>
+            Añadir
+          </Link>
         )}
       </div>
       <div
