@@ -84,7 +84,7 @@ export default function Gallery({ coleccion }) {
 
   return (
     <>
-      <div className="flex flex-row justify-start items-center gap-1 pt-[5.5rem]">
+      <div className="flex flex-row justify-start items-end gap-2 pt-[5.5rem]">
         <h1 className="uppercase text-base opacity-[0.7] ms-[1rem] font-light">
           {serie}
         </h1>
