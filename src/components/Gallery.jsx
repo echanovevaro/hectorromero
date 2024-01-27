@@ -314,7 +314,7 @@ export default function Gallery({ coleccion }) {
               return (
                 <ul
                   key={index}
-                  className={`flex justify-center items-center gap-[0.5rem] font-thin text-neutral-700 text.lg ${
+                  className={`flex justify-center items-center gap-[0.5rem] font-thin text-neutral-700 text-lg ${
                     loaded ? "block" : "hidden"
                   }`}
                 >
