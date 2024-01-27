@@ -121,7 +121,7 @@ export default function Gallery({ coleccion }) {
               </svg>
             </button>
           </div>
-          <div className="w-[65vw] mt-4">
+          <div className="w-[75vw] mt-4">
             {coleccion?.map((obra, index) => (
               <div
                 key={obra.id}
@@ -310,7 +310,7 @@ export default function Gallery({ coleccion }) {
               );
           })}
         </div>
-        <ul className="flex items-center justify-center gap-2.5 mb-6 flex-wrap w-[75vw]">
+        <ul className="flex items-center justify-center gap-2.5 mb-6 flex-wrap w-[75vw] opacity-[0.7]">
           {coleccion?.map((_, index, arr) => {
             if (counter === index)
               return (
