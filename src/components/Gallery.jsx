@@ -84,7 +84,7 @@ export default function Gallery({ coleccion }) {
 
   return (
     <div
-      className={`landscape: flex items-center justify-center flex-col gap-2 lg:hidden pt-[5.5rem] `}
+      className={`absolute landscape:top-[3.5rem] inset-y-0 inset-x-0 landscape:-bottom-[3.5rem] flex items-center justify-center flex-col gap-4 lg:hidden pt-[4rem] `}
     >
       {currentUser && (
         <div className="flex items-center mt-[3.5rem] text-sky-400">
@@ -93,11 +93,11 @@ export default function Gallery({ coleccion }) {
           </Link>
         </div>
       )}
-      <h1 className="uppercase text-base opacity-[0.7] self-start ms-[1rem] justify-self-start w-full">
+      <h1 className="uppercase text-base opacity-[0.7] absolute top-[5rem] self-start ms-[1rem] justify-self-start w-full">
         {serie}
       </h1>
       <div
-        className={`flex items-center justify-center gap-1  ${
+        className={`flex items-center justify-center gap-1 mt-[2rem] ${
           loaded ? "" : "mb-[2.7rem]"
         }`}
       >
@@ -120,7 +120,7 @@ export default function Gallery({ coleccion }) {
             </svg>
           </button>
         </div>
-        <div className="w-[80vw] mt-[0.5rem]">
+        <div className="w-[80vw] mt-10">
           {coleccion?.map((obra, index) => (
             <div
               key={obra.id}
@@ -173,7 +173,7 @@ export default function Gallery({ coleccion }) {
                       transition={{ duration: 1 }}
                       src={obra.imagenURL}
                       alt={obra.titulo}
-                      className="inline-block object-cover overflow-hidden max-h-full touch-pinch-zoom"
+                      className="inline-block object-cover overflow-hidden max-h-[65vh] touch-pinch-zoom"
                       onPanStart={onPanStart}
                       onPanEnd={onPanEnd}
                       onLoad={() => setLoaded(true)}
