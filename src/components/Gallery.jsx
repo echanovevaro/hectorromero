@@ -174,7 +174,7 @@ export default function Gallery({ coleccion }) {
                         transition={{ duration: 1 }}
                         src={obra.imagenURL}
                         alt={obra.titulo}
-                        className="inline-block object-cover overflow-hidden max-h-[65vh] touch-pinch-zoom"
+                        className="inline-block object-cover overflow-hidden max-h-[65vh] landscape:h-[55vh] touch-pinch-zoom"
                         onPanStart={onPanStart}
                         onPanEnd={onPanEnd}
                         onLoad={() => setLoaded(true)}
