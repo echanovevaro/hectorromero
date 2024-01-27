@@ -310,7 +310,7 @@ export default function Gallery({ coleccion }) {
               );
           })}
         </div>
-        <ul className="flex items-center justify-center gap-2.5 flex-wrap w-[80vw] text-neutral-300">
+        <ul className="flex items-center justify-center gap-2.5 flex-wrap w-[80vw] text-neutral-400">
           {coleccion?.map((_, index, arr) => {
             if (counter === index)
               return (
@@ -327,7 +327,7 @@ export default function Gallery({ coleccion }) {
                   <li className="flex flex-col justify-center items-center gap-[0.14rem] text-base">
                     <span>{`${("00" + (counter + 1)).slice(-2)}`}</span>
 
-                    <span className="border-t border-neutral-300">{`${(
+                    <span className="border-t border-neutral-400">{`${(
                       "00" + arr.length
                     ).slice(-2)}`}</span>
                   </li>
