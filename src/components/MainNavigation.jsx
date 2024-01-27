@@ -77,7 +77,7 @@ export default function MainNavigation() {
               animate="open"
               exit="closed"
               transition={{ duration: 0.5 }}
-              className="h-full fixed inset-0 z-20 bg-white font-light text-base"
+              className="fixed inset-0 z-20 bg-white font-light text-base overflow-y-scroll"
             >
               <motion.ul variants={ulVariants} className="opacity-[0.7]">
                 <motion.li
