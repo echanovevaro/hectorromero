@@ -324,7 +324,7 @@ export default function Gallery({ coleccion }) {
                   counter == index ? "bg-gray-500" : "bg-gray-300"
                 }`}
               /> */}
-                  <li className="flex flex-col justify-center items-center gap-[1rem] text-base">
+                  <li className="flex flex-col justify-center items-center gap-[0.2rem] text-base">
                     <span>{`${("00" + (counter + 1)).slice(-2)}`}</span>
 
                     <span className="border-t border-neutral-300">{`${(
