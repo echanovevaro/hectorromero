@@ -310,7 +310,7 @@ export default function Gallery({ coleccion }) {
               );
           })}
         </div>
-        <ul className="flex items-center justify-center gap-2.5 mb-6 flex-wrap w-[75vw] text-neutral-300">
+        <ul className="flex items-center justify-center gap-2.5 flex-wrap w-[75vw] text-neutral-300">
           {coleccion?.map((_, index, arr) => {
             if (counter === index)
               return (
@@ -324,10 +324,8 @@ export default function Gallery({ coleccion }) {
                   counter == index ? "bg-gray-500" : "bg-gray-300"
                 }`}
               /> */}
-                  <li className="flex flex-col justify-center items-center gap-[0.15rem] text-base">
-                    <span className="pb-1rem">{`${("00" + (counter + 1)).slice(
-                      -2
-                    )}`}</span>
+                  <li className="flex flex-col justify-center items-center gap-[1rem] text-base">
+                    <span>{`${("00" + (counter + 1)).slice(-2)}`}</span>
 
                     <span className="border-t border-neutral-300">{`${(
                       "00" + arr.length
