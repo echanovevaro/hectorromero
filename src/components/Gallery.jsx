@@ -121,7 +121,7 @@ export default function Gallery({ coleccion }) {
               </svg>
             </button>
           </div>
-          <div className="w-[75vw] mt-4">
+          <div className="w-[80vw] mt-4">
             {coleccion?.map((obra, index) => (
               <div
                 key={obra.id}
@@ -174,7 +174,7 @@ export default function Gallery({ coleccion }) {
                         transition={{ duration: 1 }}
                         src={obra.imagenURL}
                         alt={obra.titulo}
-                        className="inline-block object-cover overflow-hidden max-h-[65vh] touch-pinch-zoom"
+                        className="inline-block object-cover overflow-hidden max-h-[70vh] touch-pinch-zoom"
                         onPanStart={onPanStart}
                         onPanEnd={onPanEnd}
                         onLoad={() => setLoaded(true)}
@@ -310,7 +310,7 @@ export default function Gallery({ coleccion }) {
               );
           })}
         </div>
-        <ul className="flex items-center justify-center gap-2.5 flex-wrap w-[75vw] text-neutral-300">
+        <ul className="flex items-center justify-center gap-2.5 flex-wrap w-[80vw] text-neutral-300">
           {coleccion?.map((_, index, arr) => {
             if (counter === index)
               return (

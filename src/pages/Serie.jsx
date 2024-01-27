@@ -18,7 +18,7 @@ export default function Serie() {
       <ScrollToTop />
       <div className="overflow-y-scroll overflow-x-hidden">
         <MainNavigation />
-        <div className="min-h-[103vh]">
+        <div className="h-[105vh]">
           <Gallery coleccion={data} />
         </div>
         <Footer />
