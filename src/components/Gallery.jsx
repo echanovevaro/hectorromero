@@ -84,11 +84,11 @@ export default function Gallery({ coleccion }) {
 
   return (
     <>
-      <h1 className="uppercase pt-[5.5rem] text-base opacity-[0.7] ms-[1rem] justify-self-start w-full">
+      <h1 className="uppercase pt-[5rem] text-base opacity-[0.7] ms-[1rem] justify-self-start w-full">
         {serie}
       </h1>
       <div
-        className={`absolute top-0 landscape:pt-[6rem] inset-y-0 inset-x-0 landscape:-pb-[3.5rem] flex items-center justify-center flex-col gap-4 lg:hidden pt-[7rem] `}
+        className={`absolute top-0 inset-y-0 inset-x-0 landscape:-pb-[3.5rem] flex items-center justify-center flex-col gap-2 lg:hidden pt-[7rem]`}
       >
         {currentUser && (
           <div className="flex items-center mt-[3.5rem] text-sky-400">
@@ -121,7 +121,7 @@ export default function Gallery({ coleccion }) {
               </svg>
             </button>
           </div>
-          <div className="w-[80vw] mt-4">
+          <div className="w-[65vw] mt-4">
             {coleccion?.map((obra, index) => (
               <div
                 key={obra.id}
@@ -311,19 +311,31 @@ export default function Gallery({ coleccion }) {
           })}
         </div>
         <ul className="flex items-center justify-center gap-2.5 mb-6 flex-wrap w-[75vw]">
-          {coleccion?.map((_, index) => (
-            <button
-              key={index}
-              className={`${loaded ? "block" : "hidden"}`}
-              onClick={() => setCounter(index)}
-            >
-              <li
+          {coleccion?.map((_, index, arr) => {
+            if (counter === index)
+              return (
+                <button
+                  key={index}
+                  className={`${loaded ? "block" : "hidden"}`}
+                  onClick={() => setCounter(index)}
+                >
+                  {/* <li
                 className={`h-1 w-1 rounded-full  ${
                   counter == index ? "bg-gray-500" : "bg-gray-300"
                 }`}
-              />
-            </button>
-          ))}
+              /> */}
+                  <li className="flex flex-col justify-center items-center gap-1 text-base">
+                    <span className="pb-1rem">{`${("00" + (counter + 1)).slice(
+                      -2
+                    )}`}</span>
+
+                    <span className="border-t border-neutral-500">{`${(
+                      "00" + arr.length
+                    ).slice(-2)}`}</span>
+                  </li>
+                </button>
+              );
+          })}
         </ul>
       </div>
     </>
