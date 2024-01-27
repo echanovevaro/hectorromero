@@ -93,8 +93,11 @@ export default function Gallery({ coleccion }) {
           </Link>
         </div>
       )}
+      <h1 className="uppercase text-base opacity-[0.7] absolute top-[6rem] self-start ms-[1rem] justify-self-start">
+        {serie}
+      </h1>
       <div
-        className={`flex items-center justify-center gap-1 ${
+        className={`flex items-center justify-center gap-1 mt-[2rem] ${
           loaded ? "" : "mb-[2.7rem]"
         }`}
       >

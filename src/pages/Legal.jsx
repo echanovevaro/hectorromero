@@ -8,9 +8,12 @@ const Legal = () => {
     <>
       <ScrollToTop />
       <MainNavigation />
-      <div className="mt-[1rem] p-[3rem] ">
+      <h1 className="uppercase mt-[6rem] text-base opacity-[0.7] self-start ms-[1rem] justify-self-start">
+        AVISO LEGAL
+      </h1>
+      <div className="p-[3rem] pt-[1rem]">
         <ol className="list-decimal">
-          <li className="mt-[3rem] mb-[1rem] text-base">OBJETO Y ACEPTACIÓN</li>
+          <li className="mb-[1rem] text-base">OBJETO Y ACEPTACIÓN</li>
           <p>
             El presente aviso legal regula el uso del sitio web (en adelante, LA
             WEB), del que es titular Héctor Romero García (en adelante, EL

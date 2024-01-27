@@ -7,9 +7,12 @@ const Privacidad = () => {
     <>
       <ScrollToTop />
       <MainNavigation />
-      <div className="mt-[1rem] p-[3rem]">
+      <h1 className="uppercase mt-[6rem] text-base opacity-[0.7] self-start ms-[1rem] justify-self-start">
+        POLÍTICA DE PRIVACIDAD
+      </h1>
+      <div className="p-[3rem] pt-[1rem]">
         <ol className="list-decimal">
-          <li className="mt-[3rem] mb-[1rem] text-base">OBJETO Y ACEPTACIÓN</li>
+          <li className="mb-[1rem] text-base">OBJETO Y ACEPTACIÓN</li>
           <p>
             Cuando precisemos obtener información por su parte, siempre le
             solicitaremos que nos la proporcione voluntariamente de forma
