@@ -310,7 +310,7 @@ export default function Gallery({ coleccion }) {
               );
           })}
         </div>
-        <ul className="flex items-center justify-center gap-2.5 mb-6 flex-wrap w-[75vw] text-neutral-400">
+        <ul className="flex items-center justify-center gap-2.5 mb-6 flex-wrap w-[75vw] text-neutral-300">
           {coleccion?.map((_, index, arr) => {
             if (counter === index)
               return (
