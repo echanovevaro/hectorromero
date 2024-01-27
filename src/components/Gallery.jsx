@@ -84,7 +84,7 @@ export default function Gallery({ coleccion }) {
 
   return (
     <div
-      className={`absolute landscape:top-[3.5rem] inset-y-0 inset-x-0 landscape:-bottom-[3.5rem] flex items-center justify-center flex-col gap-4 lg:hidden pt-[3rem] `}
+      className={`absolute landscape:top-[3.5rem] inset-y-0 inset-x-0 landscape:-bottom-[3.5rem] flex items-center justify-center flex-col gap-4 lg:hidden pt-[4rem] `}
     >
       {currentUser && (
         <div className="flex items-center mt-[3.5rem] text-sky-400">
@@ -93,7 +93,7 @@ export default function Gallery({ coleccion }) {
           </Link>
         </div>
       )}
-      <h1 className="uppercase text-base opacity-[0.7] absolute top-[6rem] self-start ms-[1rem] justify-self-start">
+      <h1 className="uppercase text-base opacity-[0.7] absolute top-[5rem] self-start ms-[1rem] justify-self-start">
         {serie}
       </h1>
       <div
