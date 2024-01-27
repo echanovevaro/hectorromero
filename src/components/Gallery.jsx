@@ -84,7 +84,7 @@ export default function Gallery({ coleccion }) {
 
   return (
     <div
-      className={`absolute landscape:top-[3.5rem] inset-y-0 inset-x-0 landscape:-bottom-[3.5rem] flex items-center justify-center flex-col gap-4 lg:hidden pt-[4rem] `}
+      className={`absolute inset-y-0 inset-x-0 flex items-center justify-center flex-col gap-4 lg:hidden pt-[4rem] `}
     >
       {currentUser && (
         <div className="flex items-center mt-[3.5rem] text-sky-400">
