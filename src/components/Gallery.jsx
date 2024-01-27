@@ -88,7 +88,7 @@ export default function Gallery({ coleccion }) {
         {serie}
       </h1>
       <div
-        className={`absolute top-0 inset-y-0 inset-x-0 landscape:-pb-[3.5rem] flex items-center justify-center flex-col gap-2 lg:hidden pt-[7rem]`}
+        className={`absolute top-0 inset-y-0 inset-x-0 flex items-center justify-center flex-col gap-2 lg:hidden pt-[7rem]`}
       >
         {currentUser && (
           <div className="flex items-center mt-[3.5rem] text-sky-400">
@@ -121,7 +121,7 @@ export default function Gallery({ coleccion }) {
               </svg>
             </button>
           </div>
-          <div className="w-[80vw] mt-4">
+          <div className="w-[80vw] mt-4 landscape:mt-32">
             {coleccion?.map((obra, index) => (
               <div
                 key={obra.id}
@@ -174,7 +174,7 @@ export default function Gallery({ coleccion }) {
                         transition={{ duration: 1 }}
                         src={obra.imagenURL}
                         alt={obra.titulo}
-                        className="inline-block object-cover overflow-hidden max-h-[65vh] landscape:h-[35vh] touch-pinch-zoom"
+                        className="inline-block object-cover overflow-hidden max-h-[65vh] touch-pinch-zoom"
                         onPanStart={onPanStart}
                         onPanEnd={onPanEnd}
                         onLoad={() => setLoaded(true)}
