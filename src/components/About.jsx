@@ -35,7 +35,7 @@ const About = () => {
           <div className="about-3">
             <img src="/sobre-mi-1.jpg" alt="sobre mí" />
           </div>
-          <div className="about-4 border-t border.neutral-400 title-about relative">
+          <div className="about-4 border-t border-neutral-400 title-about relative">
             <div className="absolute top-0 right-0 text-right flex flex-col">
               <span>OBRA Blo questions</span>
               <span>Interaccion</span>
