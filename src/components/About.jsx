@@ -45,10 +45,10 @@ const About = () => {
           </div>
           <div
             className={`about-4 border-t ${
-              pathname === "/" ? "" : "border-neutral-400"
+              pathname === "/" ? "border-neutral-500" : "border-neutral-300"
             } title-about relative`}
           >
-            <div className="absolute top-0 right-0 text-right flex flex-col">
+            <div className="absolute top-1 right-0 text-right flex flex-col">
               <span>OBRA Blo questions</span>
               <span>Interaccion</span>
             </div>
@@ -69,10 +69,10 @@ const About = () => {
         <div className="square-about">
           <div
             className={`about-6 border-t ${
-              pathname === "/" ? "" : "border-neutral-400"
+              pathname === "/" ? "border-neutral-500" : "border-neutral-300"
             } title-about relative`}
           >
-            <div className="absolute top-0 left-0 flex flex-col">
+            <div className="absolute top-1 left-0 flex flex-col">
               <span>OBRA Futuro bloque</span>
               <span>Interaccion</span>
             </div>
