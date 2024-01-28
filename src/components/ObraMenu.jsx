@@ -106,7 +106,7 @@ const ObraMenu = () => {
         }}
       >
         <motion.span
-          className="border-t border-neutral-400"
+          className="border-b border-neutral-400"
           whileTap={{ scale: 1.1, border: "none" }}
         >
           Animaciones
@@ -149,6 +149,17 @@ const ObraMenu = () => {
             Wood
           </motion.span>
         </Link>
+      </div>
+      <div className="contentText">
+        <p>
+          Aquí podréis ver mi obra actual centrada en la serie “Bloques” y la
+          serie "Wood", que son estéticamente distintas pero tienen un nexo
+          común: la luz y sus sombras.
+        </p>
+        <p>
+          Otras series más experimentales como “Wire” o “Iluminados”, de
+          técnicas y estilos completamente diferentes.
+        </p>
       </div>
     </div>
   );

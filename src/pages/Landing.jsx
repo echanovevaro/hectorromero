@@ -4,6 +4,7 @@ import { useParallax } from "react-scroll-parallax";
 import { motion } from "framer-motion";
 import ObraMenu from "../components/ObraMenu";
 import Footer from "../components/Footer";
+import About from "../components/About";
 
 function Landing() {
   const [showMenu, setShowMenu] = useState(false);
@@ -63,14 +64,20 @@ function Landing() {
           </motion.button>
         )}
       </div>
-      <section id="scroll" className="mt-[100dvh] flex justify-start z-[-1]">
-        <div className="bg-white w-screen z-10 pb-[5.5rem] landscape:h-full">
+      <section className="mt-[100dvh] ">
+        <div className="bg-neutral-800 text-neutral-300 text-xs font-light pb-8 pt-[2rem]">
+          <About />
+        </div>
+      </section>
+      <section id="scroll" className="flex justify-start z-[-1]">
+        <div className="bg-white w-screen z-10 landscape:h-full">
           <h1 className="px-[1rem] mt-[2rem] uppercase font-light text-base opacity-[0.7]">
             obra
           </h1>
           <ObraMenu />
         </div>
       </section>
+
       <Footer />
     </>
   );

@@ -192,7 +192,7 @@ export default function MainNavigation() {
                   variants={liVariants}
                   whileTap={{ scale: 1.1 }}
                 >
-                  <span>SOBRE MÍ</span>
+                  <Link to="sobre-mi">SOBRE MÍ</Link>
                 </motion.li>
                 <motion.li
                   initial={liVariants.closed}
