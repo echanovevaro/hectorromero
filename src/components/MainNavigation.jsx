@@ -192,7 +192,11 @@ export default function MainNavigation() {
                   variants={liVariants}
                   whileTap={{ scale: 1.1 }}
                 >
-                  <Link to="sobre-mi">SOBRE MÍ</Link>
+                  {pathname !== "/sobre-mi" ? (
+                    <Link to="/sobre-mi">SOBRE MÍ</Link>
+                  ) : (
+                    <span onClick={toggleOpen}>SOBRE MÍ</span>
+                  )}
                 </motion.li>
                 <motion.li
                   initial={liVariants.closed}
