@@ -64,7 +64,7 @@ function Landing() {
           </motion.button>
         )}
       </div>
-      <section className="mt-[100dvh] ">
+      <section className="mt-[100dvh]">
         <div className="bg-neutral-800 text-neutral-300 text-xs font-light pb-8 pt-[2rem]">
           <About />
         </div>

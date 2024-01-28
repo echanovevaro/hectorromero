@@ -150,7 +150,7 @@ const ObraMenu = () => {
           </motion.span>
         </Link>
       </div>
-      <div className="contentText">
+      <div className="contentText font-normal">
         <p>
           Aquí podréis ver mi obra actual centrada en la serie “Bloques” y la
           serie "Wood", que son estéticamente distintas pero tienen un nexo
