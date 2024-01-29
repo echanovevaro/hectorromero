@@ -177,6 +177,18 @@ export default function MainNavigation() {
                   initial={liVariants.closed}
                   variants={liVariants}
                   whileTap={{ scale: 1.1 }}
+                  className="ms-10 mt-[-0.3rem]"
+                >
+                  {pathname !== "/obra/animaciones" ? (
+                    <Link to="/obra/animaciones">animaciones</Link>
+                  ) : (
+                    <span onClick={toggleOpen}>animaciones</span>
+                  )}
+                </motion.li>
+                <motion.li
+                  initial={liVariants.closed}
+                  variants={liVariants}
+                  whileTap={{ scale: 1.1 }}
                 >
                   <span>EXPOSICIONES</span>
                 </motion.li>
