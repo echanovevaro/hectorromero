@@ -101,7 +101,7 @@ export default function Gallery({ coleccion }) {
           {serie}
         </h1>
         {currentUser && (
-          <Link className="text-sky-400" to={`/obra/${serie}/new`}>
+          <Link className="text-sky-400 z-50" to={`/obra/${serie}/new`}>
             Añadir
           </Link>
         )}

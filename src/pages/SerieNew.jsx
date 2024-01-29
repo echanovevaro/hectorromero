@@ -1,17 +1,23 @@
-import { add, uploadFile } from "../../firebase/config"
-import { redirect } from "react-router-dom"
-import ObraForm from "../components/ObraForm"
-import { queryClient } from "../http"
+import { add, uploadFile } from "../../firebase/config";
+import { redirect } from "react-router-dom";
+import ObraForm from "../components/ObraForm";
+import { queryClient } from "../http";
+import MainNavigation from "../components/MainNavigation";
 
 function SerieNew() {
-  return <ObraForm />
+  return (
+    <>
+      <MainNavigation />
+      <ObraForm />
+    </>
+  );
 }
-export default SerieNew
+export default SerieNew;
 
 export async function action({ params, request }) {
-  const formData = await request.formData()
-  const image = formData.get("imagen")
-  const { url, ref } = await uploadFile(image)
+  const formData = await request.formData();
+  const image = formData.get("imagen");
+  const { url, ref } = await uploadFile(image);
 
   const doc = {
     imagenURL: url,
@@ -19,10 +25,10 @@ export async function action({ params, request }) {
     titulo: formData.get("titulo"),
     descripcion: formData.get("descripcion"),
     createdAt: new Date().toISOString(),
-  }
+  };
 
-  await add(params.serie, doc)
+  await add(params.serie, doc);
 
-  queryClient.invalidateQueries({ queryKey: [params.serie] })
-  return redirect(`/obra/${params.serie}`)
+  queryClient.invalidateQueries({ queryKey: [params.serie] });
+  return redirect(`/obra/${params.serie}`);
 }
