@@ -9,7 +9,7 @@ function Obra() {
       <ScrollToTop />
       <MainNavigation />
       <div className="bg-white w-screen z-10 pt-[6rem] landscape:h-full min-h-[70dvh]">
-        <h1 className="uppercase text-base opacity-[0.7] self-start ms-[1rem] justify-self-start font-light">
+        <h1 className="uppercase text-base opacity-[0.7] self-start ms-[1rem] justify-self-start">
           obra
         </h1>
         <ObraMenu />

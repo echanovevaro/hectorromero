@@ -8,7 +8,7 @@ const ObraMenu = () => {
   const navigate = useNavigate();
 
   return (
-    <div ref={ref} className="square lg:hidden text-xs font-light">
+    <div ref={ref} className="square lg:hidden text-xs">
       <div
         className="content1"
         style={{

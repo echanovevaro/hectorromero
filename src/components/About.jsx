@@ -1,7 +1,7 @@
-import { useLocation } from "react-router-dom"
+import { useLocation } from "react-router-dom";
 
 const About = () => {
-  const { pathname } = useLocation()
+  const { pathname } = useLocation();
   return (
     <>
       <h1 className="uppercase pb-[1rem] text-base opacity-[0.7] self-start ms-[1rem] justify-self-start">
@@ -39,10 +39,7 @@ const About = () => {
         </div>
         <div className="square-about">
           <div className="about-3">
-            <img
-              src="/sobre-mi-1.jpg"
-              alt="sobre mí"
-            />
+            <img src="/sobre-mi-1.jpg" alt="sobre mí" />
           </div>
           <div
             className={`about-4 border-t ${
@@ -76,10 +73,7 @@ const About = () => {
             </div>
           </div>
           <div className="about-7">
-            <img
-              src="/sobre-mi-2.jpg"
-              alt="sobre mí"
-            />
+            <img src="/sobre-mi-2.jpg" alt="sobre mí" />
           </div>
         </div>
         <div className="square-about">
@@ -99,7 +93,7 @@ const About = () => {
         </div>
       </div>
     </>
-  )
-}
+  );
+};
 
-export default About
+export default About;

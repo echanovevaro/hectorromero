@@ -8,12 +8,12 @@ const Legal = () => {
     <>
       <ScrollToTop />
       <MainNavigation />
-      <h1 className="uppercase mt-[6rem] text-base opacity-[0.7] self-start ms-[1rem] justify-self-start font-light">
+      <h1 className="uppercase mt-[6rem] text-base opacity-[0.7] self-start ms-[1rem] justify-self-start">
         AVISO LEGAL
       </h1>
       <div className="p-[3rem] pt-[1rem]">
         <ol className="list-decimal">
-          <li className="mb-[1rem] text-base">OBJETO Y ACEPTACIÓN</li>
+          <li className="mb-[1rem]">OBJETO Y ACEPTACIÓN</li>
           <p>
             El presente aviso legal regula el uso del sitio web (en adelante, LA
             WEB), del que es titular Héctor Romero García (en adelante, EL
@@ -37,7 +37,7 @@ const Legal = () => {
             daños y perjuicios que pudieran causarse como consecuencia del
             incumplimiento de dicha obligación.
           </p>
-          <li className="mt-[2.5rem] mb-[1rem] text-base">
+          <li className="mt-[2.5rem] mb-[1rem]">
             IDENTIFICACIÓN Y COMUNICACIONES
           </li>
           <p>
@@ -63,7 +63,7 @@ const Legal = () => {
             cuando se realicen a través de correo postal o cualquier otro medio
             de los detallados anteriormente.
           </p>
-          <li className="mt-[2.5rem] mb-[1rem] text-base">
+          <li className="mt-[2.5rem] mb-[1rem]">
             CONDICIONES DE ACCESO Y UTILIZACIÓN
           </li>
           <p>
@@ -170,7 +170,7 @@ const Legal = () => {
             puestos a disposición en este sitio web ni de las actuaciones que
             realice en base a los mismos.
           </p>
-          <li className="mt-[2.5rem] mb-[1rem] text-base">
+          <li className="mt-[2.5rem] mb-[1rem]">
             EXCLUSIÓN DE GARANTÍAS Y DE RESPONSABILIDAD
           </li>
           <p>
@@ -224,9 +224,7 @@ const Legal = () => {
             obtenido. EL PROPIETARIO DE LA WEB no se responsabiliza del
             establecimiento de hipervínculos por parte de terceros
           </p>
-          <li className="mt-[2.5rem] mb-[1rem] text-base">
-            POLÍTICA DE PRIVACIDAD
-          </li>
+          <li className="mt-[2.5rem] mb-[1rem]">POLÍTICA DE PRIVACIDAD</li>
           <p>
             Puede revisar nuestra política de privacidad en el siguiente{" "}
             <Link to={"/privacidad"} className="text-sky-400 underline">
@@ -234,7 +232,7 @@ const Legal = () => {
             </Link>
             .
           </p>
-          <li className="mt-[2.5rem] mb-[1rem] text-base">
+          <li className="mt-[2.5rem] mb-[1rem]">
             PROCEDIMIENTO EN CASO DE REALIZACIÓN DE ACTIVIDADES DE CARACTER
             ILÍCITO
           </li>
@@ -257,7 +255,7 @@ const Legal = () => {
             domicilio del usuario o a los del lugar de cumplimiento de la
             obligación contractual.
           </p>
-          <li className="mt-[2.5rem] mb-[1rem] text-base">PUBLICACIONES</li>
+          <li className="mt-[2.5rem] mb-[1rem]">PUBLICACIONES</li>
           <p>
             La información administrativa facilitada a través del sitio web no
             sustituye la publicidad legal de las leyes, normativas, planes,
