@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 
 const Footer = () => {
   return (
-    <footer className="lg:hidden font-light text-xs ">
+    <footer className="lg:hidden text-xs ">
       <div className="square-footer opacity-[0.7]">
         <div className="brand text-sm">
           <img src="/faviconweb.png" alt="hector romero" />
