@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { AnimatePresence, delay, motion } from "framer-motion";
 import {
   Form as RouterForm,
@@ -13,9 +13,20 @@ export default function MainNavigation() {
   const [isOpen, setIsOpen] = useState(false);
   const { pathname } = useLocation();
   const navigate = useNavigate();
+  const panRef = useRef(0);
 
   function toggleOpen() {
     setIsOpen(!isOpen);
+  }
+
+  function onPanStart(_, info) {
+    panRef.current = info.point.y;
+  }
+
+  function onPanEnd(_, info) {
+    if (info.point.y < panRef.current) {
+      setIsOpen(false);
+    }
   }
 
   const divVariants = {
@@ -77,6 +88,8 @@ export default function MainNavigation() {
               animate="open"
               exit="closed"
               transition={{ duration: 0.5 }}
+              onPanStart={onPanStart}
+              onPanEnd={onPanEnd}
               className="z-[100] fixed top-0 inset-x-0 h-screen z-20 bg-white font-light text-base overflow-y-scroll touch-pinch-zoom"
             >
               <motion.ul variants={ulVariants} className="opacity-[0.7]">
