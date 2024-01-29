@@ -236,7 +236,7 @@ export default function MainNavigation() {
         >
           <h1>
             <Link to="/">
-              <img src="/logo.png" className="h-2.5 opacity-[0.5]" />
+              <img src="/logo.png" className="h-3 opacity-[0.5]" />
             </Link>
             {currentUser && (
               <span className="text-neutral-300 ml-1"> ADMIN MODE</span>
