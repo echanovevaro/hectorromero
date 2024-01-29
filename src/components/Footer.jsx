@@ -6,8 +6,9 @@ const Footer = () => {
     <footer className="lg:hidden text-xs ">
       <div className="square-footer opacity-[0.7]">
         <div className="brand text-sm">
-          <img src="/faviconweb.png" alt="hector romero" />
-          {/* <h1 className="uppercase">Héctor Romero</h1> */}
+          <Link to="/">
+            <img src="/faviconweb.png" alt="hector romero" />
+          </Link>
         </div>
         <ul className="legal">
           <li>
