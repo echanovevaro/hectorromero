@@ -107,10 +107,11 @@
     background-position: center;
     animation: zoom-landscape 6s ease-in forwards;
   }
+
   .content-about,
   .contentText {
-    font-size: unset;
-    line-height: unset;
+    font-size: unset !important;
+    line-height: unset !important;
   }
 }
 
@@ -173,7 +174,7 @@ nav li {
   gap: 0.281rem;
 }
 
-#burguer > div {
+#burguer>div {
   background: #666;
   height: 1px;
   width: 100%;
