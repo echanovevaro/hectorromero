@@ -1,9 +1,10 @@
 import { AnimatePresence, motion } from "framer-motion";
-import { useEffect, useState } from "react";
+import { useRef, useState } from "react";
 
 const Premios = () => {
   const [fullPage, setFullPage] = useState(false);
   const [obraUrl, setObraUrl] = useState();
+  const detalleRef = useRef(0);
 
   function disableScroll() {
     document.getElementsByTagName("body")[0].classList.add("stop-scrolling");
@@ -11,6 +12,17 @@ const Premios = () => {
 
   function enableScroll() {
     document.getElementsByTagName("body")[0].classList.remove("stop-scrolling");
+  }
+
+  function onDetallePanStart(_, info) {
+    detalleRef.current = info.point.y;
+  }
+
+  function onDetallePanEnd(_, info) {
+    if (info.point.y < detalleRef.current) {
+      setFullPage(false);
+      enableScroll();
+    }
   }
 
   return (
@@ -26,6 +38,8 @@ const Premios = () => {
               initial="hidden"
               animate="visible"
               exit="hidden"
+              onPanStart={onDetallePanStart}
+              onPanEnd={onDetallePanEnd}
               transition={{ duration: 0.8, type: "spring" }}
               className="fixed top-0 inset-x-0 h-screen z-[150] bg-white font-light text-base overflow-hidden"
               onClick={() => {
@@ -41,6 +55,8 @@ const Premios = () => {
               initial="hidden"
               animate="visible"
               exit="hidden"
+              onPanStart={onDetallePanStart}
+              onPanEnd={onDetallePanEnd}
               transition={{ duration: 0.8, type: "spring" }}
               id="fullPage"
               className="absolute inset-x-0 inset-y-0 bg-contain bg-no-repeat bg-center bg-white z-[200] landscape:-top-[3.5rem] landscape:bottom-[3.5rem]"

@@ -9,6 +9,7 @@ export default function Gallery({ coleccion }) {
   const [isDeleting, setIsDeleting] = useState(false);
   const [counter, setCounter] = useState(0);
   const ref = useRef(0);
+  const detalleRef = useRef(0);
   const firstImgRef = useRef(null);
   const [loaded, setLoaded] = useState(false);
   const { currentUser } = useAuthContext();
@@ -25,14 +26,34 @@ export default function Gallery({ coleccion }) {
     setLoaded(false);
   };
 
+  function disableScroll() {
+    document.getElementsByTagName("body")[0].classList.add("stop-scrolling");
+  }
+
+  function enableScroll() {
+    document.getElementsByTagName("body")[0].classList.remove("stop-scrolling");
+  }
+
   function onPanStart(_, info) {
     ref.current = info.point.x;
   }
+
   function onPanEnd(_, info) {
     if (info.point.x < ref.current) {
       slideRight();
     } else if (info.point.x > ref.current) {
       slideLeft();
+    }
+  }
+
+  function onDetallePanStart(_, info) {
+    detalleRef.current = info.point.y;
+  }
+
+  function onDetallePanEnd(_, info) {
+    if (info.point.y < detalleRef.current) {
+      setFullPage(false);
+      enableScroll();
     }
   }
 
@@ -180,6 +201,7 @@ export default function Gallery({ coleccion }) {
                         onLoad={() => setLoaded(true)}
                         onClick={() => {
                           setFullPage(true);
+                          disableScroll();
                         }}
                       />
                       {currentUser && loaded && (
@@ -231,22 +253,26 @@ export default function Gallery({ coleccion }) {
                           <motion.div
                             variants={{
                               hidden: { y: "-100dvh" },
-                              visible: { y: 0 },
+                              visible: { y: window.scrollY },
                             }}
                             initial="hidden"
                             animate="visible"
                             exit="hidden"
                             transition={{ duration: 0.8, type: "spring" }}
+                            onPanStart={onDetallePanStart}
+                            onPanEnd={onDetallePanEnd}
                             className="bg-white absolute h-full w-full z-[150] top-0 left-0"
                           />
                           <motion.div
                             variants={{
                               hidden: { y: "-100dvh" },
-                              visible: { y: 0 },
+                              visible: { y: window.scrollY },
                             }}
                             initial="hidden"
                             animate="visible"
                             exit="hidden"
+                            onPanStart={onDetallePanStart}
+                            onPanEnd={onDetallePanEnd}
                             transition={{ duration: 0.8, type: "spring" }}
                             id="fullPage"
                             className="absolute inset-x-0 inset-y-0 bg-contain bg-no-repeat bg-center bg-white z-[200] landscape:-top-[3.5rem] landscape:bottom-[3.5rem]"
@@ -255,6 +281,7 @@ export default function Gallery({ coleccion }) {
                             }}
                             onClick={() => {
                               setFullPage(false);
+                              enableScroll();
                             }}
                           />
                         </>
