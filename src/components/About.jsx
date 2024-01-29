@@ -56,11 +56,11 @@ const About = () => {
           </div>
           <div className="about-5 content-about flex justify-end">
             <p className="mb-0">
-              Describiría mi estilo pictórico como una mezcla de surrealismo,
-              minimalismo arquitectónico, expresionismo, metafísico…, paisajes
-              desoladores formados por grandes bloques, creando espacios
-              inquietantes. Perspectivas imposibles, oníricas, geometrías que se
-              traicionan a si mismas.
+              Describiría mi estilo, como una mezcla de surrealismo, minimalismo
+              arquitectónico, expresionismo, metafísico…, paisajes desoladores
+              formados por grandes bloques, creando espacios inquietantes.
+              Perspectivas imposibles, oníricas, geometrías que se traicionan a
+              si mismas.
             </p>
           </div>
         </div>
@@ -91,10 +91,9 @@ const About = () => {
               proporción a la composición.
             </p>
             <p>
-              Pero más allá del pretendido juego de ilusionismo que al final
-              propone todo arte, propongo una reflexión plástica tridimensional
-              sobre perspectiva, luz y color. Una ventana abierta al mundo de
-              los sueños.
+              Intento aportar reflexión plástica tridimensional sobre
+              perspectiva, luz y color. Una ventana abierta al mundo de los
+              sueños.
             </p>
           </div>
         </div>
