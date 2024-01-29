@@ -63,7 +63,7 @@ const Premios = () => {
       <h1 className="pb-[1rem] uppercase font-light text-base opacity-[0.7]">
         premios y menciones
       </h1>
-      <ul className="flex flex-col gap-[0.5rem] items-center">
+      <ul className="flex flex-col gap-[0.5rem] items-center flex-nowrap">
         <motion.li
           whileTap={{ scale: 1.1 }}
           onClick={() => {
