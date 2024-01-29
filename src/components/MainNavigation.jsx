@@ -185,7 +185,11 @@ export default function MainNavigation() {
                   variants={liVariants}
                   whileTap={{ scale: 1.1 }}
                 >
-                  <span>PREMIOS</span>
+                  {pathname !== "/premios" ? (
+                    <Link to="/premios">PREMIOS</Link>
+                  ) : (
+                    <span onClick={toggleOpen}>PREMIOS</span>
+                  )}
                 </motion.li>
                 <motion.li
                   initial={liVariants.closed}
@@ -231,7 +235,9 @@ export default function MainNavigation() {
           className={`px-4 py-6 flex justify-between items-center bg-white shadow-md z-10 lg:hidden uppercase`}
         >
           <h1>
-            <Link to="/">héctor romero</Link>
+            <Link to="/">
+              <img src="/logo.png" className="h-2.5 opacity-[0.5]" />
+            </Link>
             {currentUser && (
               <span className="text-neutral-300 ml-1"> ADMIN MODE</span>
             )}

@@ -5,6 +5,7 @@ import { motion } from "framer-motion";
 import ObraMenu from "../components/ObraMenu";
 import Footer from "../components/Footer";
 import About from "../components/About";
+import Premios from "../components/Premios";
 
 function Landing() {
   const [showMenu, setShowMenu] = useState(false);
@@ -37,7 +38,7 @@ function Landing() {
             whileTap={{ scale: 0.95 }}
             onClick={() => {
               let pageHeight = window.innerHeight;
-              let scroll = pageHeight - window.scrollY - 65;
+              let scroll = pageHeight - window.scrollY - 63;
               window.scrollBy({
                 top: scroll,
                 left: 0,
@@ -64,17 +65,22 @@ function Landing() {
           </motion.button>
         )}
       </div>
-      <section className="mt-[100dvh]">
-        <div className="bg-neutral-800 text-neutral-300 text-xs font-light pb-8 pt-[2rem]">
-          <About />
-        </div>
-      </section>
-      <section id="scroll" className="flex justify-start z-[-1]">
+      <section id="scroll" className="flex justify-start z-[-1] mt-[100dvh]">
         <div className="bg-white w-screen z-10 landscape:h-full">
           <h1 className="px-[1rem] mt-[2rem] uppercase font-light text-base opacity-[0.7]">
             obra
           </h1>
           <ObraMenu />
+        </div>
+      </section>
+      <section>
+        <div className="bg-neutral-800 text-neutral-300 text-xs font-light pt-[2rem]">
+          <About />
+        </div>
+      </section>
+      <section>
+        <div className="px-[1rem] text-xs font-light pb-12 pt-[2rem]">
+          <Premios />
         </div>
       </section>
 

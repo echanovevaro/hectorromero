@@ -448,3 +448,8 @@ footer {
   object-fit: cover;
   filter: grayscale(100%);
 }
+
+.stop-scrolling {
+  height: 100%;
+  overflow: hidden;
+}

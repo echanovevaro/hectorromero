@@ -15,6 +15,7 @@ import Legal from "./pages/Legal";
 import Privacidad from "./pages/Privacidad";
 import Proteccion from "./pages/Proteccion";
 import AboutPage from "./pages/AboutPage";
+import PremiosPage from "./pages/PremiosPage";
 
 function App() {
   const router = createBrowserRouter([
@@ -53,6 +54,10 @@ function App() {
         {
           path: "sobre-mi",
           element: <AboutPage />,
+        },
+        {
+          path: "premios",
+          element: <PremiosPage />,
         },
         {
           path: "legal",
