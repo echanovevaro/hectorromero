@@ -1,23 +1,20 @@
-import { useInView, motion } from "framer-motion"
-import { useRef } from "react"
-import { Link, useNavigate } from "react-router-dom"
+import { useInView, motion } from "framer-motion";
+import { useRef } from "react";
+import { Link, useNavigate } from "react-router-dom";
 
 const ObraMenu = () => {
-  const ref = useRef(null)
-  const isInView = useInView(ref, { once: true })
-  const navigate = useNavigate()
+  const ref = useRef(null);
+  const isInView = useInView(ref, { once: true });
+  const navigate = useNavigate();
 
   return (
-    <div
-      ref={ref}
-      className="square lg:hidden text-xs font-light"
-    >
+    <div ref={ref} className="square lg:hidden text-xs font-light">
       <div
         className="content1"
         style={{
           transform: isInView ? "none" : "translateX(-60px)",
           opacity: isInView ? 1 : 0,
-          transition: "all 1s cubic-bezier(0.17, 0.55, 0.55, 1)",
+          transition: "all 1.25s cubic-bezier(0.17, 0.55, 0.55, 1)",
         }}
         onClick={() => navigate("/obra/bloques")}
       >
@@ -27,7 +24,7 @@ const ObraMenu = () => {
         className="content1Title"
         style={{
           opacity: isInView ? 1 : 0,
-          transition: "all 0.5s cubic-bezier(0.17, 0.55, 0.55, 1) 1s",
+          transition: "all 0.5s cubic-bezier(0.17, 0.55, 0.55, 1) 1.25s",
         }}
       >
         <Link to="obra/bloques">
@@ -44,7 +41,7 @@ const ObraMenu = () => {
         style={{
           transform: isInView ? "none" : "translateY(-60px)",
           opacity: isInView ? 1 : 0,
-          transition: "all 1s cubic-bezier(0.17, 0.55, 0.55, 1)",
+          transition: "all 1.25s cubic-bezier(0.17, 0.55, 0.55, 1)",
         }}
         onClick={() => navigate("/obra/wire")}
       >
@@ -54,7 +51,7 @@ const ObraMenu = () => {
         className="content2Title"
         style={{
           opacity: isInView ? 1 : 0,
-          transition: "all 0.5s cubic-bezier(0.17, 0.55, 0.55, 1) 1s",
+          transition: "all 0.5s cubic-bezier(0.17, 0.55, 0.55, 1) 1.25s",
         }}
       >
         <Link to="obra/wire">
@@ -71,7 +68,7 @@ const ObraMenu = () => {
         style={{
           transform: isInView ? "none" : "translateY(60px)",
           opacity: isInView ? 1 : 0,
-          transition: "all 1s cubic-bezier(0.17, 0.55, 0.55, 1)",
+          transition: "all 1.25s cubic-bezier(0.17, 0.55, 0.55, 1)",
         }}
         onClick={() => navigate("/obra/iluminados")}
       >
@@ -81,7 +78,7 @@ const ObraMenu = () => {
         className="content3Title"
         style={{
           opacity: isInView ? 1 : 0,
-          transition: "all 0.5s cubic-bezier(0.17, 0.55, 0.55, 1) 1s",
+          transition: "all 0.5s cubic-bezier(0.17, 0.55, 0.55, 1) 1.25s",
         }}
       >
         <Link to="obra/iluminados">
@@ -97,7 +94,7 @@ const ObraMenu = () => {
         className="content4"
         style={{
           opacity: isInView ? 1 : 0,
-          transition: "all 1s cubic-bezier(0.17, 0.55, 0.55, 1)",
+          transition: "all 1.25s cubic-bezier(0.17, 0.55, 0.55, 1)",
         }}
         onClick={() => navigate("/obra/animaciones")}
       >
@@ -107,7 +104,7 @@ const ObraMenu = () => {
         className="content4Title"
         style={{
           opacity: isInView ? 1 : 0,
-          transition: "all 0.5s cubic-bezier(0.17, 0.55, 0.55, 1) 1s",
+          transition: "all 0.5s cubic-bezier(0.17, 0.55, 0.55, 1) 1.25s",
         }}
       >
         <Link to="/obra/animaciones">
@@ -125,7 +122,7 @@ const ObraMenu = () => {
         style={{
           transform: isInView ? "none" : "translateX(-60px)",
           opacity: isInView ? 1 : 0,
-          transition: "all 1s cubic-bezier(0.17, 0.55, 0.55, 1)",
+          transition: "all 1.25s cubic-bezier(0.17, 0.55, 0.55, 1)",
         }}
         onClick={() => navigate("/obra/wood")}
       >
@@ -136,7 +133,7 @@ const ObraMenu = () => {
         style={{
           transform: isInView ? "none" : "translateX(60px)",
           opacity: isInView ? 1 : 0,
-          transition: "all 1s cubic-bezier(0.17, 0.55, 0.55, 1)",
+          transition: "all 1.25s cubic-bezier(0.17, 0.55, 0.55, 1)",
         }}
         onClick={() => navigate("/obra/wood")}
       >
@@ -146,7 +143,7 @@ const ObraMenu = () => {
         className="content5-6Title"
         style={{
           opacity: isInView ? 1 : 0,
-          transition: "all 0.5s cubic-bezier(0.17, 0.55, 0.55, 1) 1s",
+          transition: "all 0.5s cubic-bezier(0.17, 0.55, 0.55, 1) 1.25s",
         }}
       >
         <Link to="obra/wood">
@@ -166,7 +163,7 @@ const ObraMenu = () => {
         <p>Experimento con tecnicas diferentes en “Wire” e “Iluminados”.</p>
       </div>
     </div>
-  )
-}
+  );
+};
 
-export default ObraMenu
+export default ObraMenu;
