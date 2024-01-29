@@ -74,7 +74,7 @@ function Landing() {
         </div>
       </section>
       <section>
-        <div className="bg-neutral-800 text-neutral-300 text-xs font-light pt-[2rem]">
+        <div className="bg-neutral-800 text-neutral-300 text-xs font-light pt-[2rem] pb-8">
           <About />
         </div>
       </section>
