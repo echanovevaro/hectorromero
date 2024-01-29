@@ -106,7 +106,9 @@ const Footer = () => {
             <Link to="/obra">obra</Link>
           </motion.li>
           <motion.li whileTap={{ scale: 1.1 }}>exposiciones</motion.li>
-          <motion.li whileTap={{ scale: 1.1 }}>premios</motion.li>
+          <motion.li whileTap={{ scale: 1.1 }}>
+            <Link to="/premios">premios</Link>
+          </motion.li>
           <motion.li whileTap={{ scale: 1.1 }}>
             <Link to="/sobre-mi">sobre mí</Link>
           </motion.li>
