@@ -107,6 +107,11 @@
     background-position: center;
     animation: zoom-landscape 6s ease-in forwards;
   }
+  .content-about,
+  .contentText {
+    font-size: inherit;
+    line-height: inherit;
+  }
 }
 
 /* Modal */
