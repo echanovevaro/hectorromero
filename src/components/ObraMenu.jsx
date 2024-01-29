@@ -1,14 +1,17 @@
-import { useInView, motion } from "framer-motion";
-import { useRef } from "react";
-import { Link, useNavigate } from "react-router-dom";
+import { useInView, motion } from "framer-motion"
+import { useRef } from "react"
+import { Link, useNavigate } from "react-router-dom"
 
 const ObraMenu = () => {
-  const ref = useRef(null);
-  const isInView = useInView(ref, { once: true });
-  const navigate = useNavigate();
+  const ref = useRef(null)
+  const isInView = useInView(ref, { once: true })
+  const navigate = useNavigate()
 
   return (
-    <div ref={ref} className="square lg:hidden text-xs font-light">
+    <div
+      ref={ref}
+      className="square lg:hidden text-xs font-light"
+    >
       <div
         className="content1"
         style={{
@@ -157,17 +160,13 @@ const ObraMenu = () => {
       </div>
       <div className="contentText font-normal">
         <p>
-          Aquí podréis ver mi obra actual centrada en la serie “Bloques” y la
-          serie "Wood", que son estéticamente distintas pero tienen un nexo
-          común: la luz y sus sombras.
+          Mi obra actual se centra en las series “Bloques” y "Wood", en ambas
+          estudio la luz y sus sombras.
         </p>
-        <p>
-          Otras series más experimentales como “Wire” o “Iluminados”, de
-          técnicas y estilos completamente diferentes.
-        </p>
+        <p>Experimento con tecnicas diferentes en “Wire” e “Iluminados”.</p>
       </div>
     </div>
-  );
-};
+  )
+}
 
-export default ObraMenu;
+export default ObraMenu
