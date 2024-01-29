@@ -6,14 +6,6 @@ const Premios = () => {
   const [obraUrl, setObraUrl] = useState();
   const detalleRef = useRef(0);
 
-  function disableScroll() {
-    document.getElementsByTagName("body")[0].classList.add("stop-scrolling");
-  }
-
-  function enableScroll() {
-    document.getElementsByTagName("body")[0].classList.remove("stop-scrolling");
-  }
-
   function onDetallePanStart(_, info) {
     detalleRef.current = info.point.y;
   }
@@ -21,7 +13,6 @@ const Premios = () => {
   function onDetallePanEnd(_, info) {
     if (info.point.y < detalleRef.current) {
       setFullPage(false);
-      enableScroll();
     }
   }
 
@@ -44,7 +35,6 @@ const Premios = () => {
               className="fixed top-0 inset-x-0 h-screen z-[150] bg-white font-light text-base overflow-hidden touch-pinch-zoom"
               onClick={() => {
                 setFullPage(false);
-                enableScroll();
               }}
             />
             <motion.div
@@ -65,7 +55,6 @@ const Premios = () => {
               }}
               onClick={() => {
                 setFullPage(false);
-                enableScroll();
               }}
             />
           </>
@@ -80,7 +69,6 @@ const Premios = () => {
           onClick={() => {
             setObraUrl("/premio-meduina-schneider.jpg");
             setFullPage(true);
-            disableScroll();
           }}
         >
           2º premio Menduina Schneider Art Gallery (2021)
@@ -96,7 +84,6 @@ const Premios = () => {
           onClick={() => {
             setObraUrl("/premio-enrique-lite.jpg");
             setFullPage(true);
-            disableScroll();
           }}
         >
           Tercer premio. Certamen nacional de pintura Enrique Lite

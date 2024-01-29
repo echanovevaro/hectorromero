@@ -77,7 +77,7 @@ export default function MainNavigation() {
               animate="open"
               exit="closed"
               transition={{ duration: 0.5 }}
-              className="fixed top-0 inset-x-0 h-screen z-20 bg-white font-light text-base overflow-y-scroll"
+              className="fixed top-0 inset-x-0 h-screen z-20 bg-white font-light text-base overflow-y-scroll touch-pinch-zoom"
             >
               <motion.ul variants={ulVariants} className="opacity-[0.7]">
                 <motion.li
@@ -234,14 +234,14 @@ export default function MainNavigation() {
         <nav
           className={`px-4 py-6 flex justify-between items-center bg-white shadow-md z-10 lg:hidden uppercase`}
         >
-          <h1>
+          <motion.h1>
             <Link to="/">
-              <img src="/logo.png" className="h-3 opacity-[0.5]" />
+              <img src="/logo.png" className="h-2.5 opacity-[0.5]" />
             </Link>
             {currentUser && (
               <span className="text-neutral-300 ml-1"> ADMIN MODE</span>
             )}
-          </h1>
+          </motion.h1>
           <button
             id="burguer"
             onClick={() => {

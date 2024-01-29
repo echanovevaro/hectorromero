@@ -26,14 +26,6 @@ export default function Gallery({ coleccion }) {
     setLoaded(false);
   };
 
-  function disableScroll() {
-    document.getElementsByTagName("body")[0].classList.add("stop-scrolling");
-  }
-
-  function enableScroll() {
-    document.getElementsByTagName("body")[0].classList.remove("stop-scrolling");
-  }
-
   function onPanStart(_, info) {
     ref.current = info.point.x;
   }
@@ -53,7 +45,6 @@ export default function Gallery({ coleccion }) {
   function onDetallePanEnd(_, info) {
     if (info.point.y < detalleRef.current) {
       setFullPage(false);
-      enableScroll();
     }
   }
 
@@ -201,7 +192,6 @@ export default function Gallery({ coleccion }) {
                         onLoad={() => setLoaded(true)}
                         onClick={() => {
                           setFullPage(true);
-                          disableScroll();
                         }}
                       />
                       {currentUser && loaded && (
@@ -281,7 +271,6 @@ export default function Gallery({ coleccion }) {
                             }}
                             onClick={() => {
                               setFullPage(false);
-                              enableScroll();
                             }}
                           />
                         </>
