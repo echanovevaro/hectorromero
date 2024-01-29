@@ -41,7 +41,7 @@ const Premios = () => {
               onPanStart={onDetallePanStart}
               onPanEnd={onDetallePanEnd}
               transition={{ duration: 0.8, type: "spring" }}
-              className="fixed top-0 inset-x-0 h-screen z-[150] bg-white font-light text-base overflow-hidden"
+              className="fixed top-0 inset-x-0 h-screen z-[150] bg-white font-light text-base overflow-hidden touch-pinch-zoom"
               onClick={() => {
                 setFullPage(false);
                 enableScroll();
@@ -59,7 +59,7 @@ const Premios = () => {
               onPanEnd={onDetallePanEnd}
               transition={{ duration: 0.8, type: "spring" }}
               id="fullPage"
-              className="absolute inset-x-0 inset-y-0 bg-contain bg-no-repeat bg-center bg-white z-[200] landscape:-top-[3.5rem] landscape:bottom-[3.5rem]"
+              className="absolute inset-x-0 inset-y-0 bg-contain bg-no-repeat bg-center bg-white z-[200] landscape:-top-[3.5rem] landscape:bottom-[3.5rem] touch-pinch-zoom"
               style={{
                 backgroundImage: `url(${obraUrl})`,
               }}
