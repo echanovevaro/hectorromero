@@ -27,8 +27,8 @@ function Landing() {
     <>
       <ScrollToTop />
       {showMenu && <MainNavigation />}
-      <div ref={parallax.ref} className="wrapper">
-        <div className="background" />
+      <div className="wrapper">
+        <div ref={parallax.ref} className="background" />
         <div className="blur" />
         {showMenu && (
           <motion.button
@@ -67,7 +67,7 @@ function Landing() {
           </motion.button>
         )}
       </div>
-      <section id="scroll" className="flex justify-start z-[-1] mt-[100dvh]">
+      <section id="scroll" className="flex justify-start z-[-1]">
         <div className="bg-white w-screen z-10 landscape:h-full text-xs">
           <h1 className="px-[1rem] mt-[2rem] uppercase text-base opacity-[0.7]">
             obra
