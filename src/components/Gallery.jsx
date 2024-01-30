@@ -109,7 +109,7 @@ export default function Gallery({ coleccion }) {
                 initial="hidden"
                 animate="visible"
                 exit="hidden"
-                transition={{ duration: 0.8, type: "spring" }}
+                transition={{ duration: 0.8, type: "spring", bounce: 0.2 }}
                 onPanStart={onDetallePanStart}
                 onPanEnd={onDetallePanEnd}
                 className="bg-white absolute w-screen z-[600] h-screen inset-0 touch-pinch-zoom"
@@ -124,7 +124,7 @@ export default function Gallery({ coleccion }) {
                   exit="hidden"
                   onPanStart={onDetallePanStart}
                   onPanEnd={onDetallePanEnd}
-                  transition={{ duration: 0.8, type: "spring" }}
+                  transition={{ duration: 0.8, type: "spring", bounce: 0.2 }}
                   id="fullPage"
                   className="w-full h-full bg-contain bg-no-repeat bg-center bg-white z-[650] landscape:-top-[3.5rem] landscape:bottom-[3.5rem] touch-pinch-zoom"
                   style={{

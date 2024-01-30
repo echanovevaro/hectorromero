@@ -31,7 +31,7 @@ const Premios = () => {
               exit="hidden"
               onPanStart={onDetallePanStart}
               onPanEnd={onDetallePanEnd}
-              transition={{ duration: 0.8, type: "spring" }}
+              transition={{ duration: 0.8, type: "spring", bounce: 0.2 }}
               className="fixed top-0 inset-x-0 h-screen z-[150] bg-white overflow-hidden touch-pinch-zoom"
               onClick={() => {
                 setFullPage(false);
@@ -47,7 +47,7 @@ const Premios = () => {
               exit="hidden"
               onPanStart={onDetallePanStart}
               onPanEnd={onDetallePanEnd}
-              transition={{ duration: 0.8, type: "spring" }}
+              transition={{ duration: 0.8, type: "spring", bounce: 0.2 }}
               id="fullPage"
               className="absolute inset-x-0 inset-y-0 bg-contain bg-no-repeat bg-center bg-white z-[200] landscape:-top-[3.5rem] landscape:bottom-[3.5rem] touch-pinch-zoom"
               style={{
