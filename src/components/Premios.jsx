@@ -32,7 +32,7 @@ const Premios = () => {
               onPanStart={onDetallePanStart}
               onPanEnd={onDetallePanEnd}
               transition={{ duration: 0.8, type: "spring" }}
-              className="fixed top-0 inset-x-0 h-screen z-[150] bg-white  text-base overflow-hidden touch-pinch-zoom"
+              className="fixed top-0 inset-x-0 h-screen z-[150] bg-white overflow-hidden touch-pinch-zoom"
               onClick={() => {
                 setFullPage(false);
               }}

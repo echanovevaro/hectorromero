@@ -1,6 +1,6 @@
 import { v4 } from "uuid";
 import { initializeApp } from "firebase/app";
-import { browserLocalPersistence, getAuth } from "firebase/auth";
+import { browserSessionPersistence, getAuth } from "firebase/auth";
 import {
   getStorage,
   ref,
@@ -34,7 +34,7 @@ const firebaseConfig = {
 const app = initializeApp(firebaseConfig);
 const storage = getStorage(app);
 export const auth = getAuth(app, {
-  persistence: browserLocalPersistence,
+  persistence: browserSessionPersistence,
 });
 export const db = getFirestore(app);
 

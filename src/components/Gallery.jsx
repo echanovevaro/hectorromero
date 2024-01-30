@@ -241,7 +241,7 @@ export default function Gallery({ coleccion }) {
                           <motion.div
                             variants={{
                               hidden: { y: "-100dvh" },
-                              visible: { y: window.scrollY },
+                              visible: { y: window.scrollY - 60 },
                             }}
                             initial="hidden"
                             animate="visible"
