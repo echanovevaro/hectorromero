@@ -96,6 +96,48 @@ export default function Gallery({ coleccion }) {
 
   return (
     <>
+      <AnimatePresence>
+        {coleccion?.map((obra, index) => {
+          if (fullPage && counter == index)
+            return (
+              <motion.div
+                variants={{
+                  hidden: { y: "-100dvh" },
+                  visible: { y: window.scrollY },
+                }}
+                key={index}
+                initial="hidden"
+                animate="visible"
+                exit="hidden"
+                transition={{ duration: 0.8, type: "spring" }}
+                onPanStart={onDetallePanStart}
+                onPanEnd={onDetallePanEnd}
+                className="bg-white absolute w-screen z-[150] h-screen inset-0 touch-pinch-zoom"
+              >
+                <motion.div
+                  variants={{
+                    hidden: { y: "-100dvh" },
+                    visible: { y: 0 },
+                  }}
+                  initial="hidden"
+                  animate="visible"
+                  exit="hidden"
+                  onPanStart={onDetallePanStart}
+                  onPanEnd={onDetallePanEnd}
+                  transition={{ duration: 0.8, type: "spring" }}
+                  id="fullPage"
+                  className="w-full h-full bg-contain bg-no-repeat bg-center bg-white z-[200] landscape:-top-[3.5rem] landscape:bottom-[3.5rem] touch-pinch-zoom"
+                  style={{
+                    backgroundImage: `url(${obra.imagenURL})`,
+                  }}
+                  onClick={() => {
+                    setFullPage(false);
+                  }}
+                />
+              </motion.div>
+            );
+        })}
+      </AnimatePresence>
       <div className="flex flex-row justify-start items-end gap-2 pt-[5.5rem]">
         <h1 className="uppercase text-base opacity-[0.7] ms-[1rem]">{serie}</h1>
         {currentUser && (
@@ -235,46 +277,6 @@ export default function Gallery({ coleccion }) {
                         </div>
                       )}
                     </div>
-                    <AnimatePresence>
-                      {fullPage && (
-                        <>
-                          <motion.div
-                            variants={{
-                              hidden: { y: "-100dvh" },
-                              visible: { y: window.scrollY },
-                            }}
-                            initial="hidden"
-                            animate="visible"
-                            exit="hidden"
-                            transition={{ duration: 0.8, type: "spring" }}
-                            onPanStart={onDetallePanStart}
-                            onPanEnd={onDetallePanEnd}
-                            className="bg-white absolute w-screen z-[150] top-[-1rem] bottom-[1rem] left-0 touch-pinch-zoom"
-                          >
-                            <motion.div
-                              variants={{
-                                hidden: { y: "-100dvh" },
-                                visible: { y: window.scrollY },
-                              }}
-                              initial="hidden"
-                              animate="visible"
-                              exit="hidden"
-                              onPanStart={onDetallePanStart}
-                              onPanEnd={onDetallePanEnd}
-                              transition={{ duration: 0.8, type: "spring" }}
-                              id="fullPage"
-                              className="w-full h-full bg-contain bg-no-repeat bg-center bg-white z-[200] landscape:-top-[3.5rem] landscape:bottom-[3.5rem] touch-pinch-zoom"
-                              style={{
-                                backgroundImage: `url(${obra.imagenURL})`,
-                              }}
-                              onClick={() => {
-                                setFullPage(false);
-                              }}
-                            />
-                          </motion.div>
-                        </>
-                      )}
-                    </AnimatePresence>
                   </>
                 )}
               </div>
