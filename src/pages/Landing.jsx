@@ -47,7 +47,7 @@ function Landing() {
             }}
             className="w-screen h-full flex justify-end flex-col items-center pb-[2rem] gap-1 text-white z-[500] text-lg"
           >
-            <span className="z-[500]">scroll</span>
+            <span className="z-[500] text-sm">scroll</span>
             <svg
               xmlns="http://www.w3.org/2000/svg"
               fill="none"
