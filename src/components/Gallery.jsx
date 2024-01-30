@@ -314,7 +314,7 @@ export default function Gallery({ coleccion }) {
                   transition={{ duration: 1 }}
                   className="text-center"
                 >
-                  <div className="flex items-center flex-col justify-center font-light">
+                  <div className="flex items-center flex-col justify-center">
                     <h1 className="text-neutral-700">{obra.titulo}</h1>
                     <span className="text-neutral-400">{obra.descripcion}</span>
                   </div>

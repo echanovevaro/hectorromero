@@ -90,7 +90,7 @@ export default function MainNavigation() {
               transition={{ duration: 0.5 }}
               onPanStart={onPanStart}
               onPanEnd={onPanEnd}
-              className="z-[100] fixed top-0 inset-x-0 h-screen z-20 bg-white font-light text-base overflow-y-scroll touch-pinch-zoom"
+              className="z-[100] fixed top-0 inset-x-0 h-screen z-20 bg-white text-base overflow-y-scroll touch-pinch-zoom"
             >
               <motion.ul variants={ulVariants} className="opacity-[0.7]">
                 <motion.li

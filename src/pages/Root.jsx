@@ -14,7 +14,7 @@ function Root() {
   return (
     <AnimatePresence mode="wait">
       <motion.div
-        className="text-sm text-neutral-500 bg-white"
+        className="text-sm text-neutral-500 bg-white font-light"
         key={location.pathname}
         initial={{ opacity: 0 }}
         animate={{

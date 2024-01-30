@@ -8,7 +8,7 @@ const AboutPage = () => {
     <>
       <ScrollToTop />
       <MainNavigation />
-      <div className="pb-8 pt-[6rem] text-xs font-light">
+      <div className="pb-8 pt-[6rem] text-xs">
         <About />
       </div>
       <Footer />

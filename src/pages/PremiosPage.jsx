@@ -6,7 +6,7 @@ const PremiosPage = () => {
   return (
     <>
       <MainNavigation />
-      <div className="pb-32 pt-[6rem] text-xs font-light px-[1rem]">
+      <div className="pb-32 pt-[6rem] text-xs px-[1rem]">
         <Premios />
       </div>
       <Footer />

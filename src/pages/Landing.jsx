@@ -66,20 +66,20 @@ function Landing() {
         )}
       </div>
       <section id="scroll" className="flex justify-start z-[-1] mt-[100dvh]">
-        <div className="bg-white w-screen z-10 landscape:h-full font-light text-xs">
-          <h1 className="px-[1rem] mt-[2rem] uppercase font-normal text-base opacity-[0.7]">
+        <div className="bg-white w-screen z-10 landscape:h-full text-xs">
+          <h1 className="px-[1rem] mt-[2rem] uppercase text-base opacity-[0.7]">
             obra
           </h1>
           <ObraMenu />
         </div>
       </section>
       <section>
-        <div className="bg-neutral-800 text-neutral-400 font-light pt-[2rem] pb-8 text-xs">
+        <div className="bg-neutral-800 text-neutral-400 pt-[2rem] pb-8 text-xs">
           <About />
         </div>
       </section>
       <section>
-        <div className="px-[1rem] text-xs font-light pb-12 pt-[2rem]">
+        <div className="px-[1rem] text-xs pb-12 pt-[2rem]">
           <Premios />
         </div>
       </section>
