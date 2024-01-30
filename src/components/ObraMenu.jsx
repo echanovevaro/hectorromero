@@ -155,7 +155,7 @@ const ObraMenu = () => {
           </motion.span>
         </Link>
       </div>
-      <div className="contentText font-normal">
+      <div className="contentText font-light">
         <p>
           Mi obra actual se centra en las series “Bloques” y "Wood", en ambas
           estudio la luz y sus sombras.
