@@ -14,6 +14,7 @@ function Landing() {
   });
 
   useEffect(() => {
+    window.scrollTo(0, 0);
     const timeout = setTimeout(() => {
       setShowMenu(true);
     }, 2500);
