@@ -105,7 +105,7 @@ export default function Gallery({ coleccion }) {
         )}
       </div>
       <div
-        className={`absolute top-[6rem] bottom-[1rem] inset-x-0 flex items-center justify-center flex-col gap-2 lg:hidden `}
+        className={`absolute top-[6rem] landscape:top-[3rem] bottom-[1rem] inset-x-0 flex items-center justify-center flex-col gap-2 lg:hidden `}
       >
         <div
           className={`flex items-center justify-center gap-1 ${
