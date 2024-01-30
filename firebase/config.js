@@ -23,7 +23,7 @@ import {
 
 const firebaseConfig = {
   apiKey: "AIzaSyA2nhtKwaqfSH3guh7ACQXPchv_w7uW7ko",
-  authDomain: "hectorapp-3a24d.firebaseapp.com",
+  authDomain: "hectorapp-3a24d.web.app",
   projectId: "hectorapp-3a24d",
   storageBucket: "hectorapp-3a24d.appspot.com",
   messagingSenderId: "952480705318",

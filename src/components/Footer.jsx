@@ -5,7 +5,7 @@ const Footer = () => {
   return (
     <footer className="lg:hidden text-xs">
       <div className="square-footer opacity-[0.7]">
-        <div className="brand text-sm">
+        <div className="brand">
           <Link to="/">
             <img src="/faviconweb.png" alt="hector romero" />
           </Link>
