@@ -241,36 +241,37 @@ export default function Gallery({ coleccion }) {
                           <motion.div
                             variants={{
                               hidden: { y: "-100dvh" },
-                              visible: { y: window.scrollY - 60 },
-                            }}
-                            initial="hidden"
-                            animate="visible"
-                            exit="hidden"
-                            transition={{ duration: 0.8, type: "spring" }}
-                            onPanStart={onDetallePanStart}
-                            onPanEnd={onDetallePanEnd}
-                            className="bg-white absolute h-full w-full z-[150] top-0 left-0 touch-pinch-zoom"
-                          />
-                          <motion.div
-                            variants={{
-                              hidden: { y: "-100dvh" },
                               visible: { y: window.scrollY },
                             }}
                             initial="hidden"
                             animate="visible"
                             exit="hidden"
+                            transition={{ duration: 0.8, type: "spring" }}
                             onPanStart={onDetallePanStart}
                             onPanEnd={onDetallePanEnd}
-                            transition={{ duration: 0.8, type: "spring" }}
-                            id="fullPage"
-                            className="absolute inset-x-0 inset-y-0 bg-contain bg-no-repeat bg-center bg-white z-[200] landscape:-top-[3.5rem] landscape:bottom-[3.5rem] touch-pinch-zoom"
-                            style={{
-                              backgroundImage: `url(${obra.imagenURL})`,
-                            }}
-                            onClick={() => {
-                              setFullPage(false);
-                            }}
-                          />
+                            className="bg-white absolute h-screen w-screen z-[150] top-[-1rem] left-0 touch-pinch-zoom"
+                          >
+                            <motion.div
+                              variants={{
+                                hidden: { y: "-100dvh" },
+                                visible: { y: window.scrollY },
+                              }}
+                              initial="hidden"
+                              animate="visible"
+                              exit="hidden"
+                              onPanStart={onDetallePanStart}
+                              onPanEnd={onDetallePanEnd}
+                              transition={{ duration: 0.8, type: "spring" }}
+                              id="fullPage"
+                              className="w-full h-full bg-contain bg-no-repeat bg-center bg-white z-[200] landscape:-top-[3.5rem] landscape:bottom-[3.5rem] touch-pinch-zoom"
+                              style={{
+                                backgroundImage: `url(${obra.imagenURL})`,
+                              }}
+                              onClick={() => {
+                                setFullPage(false);
+                              }}
+                            />
+                          </motion.div>
                         </>
                       )}
                     </AnimatePresence>
