@@ -79,7 +79,7 @@ function Landing() {
         </div>
       </section>
       <section>
-        <div className="px-[1rem] text-xs pb-12 pt-[2rem]">
+        <div className="px-[1rem] text-xs font-light pb-12 pt-[2rem]">
           <Premios />
         </div>
       </section>
