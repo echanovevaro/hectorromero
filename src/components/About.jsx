@@ -53,11 +53,10 @@ const About = () => {
           </div>
           <div className="about-5 content-about flex justify-end">
             <p className="mb-0">
-              Describiría mi estilo, como una mezcla de surrealismo, minimalismo
-              arquitectónico, expresionismo, metafísico…, paisajes desoladores
-              formados por grandes bloques, creando espacios inquietantes.
-              Perspectivas imposibles, oníricas, geometrías que se traicionan a
-              si mismas.
+              Una mezcla de surrealismo, minimalismo arquitectónico,
+              expresionismo…, paisajes desoladores de grandes bloques, espacios
+              inquietantes. Perspectivas imposibles, oníricas, geometrías que se
+              traicionan a si mismas.
             </p>
           </div>
         </div>
