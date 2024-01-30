@@ -66,14 +66,14 @@
 
 @media screen and (max-width: 1023px) {
   .wrapper {
-    position: absolute;
-    inset: 0;
+    position: relative;
+    height: auto;
     overflow: hidden;
     z-index: -1;
-    overflow: hidden;
   }
 
   .background {
+    height: 100%;
     background-image: url("/26b.jpg");
     background-size: cover;
     background-repeat: no-repeat;
@@ -92,6 +92,7 @@
     backdrop-filter: blur(0.1px);
     z-index: 51;
     overflow: hidden;
+    height: 100%;
   }
 
   /* #logo-landing {
