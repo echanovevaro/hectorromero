@@ -1,13 +1,24 @@
 import { useLocation } from "react-router-dom";
+import { useInView } from "framer-motion";
+import { useRef } from "react";
 
 const About = () => {
   const { pathname } = useLocation();
+  const ref = useRef(null);
+  const isInView = useInView(ref, { once: true, amount: 0.4 });
   return (
     <>
       <h1 className="uppercase pb-[1rem] text-base opacity-[0.7] self-start ms-[1rem] justify-self-start">
         sobre mí
       </h1>
-      <div className="flex flex-col gap-[0.8rem]">
+      <div
+        ref={ref}
+        className="flex flex-col gap-[0.8rem]"
+        style={{
+          opacity: isInView ? 1 : 0,
+          transition: "all 3s cubic-bezier(0.17, 0.55, 0.55, 1)",
+        }}
+      >
         <div className="square-about">
           <div className="content-about about-1 text-right">
             {/* <p>
