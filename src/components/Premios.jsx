@@ -20,7 +20,19 @@ const Premios = () => {
     <>
       <AnimatePresence>
         {fullPage && (
-          <>
+          <motion.div
+            variants={{
+              hidden: { y: "-100dvh" },
+              visible: { y: window.scrollY },
+            }}
+            initial="hidden"
+            animate="visible"
+            exit="hidden"
+            transition={{ duration: 0.8, type: "spring", bounce: 0.1 }}
+            onPanStart={onDetallePanStart}
+            onPanEnd={onDetallePanEnd}
+            className="bg-white absolute w-screen z-[600] h-screen inset-0 touch-pinch-zoom"
+          >
             <motion.div
               variants={{
                 hidden: { y: "-100dvh" },
@@ -32,24 +44,8 @@ const Premios = () => {
               onPanStart={onDetallePanStart}
               onPanEnd={onDetallePanEnd}
               transition={{ duration: 0.8, type: "spring", bounce: 0.1 }}
-              className="fixed top-0 inset-x-0 h-screen z-[150] bg-white overflow-hidden touch-pinch-zoom"
-              onClick={() => {
-                setFullPage(false);
-              }}
-            />
-            <motion.div
-              variants={{
-                hidden: { y: "-100dvh" },
-                visible: { y: window.scrollY },
-              }}
-              initial="hidden"
-              animate="visible"
-              exit="hidden"
-              onPanStart={onDetallePanStart}
-              onPanEnd={onDetallePanEnd}
-              transition={{ duration: 0.8, type: "spring", bounce: 0.1 }}
               id="fullPage"
-              className="absolute inset-x-0 inset-y-0 bg-contain bg-no-repeat bg-center bg-white z-[200] landscape:-top-[3.5rem] landscape:bottom-[3.5rem] touch-pinch-zoom"
+              className="w-full h-full bg-contain bg-no-repeat bg-center bg-white z-[650] landscape:-top-[3.5rem] landscape:bottom-[3.5rem] touch-pinch-zoom"
               style={{
                 backgroundImage: `url(${obraUrl})`,
               }}
@@ -57,7 +53,7 @@ const Premios = () => {
                 setFullPage(false);
               }}
             />
-          </>
+          </motion.div>
         )}
       </AnimatePresence>
       <h1 className="pb-[1rem] uppercase text-base opacity-[0.7]">
