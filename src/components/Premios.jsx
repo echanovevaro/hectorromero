@@ -1,12 +1,10 @@
 import { AnimatePresence, motion } from "framer-motion";
 import { useRef, useState } from "react";
-import { useLocation } from "react-router-dom";
 
 const Premios = () => {
   const [fullPage, setFullPage] = useState(false);
   const [obraUrl, setObraUrl] = useState();
   const detalleRef = useRef(0);
-  const { pathname } = useLocation();
 
   function onDetallePanStart(_, info) {
     detalleRef.current = info.point.y;
@@ -25,8 +23,7 @@ const Premios = () => {
           <motion.div
             variants={{
               hidden: {
-                y: "-100dvh",
-                transition: { duration: pathname === "/" ? 2 : 0.8 },
+                y: window.scrollY - window.innerHeight,
               },
               visible: { y: window.scrollY },
             }}
