@@ -85,7 +85,7 @@ function Landing() {
         </div>
       </section>
       <section className="flex justify-start z-[-1]">
-        <div className="bg-white text-xs z-[500] w-screen">
+        <div className="bg-white text-xs z-10 w-screen">
           <Footer />
         </div>
       </section>
