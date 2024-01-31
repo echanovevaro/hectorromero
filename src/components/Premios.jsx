@@ -1,10 +1,12 @@
-import { AnimatePresence, motion } from "framer-motion";
+import { AnimatePresence, motion, useInView } from "framer-motion";
 import { useRef, useState } from "react";
 
 const Premios = () => {
   const [fullPage, setFullPage] = useState(false);
   const [obraUrl, setObraUrl] = useState();
   const detalleRef = useRef(0);
+  const ref = useRef(null);
+  const isInView = useInView(ref, { once: true, amount: 0.4 });
 
   function onDetallePanStart(_, info) {
     detalleRef.current = info.point.y;
@@ -15,6 +17,38 @@ const Premios = () => {
       setFullPage(false);
     }
   }
+
+  const ulVariants = {
+    open: {
+      transition: {
+        staggerChildren: 0.07,
+        delayChildren: 0.2,
+      },
+    },
+    closed: {
+      transition: {
+        staggerChildren: 0.05,
+        staggerDirection: -1,
+      },
+    },
+  };
+
+  const liVariants = {
+    open: {
+      y: 0,
+      opacity: 1,
+      transition: {
+        y: { stiffness: 1000, velocity: -100 },
+      },
+    },
+    closed: {
+      y: 50,
+      opacity: 0,
+      transition: {
+        y: { stiffness: 1000 },
+      },
+    },
+  };
 
   return (
     <>
@@ -53,8 +87,16 @@ const Premios = () => {
       <h1 className="pb-[1rem] uppercase text-base opacity-[0.7]">
         premios y menciones
       </h1>
-      <ul className="flex flex-col gap-[0.5rem] items-center flex-nowrap whitespace-nowrap">
+      <motion.ul
+        variants={ulVariants}
+        ref={ref}
+        initial={ulVariants.closed}
+        animate={isInView ? "open" : "closed"}
+        className="flex flex-col gap-[0.5rem] items-center flex-nowrap whitespace-nowrap"
+      >
         <motion.li
+          variants={liVariants}
+          initial={liVariants.closed}
           whileTap={{ scale: 1.1 }}
           onClick={() => {
             setObraUrl("/premio-meduina-schneider.jpg");
@@ -63,13 +105,27 @@ const Premios = () => {
         >
           2º premio Menduina Schneider Art Gallery (2021)
         </motion.li>
-        <li>Premio votación popular Pintura Rápida Plaza Dalí (2019)</li>
-        <li>1er Premio Pintura Rápida Plaza Dalí (2017)</li>
-        <li>1er Premio Pintura Rápida Plaza Dalí (2015)</li>
-        <li>Selección pintura rápida Retiro (2011)</li>
-        <li>1er Premio Pintura Rápida Plaza Dalí (2010)</li>
-        <li>Selección pintura rápida Retiro (2009)</li>
+        <motion.li variants={liVariants} initial={liVariants.closed}>
+          Premio votación popular Pintura Rápida Plaza Dalí (2019)
+        </motion.li>
+        <motion.li variants={liVariants} initial={liVariants.closed}>
+          1er Premio Pintura Rápida Plaza Dalí (2017)
+        </motion.li>
+        <motion.li variants={liVariants} initial={liVariants.closed}>
+          1er Premio Pintura Rápida Plaza Dalí (2015)
+        </motion.li>
+        <motion.li variants={liVariants} initial={liVariants.closed}>
+          Selección pintura rápida Retiro (2011)
+        </motion.li>
+        <motion.li variants={liVariants} initial={liVariants.closed}>
+          1er Premio Pintura Rápida Plaza Dalí (2010)
+        </motion.li>
+        <motion.li variants={liVariants} initial={liVariants.closed}>
+          Selección pintura rápida Retiro (2009)
+        </motion.li>
         <motion.li
+          variants={liVariants}
+          initial={liVariants.closed}
           whileTap={{ scale: 1.1 }}
           onClick={() => {
             setObraUrl("/premio-enrique-lite.jpg");
@@ -78,7 +134,7 @@ const Premios = () => {
         >
           Tercer premio. Certamen nacional de pintura Enrique Lite
         </motion.li>
-      </ul>
+      </motion.ul>
     </>
   );
 };
