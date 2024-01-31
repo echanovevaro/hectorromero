@@ -1,31 +1,31 @@
-import { useEffect, useRef, useState } from "react";
-import { AnimatePresence, delay, motion } from "framer-motion";
+import { useEffect, useRef, useState } from "react"
+import { AnimatePresence, delay, motion } from "framer-motion"
 import {
   Form as RouterForm,
   Link,
   useLocation,
   useNavigate,
-} from "react-router-dom";
-import { useAuthContext } from "../context/authContext";
+} from "react-router-dom"
+import { useAuthContext } from "../context/authContext"
 
 export default function MainNavigation() {
-  const { currentUser } = useAuthContext();
-  const [isOpen, setIsOpen] = useState(false);
-  const { pathname } = useLocation();
-  const navigate = useNavigate();
-  const panRef = useRef(0);
+  const { currentUser } = useAuthContext()
+  const [isOpen, setIsOpen] = useState(false)
+  const { pathname } = useLocation()
+  const navigate = useNavigate()
+  const panRef = useRef(0)
 
   function toggleOpen() {
-    setIsOpen(!isOpen);
+    setIsOpen(!isOpen)
   }
 
   function onPanStart(_, info) {
-    panRef.current = info.point.y;
+    panRef.current = info.point.y
   }
 
   function onPanEnd(_, info) {
     if (info.point.y < panRef.current) {
-      setIsOpen(false);
+      setIsOpen(false)
     }
   }
 
@@ -35,7 +35,7 @@ export default function MainNavigation() {
       y: "-100dvh",
       transition: { duration: 0.5, delay: 0.7 },
     },
-  };
+  }
 
   const ulVariants = {
     open: {
@@ -50,7 +50,7 @@ export default function MainNavigation() {
         staggerDirection: -1,
       },
     },
-  };
+  }
 
   const liVariants = {
     open: {
@@ -67,15 +67,15 @@ export default function MainNavigation() {
         y: { stiffness: 1000 },
       },
     },
-  };
+  }
 
   useEffect(() => {
     if (isOpen) {
-      document.getElementById("burguer").classList.add("open");
+      document.getElementById("burguer").classList.add("open")
     } else {
-      document.getElementById("burguer").classList.remove("open");
+      document.getElementById("burguer").classList.remove("open")
     }
-  }, [isOpen]);
+  }, [isOpen])
 
   return (
     <>
@@ -90,9 +90,12 @@ export default function MainNavigation() {
               transition={{ duration: 0.5 }}
               onPanStart={onPanStart}
               onPanEnd={onPanEnd}
-              className="z-[100] fixed top-0 inset-x-0 h-screen z-20 bg-white text-base overflow-y-scroll touch-pinch-zoom"
+              className="z-[30] fixed top-0 inset-x-0 h-screen bg-white text-base overflow-y-scroll touch-pinch-zoom"
             >
-              <motion.ul variants={ulVariants} className="opacity-[0.7]">
+              <motion.ul
+                variants={ulVariants}
+                className="opacity-[0.7]"
+              >
                 <motion.li
                   variants={liVariants}
                   initial={liVariants.closed}
@@ -113,9 +116,9 @@ export default function MainNavigation() {
                     className="flex items-center gap-2"
                     onClick={() => {
                       if (pathname !== "/obra") {
-                        navigate("/obra");
+                        navigate("/obra")
                       } else {
-                        toggleOpen();
+                        toggleOpen()
                       }
                     }}
                   >
@@ -240,7 +243,10 @@ export default function MainNavigation() {
                     variants={liVariants}
                     whileTap={{ scale: 1.1 }}
                   >
-                    <RouterForm method="post" action="/logout">
+                    <RouterForm
+                      method="post"
+                      action="/logout"
+                    >
                       <button type="submit">DESCONECTAR</button>
                     </RouterForm>
                   </motion.li>
@@ -251,17 +257,20 @@ export default function MainNavigation() {
         </AnimatePresence>
       </nav>
       <motion.div
-        className="fixed top-0 left-0 right-0 z-[200]"
+        className="fixed top-0 left-0 right-0 z-50"
         initial={{ y: -60 }}
         animate={{ y: 0 }}
         transition={{ duration: 0.5 }}
       >
         <nav
-          className={`px-4 py-6 flex justify-between items-center bg-white shadow-md z-10 lg:hidden uppercase`}
+          className={`px-4 py-6 flex justify-between items-center bg-white shadow-md  lg:hidden uppercase`}
         >
           <motion.h1>
             <Link to="/">
-              <img src="/logo.png" className="h-2.5 opacity-[0.5]" />
+              <img
+                src="/logo.png"
+                className="h-2.5 opacity-[0.5]"
+              />
             </Link>
             {currentUser && (
               <span className="text-neutral-300 ml-1"> ADMIN MODE</span>
@@ -270,7 +279,7 @@ export default function MainNavigation() {
           <button
             id="burguer"
             onClick={() => {
-              toggleOpen();
+              toggleOpen()
             }}
           >
             <div></div>
@@ -280,5 +289,5 @@ export default function MainNavigation() {
         </nav>
       </motion.div>
     </>
-  );
+  )
 }

@@ -1,20 +1,20 @@
-import { AnimatePresence, motion, useInView } from "framer-motion";
-import { useRef, useState } from "react";
+import { AnimatePresence, motion, useInView } from "framer-motion"
+import { useRef, useState } from "react"
 
 const Premios = () => {
-  const [fullPage, setFullPage] = useState(false);
-  const [obraUrl, setObraUrl] = useState();
-  const detalleRef = useRef(0);
-  const ref = useRef(null);
-  const isInView = useInView(ref, { once: true, amount: 0.4 });
+  const [fullPage, setFullPage] = useState(false)
+  const [obraUrl, setObraUrl] = useState()
+  const detalleRef = useRef(0)
+  const ref = useRef(null)
+  const isInView = useInView(ref, { once: true, amount: 0.4 })
 
   function onDetallePanStart(_, info) {
-    detalleRef.current = info.point.y;
+    detalleRef.current = info.point.y
   }
 
   function onDetallePanEnd(_, info) {
     if (info.point.y < detalleRef.current) {
-      setFullPage(false);
+      setFullPage(false)
     }
   }
 
@@ -31,7 +31,7 @@ const Premios = () => {
         staggerDirection: -1,
       },
     },
-  };
+  }
 
   const liVariants = {
     open: {
@@ -48,7 +48,7 @@ const Premios = () => {
         y: { stiffness: 1000 },
       },
     },
-  };
+  }
 
   return (
     <>
@@ -78,65 +78,85 @@ const Premios = () => {
                 backgroundImage: `url(${obraUrl})`,
               }}
               onClick={() => {
-                setFullPage(false);
+                setFullPage(false)
               }}
             />
           </motion.div>
         )}
       </AnimatePresence>
-      <h1 className="pb-[1rem] uppercase text-base opacity-[0.7]">
-        premios y menciones
-      </h1>
-      <motion.ul
-        variants={ulVariants}
-        ref={ref}
-        initial={ulVariants.closed}
-        animate={isInView ? "open" : "closed"}
-        className="flex flex-col gap-[0.5rem] items-center flex-nowrap whitespace-nowrap z-10"
-      >
-        <motion.li
-          variants={liVariants}
-          initial={liVariants.closed}
-          whileTap={{ scale: 1.1 }}
-          onClick={() => {
-            setObraUrl("/premio-meduina-schneider.jpg");
-            setFullPage(true);
-          }}
+      <div className="bg-white px-[1rem] text-xs z-[15] w-screen overflow-hidden">
+        <h1 className="pb-[1rem] uppercase text-base opacity-[0.7]">
+          premios y menciones
+        </h1>
+        <motion.ul
+          variants={ulVariants}
+          ref={ref}
+          initial={ulVariants.closed}
+          animate={isInView ? "open" : "closed"}
+          className="flex flex-col gap-[0.5rem] items-center flex-nowrap whitespace-nowrap z-10"
         >
-          2º premio Menduina Schneider Art Gallery (2021)
-        </motion.li>
-        <motion.li variants={liVariants} initial={liVariants.closed}>
-          Premio votación popular Pintura Rápida Plaza Dalí (2019)
-        </motion.li>
-        <motion.li variants={liVariants} initial={liVariants.closed}>
-          1er Premio Pintura Rápida Plaza Dalí (2017)
-        </motion.li>
-        <motion.li variants={liVariants} initial={liVariants.closed}>
-          1er Premio Pintura Rápida Plaza Dalí (2015)
-        </motion.li>
-        <motion.li variants={liVariants} initial={liVariants.closed}>
-          Selección pintura rápida Retiro (2011)
-        </motion.li>
-        <motion.li variants={liVariants} initial={liVariants.closed}>
-          1er Premio Pintura Rápida Plaza Dalí (2010)
-        </motion.li>
-        <motion.li variants={liVariants} initial={liVariants.closed}>
-          Selección pintura rápida Retiro (2009)
-        </motion.li>
-        <motion.li
-          variants={liVariants}
-          initial={liVariants.closed}
-          whileTap={{ scale: 1.1 }}
-          onClick={() => {
-            setObraUrl("/premio-enrique-lite.jpg");
-            setFullPage(true);
-          }}
-        >
-          Tercer premio. Certamen nacional de pintura Enrique Lite
-        </motion.li>
-      </motion.ul>
+          <motion.li
+            variants={liVariants}
+            initial={liVariants.closed}
+            whileTap={{ scale: 1.1 }}
+            onClick={() => {
+              setObraUrl("/premio-meduina-schneider.jpg")
+              setFullPage(true)
+            }}
+          >
+            2º premio Menduina Schneider Art Gallery (2021)
+          </motion.li>
+          <motion.li
+            variants={liVariants}
+            initial={liVariants.closed}
+          >
+            Premio votación popular Pintura Rápida Plaza Dalí (2019)
+          </motion.li>
+          <motion.li
+            variants={liVariants}
+            initial={liVariants.closed}
+          >
+            1er Premio Pintura Rápida Plaza Dalí (2017)
+          </motion.li>
+          <motion.li
+            variants={liVariants}
+            initial={liVariants.closed}
+          >
+            1er Premio Pintura Rápida Plaza Dalí (2015)
+          </motion.li>
+          <motion.li
+            variants={liVariants}
+            initial={liVariants.closed}
+          >
+            Selección pintura rápida Retiro (2011)
+          </motion.li>
+          <motion.li
+            variants={liVariants}
+            initial={liVariants.closed}
+          >
+            1er Premio Pintura Rápida Plaza Dalí (2010)
+          </motion.li>
+          <motion.li
+            variants={liVariants}
+            initial={liVariants.closed}
+          >
+            Selección pintura rápida Retiro (2009)
+          </motion.li>
+          <motion.li
+            variants={liVariants}
+            initial={liVariants.closed}
+            whileTap={{ scale: 1.1 }}
+            onClick={() => {
+              setObraUrl("/premio-enrique-lite.jpg")
+              setFullPage(true)
+            }}
+          >
+            Tercer premio. Certamen nacional de pintura Enrique Lite
+          </motion.li>
+        </motion.ul>
+      </div>
     </>
-  );
-};
+  )
+}
 
-export default Premios;
+export default Premios

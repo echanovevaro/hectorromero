@@ -1,32 +1,35 @@
-import { useEffect, useState } from "react";
-import MainNavigation from "../components/MainNavigation";
-import { useParallax } from "react-scroll-parallax";
-import { motion } from "framer-motion";
-import ObraMenu from "../components/ObraMenu";
-import Footer from "../components/Footer";
-import About from "../components/About";
-import Premios from "../components/Premios";
+import { useEffect, useState } from "react"
+import MainNavigation from "../components/MainNavigation"
+import { useParallax } from "react-scroll-parallax"
+import { motion } from "framer-motion"
+import ObraMenu from "../components/ObraMenu"
+import Footer from "../components/Footer"
+import About from "../components/About"
+import Premios from "../components/Premios"
 
 function Landing() {
-  const [showMenu, setShowMenu] = useState(false);
+  const [showMenu, setShowMenu] = useState(false)
   const parallax = useParallax({
-    speed: -1000,
-  });
+    speed: -50,
+  })
 
   useEffect(() => {
-    scrollTo(0, -200);
+    scrollTo(0, -200)
     const timeout = setTimeout(() => {
-      setShowMenu(true);
-    }, 2500);
+      setShowMenu(true)
+    }, 2500)
 
     return () => {
-      clearTimeout(timeout);
-    };
-  }, []);
+      clearTimeout(timeout)
+    }
+  }, [])
   return (
     <>
       {showMenu && <MainNavigation />}
-      <div className="wrapper" ref={parallax.ref}>
+      <div
+        className="wrapper"
+        ref={parallax.ref}
+      >
         <div className="background" />
         <div className="blur" />
         {showMenu && (
@@ -38,13 +41,13 @@ function Landing() {
             }}
             whileTap={{ scale: 0.95 }}
             onClick={() => {
-              let pageHeight = window.innerHeight;
-              let scroll = pageHeight - window.scrollY - 63;
+              let pageHeight = window.innerHeight
+              let scroll = pageHeight - window.scrollY - 63
               window.scrollBy({
                 top: scroll,
                 left: 0,
                 behavior: "smooth",
-              });
+              })
             }}
             className="w-screen h-full flex justify-end flex-col items-center pb-[2rem] gap-1 font-normal text-white z-[10] text-lg"
           >
@@ -66,7 +69,10 @@ function Landing() {
           </motion.button>
         )}
       </div>
-      <section id="scroll" className="flex justify-start z-[-1]">
+      <section
+        id="scroll"
+        className="flex justify-start z-[-1]"
+      >
         <div className="bg-white w-screen z-10 landscape:h-full text-xs">
           <h1 className="px-[1rem] mt-[2rem] uppercase text-base opacity-[0.7]">
             obra
@@ -74,22 +80,22 @@ function Landing() {
           <ObraMenu />
         </div>
       </section>
-      <section className="flex justify-start z-[-1]">
-        <div className="bg-neutral-800 text-neutral-400 pt-[2rem] pb-8 text-xs w-screen z-[500]">
+      <section className="flex justify-start">
+        <div className="bg-neutral-800 text-neutral-400 pt-[2rem] pb-8 text-xs w-screen z-10">
           <About />
         </div>
       </section>
-      <section className="flex justify-start z-[-1]">
-        <div className="bg-white px-[1rem] text-xs pb-12 pt-[2rem] z-[500] w-screen">
+      <section className="flex justify-start">
+        <div className="pb-12 pt-[2rem]">
           <Premios />
         </div>
       </section>
-      <section className="flex justify-start z-[-1]">
-        <div className="bg-white text-xs z-10 w-screen">
+      <section className="flex justify-start">
+        <div className="bg-white text-xs w-screen z-[5]">
           <Footer />
         </div>
       </section>
     </>
-  );
+  )
 }
-export default Landing;
+export default Landing
