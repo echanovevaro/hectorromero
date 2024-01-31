@@ -6,7 +6,6 @@ import ObraMenu from "../components/ObraMenu";
 import Footer from "../components/Footer";
 import About from "../components/About";
 import Premios from "../components/Premios";
-import ScrollToTop from "../components/ScrollToTop";
 
 function Landing() {
   const [showMenu, setShowMenu] = useState(false);
@@ -15,6 +14,7 @@ function Landing() {
   });
 
   useEffect(() => {
+    scrollTo(0, -200);
     const timeout = setTimeout(() => {
       setShowMenu(true);
     }, 2500);
@@ -25,7 +25,6 @@ function Landing() {
   }, []);
   return (
     <>
-      <ScrollToTop />
       {showMenu && <MainNavigation />}
       <div className="wrapper" ref={parallax.ref}>
         <div className="background" />
@@ -80,13 +79,16 @@ function Landing() {
           <About />
         </div>
       </section>
-      <section>
-        <div className="px-[1rem] text-xs pb-12 pt-[2rem]">
+      <section className="flex justify-start z-[-1]">
+        <div className="bg-white px-[1rem] text-xs pb-12 pt-[2rem] z-[500] w-screen">
           <Premios />
         </div>
       </section>
-
-      <Footer />
+      <section className="flex justify-start z-[-1]">
+        <div className="bg-white text-xs z-[500] w-screen">
+          <Footer />
+        </div>
+      </section>
     </>
   );
 }

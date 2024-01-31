@@ -92,7 +92,7 @@ const Premios = () => {
         ref={ref}
         initial={ulVariants.closed}
         animate={isInView ? "open" : "closed"}
-        className="flex flex-col gap-[0.5rem] items-center flex-nowrap whitespace-nowrap"
+        className="flex flex-col gap-[0.5rem] items-center flex-nowrap whitespace-nowrap z-10"
       >
         <motion.li
           variants={liVariants}
