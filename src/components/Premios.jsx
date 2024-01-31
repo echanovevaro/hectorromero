@@ -1,10 +1,12 @@
 import { AnimatePresence, motion } from "framer-motion";
 import { useRef, useState } from "react";
+import { useLocation } from "react-router-dom";
 
 const Premios = () => {
   const [fullPage, setFullPage] = useState(false);
   const [obraUrl, setObraUrl] = useState();
   const detalleRef = useRef(0);
+  const { pathname } = useLocation();
 
   function onDetallePanStart(_, info) {
     detalleRef.current = info.point.y;
@@ -22,7 +24,10 @@ const Premios = () => {
         {fullPage && (
           <motion.div
             variants={{
-              hidden: { y: "-100dvh" },
+              hidden: {
+                y: "-100dvh",
+                transition: { duration: pathname === "/" ? 2 : 0.8 },
+              },
               visible: { y: window.scrollY },
             }}
             initial="hidden"
@@ -34,17 +39,9 @@ const Premios = () => {
             className="bg-white absolute w-screen z-[600] h-screen inset-0 touch-pinch-zoom"
           >
             <motion.div
-              variants={{
-                hidden: { y: "-100dvh" },
-                visible: { y: 0 },
-              }}
-              initial="hidden"
-              animate="visible"
-              exit="hidden"
               onPanStart={onDetallePanStart}
               onPanEnd={onDetallePanEnd}
               transition={{ duration: 0.8, type: "spring", bounce: 0.1 }}
-              id="fullPage"
               className="w-full h-full bg-contain bg-no-repeat bg-center bg-white z-[650] landscape:-top-[3.5rem] landscape:bottom-[3.5rem] touch-pinch-zoom"
               style={{
                 backgroundImage: `url(${obraUrl})`,
