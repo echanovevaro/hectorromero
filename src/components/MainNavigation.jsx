@@ -33,7 +33,7 @@ export default function MainNavigation() {
     open: { y: 0 },
     closed: {
       y: "-100dvh",
-      transition: { duration: 0.5, delay: 0.5 },
+      transition: { duration: 0.5, delay: 0.6 },
     },
   };
 
