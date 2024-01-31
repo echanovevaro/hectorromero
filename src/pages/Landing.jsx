@@ -11,7 +11,7 @@ import ScrollToTop from "../components/ScrollToTop";
 function Landing() {
   const [showMenu, setShowMenu] = useState(false);
   const parallax = useParallax({
-    speed: -200,
+    speed: -1000,
   });
 
   useEffect(() => {
