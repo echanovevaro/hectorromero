@@ -6,6 +6,7 @@ const About = () => {
   const { pathname } = useLocation();
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true, amount: 0.4 });
+
   return (
     <>
       <h1 className="uppercase pb-[1rem] text-base opacity-[0.7] self-start ms-[1rem] justify-self-start">

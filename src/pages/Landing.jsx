@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useState } from "react";
 import MainNavigation from "../components/MainNavigation";
 import { useParallax } from "react-scroll-parallax";
 import { motion } from "framer-motion";
@@ -27,8 +27,8 @@ function Landing() {
     <>
       <ScrollToTop />
       {showMenu && <MainNavigation />}
-      <div className="wrapper">
-        <div ref={parallax.ref} className="background" />
+      <div className="wrapper" ref={parallax.ref}>
+        <div className="background" />
         <div className="blur" />
         {showMenu && (
           <motion.button
@@ -47,7 +47,7 @@ function Landing() {
                 behavior: "smooth",
               });
             }}
-            className="w-screen h-full flex justify-end flex-col items-center pb-[2rem] gap-1 font-normal text-white z-[500] text-lg"
+            className="w-screen h-full flex justify-end flex-col items-center pb-[2rem] gap-1 font-normal text-white z-[10] text-lg"
           >
             <span className="z-[500]">scroll</span>
             <svg
@@ -75,8 +75,8 @@ function Landing() {
           <ObraMenu />
         </div>
       </section>
-      <section>
-        <div className="bg-neutral-800 text-neutral-400 pt-[2rem] pb-8 text-xs">
+      <section className="flex justify-start z-[-1]">
+        <div className="bg-neutral-800 text-neutral-400 pt-[2rem] pb-8 text-xs w-screen z-[500]">
           <About />
         </div>
       </section>

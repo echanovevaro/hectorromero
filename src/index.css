@@ -89,7 +89,7 @@
     background: rgba(0, 0, 0, 0.1);
     animation: blur 2s ease-in forwards;
     backdrop-filter: blur(0.1px);
-    z-index: 51;
+    z-index: 9;
     overflow: hidden;
     height: 100%;
   }
@@ -409,6 +409,7 @@ footer {
   grid-template-columns: repeat(4, 1fr);
   grid-template-rows: 1fr;
   gap: 0.8rem;
+  z-index: 10;
 }
 
 .about-1 {
