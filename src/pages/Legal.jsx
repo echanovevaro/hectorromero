@@ -1,12 +1,11 @@
-import { Link } from "react-router-dom";
-import MainNavigation from "../components/MainNavigation";
-import ScrollToTop from "../components/ScrollToTop";
-import Footer from "../components/Footer";
+import { Link, ScrollRestoration } from "react-router-dom"
+import MainNavigation from "../components/MainNavigation"
+import Footer from "../components/Footer"
 
 const Legal = () => {
   return (
     <>
-      <ScrollToTop />
+      <ScrollRestoration />
       <MainNavigation />
       <h1 className="uppercase mt-[6rem] text-base opacity-[0.7] self-start ms-[1rem] justify-self-start">
         AVISO LEGAL
@@ -227,7 +226,10 @@ const Legal = () => {
           <li className="mt-[2.5rem] mb-[1rem]">POLÍTICA DE PRIVACIDAD</li>
           <p>
             Puede revisar nuestra política de privacidad en el siguiente{" "}
-            <Link to={"/privacidad"} className="text-sky-400 underline">
+            <Link
+              to={"/privacidad"}
+              className="text-sky-400 underline"
+            >
               enlace
             </Link>
             .
@@ -266,7 +268,10 @@ const Legal = () => {
             web debe entenderse como una guía sin propósito de validez legal.
           </p>
           <p>
-            <Link to="/proteccion" className="text-sky-400 underline">
+            <Link
+              to="/proteccion"
+              className="text-sky-400 underline"
+            >
               Información Adicional de protección de datos
             </Link>
             .
@@ -275,7 +280,7 @@ const Legal = () => {
       </div>
       <Footer />
     </>
-  );
-};
+  )
+}
 
-export default Legal;
+export default Legal

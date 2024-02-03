@@ -90,7 +90,7 @@ export default function MainNavigation() {
               transition={{ duration: 0.5 }}
               onPanStart={onPanStart}
               onPanEnd={onPanEnd}
-              className="z-[30] fixed top-0 inset-x-0 h-screen bg-white text-base overflow-y-scroll touch-pinch-zoom"
+              className="z-[19] fixed top-0 inset-x-0 h-screen bg-white text-base overflow-y-scroll touch-pinch-zoom"
             >
               <motion.ul
                 variants={ulVariants}
@@ -257,13 +257,13 @@ export default function MainNavigation() {
         </AnimatePresence>
       </nav>
       <motion.div
-        className="fixed top-0 left-0 right-0 z-50"
+        className="fixed top-0 left-0 right-0 z-20"
         initial={{ y: -60 }}
         animate={{ y: 0 }}
         transition={{ duration: 0.5 }}
       >
         <nav
-          className={`px-4 py-6 flex justify-between items-center bg-white shadow-md  lg:hidden uppercase`}
+          className={`px-4 lg:px-[4rem] py-6 flex justify-between items-center bg-white shadow-md   uppercase`}
         >
           <motion.h1>
             <Link to="/">
@@ -276,6 +276,125 @@ export default function MainNavigation() {
               <span className="text-neutral-300 ml-1"> ADMIN MODE</span>
             )}
           </motion.h1>
+          <ul className="opacity-[0.7] hidden lg:flex">
+            <motion.li whileTap={{ scale: 1.1 }}>
+              {pathname !== "/" ? (
+                <Link to="/">INICIO</Link>
+              ) : (
+                <span onClick={toggleOpen}>INICIO</span>
+              )}
+            </motion.li>
+            <motion.li whileTap={{ scale: 1.1 }}>
+              <button
+                className="flex items-center gap-2"
+                onClick={() => {
+                  if (pathname !== "/obra") {
+                    navigate("/obra")
+                  } else {
+                    // toggleOpen()
+                  }
+                }}
+              >
+                <span>OBRA</span>
+                <svg
+                  className="w-2.5 h-2.5"
+                  aria-hidden="true"
+                  xmlns="http://www.w3.org/2000/svg"
+                  fill="none"
+                  viewBox="0 0 10 6"
+                >
+                  <path
+                    stroke="currentColor"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth={1}
+                    d="m1 1 4 4 4-4"
+                  />
+                </svg>
+              </button>
+            </motion.li>
+            {/* <motion.li
+              whileTap={{ scale: 1.1 }}
+              className="ms-10 mt-[-0.3remrem]"
+            >
+              {pathname !== "/obra/bloques" ? (
+                <Link to="/obra/bloques">bloques</Link>
+              ) : (
+                <span onClick={toggleOpen}>bloques</span>
+              )}
+            </motion.li>
+            <motion.li
+              whileTap={{ scale: 1.1 }}
+              className="ms-10 mt-[-0.3rem]"
+            >
+              {pathname !== "/obra/wood" ? (
+                <Link to="/obra/wood">wood</Link>
+              ) : (
+                <span onClick={toggleOpen}>wood</span>
+              )}
+            </motion.li>
+
+            <motion.li
+              whileTap={{ scale: 1.1 }}
+              className="ms-10 mt-[-0.3rem]"
+            >
+              {pathname !== "/obra/wire" ? (
+                <Link to="/obra/wire">wire</Link>
+              ) : (
+                <span onClick={toggleOpen}>wire</span>
+              )}
+            </motion.li>
+            <motion.li
+              whileTap={{ scale: 1.1 }}
+              className="ms-10 mt-[-0.3rem]"
+            >
+              {pathname !== "/obra/iluminados" ? (
+                <Link to="/obra/iluminados">iluminados</Link>
+              ) : (
+                <span onClick={toggleOpen}>iluminados</span>
+              )}
+            </motion.li>
+            <motion.li
+              whileTap={{ scale: 1.1 }}
+              className="ms-10 mt-[-0.3rem]"
+            >
+              {pathname !== "/obra/animaciones" ? (
+                <Link to="/obra/animaciones">animaciones</Link>
+              ) : (
+                <span onClick={toggleOpen}>animaciones</span>
+              )}
+            </motion.li> */}
+            <motion.li whileTap={{ scale: 1.1 }}>
+              <span>EXPOSICIONES</span>
+            </motion.li>
+            <motion.li whileTap={{ scale: 1.1 }}>
+              {pathname !== "/premios" ? (
+                <Link to="/premios">PREMIOS</Link>
+              ) : (
+                <span onClick={toggleOpen}>PREMIOS</span>
+              )}
+            </motion.li>
+            <motion.li whileTap={{ scale: 1.1 }}>
+              {pathname !== "/sobre-mi" ? (
+                <Link to="/sobre-mi">SOBRE MÍ</Link>
+              ) : (
+                <span onClick={toggleOpen}>SOBRE MÍ</span>
+              )}
+            </motion.li>
+            <motion.li whileTap={{ scale: 1.1 }}>
+              <span>CONTACTO</span>
+            </motion.li>
+            {currentUser && (
+              <motion.li whileTap={{ scale: 1.1 }}>
+                <RouterForm
+                  method="post"
+                  action="/logout"
+                >
+                  <button type="submit">DESCONECTAR</button>
+                </RouterForm>
+              </motion.li>
+            )}
+          </ul>
           <button
             id="burguer"
             onClick={() => {

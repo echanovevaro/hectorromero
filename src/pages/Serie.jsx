@@ -1,28 +1,27 @@
-import { useQuery } from "@tanstack/react-query";
-import Gallery from "../components/Gallery";
-import { useParams } from "react-router-dom";
-import { fetchAll } from "../http";
-import Footer from "../components/Footer";
-import MainNavigation from "../components/MainNavigation";
-import ScrollToTop from "../components/ScrollToTop";
+import { useQuery } from "@tanstack/react-query"
+import Gallery from "../components/Gallery"
+import { ScrollRestoration, useParams } from "react-router-dom"
+import { fetchAll } from "../http"
+import Footer from "../components/Footer"
+import MainNavigation from "../components/MainNavigation"
 
 export default function Serie() {
-  const { serie } = useParams();
+  const { serie } = useParams()
 
   const { data } = useQuery({
     queryKey: [serie],
     queryFn: () => fetchAll(serie),
-  });
+  })
   return (
     <>
-      <ScrollToTop />
+      <ScrollRestoration />
       <div className="overflow-y-scroll overflow-x-hidden">
         <MainNavigation />
-        <div className="h-screen landscape:h-[140vh] relative">
+        <div className="h-screen landscape:h-[120vh] relative">
           <Gallery coleccion={data} />
         </div>
         <Footer />
       </div>
     </>
-  );
+  )
 }

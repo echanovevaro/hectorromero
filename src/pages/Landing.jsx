@@ -6,6 +6,7 @@ import ObraMenu from "../components/ObraMenu"
 import Footer from "../components/Footer"
 import About from "../components/About"
 import Premios from "../components/Premios"
+import { ScrollRestoration } from "react-router-dom"
 
 function Landing() {
   const [showMenu, setShowMenu] = useState(false)
@@ -14,7 +15,6 @@ function Landing() {
   })
 
   useEffect(() => {
-    scrollTo(0, -200)
     const timeout = setTimeout(() => {
       setShowMenu(true)
     }, 2500)
@@ -25,6 +25,7 @@ function Landing() {
   }, [])
   return (
     <>
+      <ScrollRestoration />
       {showMenu && <MainNavigation />}
       <div
         className="wrapper"
@@ -69,31 +70,25 @@ function Landing() {
           </motion.button>
         )}
       </div>
-      <section
-        id="scroll"
-        className="flex justify-start z-[-1]"
-      >
-        <div className="bg-white w-screen z-10 landscape:h-full text-xs">
-          <h1 className="px-[1rem] mt-[2rem] uppercase text-base opacity-[0.7]">
-            obra
-          </h1>
+      <section className={`absolute top:[100dvh] inset-x-0 z-19`}>
+        <div className="bg-white pb-8 pt-[3rem] text-xs">
           <ObraMenu />
         </div>
-      </section>
-      <section className="flex justify-start">
-        <div className="bg-neutral-800 text-neutral-400 pt-[2rem] pb-8 text-xs w-screen z-10">
-          <About />
-        </div>
-      </section>
-      <section className="flex justify-start">
-        <div className="pb-12 pt-[2rem]">
-          <Premios />
-        </div>
-      </section>
-      <section className="flex justify-start">
-        <div className="bg-white text-xs w-screen z-[5]">
-          <Footer />
-        </div>
+        <article className="flex justify-start lg:hidden">
+          <div className="bg-neutral-800 text-neutral-400 pt-[2rem] pb-8 text-xs w-screen">
+            <About />
+          </div>
+        </article>
+        <article className="flex justify-start lg:hidden">
+          <div className="pb-12 pt-[2rem] bg-white">
+            <Premios />
+          </div>
+        </article>
+        <article className="flex justify-start">
+          <div className="bg-white text-xs w-screen">
+            <Footer />
+          </div>
+        </article>
       </section>
     </>
   )

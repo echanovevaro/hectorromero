@@ -57,9 +57,9 @@ const Premios = () => {
           <motion.div
             variants={{
               hidden: {
-                y: window.scrollY - window.innerHeight,
+                y: " -100dvh",
               },
-              visible: { y: window.scrollY },
+              visible: { y: 0 },
             }}
             initial="hidden"
             animate="visible"
@@ -67,13 +67,13 @@ const Premios = () => {
             transition={{ duration: 0.8, type: "spring", bounce: 0.1 }}
             onPanStart={onDetallePanStart}
             onPanEnd={onDetallePanEnd}
-            className="bg-white absolute w-screen z-[600] h-screen inset-0 touch-pinch-zoom"
+            className={`bg-white absolute z-[100] inset-x-0 bottom-0 w-screen h-screen touch-pinch-zoom overflow-hidden`}
           >
             <motion.div
               onPanStart={onDetallePanStart}
               onPanEnd={onDetallePanEnd}
               transition={{ duration: 0.8, type: "spring", bounce: 0.1 }}
-              className="w-full h-full bg-contain bg-no-repeat bg-center bg-white z-[650] landscape:-top-[3.5rem] landscape:bottom-[3.5rem] touch-pinch-zoom"
+              className={`w-full h-full bg-contain bg-no-repeat bg-center bg-white landscape:-top-[3.5rem] landscape:bottom-[3.5rem] touch-pinch-zoom`}
               style={{
                 backgroundImage: `url(${obraUrl})`,
               }}
@@ -84,7 +84,7 @@ const Premios = () => {
           </motion.div>
         )}
       </AnimatePresence>
-      <div className="bg-white px-[1rem] text-xs z-[15] w-screen overflow-hidden">
+      <div className="bg-white px-[1rem] lg:px-[4rem] text-xs w-screen ">
         <h1 className="pb-[1rem] uppercase text-base opacity-[0.7]">
           premios y menciones
         </h1>
@@ -93,7 +93,7 @@ const Premios = () => {
           ref={ref}
           initial={ulVariants.closed}
           animate={isInView ? "open" : "closed"}
-          className="flex flex-col gap-[0.5rem] items-center flex-nowrap whitespace-nowrap z-10"
+          className="flex flex-col gap-[0.5rem] items-center lg:items-start flex-nowrap whitespace-nowrap"
         >
           <motion.li
             variants={liVariants}

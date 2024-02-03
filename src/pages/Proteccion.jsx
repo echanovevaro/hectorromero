@@ -1,11 +1,11 @@
-import Footer from "../components/Footer";
-import MainNavigation from "../components/MainNavigation";
-import ScrollToTop from "../components/ScrollToTop";
+import { ScrollRestoration } from "react-router-dom"
+import Footer from "../components/Footer"
+import MainNavigation from "../components/MainNavigation"
 
 const Proteccion = () => {
   return (
     <>
-      <ScrollToTop />
+      <ScrollRestoration />
       <MainNavigation />
       <h1 className="uppercase mt-[6rem] text-base opacity-[0.7] self-start ms-[1rem] justify-self-start">
         PROTECCIÓN DE DATOS
@@ -69,7 +69,7 @@ const Proteccion = () => {
       </div>
       <Footer />
     </>
-  );
-};
+  )
+}
 
-export default Proteccion;
+export default Proteccion

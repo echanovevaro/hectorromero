@@ -1,11 +1,11 @@
-import Footer from "../components/Footer";
-import MainNavigation from "../components/MainNavigation";
-import ScrollToTop from "../components/ScrollToTop";
+import { ScrollRestoration } from "react-router-dom"
+import Footer from "../components/Footer"
+import MainNavigation from "../components/MainNavigation"
 
 const Privacidad = () => {
   return (
     <>
-      <ScrollToTop />
+      <ScrollRestoration />
       <MainNavigation />
       <h1 className="uppercase mt-[6rem] text-base opacity-[0.7] self-start ms-[1rem] justify-self-start">
         POLÍTICA DE PRIVACIDAD
@@ -178,6 +178,7 @@ const Privacidad = () => {
                 href="http://www.aepd.es/"
                 target="_blank"
                 className="text-sky-400 underline"
+                rel="noreferrer"
               >
                 www.aepd.es
               </a>
@@ -230,7 +231,7 @@ const Privacidad = () => {
       </div>
       <Footer />
     </>
-  );
-};
+  )
+}
 
-export default Privacidad;
+export default Privacidad

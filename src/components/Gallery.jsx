@@ -1,98 +1,98 @@
-import { AnimatePresence, motion } from "framer-motion";
-import { useEffect, useRef, useState } from "react";
-import { Link, useParams, useSubmit } from "react-router-dom";
-import { useAuthContext } from "../context/authContext";
-import Modal from "./Modal";
+import { AnimatePresence, motion } from "framer-motion"
+import { useEffect, useRef, useState } from "react"
+import { Link, useParams, useSubmit } from "react-router-dom"
+import { useAuthContext } from "../context/authContext"
+import Modal from "./Modal"
 
 export default function Gallery({ coleccion }) {
-  const submit = useSubmit();
-  const [isDeleting, setIsDeleting] = useState(false);
-  const [counter, setCounter] = useState(0);
-  const ref = useRef(0);
-  const detalleRef = useRef(0);
-  const firstImgRef = useRef(null);
-  const [loaded, setLoaded] = useState(false);
-  const { currentUser } = useAuthContext();
-  const [fullPage, setFullPage] = useState(false);
-  const { serie } = useParams();
+  const submit = useSubmit()
+  const [isDeleting, setIsDeleting] = useState(false)
+  const [counter, setCounter] = useState(0)
+  const ref = useRef(0)
+  const detalleRef = useRef(0)
+  const firstImgRef = useRef(null)
+  const [loaded, setLoaded] = useState(false)
+  const { currentUser } = useAuthContext()
+  const [fullPage, setFullPage] = useState(false)
+  const { serie } = useParams()
 
   const slideLeft = () => {
-    counter > 0 ? setCounter(counter - 1) : setCounter(coleccion.length - 1);
-    setLoaded(false);
-  };
+    counter > 0 ? setCounter(counter - 1) : setCounter(coleccion.length - 1)
+    setLoaded(false)
+  }
 
   const slideRight = () => {
-    counter < coleccion.length - 1 ? setCounter(counter + 1) : setCounter(0);
-    setLoaded(false);
-  };
+    counter < coleccion.length - 1 ? setCounter(counter + 1) : setCounter(0)
+    setLoaded(false)
+  }
 
   function onPanStart(_, info) {
-    ref.current = info.point.x;
+    ref.current = info.point.x
   }
 
   function onPanEnd(_, info) {
     if (info.point.x < ref.current) {
-      slideRight();
+      slideRight()
     } else if (info.point.x > ref.current) {
-      slideLeft();
+      slideLeft()
     }
   }
 
   function onDetallePanStart(_, info) {
-    detalleRef.current = info.point.y;
+    detalleRef.current = info.point.y
   }
 
   function onDetallePanEnd(_, info) {
     if (info.point.y < detalleRef.current) {
-      setFullPage(false);
+      setFullPage(false)
     }
   }
 
   function handleDelete(obra) {
-    const formData = new FormData();
-    formData.append("ref", obra.imagenRef);
-    setCounter(0);
-    setIsDeleting(false);
+    const formData = new FormData()
+    formData.append("ref", obra.imagenRef)
+    setCounter(0)
+    setIsDeleting(false)
     submit(formData, {
       method: "delete",
       action: `/obra/${serie}/${obra.id}/delete`,
-    });
+    })
   }
 
   useEffect(() => {
-    setCounter(0);
-    setLoaded(false);
+    setCounter(0)
+    setLoaded(false)
     if (firstImgRef.current?.complete) {
-      setLoaded(true);
+      setLoaded(true)
     }
-  }, [serie]);
+  }, [serie])
 
   useEffect(() => {
-    const links = document.querySelector('link[rel="preload"]');
+    const links = document.querySelector('link[rel="preload"]')
     if (links && links.length > 0) {
-      links.forEach((el) => el.remove());
+      links.forEach((el) => el.remove())
     }
 
     const imgLoader = function (obra) {
-      var link = document.createElement("link");
-      link.rel = "preload";
-      link.as = "image";
-      link.href = obra.imagenURL;
+      var link = document.createElement("link")
+      link.rel = "preload"
+      link.as = "image"
+      link.href = obra.imagenURL
 
-      const head = document.head;
-      document.head.appendChild(link);
-    };
+      const head = document.head
+      document.head.appendChild(link)
+    }
     coleccion?.forEach((obra) => {
-      imgLoader(obra);
-    });
+      imgLoader(obra)
+    })
 
     return () => {
-      const links = document.querySelector('link[rel="preload"]');
+      const links = document.querySelector('link[rel="preload"]')
       if (links && links.length > 0) {
-        links.forEach((el) => el.remove());
+        links.forEach((el) => el.remove())
       }
-    };
-  }, [coleccion]);
+    }
+  }, [coleccion])
 
   return (
     <>
@@ -131,23 +131,28 @@ export default function Gallery({ coleccion }) {
                     backgroundImage: `url(${obra.imagenURL})`,
                   }}
                   onClick={() => {
-                    setFullPage(false);
+                    setFullPage(false)
                   }}
                 />
               </motion.div>
-            );
+            )
         })}
       </AnimatePresence>
       <div className="flex flex-row justify-start items-end gap-2 pt-[5.5rem]">
-        <h1 className="uppercase text-base opacity-[0.7] ms-[1rem]">{serie}</h1>
+        <h1 className="uppercase text-base opacity-[0.7] ms-[1rem] lg:ms-[4rem]">
+          {serie}
+        </h1>
         {currentUser && (
-          <Link className="text-sky-400 z-50" to={`/obra/${serie}/new`}>
+          <Link
+            className="text-sky-400 z-50"
+            to={`/obra/${serie}/new`}
+          >
             Añadir
           </Link>
         )}
       </div>
       <div
-        className={`absolute top-[6rem] landscape:top-[1rem] bottom-[1rem] inset-x-0 flex items-center justify-center flex-col gap-2 lg:hidden `}
+        className={`absolute top-[6rem] landscape:top-[1rem] bottom-[1rem] inset-x-0 flex items-center justify-center flex-col gap-2  `}
       >
         <div
           className={`flex items-center justify-center gap-1 ${
@@ -157,7 +162,9 @@ export default function Gallery({ coleccion }) {
           <div>
             <button onClick={slideLeft}>
               <svg
-                className={`w-4 h-4 mx-2 mt-10 ${loaded ? "block" : "hidden"}`}
+                className={`w-4 h-4 mx-2 mt-10 landscape:mt-[10rem] ${
+                  loaded ? "block" : "hidden"
+                }`}
                 aria-hidden="true"
                 xmlns="http://www.w3.org/2000/svg"
                 fill="none"
@@ -231,7 +238,7 @@ export default function Gallery({ coleccion }) {
                         onPanEnd={onPanEnd}
                         onLoad={() => setLoaded(true)}
                         onClick={() => {
-                          setFullPage(true);
+                          setFullPage(true)
                         }}
                       />
                       {currentUser && loaded && (
@@ -285,7 +292,9 @@ export default function Gallery({ coleccion }) {
           <div>
             <button onClick={slideRight}>
               <svg
-                className={`w-4 h-4 mt-10 mx-2 ${loaded ? "block" : "hidden"}`}
+                className={`w-4 h-4 mt-10 landscape:mt-[10rem] mx-2 ${
+                  loaded ? "block" : "hidden"
+                }`}
                 aria-hidden="true"
                 xmlns="http://www.w3.org/2000/svg"
                 fill="none"
@@ -322,7 +331,7 @@ export default function Gallery({ coleccion }) {
                     <span className="text-neutral-400">{obra.descripcion}</span>
                   </div>
                 </motion.div>
-              );
+              )
           })}
         </div>
         <div className="w-[80vw]">
@@ -331,7 +340,7 @@ export default function Gallery({ coleccion }) {
               return (
                 <ul
                   key={index}
-                  className={`flex justify-center items-center gap-[0.5rem] font-thin text-neutral-700 text-lg ${
+                  className={`flex justify-center items-center gap-[0.5rem] font-thin text-neutral-700 mb-[2rem] text-lg ${
                     loaded ? "block" : "hidden"
                   }`}
                 >
@@ -347,10 +356,10 @@ export default function Gallery({ coleccion }) {
                     "00" + arr.length
                   ).slice(-2)}`}</li>
                 </ul>
-              );
+              )
           })}
         </div>
       </div>
     </>
-  );
+  )
 }
