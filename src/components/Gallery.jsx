@@ -79,7 +79,6 @@ export default function Gallery({ coleccion }) {
       link.as = "image"
       link.href = obra.imagenURL
 
-      const head = document.head
       document.head.appendChild(link)
     }
     coleccion?.forEach((obra) => {
@@ -162,7 +161,7 @@ export default function Gallery({ coleccion }) {
           <div>
             <button onClick={slideLeft}>
               <svg
-                className={`w-4 h-4 mx-2 mt-10 landscape:mt-[10rem] ${
+                className={`w-4 h-4 mx-2 mt-8 landscape:mt-[8rem] ${
                   loaded ? "block" : "hidden"
                 }`}
                 aria-hidden="true"
@@ -292,7 +291,7 @@ export default function Gallery({ coleccion }) {
           <div>
             <button onClick={slideRight}>
               <svg
-                className={`w-4 h-4 mt-10 landscape:mt-[10rem] mx-2 ${
+                className={`w-4 h-4 mt-8 landscape:mt-[9rem] mx-2 ${
                   loaded ? "block" : "hidden"
                 }`}
                 aria-hidden="true"
