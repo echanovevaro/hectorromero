@@ -90,7 +90,7 @@ export default function MainNavigation() {
               transition={{ duration: 0.5 }}
               onPanStart={onPanStart}
               onPanEnd={onPanEnd}
-              className="z-[19] fixed top-0 inset-x-0 h-screen bg-white text-base overflow-y-scroll touch-pinch-zoom"
+              className="z-[19] fixed top-0 inset-x-0 h-screen  bg-white text-base overflow-y-scroll touch-pinch-zoom"
             >
               <motion.ul
                 variants={ulVariants}
@@ -263,7 +263,7 @@ export default function MainNavigation() {
         transition={{ duration: 0.5 }}
       >
         <nav
-          className={`px-4 lg:px-[4rem] py-6 flex justify-between items-center bg-white shadow-md   uppercase`}
+          className={`px-4 lg:px-[4rem] py-6 flex justify-between items-center bg-white shadow-md  uppercase`}
         >
           <motion.h1>
             <Link to="/">
@@ -276,7 +276,7 @@ export default function MainNavigation() {
               <span className="text-neutral-300 ml-1"> ADMIN MODE</span>
             )}
           </motion.h1>
-          <ul className="opacity-[0.7] hidden lg:flex">
+          <ul className="opacity-[0.7] hidden lg:flex text-sm ">
             <motion.li whileTap={{ scale: 1.1 }}>
               {pathname !== "/" ? (
                 <Link to="/">INICIO</Link>

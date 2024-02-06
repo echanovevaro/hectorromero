@@ -7,6 +7,7 @@ import Footer from "../components/Footer"
 import About from "../components/About"
 import Premios from "../components/Premios"
 import { ScrollRestoration } from "react-router-dom"
+import ObraMenuMobile from "../components/ObraMenuMobile"
 
 function Landing() {
   const [showMenu, setShowMenu] = useState(false)
@@ -72,7 +73,12 @@ function Landing() {
       </div>
       <section className={`absolute top:[100dvh] inset-x-0 z-19`}>
         <div className="bg-white pb-8 pt-[3rem] text-xs">
-          <ObraMenu />
+          <div className="hidden lg:block">
+            <ObraMenu />
+          </div>
+          <div className="lg:hidden">
+            <ObraMenuMobile />
+          </div>
         </div>
         <article className="flex justify-start lg:hidden">
           <div className="bg-neutral-800 text-neutral-400 pt-[2rem] pb-8 text-xs w-screen">
