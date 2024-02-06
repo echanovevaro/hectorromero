@@ -57,7 +57,7 @@ html {
   }
 
   100% {
-    transform: scale(0.7) rotate(0deg);
+    transform: scale(1.06) rotate(0deg);
   }
 }
 
@@ -512,7 +512,7 @@ footer {
   } */
 
   .background {
-    background-image: url("/Cúbico 78x122cm-min-compressed (2).jpg");
+    background-image: url("/26b-landscape.jpg");
     background-position: center;
     animation: zoom-landscape 6s ease-in forwards;
   }
