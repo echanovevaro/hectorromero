@@ -1,31 +1,26 @@
-import { useInView, motion } from "framer-motion"
+import { useInView } from "framer-motion"
 import { useRef } from "react"
 import { Link, useNavigate } from "react-router-dom"
 
 const ObraMenu = () => {
   const ref = useRef(null)
-  const ref2 = useRef(null)
-  const ref3 = useRef(null)
   const isInView = useInView(ref, { once: true })
-  const isInView2 = useInView(ref2, { once: true })
-  const isInView3 = useInView(ref3, { once: true, amount: 0.5 })
   const navigate = useNavigate()
 
   return (
     <>
-      <h1 className="uppercase pb-[3rem] text-base opacity-[0.7] self-start ms-[1rem] lg:ms-[4rem] justify-self-start">
+      <h1 className="uppercase text-base opacity-[0.7] self-start ms-[1rem] lg:ms-[4rem] justify-self-start">
         obra
       </h1>
       <div
         ref={ref}
-        className="square text-xs"
+        className="square-responsive"
       >
         <div
-          className="contentText-desktop"
+          className="div12"
           style={{
-            transform: isInView ? "none" : "translateY(-60px)",
             opacity: isInView ? 1 : 0,
-            transition: "all 1.25s cubic-bezier(0.17, 0.55, 0.55, 1)",
+            transition: "all 0.5s cubic-bezier(0.17, 0.55, 0.55, 1) 1.25s",
           }}
         >
           <p>
@@ -38,42 +33,9 @@ const ObraMenu = () => {
             técnicas y estilos completamente diferentes.
           </p>
         </div>
+
         <div
-          className="contentTitle-bloques text-base"
-          style={{
-            opacity: isInView ? 1 : 0,
-            transition: "all 0.5s cubic-bezier(0.17, 0.55, 0.55, 1) 1.25s",
-          }}
-        >
-          <Link to="obra/bloques">
-            <motion.span
-              className="border-neutral-400 border-t"
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.9 }}
-            >
-              Bloques
-            </motion.span>
-          </Link>
-        </div>
-        <div
-          className="contentTitle-animaciones text-base"
-          style={{
-            opacity: isInView2 ? 1 : 0,
-            transition: "all 0.5s cubic-bezier(0.17, 0.55, 0.55, 1) 1.25s",
-          }}
-        >
-          <Link to="obra/animaciones">
-            <motion.span
-              className="border-neutral-400 border-t"
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.9 }}
-            >
-              Animaciones
-            </motion.span>
-          </Link>
-        </div>
-        <div
-          className="content1 overflow-hidden"
+          className="div1 overflow-hidden relative"
           style={{
             transform: isInView ? "none" : "translateX(-60px)",
             opacity: isInView ? 1 : 0,
@@ -81,195 +43,120 @@ const ObraMenu = () => {
           }}
           onClick={() => navigate("/obra/bloques")}
         >
-          <motion.img
-            whileHover={{ scale: 1.05, transition: { duration: 0.8 } }}
-            src="/desktop/bloques-1.jpg"
-          />
+          <img src="/desktop/bloques-4.jpg" />
         </div>
         <div
-          className="content2 overflow-hidden"
+          className="div5 relative cursor-pointer"
+          style={{
+            opacity: isInView ? 1 : 0,
+            transition: "all 0.5s cubic-bezier(0.17, 0.55, 0.55, 1) 1.25s",
+          }}
+        >
+          <div className="h-full border-t border-neutral-400 "></div>
+          <Link
+            to="obra/bloques"
+            className="absolute top-0 right-0 text-sm"
+          >
+            <span>Bloques</span>
+          </Link>
+        </div>
+        <div
+          className="div6 relative cursor-pointer"
+          style={{
+            opacity: isInView ? 1 : 0,
+            transition: "all 0.5s cubic-bezier(0.17, 0.55, 0.55, 1) 1.25s",
+          }}
+        >
+          <div className="h-full border-b border-neutral-400"></div>
+          <Link
+            to="obra/wire"
+            className="absolute bottom-0 right-0 text-sm"
+          >
+            <span>Wire</span>
+          </Link>
+        </div>
+        <div
+          className="div4 overflow-hidden relative cursor-pointer"
           style={{
             transform: isInView ? "none" : "translateY(-60px)",
             opacity: isInView ? 1 : 0,
             transition: "all 1.25s cubic-bezier(0.17, 0.55, 0.55, 1)",
           }}
-          onClick={() => navigate("/obra/bloques")}
+          onClick={() => navigate("/obra/wire")}
         >
-          <motion.img
-            whileHover={{ scale: 1.05, transition: { duration: 0.8 } }}
-            src="/desktop/bloques-2.jpg"
-          />
+          <img src="/obra-2.jpg" />
         </div>
         <div
-          className="content3 overflow-hidden"
+          className="div3 overflow-hidden relative cursor-pointer"
           style={{
             transform: isInView ? "none" : "translateY(60px)",
             opacity: isInView ? 1 : 0,
             transition: "all 1.25s cubic-bezier(0.17, 0.55, 0.55, 1)",
           }}
-          onClick={() => navigate("/obra/bloques")}
+          onClick={() => navigate("/obra/iluminados")}
         >
-          <motion.img
-            whileHover={{ scale: 1.05, transition: { duration: 0.8 } }}
-            src="/desktop/bloques-3.jpg"
-          />
+          <img src="/desktop/iluminado-3.jpg" />
         </div>
         <div
-          className="content4 overflow-hidden"
-          style={{
-            opacity: isInView ? 1 : 0,
-            transition: "all 1.25s cubic-bezier(0.17, 0.55, 0.55, 1)",
-          }}
-          onClick={() => navigate("/obra/bloques")}
-        >
-          <motion.img
-            whileHover={{ scale: 1.05, transition: { duration: 0.8 } }}
-            src="/desktop/bloques-4.jpg"
-          />
-        </div>
-
-        <div
-          className="content5-desktop"
-          ref={ref2}
-          style={{
-            transform: isInView2 ? "none" : "translateX(-60px)",
-            opacity: isInView2 ? 1 : 0,
-            transition: "all 1.25s cubic-bezier(0.17, 0.55, 0.55, 1)",
-          }}
-          onClick={() => navigate("/obra/animaciones")}
-        >
-          <img src="/desktop/bloques-5-6.gif" />
-        </div>
-        <div
-          className="content6-desktop"
-          style={{
-            transform: isInView2 ? "none" : "translateX(60px)",
-            opacity: isInView2 ? 1 : 0,
-            transition: "all 1.25s cubic-bezier(0.17, 0.55, 0.55, 1)",
-          }}
-          onClick={() => navigate("/obra/animaciones")}
-        >
-          <img src="/desktop/bloques-5-6.gif" />
-        </div>
-        <div
-          className="contentTitle-wood text-base"
+          className="div11 relative cursor-pointer"
           style={{
             opacity: isInView ? 1 : 0,
             transition: "all 0.5s cubic-bezier(0.17, 0.55, 0.55, 1) 1.25s",
           }}
         >
-          <Link to="obra/wood">
-            <motion.span
-              className="border-neutral-400 border-t"
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.9 }}
-            >
-              Wood
-            </motion.span>
+          <div className="h-full border-t border-neutral-400"></div>
+          <Link
+            to="obra/animaciones"
+            className="absolute top-0 right-0 text-sm"
+          >
+            <span>Animación</span>
           </Link>
         </div>
         <div
-          className="content7 overflow-hidden"
-          style={{
-            transform: isInView2 ? "none" : "translateX(-60px)",
-            opacity: isInView2 ? 1 : 0,
-            transition: "all 1.25s cubic-bezier(0.17, 0.55, 0.55, 1)",
-          }}
-          onClick={() => navigate("/obra/wood")}
-        >
-          <motion.img
-            whileHover={{ scale: 1.05, transition: { duration: 0.8 } }}
-            src="/desktop/wood-4.jpg"
-          />
-        </div>
-        <div
-          className="content8 overflow-hidden"
-          style={{
-            transform: isInView2 ? "none" : "translateY(-60px)",
-            opacity: isInView2 ? 1 : 0,
-            transition: "all 1.25s cubic-bezier(0.17, 0.55, 0.55, 1)",
-          }}
-          onClick={() => navigate("/obra/wood")}
-        >
-          <motion.img
-            whileHover={{ scale: 1.05, transition: { duration: 0.8 } }}
-            src="/desktop/wood-1.jpg"
-          />
-        </div>
-        <div
-          className="content9 overflow-hidden"
+          className="div7 relative cursor-pointer"
           style={{
             opacity: isInView ? 1 : 0,
-            transition: "all 1.25s cubic-bezier(0.17, 0.55, 0.55, 1)",
-          }}
-          onClick={() => navigate("/obra/wood")}
-        >
-          <motion.img
-            whileHover={{ scale: 1.05, transition: { duration: 0.8 } }}
-            src="/desktop/wood-2.jpg"
-          />
-        </div>
-        <div
-          className="content10 overflow-hidden"
-          style={{
-            transform: isInView2 ? "none" : "translateY(60px)",
-            opacity: isInView2 ? 1 : 0,
-            transition: "all 1.25s cubic-bezier(0.17, 0.55, 0.55, 1)",
-          }}
-          onClick={() => navigate("/obra/wood")}
-        >
-          <motion.img
-            whileHover={{ scale: 1.05, transition: { duration: 0.8 } }}
-            src="/desktop/wood-3.jpg"
-          />
-        </div>
-        <div
-          className="contentTitle-wire text-base"
-          style={{
-            opacity: isInView3 ? 1 : 0,
             transition: "all 0.5s cubic-bezier(0.17, 0.55, 0.55, 1) 1.25s",
           }}
         >
-          <Link to="obra/wire">
-            <motion.span
-              className="border-neutral-400 border-t"
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.9 }}
-            >
-              Wire
-            </motion.span>
+          <div className="h-full border-t border-neutral-400"></div>
+          <Link
+            to="obra/iluminados"
+            className="absolute top-0 left-0 text-sm"
+          >
+            <span>Iluminados</span>
           </Link>
         </div>
         <div
-          className="contentTitle-iluminados text-base"
-          style={{
-            opacity: isInView3 ? 1 : 0,
-            transition: "all 0.5s cubic-bezier(0.17, 0.55, 0.55, 1) 1.25s",
-          }}
-        >
-          <Link to="obra/iluminados">
-            <motion.span
-              className="border-neutral-400 border-t"
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.9 }}
-            >
-              Iluminados
-            </motion.span>
-          </Link>
-        </div>
-        <div
-          className="content11"
+          className="div9 overflow-hidden relative cursor-pointer"
           style={{
             transform: isInView ? "none" : "translateX(-60px)",
             opacity: isInView ? 1 : 0,
             transition: "all 1.25s cubic-bezier(0.17, 0.55, 0.55, 1)",
           }}
-          onClick={() => navigate("/obra/wood")}
+          onClick={() => navigate("/obra/animaciones")}
         >
-          <img src="/obra-5-6.jpg" />
+          <img
+            className="object-left"
+            src="/animation.gif"
+          />
         </div>
         <div
-          className="content12"
+          className="div10 overflow-hidden relative cursor-pointer"
+          style={{
+            transform: isInView ? "none" : "translateX(60px)",
+            opacity: isInView ? 1 : 0,
+            transition: "all 1.25s cubic-bezier(0.17, 0.55, 0.55, 1)",
+          }}
+          onClick={() => navigate("/obra/animaciones")}
+        >
+          <img
+            className="object-right"
+            src="/animation.gif"
+          />
+        </div>
+        <div
+          className="div2 overflow-hidden relative cursor-pointer"
           style={{
             transform: isInView ? "none" : "translateX(60px)",
             opacity: isInView ? 1 : 0,
@@ -277,83 +164,22 @@ const ObraMenu = () => {
           }}
           onClick={() => navigate("/obra/wood")}
         >
-          <img src="/obra-5-6.jpg" />
-        </div>
-
-        <div
-          className="content13 overflow-hidden"
-          ref={ref3}
-          style={{
-            opacity: isInView3 ? 1 : 0,
-            transition: "all 1.25s cubic-bezier(0.17, 0.55, 0.55, 1)",
-          }}
-          onClick={() => navigate("/obra/wire")}
-        >
-          <motion.img
-            whileHover={{ scale: 1.05, transition: { duration: 0.8 } }}
-            src="/desktop/wire-1.jpg"
-          />
+          <img src="/wood.jpg" />
         </div>
         <div
-          className="content14 overflow-hidden"
+          className="div8 relative cursor-pointer"
           style={{
-            transform: isInView3 ? "none" : "translateY(-60px)",
-            opacity: isInView3 ? 1 : 0,
-            transition: "all 1.25s cubic-bezier(0.17, 0.55, 0.55, 1)",
-          }}
-          onClick={() => navigate("/obra/wire")}
-        >
-          <motion.img
-            whileHover={{ scale: 1.05, transition: { duration: 0.8 } }}
-            src="/desktop/wire-2.jpg"
-          />
-        </div>
-        <div
-          className="content15 overflow-hidden"
-          style={{
-            transform: isInView3 ? "none" : "translateY(60px)",
-            opacity: isInView3 ? 1 : 0,
-            transition: "all 1.25s cubic-bezier(0.17, 0.55, 0.55, 1)",
-          }}
-          onClick={() => navigate("/obra/iluminados")}
-        >
-          <motion.img
-            whileHover={{ scale: 1.05, transition: { duration: 0.8 } }}
-            src="/desktop/iluminado-2.jpg"
-          />
-        </div>
-        <div
-          className="content16 overflow-hidden"
-          style={{
-            transform: isInView3 ? "none" : "translateX(60px)",
-            opacity: isInView3 ? 1 : 0,
-            transition: "all 1.25s cubic-bezier(0.17, 0.55, 0.55, 1)",
-          }}
-          onClick={() => navigate("/obra/iluminados")}
-        >
-          <motion.img
-            whileHover={{ scale: 1.05, transition: { duration: 0.8 } }}
-            src="/desktop/iluminado-1.jpg"
-          />
-        </div>
-        <div
-          className="contentText-desktop-bottom"
-          style={{
-            transform: isInView3 ? "none" : "translateY(-60px)",
-            opacity: isInView3 ? 1 : 0,
-            transition: "all 1.25s cubic-bezier(0.17, 0.55, 0.55, 1)",
+            opacity: isInView ? 1 : 0,
+            transition: "all 0.5s cubic-bezier(0.17, 0.55, 0.55, 1) 1.25s",
           }}
         >
-          <p>
-            Familiarizado por el uso de la perspectiva, el dibujo técnico y la
-            creación de espacios, me centro en un estilo pictórico mezcla de
-            surrealismo, minimalismo arquitectónico, expresionismo, metafísico.
-          </p>
-          <p>
-            Paisajes desoladores donde el nexo común está en la combinación de
-            grandes bloques o volúmenes contundentes, creando espacios
-            inquietantes
-          </p>
+          <div className="h-full border-b border-neutral-400"></div>
+          <Link
+            to="obra/wood"
+            className="absolute bottom-0 left-0 text-sm"
+          >
+            <span>Wood</span>
+          </Link>
         </div>
       </div>
     </>

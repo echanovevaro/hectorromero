@@ -15,13 +15,11 @@ export default function Serie() {
   return (
     <>
       <ScrollRestoration />
-      <div className="overflow-y-scroll overflow-x-hidden">
-        <MainNavigation />
-        <div className="h-screen landscape:h-[120vh] relative">
-          <Gallery coleccion={data} />
-        </div>
-        <Footer />
+      <MainNavigation />
+      <div className="h-screen landscape:h-[120vh] relative">
+        <Gallery coleccion={data} />
       </div>
+      <Footer />
     </>
   )
 }

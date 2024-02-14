@@ -96,6 +96,7 @@ const Premios = () => {
           className="flex flex-col gap-[0.5rem] items-center lg:items-start flex-nowrap whitespace-nowrap"
         >
           <motion.li
+            className="cursor-pointer"
             variants={liVariants}
             initial={liVariants.closed}
             whileTap={{ scale: 1.1 }}
@@ -107,30 +108,35 @@ const Premios = () => {
             2º premio Menduina Schneider Art Gallery (2021)
           </motion.li>
           <motion.li
+            className="cursor-pointer"
             variants={liVariants}
             initial={liVariants.closed}
           >
             Premio votación popular Pintura Rápida Plaza Dalí (2019)
           </motion.li>
           <motion.li
+            className="cursor-pointer"
             variants={liVariants}
             initial={liVariants.closed}
           >
             1er Premio Pintura Rápida Plaza Dalí (2017)
           </motion.li>
           <motion.li
+            className="cursor-pointer"
             variants={liVariants}
             initial={liVariants.closed}
           >
             1er Premio Pintura Rápida Plaza Dalí (2015)
           </motion.li>
           <motion.li
+            className="cursor-pointer"
             variants={liVariants}
             initial={liVariants.closed}
           >
             Selección pintura rápida Retiro (2011)
           </motion.li>
           <motion.li
+            className="cursor-pointer"
             variants={liVariants}
             initial={liVariants.closed}
           >
@@ -143,6 +149,7 @@ const Premios = () => {
             Selección pintura rápida Retiro (2009)
           </motion.li>
           <motion.li
+            className="cursor-pointer"
             variants={liVariants}
             initial={liVariants.closed}
             whileTap={{ scale: 1.1 }}

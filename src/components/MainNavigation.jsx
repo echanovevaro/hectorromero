@@ -90,7 +90,7 @@ export default function MainNavigation() {
               transition={{ duration: 0.5 }}
               onPanStart={onPanStart}
               onPanEnd={onPanEnd}
-              className="z-[19] fixed top-0 inset-x-0 h-screen  bg-white text-base overflow-y-scroll touch-pinch-zoom"
+              className="z-[19] fixed top-0 inset-x-0 h-screen bg-white text-base touch-pinch-zoom"
             >
               <motion.ul
                 variants={ulVariants}
@@ -230,13 +230,13 @@ export default function MainNavigation() {
                     <span onClick={toggleOpen}>SOBRE MÍ</span>
                   )}
                 </motion.li>
-                <motion.li
+                {/* <motion.li
                   initial={liVariants.closed}
                   variants={liVariants}
                   whileTap={{ scale: 1.1 }}
                 >
                   <span>CONTACTO</span>
-                </motion.li>
+                </motion.li> */}
                 {currentUser && (
                   <motion.li
                     initial={liVariants.closed}
@@ -381,9 +381,9 @@ export default function MainNavigation() {
                 <span onClick={toggleOpen}>SOBRE MÍ</span>
               )}
             </motion.li>
-            <motion.li whileTap={{ scale: 1.1 }}>
+            {/* <motion.li whileTap={{ scale: 1.1 }}>
               <span>CONTACTO</span>
-            </motion.li>
+            </motion.li> */}
             {currentUser && (
               <motion.li whileTap={{ scale: 1.1 }}>
                 <RouterForm

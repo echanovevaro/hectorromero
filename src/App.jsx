@@ -1,21 +1,24 @@
-import { RouterProvider, createBrowserRouter } from "react-router-dom";
-import { QueryClientProvider } from "@tanstack/react-query";
-import Root from "./pages/Root";
-import Landing from "./pages/Landing";
-import Login, { action as loginAction } from "./pages/Login";
-import { AuthProvider } from "./context/authContext";
-import { logOutWithRedirect, deleteAction } from "./utils/actions";
-import SerieNew, { action as newAction } from "./pages/SerieNew";
-import { queryClient } from "./http";
-import SerieUpdate, { action as updateAction } from "./pages/SerieUpdate";
-import Serie from "./pages/Serie";
-import { ParallaxProvider } from "react-scroll-parallax";
-import Obra from "./pages/Obra";
-import Legal from "./pages/Legal";
-import Privacidad from "./pages/Privacidad";
-import Proteccion from "./pages/Proteccion";
-import AboutPage from "./pages/AboutPage";
-import PremiosPage from "./pages/PremiosPage";
+import { RouterProvider, createBrowserRouter } from "react-router-dom"
+import { QueryClientProvider } from "@tanstack/react-query"
+import Root from "./pages/Root"
+import Landing from "./pages/Landing"
+import Login, { action as loginAction } from "./pages/Login"
+import { AuthProvider } from "./context/authContext"
+import { logOutWithRedirect, deleteAction } from "./utils/actions"
+import SerieNew, { action as newAction } from "./pages/SerieNew"
+import { queryClient } from "./http"
+import SerieUpdate, { action as updateAction } from "./pages/SerieUpdate"
+import Serie from "./pages/Serie"
+import { ParallaxProvider } from "react-scroll-parallax"
+import Obra from "./pages/Obra"
+import Legal from "./pages/Legal"
+import Privacidad from "./pages/Privacidad"
+import Proteccion from "./pages/Proteccion"
+import AboutPage from "./pages/AboutPage"
+import PremiosPage from "./pages/PremiosPage"
+import LandingUpdate, {
+  action as updateLandingAction,
+} from "./pages/LandingUpdate"
 
 function App() {
   const router = createBrowserRouter([
@@ -31,6 +34,11 @@ function App() {
         {
           path: "obra/:serie",
           element: <Serie />,
+        },
+        {
+          path: ":id/edit",
+          element: <LandingUpdate />,
+          action: updateLandingAction,
         },
 
         {
@@ -82,7 +90,7 @@ function App() {
         },
       ],
     },
-  ]);
+  ])
 
   return (
     <AuthProvider>
@@ -92,7 +100,7 @@ function App() {
         </ParallaxProvider>
       </QueryClientProvider>
     </AuthProvider>
-  );
+  )
 }
 
-export default App;
+export default App

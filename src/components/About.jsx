@@ -8,7 +8,7 @@ const About = () => {
   const isInView = useInView(ref, { once: true, amount: 0.2 })
 
   return (
-    <>
+    <div id="landing">
       <h1 className="uppercase pb-[1rem] text-base opacity-[0.7] self-start ms-[1rem] lg:ms-[4rem] justify-self-start">
         sobre mí
       </h1>
@@ -34,7 +34,17 @@ const About = () => {
           <p>
             Estudio interiorismo y después de trabajar como freelance y en
             varias empresas de arquitectura y diseño, en 2004 decido crear el
-            estudio <strong>VOLTEO</strong> en el que trabajo actualmente.
+            estudio{" "}
+            <b>
+              <a
+                href="https://www.volteointeriorismo.com/"
+                target="volteo"
+                className="cursor-pointer"
+              >
+                VOLTEO
+              </a>
+            </b>{" "}
+            en el que trabajo actualmente.
           </p>
           <p className="mb-0">
             Desde siempre me ha gustado pintar, pasando por gran variedad de
@@ -115,7 +125,7 @@ const About = () => {
           </p>
         </div>
       </div>
-    </>
+    </div>
   )
 }
 

@@ -68,11 +68,6 @@ export default function Gallery({ coleccion }) {
   }, [serie])
 
   useEffect(() => {
-    const links = document.querySelector('link[rel="preload"]')
-    if (links && links.length > 0) {
-      links.forEach((el) => el.remove())
-    }
-
     const imgLoader = function (obra) {
       var link = document.createElement("link")
       link.rel = "preload"

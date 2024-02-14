@@ -1,20 +1,22 @@
-import { z } from "zod";
+import { z } from "zod"
 
-const MAX_FILE_SIZE = 1024 * 1024 * 5;
+const MAX_FILE_SIZE = 1024 * 1024 * 5
 const ACCEPTED_IMAGE_MIME_TYPES = [
   "image/jpeg",
   "image/jpg",
   "image/png",
   "image/gif",
-];
+]
+
+export const SERIES = ["bloques", "wood", "wire", "iluminados", "animaciones"]
 
 export const passwordSchema = z.object({
   email: z.string().min(1, "obligatorio").email("email no válido"),
-});
+})
 
 export const loginSchema = passwordSchema.extend({
   password: z.string().min(6, "la contraseña debe tener al menos 6 caracteres"),
-});
+})
 
 export const obraSchema = z.object({
   titulo: z.string().min(1, "obligatorio"),
@@ -27,7 +29,7 @@ export const obraSchema = z.object({
       (files) => ACCEPTED_IMAGE_MIME_TYPES.includes(files?.[0]?.type),
       "Sólo .jpg, .jpeg .gif o .png son válidos."
     ),
-});
+})
 
 export const obraEditSchema = obraSchema.extend({
   imagen: z
@@ -41,4 +43,11 @@ export const obraEditSchema = obraSchema.extend({
         !files?.[0] || ACCEPTED_IMAGE_MIME_TYPES.includes(files?.[0]?.type),
       "Sólo .jpg, .jpeg .gif o .png son válidos."
     ),
-});
+})
+
+export const obraLandingSchema = obraEditSchema.extend({
+  serie: z
+    .string()
+    .min(1, "debes seleccionar una serie")
+    .refine((serie) => SERIES.includes(serie)),
+})

@@ -3,7 +3,7 @@ import { Link } from "react-router-dom"
 
 const Footer = () => {
   return (
-    <footer className=" text-xs">
+    <footer className="text-xs">
       <div className="square-footer opacity-[0.7]">
         <div className="brand">
           <Link
