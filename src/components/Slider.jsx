@@ -111,10 +111,10 @@ function Slider() {
                       </p>
                     </div> */}
                 </section>
-                <section className="grid grid-cols-[4fr_1fr_1fr] text-xs text-neutral-400 pt-2">
+                <section className="grid grid-cols-[4fr_1fr_1fr] text-xs lg:text-sm text-neutral-400 pt-2">
                   <div className="col-start-1 col-end-2 flex flex-col">
                     <span>{slide.titulo}</span>
-                    <span className={classes.textSmall}>
+                    <span className={`${classes.textSmall} lg:text-xs`}>
                       {slide.descripcion}
                     </span>
                   </div>

@@ -17,7 +17,7 @@ const ObraMenu = () => {
         className="square-responsive"
       >
         <div
-          className="div-text"
+          className="div-text lg:text-sm"
           style={{
             opacity: isInView ? 1 : 0,
             transition: "all 0.5s cubic-bezier(0.17, 0.55, 0.55, 1) 1.25s",

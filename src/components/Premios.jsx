@@ -84,7 +84,7 @@ const Premios = () => {
           </motion.div>
         )}
       </AnimatePresence>
-      <div className="bg-white px-[1rem] lg:px-[4rem] text-xs w-screen ">
+      <div className="bg-white px-[1rem] lg:px-[4rem] text-xs w-screen lg:text-sm">
         <h1 className="pb-[1rem] uppercase text-base opacity-[0.7]">
           premios y menciones
         </h1>

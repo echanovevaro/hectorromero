@@ -8,13 +8,13 @@ const About = () => {
   const isInView = useInView(ref, { once: true, amount: 0.2 })
 
   return (
-    <div id="landing">
+    <div>
       <h1 className="uppercase pb-[1rem] text-base opacity-[0.7] ms-[1rem] lg:ms-[4rem]">
         sobre mí
       </h1>
 
       <div
-        className="square-about"
+        className="square-about lg:text-sm"
         ref={ref}
         style={{
           opacity: isInView ? 1 : 0,
