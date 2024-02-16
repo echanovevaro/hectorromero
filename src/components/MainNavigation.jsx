@@ -124,7 +124,7 @@ export default function MainNavigation() {
                   >
                     <span>OBRA</span>
                     <svg
-                      className="w-2.5 h-2.5"
+                      className="w-2.5 h-2.5 landscape:hidden"
                       aria-hidden="true"
                       xmlns="http://www.w3.org/2000/svg"
                       fill="none"
@@ -144,7 +144,7 @@ export default function MainNavigation() {
                   initial={liVariants.closed}
                   variants={liVariants}
                   whileTap={{ scale: 1.1 }}
-                  className="ms-10 mt-[-0.3remrem]"
+                  className="ms-10 mt-[-0.3rem] landscape:hidden"
                 >
                   {pathname !== "/obra/bloques" ? (
                     <Link to="/obra/bloques">bloques</Link>
@@ -156,7 +156,7 @@ export default function MainNavigation() {
                   initial={liVariants.closed}
                   variants={liVariants}
                   whileTap={{ scale: 1.1 }}
-                  className="ms-10 mt-[-0.3rem]"
+                  className="ms-10 mt-[-0.3rem] landscape:hidden"
                 >
                   {pathname !== "/obra/wood" ? (
                     <Link to="/obra/wood">wood</Link>
@@ -169,7 +169,7 @@ export default function MainNavigation() {
                   initial={liVariants.closed}
                   variants={liVariants}
                   whileTap={{ scale: 1.1 }}
-                  className="ms-10 mt-[-0.3rem]"
+                  className="ms-10 mt-[-0.3rem] landscape:hidden"
                 >
                   {pathname !== "/obra/wire" ? (
                     <Link to="/obra/wire">wire</Link>
@@ -181,7 +181,7 @@ export default function MainNavigation() {
                   initial={liVariants.closed}
                   variants={liVariants}
                   whileTap={{ scale: 1.1 }}
-                  className="ms-10 mt-[-0.3rem]"
+                  className="ms-10 mt-[-0.3rem] landscape:hidden"
                 >
                   {pathname !== "/obra/iluminados" ? (
                     <Link to="/obra/iluminados">iluminados</Link>
@@ -193,7 +193,7 @@ export default function MainNavigation() {
                   initial={liVariants.closed}
                   variants={liVariants}
                   whileTap={{ scale: 1.1 }}
-                  className="ms-10 mt-[-0.3rem]"
+                  className="ms-10 mt-[-0.3rem] landscape:hidden"
                 >
                   {pathname !== "/obra/animaciones" ? (
                     <Link to="/obra/animaciones">animaciones</Link>
