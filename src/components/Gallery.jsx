@@ -156,7 +156,7 @@ export default function Gallery({ coleccion }) {
           <div>
             <button onClick={slideLeft}>
               <svg
-                className={`w-4 h-4 mx-2 mt-8 landscape:mt-[8rem] ${
+                className={`w-4 h-4 lg:w-6 lg:h-6 mx-2 mt-8 landscape:mt-[8rem] text-neutral-400 ${
                   loaded ? "block" : "hidden"
                 }`}
                 aria-hidden="true"
@@ -286,7 +286,7 @@ export default function Gallery({ coleccion }) {
           <div>
             <button onClick={slideRight}>
               <svg
-                className={`w-4 h-4 mt-8 landscape:mt-[9rem] mx-2 ${
+                className={`w-4 h-4 lg:w-6 lg:h-6 mt-8 landscape:mt-[8rem] mx-2 text-neutral-400 ${
                   loaded ? "block" : "hidden"
                 }`}
                 aria-hidden="true"
@@ -338,11 +338,6 @@ export default function Gallery({ coleccion }) {
                     loaded ? "block" : "hidden"
                   }`}
                 >
-                  {/* <li
-                className={`h-1 w-1 rounded-full  ${
-                  counter == index ? "bg-gray-500" : "bg-gray-300"
-                }`}
-              /> */}
                   <li>{`${("00" + (counter + 1)).slice(-2)}`}</li>
 
                   <li className="text-neutral-400">|</li>

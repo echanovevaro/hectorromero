@@ -19,7 +19,6 @@ export default function Serie() {
       <div className="h-screen landscape:h-[120vh] relative">
         <Gallery coleccion={data} />
       </div>
-      <Footer />
     </>
   )
 }
