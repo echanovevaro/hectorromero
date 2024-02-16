@@ -284,7 +284,10 @@ export default function MainNavigation() {
                 <span onClick={toggleOpen}>INICIO</span>
               )}
             </motion.li>
-            <motion.li whileTap={{ scale: 1.1 }}>
+            <motion.li
+              whileTap={{ scale: 1.1 }}
+              className="menu-obra"
+            >
               <button
                 className="flex items-center gap-2"
                 onClick={() => {
@@ -296,74 +299,9 @@ export default function MainNavigation() {
                 }}
               >
                 <span>OBRA</span>
-                <svg
-                  className="w-2.5 h-2.5"
-                  aria-hidden="true"
-                  xmlns="http://www.w3.org/2000/svg"
-                  fill="none"
-                  viewBox="0 0 10 6"
-                >
-                  <path
-                    stroke="currentColor"
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    strokeWidth={1}
-                    d="m1 1 4 4 4-4"
-                  />
-                </svg>
               </button>
             </motion.li>
-            {/* <motion.li
-              whileTap={{ scale: 1.1 }}
-              className="ms-10 mt-[-0.3remrem]"
-            >
-              {pathname !== "/obra/bloques" ? (
-                <Link to="/obra/bloques">bloques</Link>
-              ) : (
-                <span onClick={toggleOpen}>bloques</span>
-              )}
-            </motion.li>
-            <motion.li
-              whileTap={{ scale: 1.1 }}
-              className="ms-10 mt-[-0.3rem]"
-            >
-              {pathname !== "/obra/wood" ? (
-                <Link to="/obra/wood">wood</Link>
-              ) : (
-                <span onClick={toggleOpen}>wood</span>
-              )}
-            </motion.li>
 
-            <motion.li
-              whileTap={{ scale: 1.1 }}
-              className="ms-10 mt-[-0.3rem]"
-            >
-              {pathname !== "/obra/wire" ? (
-                <Link to="/obra/wire">wire</Link>
-              ) : (
-                <span onClick={toggleOpen}>wire</span>
-              )}
-            </motion.li>
-            <motion.li
-              whileTap={{ scale: 1.1 }}
-              className="ms-10 mt-[-0.3rem]"
-            >
-              {pathname !== "/obra/iluminados" ? (
-                <Link to="/obra/iluminados">iluminados</Link>
-              ) : (
-                <span onClick={toggleOpen}>iluminados</span>
-              )}
-            </motion.li>
-            <motion.li
-              whileTap={{ scale: 1.1 }}
-              className="ms-10 mt-[-0.3rem]"
-            >
-              {pathname !== "/obra/animaciones" ? (
-                <Link to="/obra/animaciones">animaciones</Link>
-              ) : (
-                <span onClick={toggleOpen}>animaciones</span>
-              )}
-            </motion.li> */}
             <motion.li whileTap={{ scale: 1.1 }}>
               <span>EXPOSICIONES</span>
             </motion.li>

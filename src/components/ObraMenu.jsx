@@ -17,7 +17,7 @@ const ObraMenu = () => {
         className="square-responsive"
       >
         <div
-          className="div12"
+          className="div-text"
           style={{
             opacity: isInView ? 1 : 0,
             transition: "all 0.5s cubic-bezier(0.17, 0.55, 0.55, 1) 1.25s",
@@ -35,7 +35,7 @@ const ObraMenu = () => {
         </div>
 
         <div
-          className="div1 overflow-hidden relative"
+          className="div1 overflow-hidden relative cursor-pointer"
           style={{
             transform: isInView ? "unset" : "translateX(-60px)",
             opacity: isInView ? 1 : 0,
@@ -46,7 +46,7 @@ const ObraMenu = () => {
           <img src="/desktop/bloques-4.jpg" />
         </div>
         <div
-          className="div5 relative cursor-pointer"
+          className="div1-label relative"
           style={{
             opacity: isInView ? 1 : 0,
             transition: "all 0.5s cubic-bezier(0.17, 0.55, 0.55, 1) 1.25s",
@@ -54,29 +54,14 @@ const ObraMenu = () => {
         >
           <div className="h-full border-t border-neutral-400 "></div>
           <Link
-            to="obra/bloques"
+            to="/obra/bloques"
             className="absolute top-0 right-0 text-sm"
           >
-            <span>Bloques</span>
+            Bloques
           </Link>
         </div>
         <div
-          className="div6 relative cursor-pointer"
-          style={{
-            opacity: isInView ? 1 : 0,
-            transition: "all 0.5s cubic-bezier(0.17, 0.55, 0.55, 1) 1.25s",
-          }}
-        >
-          <div className="h-full border-b border-neutral-400"></div>
-          <Link
-            to="obra/wire"
-            className="absolute bottom-0 right-0 text-sm"
-          >
-            <span>Wire</span>
-          </Link>
-        </div>
-        <div
-          className="div4 overflow-hidden relative cursor-pointer"
+          className="div2 overflow-hidden relative cursor-pointer"
           style={{
             transform: isInView ? "unset" : "translateY(-60px)",
             opacity: isInView ? 1 : 0,
@@ -85,6 +70,21 @@ const ObraMenu = () => {
           onClick={() => navigate("/obra/wire")}
         >
           <img src="/obra-2.jpg" />
+        </div>
+        <div
+          className="div2-label relative"
+          style={{
+            opacity: isInView ? 1 : 0,
+            transition: "all 0.5s cubic-bezier(0.17, 0.55, 0.55, 1) 1.25s",
+          }}
+        >
+          <div className="h-full border-b border-neutral-400"></div>
+          <Link
+            to="/obra/wire"
+            className="absolute bottom-0 right-0 text-sm"
+          >
+            <span>Wire</span>
+          </Link>
         </div>
         <div
           className="div3 overflow-hidden relative cursor-pointer"
@@ -98,7 +98,7 @@ const ObraMenu = () => {
           <img src="/desktop/iluminado-3.jpg" />
         </div>
         <div
-          className="div11 relative cursor-pointer"
+          className="div3-label relative"
           style={{
             opacity: isInView ? 1 : 0,
             transition: "all 0.5s cubic-bezier(0.17, 0.55, 0.55, 1) 1.25s",
@@ -106,29 +106,39 @@ const ObraMenu = () => {
         >
           <div className="h-full border-t border-neutral-400"></div>
           <Link
-            to="obra/animaciones"
-            className="absolute top-0 right-0 text-sm"
-          >
-            <span>Animación</span>
-          </Link>
-        </div>
-        <div
-          className="div7 relative cursor-pointer"
-          style={{
-            opacity: isInView ? 1 : 0,
-            transition: "all 0.5s cubic-bezier(0.17, 0.55, 0.55, 1) 1.25s",
-          }}
-        >
-          <div className="h-full border-t border-neutral-400"></div>
-          <Link
-            to="obra/iluminados"
+            to="/obra/iluminados"
             className="absolute top-0 left-0 text-sm"
           >
-            <span>Iluminados</span>
+            Iluminados
           </Link>
         </div>
         <div
-          className="div9 overflow-hidden relative cursor-pointer"
+          className="div4 overflow-hidden relative cursor-pointer"
+          style={{
+            opacity: isInView ? 1 : 0,
+            transition: "all 1.25s cubic-bezier(0.17, 0.55, 0.55, 1)",
+          }}
+          onClick={() => navigate("/obra/wood")}
+        >
+          <img src="/wood.jpg" />
+        </div>
+        <div
+          className="div4-label relative"
+          style={{
+            opacity: isInView ? 1 : 0,
+            transition: "all 0.5s cubic-bezier(0.17, 0.55, 0.55, 1) 1.25s",
+          }}
+        >
+          <div className="h-full border-b border-neutral-400"></div>
+          <Link
+            to="/obra/wood"
+            className="absolute bottom-0 left-0 text-sm"
+          >
+            Wood
+          </Link>
+        </div>
+        <div
+          className="div5a overflow-hidden relative cursor-pointer"
           style={{
             transform: isInView ? "unset" : "translateX(-60px)",
             opacity: isInView ? 1 : 0,
@@ -142,7 +152,7 @@ const ObraMenu = () => {
           />
         </div>
         <div
-          className="div10 overflow-hidden relative cursor-pointer"
+          className="div5b overflow-hidden relative cursor-pointer"
           style={{
             transform: isInView ? "unset" : "translateX(60px)",
             opacity: isInView ? 1 : 0,
@@ -156,28 +166,18 @@ const ObraMenu = () => {
           />
         </div>
         <div
-          className="div2 overflow-hidden relative cursor-pointer"
-          style={{
-            opacity: isInView ? 1 : 0,
-            transition: "all 1.25s cubic-bezier(0.17, 0.55, 0.55, 1)",
-          }}
-          onClick={() => navigate("/obra/wood")}
-        >
-          <img src="/wood.jpg" />
-        </div>
-        <div
-          className="div8 relative cursor-pointer"
+          className="div5-label relative"
           style={{
             opacity: isInView ? 1 : 0,
             transition: "all 0.5s cubic-bezier(0.17, 0.55, 0.55, 1) 1.25s",
           }}
         >
-          <div className="h-full border-b border-neutral-400"></div>
+          <div className="h-full border-t border-neutral-400"></div>
           <Link
-            to="obra/wood"
-            className="absolute bottom-0 left-0 text-sm"
+            to="/obra/animaciones"
+            className="absolute top-0 right-0 text-sm"
           >
-            <span>Wood</span>
+            Animación
           </Link>
         </div>
       </div>

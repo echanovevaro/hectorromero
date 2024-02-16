@@ -72,7 +72,7 @@ const About = () => {
         <div
           className={`about-4 border-t ${
             pathname === "/" ? "border-neutral-500" : "border-neutral-300"
-          } title-about relative`}
+          } title-about md:text-xs relative`}
         >
           <div className="absolute top-1 right-0 text-right flex flex-col">
             <span>OBRA Blo questions</span>
@@ -114,7 +114,7 @@ const About = () => {
         <div
           className={`about-6 border-t ${
             pathname === "/" ? "border-neutral-500" : "border-neutral-300"
-          } title-about relative`}
+          } title-about md:text-xs relative`}
         >
           <div className="absolute top-1 left-0 flex flex-col">
             <span>OBRA Futuro bloque</span>
