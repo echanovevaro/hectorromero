@@ -36,21 +36,15 @@ function Landing() {
         <div className="bg-white pb-8 pt-[2rem] text-xs">
           <ObraMenu />
         </div>
-        <article className="flex justify-start">
-          <div className="bg-neutral-800 text-neutral-400 pt-[2rem] pb-8 text-xs w-screen">
-            <About />
-          </div>
-        </article>
-        <article className="flex justify-start">
-          <div className="pb-12 pt-[2rem] bg-white">
-            <Premios />
-          </div>
-        </article>
-        <article className="flex justify-start">
-          <div className="bg-[#efefef] text-xs w-screen">
-            <Footer />
-          </div>
-        </article>
+        <div className="bg-neutral-800 text-neutral-400 pt-[2rem] pb-4 text-xs w-screen">
+          <About />
+        </div>
+        <div className="pb-12 pt-[2rem] bg-white">
+          <Premios />
+        </div>
+        <div className="text-xs w-screen">
+          <Footer />
+        </div>
       </section>
     </>
   )

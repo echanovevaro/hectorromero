@@ -9,7 +9,7 @@ const About = () => {
 
   return (
     <div id="landing">
-      <h1 className="uppercase pb-[1rem] text-base opacity-[0.7] self-start ms-[1rem] lg:ms-[4rem] justify-self-start">
+      <h1 className="uppercase pb-[1rem] text-base opacity-[0.7] ms-[1rem] lg:ms-[4rem]">
         sobre mí
       </h1>
 
@@ -46,11 +46,11 @@ const About = () => {
             </b>{" "}
             en el que trabajo actualmente.
           </p>
-          <p className="mb-0 lg:mb-auto">
+          <p className="mb-0 md:mb-auto">
             Desde siempre me ha gustado pintar, pasando por gran variedad de
             estilos.
           </p>
-          <p className="mb-0 hidden lg:block">
+          <p className="mb-0 hidden md:block">
             Animado por algunos reconocimientos y la buena crítica, es desde
             hace pocos años cuando decido hacer visible mi obra y tengo la
             oportunidad de empezar a exponer.
@@ -79,13 +79,13 @@ const About = () => {
             <span>Interaccion</span>
           </div>
         </div>
-        <div className="about-5 content-about flex justify-end">
-          <p className="mb-0 lg:hidden">
+        <div className="about-5 content-about flex flex-col justify-end">
+          <p className="mb-0 md:hidden">
             Animado por algunos reconocimientos y la buena crítica, es desde
             hace pocos años cuando decido hacer visible mi obra y tengo la
             oportunidad de empezar a exponer.
           </p>
-          <p className="mb-0 hidden lg:block">
+          <p className="hidden md:block">
             Familiarizado por el uso de la perspectiva, el dibujo técnico y la
             creación de espacios, me centro en un estilo pictórico mezcla de
             surrealismo, minimalismo arquitectónico, expresionismo, metafísico…
@@ -94,6 +94,21 @@ const About = () => {
             inquietantes. Perspectivas imposibles, atmosferas oníricas por las
             que deambulan pequeñas sombras, geometrías que se traicionan a si
             mismas.
+          </p>
+          <p className="hidden md:block">
+            Me gusta aportar algo más a las obras. Un toque de misterio e
+            ilusión óptica, al crear perspectivas forzadas con personajes en
+            diferentes planos para poder observar la escena de dos puntos de
+            vista distintos. Casi siempre hay dos figuras humanas para dar la
+            proporción a la composición. A veces, se trata de la misma persona,
+            representada al mismo tiempo en el mismo lugar, pero en distinto
+            punto de vista.
+          </p>
+          <p className="mb-0 hidden md:block">
+            Pero más allá del pretendido juego de ilusionismo que al final
+            propone todo arte, propongo una reflexión plástica tridimensional
+            sobre perspectiva, luz y color. Una ventana abierta al mundo de los
+            sueños.
           </p>
         </div>
         <div
@@ -112,8 +127,8 @@ const About = () => {
             alt="sobre mí"
           />
         </div>
-        <div className="about-8 content-about">
-          <p className="lg:hidden">
+        <div className="about-8 content-about md:hidden">
+          <p>
             Familiarizado por el uso de la perspectiva, el dibujo técnico y la
             creación de espacios, me centro en un estilo pictórico mezcla de
             surrealismo, minimalismo arquitectónico, expresionismo, metafísico…
