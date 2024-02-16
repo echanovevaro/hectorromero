@@ -626,10 +626,10 @@ footer {
   }
 }
 
-@media screen and (orientation: landscape) and (min-width: 768px) {
+@media screen and (min-width: 768px) {
   .square-footer {
     padding: 4rem;
-    grid-template-columns: repeat(6, 1fr) !important;
+    grid-template-columns: repeat(4, 2fr) repeat(2, 3fr) !important;
     grid-template-rows: 1fr;
   }
 
@@ -674,9 +674,38 @@ footer {
     justify-content: flex-start;
     align-items: flex-start;
   }
+}
+
+@media screen and (orientation: landscape) and (min-width: 1280px) {
+
 
   .square-responsive {
-    grid-template-columns: 5fr 3fr repeat(2, 5fr) 3fr 5fr 13fr repeat(2, 8fr) 5fr !important;
+    grid-template-columns: 5fr 3fr repeat(2, 5fr) 3fr 5fr 21fr repeat(2, 8fr) 5fr 5fr !important;
+    grid-template-rows: 5fr 3fr repeat(2, 5fr) 3fr 5fr !important;
+  }
+
+  .div9 {
+    grid-area: 4 / 8 / 6 / 9 !important;
+  }
+
+  .div10 {
+    grid-area: 4 / 9 / 6 / 10 !important;
+  }
+
+  .div11 {
+    grid-area: 4 / 10 / 5 / 11 !important;
+  }
+
+  .div12 {
+    grid-area: 1 / 8 / 4 / 11 !important;
+  }
+}
+
+@media screen and (orientation: landscape) and (min-width: 768px) and (max-width: 1279px) {
+
+
+  .square-responsive {
+    grid-template-columns: 5fr 3fr repeat(2, 5fr) 3fr 5fr 8fr repeat(2, 8fr) 5fr !important;
     grid-template-rows: 5fr 3fr repeat(2, 5fr) 3fr 5fr !important;
   }
 

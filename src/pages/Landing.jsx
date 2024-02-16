@@ -27,11 +27,11 @@ function Landing() {
       <div className="landscape:hidden w-full h-screen absolute inset-0">
         <Animacion showMenu={showMenu} />
       </div>
-      <div className="portrait:hidden w-full h-[105dvh] absolute top-0 left-0">
+      <div className="portrait:hidden">
         <Slider />
       </div>
       <section
-        className={`absolute top-[100dvh] landscape:top-[105dvh] inset-x-0 z-19`}
+        className={`portrait:absolute portrait:top-[100dvh] landscape:block inset-x-0 z-19`}
       >
         <div className="bg-white pb-8 pt-[2rem] text-xs">
           <ObraMenu />

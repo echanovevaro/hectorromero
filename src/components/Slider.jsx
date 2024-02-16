@@ -32,7 +32,6 @@ function Slider() {
   }, [current, data])
 
   useEffect(() => {
-    console.log(data)
     if (data?.length) {
       const imgLoader = function (obra) {
         var link = document.createElement("link")
@@ -60,7 +59,7 @@ function Slider() {
   }
 
   return (
-    <div className="bg-gray-100 h-[105dvh] w-screen absolute top-0 left-0">
+    <div className="bg-gray-100 h-full p-2">
       <div className="bg-white m-[1rem] lg:mx-[4rem] mt-[5rem] p-[1rem]">
         {data.map((slide, index) => (
           <div key={index}>

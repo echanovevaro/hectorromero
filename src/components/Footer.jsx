@@ -25,10 +25,15 @@ const Footer = () => {
               </motion.li>
             </ul>
           </li>
-
+        </ul>
+        <ul className="contacto">
+          <li className="text-base hidden md:block">CONTACTO</li>
+          <li>(+34)645 97 90 39</li>
+          <motion.li whileTap={{ scale: 1.1 }}>
+            <a href="mailto:art@hectoromero.es">art@hectoromero.es</a>
+          </motion.li>
           <li>
             <ul className="flex flex-start flex-col">
-              <li className="text-base hidden lg:block">SÍGUEME</li>
               <li>
                 <ul className="flex justify-start items-enter">
                   <motion.li whileTap={{ scale: 1.1 }}>
@@ -110,15 +115,6 @@ const Footer = () => {
             </ul>
           </li>
         </ul>
-        <ul className="contacto">
-          <ul>
-            <li className="text-base hidden lg:block">CONTACTO</li>
-            <li>(+34)645 97 90 39</li>
-            <motion.li whileTap={{ scale: 1.1 }}>
-              <a href="mailto:art@hectoromero.es">art@hectoromero.es</a>
-            </motion.li>
-          </ul>
-        </ul>
         <ul className="mapa">
           <li className="text-base">MAPA</li>
           <motion.li whileTap={{ scale: 1.1 }}>
@@ -148,7 +144,7 @@ const Footer = () => {
           </motion.li>
         </ul>
         <ul className="copy flex">
-          <li className="text-base hidden lg:block">CRÉDITOS</li>
+          <li className="text-base hidden md:block">CRÉDITOS</li>
           <motion.li whileTap={{ scale: 1.1 }}>
             <a
               href="https://joyful-heliotrope-2ee6a6.netlify.app"
