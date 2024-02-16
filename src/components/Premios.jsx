@@ -67,7 +67,7 @@ const Premios = () => {
             transition={{ duration: 0.8, type: "spring", bounce: 0.1 }}
             onPanStart={onDetallePanStart}
             onPanEnd={onDetallePanEnd}
-            className={`bg-white absolute z-[100] inset-x-0 bottom-0 w-screen h-screen touch-pinch-zoom overflow-hidden`}
+            className={`bg-white fixed z-[100] inset-x-0 bottom-0 w-screen h-screen touch-pinch-zoom overflow-hidden`}
           >
             <motion.div
               onPanStart={onDetallePanStart}
@@ -156,6 +156,7 @@ const Premios = () => {
             onClick={() => {
               setObraUrl("/premio-enrique-lite.jpg")
               setFullPage(true)
+              disableScroll()
             }}
           >
             Tercer premio. Certamen nacional de pintura Enrique Lite
