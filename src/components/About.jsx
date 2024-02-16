@@ -46,9 +46,14 @@ const About = () => {
             </b>{" "}
             en el que trabajo actualmente.
           </p>
-          <p className="mb-0">
+          <p className="mb-0 lg:mb-auto">
             Desde siempre me ha gustado pintar, pasando por gran variedad de
             estilos.
+          </p>
+          <p className="mb-0 hidden lg:block">
+            Animado por algunos reconocimientos y la buena crítica, es desde
+            hace pocos años cuando decido hacer visible mi obra y tengo la
+            oportunidad de empezar a exponer.
           </p>
         </div>
         <div className="about-2 relative">
@@ -75,10 +80,20 @@ const About = () => {
           </div>
         </div>
         <div className="about-5 content-about flex justify-end">
-          <p className="mb-0">
+          <p className="mb-0 lg:hidden">
             Animado por algunos reconocimientos y la buena crítica, es desde
             hace pocos años cuando decido hacer visible mi obra y tengo la
             oportunidad de empezar a exponer.
+          </p>
+          <p className="mb-0 hidden lg:block">
+            Familiarizado por el uso de la perspectiva, el dibujo técnico y la
+            creación de espacios, me centro en un estilo pictórico mezcla de
+            surrealismo, minimalismo arquitectónico, expresionismo, metafísico…
+            paisajes desoladores donde el nexo común está en la combinación de
+            grandes bloques o volúmenes contundentes, creando espacios
+            inquietantes. Perspectivas imposibles, atmosferas oníricas por las
+            que deambulan pequeñas sombras, geometrías que se traicionan a si
+            mismas.
           </p>
         </div>
         <div
@@ -98,7 +113,7 @@ const About = () => {
           />
         </div>
         <div className="about-8 content-about">
-          <p>
+          <p className="lg:hidden">
             Familiarizado por el uso de la perspectiva, el dibujo técnico y la
             creación de espacios, me centro en un estilo pictórico mezcla de
             surrealismo, minimalismo arquitectónico, expresionismo, metafísico…

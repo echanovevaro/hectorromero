@@ -24,21 +24,17 @@ function Landing() {
     <>
       <ScrollRestoration />
       {showMenu && <MainNavigation />}
-
-      <div className="landscape:hidden">
+      <div className="landscape:hidden w-full h-screen absolute inset-0">
         <Animacion showMenu={showMenu} />
       </div>
-      <div className="portrait:hidden">
+      <div className="portrait:hidden w-full h-[105dvh] absolute top-0 left-0">
         <Slider />
       </div>
-
       <section
-        className={`absolute top-[100dvh] landscape:top-[110dvh] inset-x-0 z-19`}
+        className={`absolute top-[100dvh] landscape:top-[105dvh] inset-x-0 z-19`}
       >
-        <div className="text-xs">
-          <div className="bg-white pb-8 pt-[2rem]">
-            <ObraMenu />
-          </div>
+        <div className="bg-white pb-8 pt-[2rem] text-xs">
+          <ObraMenu />
         </div>
         <article className="flex justify-start">
           <div className="bg-neutral-800 text-neutral-400 pt-[2rem] pb-8 text-xs w-screen">

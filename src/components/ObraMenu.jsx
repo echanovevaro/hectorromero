@@ -4,12 +4,12 @@ import { Link, useNavigate } from "react-router-dom"
 
 const ObraMenu = () => {
   const ref = useRef(null)
-  const isInView = useInView(ref, { once: true })
+  const isInView = useInView(ref, { once: true, amount: 0.2 })
   const navigate = useNavigate()
 
   return (
     <>
-      <h1 className="uppercase text-base opacity-[0.7] self-start ms-[1rem] lg:ms-[4rem] justify-self-start">
+      <h1 className="uppercase text-base opacity-[0.7] ms-[1rem] lg:ms-[4rem]">
         obra
       </h1>
       <div
@@ -37,7 +37,7 @@ const ObraMenu = () => {
         <div
           className="div1 overflow-hidden relative"
           style={{
-            transform: isInView ? "none" : "translateX(-60px)",
+            transform: isInView ? "unset" : "translateX(-60px)",
             opacity: isInView ? 1 : 0,
             transition: "all 1.25s cubic-bezier(0.17, 0.55, 0.55, 1)",
           }}
@@ -78,7 +78,7 @@ const ObraMenu = () => {
         <div
           className="div4 overflow-hidden relative cursor-pointer"
           style={{
-            transform: isInView ? "none" : "translateY(-60px)",
+            transform: isInView ? "unset" : "translateY(-60px)",
             opacity: isInView ? 1 : 0,
             transition: "all 1.25s cubic-bezier(0.17, 0.55, 0.55, 1)",
           }}
@@ -89,7 +89,7 @@ const ObraMenu = () => {
         <div
           className="div3 overflow-hidden relative cursor-pointer"
           style={{
-            transform: isInView ? "none" : "translateY(60px)",
+            transform: isInView ? "unset" : "translateY(60px)",
             opacity: isInView ? 1 : 0,
             transition: "all 1.25s cubic-bezier(0.17, 0.55, 0.55, 1)",
           }}
@@ -130,7 +130,7 @@ const ObraMenu = () => {
         <div
           className="div9 overflow-hidden relative cursor-pointer"
           style={{
-            transform: isInView ? "none" : "translateX(-60px)",
+            transform: isInView ? "unset" : "translateX(-60px)",
             opacity: isInView ? 1 : 0,
             transition: "all 1.25s cubic-bezier(0.17, 0.55, 0.55, 1)",
           }}
@@ -144,7 +144,7 @@ const ObraMenu = () => {
         <div
           className="div10 overflow-hidden relative cursor-pointer"
           style={{
-            transform: isInView ? "none" : "translateX(60px)",
+            transform: isInView ? "unset" : "translateX(60px)",
             opacity: isInView ? 1 : 0,
             transition: "all 1.25s cubic-bezier(0.17, 0.55, 0.55, 1)",
           }}
@@ -158,7 +158,6 @@ const ObraMenu = () => {
         <div
           className="div2 overflow-hidden relative cursor-pointer"
           style={{
-            transform: isInView ? "none" : "translateX(60px)",
             opacity: isInView ? 1 : 0,
             transition: "all 1.25s cubic-bezier(0.17, 0.55, 0.55, 1)",
           }}

@@ -60,8 +60,8 @@ function Slider() {
   }
 
   return (
-    <div className="bg-gray-100 h-[110dvh] w-screen absolute top-0 left-0">
-      <div className="bg-white m-[1rem] lg:m-[4rem] mt-[5rem] lg:mt-[5rem] p-[1rem]">
+    <div className="bg-gray-100 h-[105dvh] w-screen absolute top-0 left-0">
+      <div className="bg-white m-[1rem] lg:m-[4rem] mt-[5rem] p-[1rem]">
         {data.map((slide, index) => (
           <div key={index}>
             {index === current && (
