@@ -146,7 +146,7 @@ export default function Gallery({ coleccion }) {
         )}
       </div>
       <div
-        className={`absolute top-[6rem] landscape:top-[1rem] bottom-[1rem] inset-x-0 flex items-center justify-center flex-col gap-2  `}
+        className={`absolute top-[4rem] bottom-[1rem] inset-x-0 flex items-center justify-center flex-col gap-2  `}
       >
         <div
           className={`flex items-center justify-center gap-1 ${
@@ -156,7 +156,7 @@ export default function Gallery({ coleccion }) {
           <div>
             <button onClick={slideLeft}>
               <svg
-                className={`w-4 h-4 lg:w-6 lg:h-6 mx-2 mt-8 landscape:mt-[8rem] text-neutral-400 ${
+                className={`w-4 h-4 lg:w-6 lg:h-6 mx-2 text-neutral-400 ${
                   loaded ? "block" : "hidden"
                 }`}
                 aria-hidden="true"
@@ -174,7 +174,7 @@ export default function Gallery({ coleccion }) {
               </svg>
             </button>
           </div>
-          <div className="w-[80vw] mt-4 landscape:mt-32">
+          <div className="w-[80vw]">
             {coleccion?.map((obra, index) => (
               <div
                 key={obra.id}
@@ -227,7 +227,7 @@ export default function Gallery({ coleccion }) {
                         transition={{ duration: 1 }}
                         src={obra.imagenURL}
                         alt={obra.titulo}
-                        className="inline-block object-cover overflow-hidden max-h-[68vh] touch-pinch-zoom"
+                        className="inline-block object-cover overflow-hidden max-h-[60vh] touch-pinch-zoom"
                         onPanStart={onPanStart}
                         onPanEnd={onPanEnd}
                         onLoad={() => setLoaded(true)}
@@ -286,7 +286,7 @@ export default function Gallery({ coleccion }) {
           <div>
             <button onClick={slideRight}>
               <svg
-                className={`w-4 h-4 lg:w-6 lg:h-6 mt-8 landscape:mt-[8rem] mx-2 text-neutral-400 ${
+                className={`w-4 h-4 lg:w-6 lg:h-6 mx-2 text-neutral-400 ${
                   loaded ? "block" : "hidden"
                 }`}
                 aria-hidden="true"
