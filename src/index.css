@@ -450,11 +450,11 @@ footer {
   }
 }
 
-@media screen and (orientation: landscape) and (max-width: 1279px) {
+@media screen and (orientation: landscape) and (max-width: 1023px) {
 
 
   .square-responsive {
-    grid-template-columns: 5fr 3fr repeat(2, 5fr) 3fr 5fr 13fr repeat(2, 8fr) 5fr !important;
+    grid-template-columns: 5fr 3fr repeat(2, 5fr) 3fr 5fr 5fr repeat(2, 8fr) 5fr !important;
     grid-template-rows: 5fr 3fr repeat(2, 5fr) 3fr 5fr !important;
   }
 

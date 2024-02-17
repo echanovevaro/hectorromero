@@ -19,6 +19,7 @@ import PremiosPage from "./pages/PremiosPage"
 import LandingUpdate, {
   action as updateLandingAction,
 } from "./pages/LandingUpdate"
+import ObraUpdate, { action as updateObraAction } from "./pages/ObraUpdate"
 
 function App() {
   const router = createBrowserRouter([
@@ -40,7 +41,11 @@ function App() {
           element: <LandingUpdate />,
           action: updateLandingAction,
         },
-
+        {
+          path: "obra/:id/edit",
+          element: <ObraUpdate />,
+          action: updateObraAction,
+        },
         {
           path: "obra/:serie/new",
           element: <SerieNew />,

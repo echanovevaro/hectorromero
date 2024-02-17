@@ -1,11 +1,11 @@
 import { useActionData, useNavigation, useSubmit } from "react-router-dom"
-import { obraMenuSchema } from "../validation"
+import { obraEditSchema, obraSchema } from "../validation"
 import { useForm } from "react-hook-form"
 import { zodResolver } from "@hookform/resolvers/zod"
 import { useState } from "react"
-import { SERIES } from "../validation"
 
-function ObraForm({ data }) {
+function SerieForm({ obra }) {
+  console.log(obra)
   const [imagePreview, setImagePreview] = useState(null)
   const error = useActionData()
   const navigation = useNavigation()
@@ -17,28 +17,31 @@ function ObraForm({ data }) {
     handleSubmit,
     formState: { errors },
   } = useForm({
-    resolver: zodResolver(obraMenuSchema),
+    resolver: zodResolver(obra ? obraEditSchema : obraSchema),
     defaultValues: {
+      titulo: obra?.titulo || "",
+      descripcion: obra?.descripcion || "",
       imagen: undefined,
     },
   })
 
-  const onSubmit = (form) => {
+  const onSubmit = (data) => {
     const formData = new FormData()
-    formData.append("serie", form.serie)
-    if (data) {
-      formData.append("id", data.id)
-      formData.append("imagenRef", data.imagenRef)
+    formData.append("titulo", data.titulo)
+    formData.append("descripcion", data.descripcion)
+    if (obra) {
+      formData.append("id", obra.id)
+      formData.append("imagenRef", obra.imagenRef)
     }
-    if (form.imagen[0]) {
-      formData.append("imagen", form.imagen[0])
+    if (!obra || data.imagen[0]) {
+      formData.append("imagen", data.imagen[0])
     }
     submit(formData, { method: "POST", encType: "multipart/form-data" })
   }
 
   return (
-    <section className="min-h-screen bg-gray-50 pt-[1rem]">
-      <div className="flex flex-col items-center justify-center px-6 py-8 mx-auto">
+    <section className="bg-gray-50">
+      <div className="min-h-screen flex flex-col items-center justify-center px-6 py-8 mx-auto md:h-screen lg:py-0">
         {error?.message && (
           <div
             className="bg-red-100 border-t border-b border-red-400 text-red-700 px-4 py-3 mb-2"
@@ -56,28 +59,40 @@ function ObraForm({ data }) {
             >
               <div>
                 <label
-                  htmlFor="serie"
+                  htmlFor="titulo"
                   className="block mb-2 text-sm font-medium text-gray-900"
                 >
-                  Serie
+                  Título
                 </label>
-                <select
-                  defaultValue={data?.serie || ""}
-                  {...register("serie")}
+                <input
+                  type="text"
+                  {...register("titulo")}
+                  className="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-sky-600 focus:border-sky-600 block w-full p-2.5"
+                  placeholder="Título de la obra"
+                  required
+                />
+                {errors.titulo && (
+                  <span className="text-red-700">{errors.titulo?.message}</span>
+                )}
+              </div>
+
+              <div>
+                <label
+                  htmlFor="descripcion"
+                  className="block mb-2 text-sm font-medium text-gray-900"
+                >
+                  Descripción
+                </label>
+                <textarea
+                  {...register("descripcion")}
+                  placeholder="Descripción de la obra"
                   className="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-sky-600 focus:border-sky-600 block w-full p-2.5"
                   required
-                >
-                  {SERIES.map((serie) => (
-                    <option
-                      key={serie}
-                      value={serie}
-                    >
-                      {serie}
-                    </option>
-                  ))}
-                </select>
-                {errors.serie && (
-                  <span className="text-red-700">{errors.serie?.message}</span>
+                />
+                {errors.descripcion && (
+                  <span className="text-red-700">
+                    {errors.descripcion?.message}
+                  </span>
                 )}
               </div>
 
@@ -92,16 +107,16 @@ function ObraForm({ data }) {
                   type="file"
                   {...register("imagen")}
                   className="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-sky-600 focus:border-sky-600 block w-full p-2.5"
-                  required={!data}
+                  required={!obra}
                   onChange={(e) =>
                     e.target.files?.[0]
                       ? setImagePreview(URL.createObjectURL(e.target.files[0]))
                       : null
                   }
                 />
-                {(imagePreview || data) && (
+                {(imagePreview || obra) && (
                   <img
-                    src={imagePreview || data.imagenURL}
+                    src={imagePreview || obra.imagenURL}
                     alt="preview"
                     className="mt-2"
                   />
@@ -126,4 +141,4 @@ function ObraForm({ data }) {
     </section>
   )
 }
-export default ObraForm
+export default SerieForm

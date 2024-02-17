@@ -1,31 +1,32 @@
 import { deleteFile, update, uploadFile } from "../../firebase/config"
-import { ScrollRestoration, redirect, useParams } from "react-router-dom"
+import { ScrollRestoration, redirect } from "react-router-dom"
 import { useQuery } from "@tanstack/react-query"
-import SerieForm from "../components/SerieForm"
 import { fetchOne, queryClient } from "../http"
 import MainNavigation from "../components/MainNavigation"
+import { useParams } from "react-router-dom"
+import ObraForm from "../components/ObraForm"
 
-function SerieUpdate() {
-  let { id, serie } = useParams()
+function ObraUpdate() {
+  const { id } = useParams()
   const { data } = useQuery({
-    queryKey: [serie, id],
-    queryFn: () => fetchOne(serie, id),
+    queryKey: ["obras", id],
+    queryFn: () => fetchOne("obras", id),
   })
   return (
     <>
       <ScrollRestoration />
-      <MainNavigation /> {data && <SerieForm obra={data} />}
+      <MainNavigation />
+      {data && <ObraForm data={data} />}
     </>
   )
 }
-export default SerieUpdate
+export default ObraUpdate
 
-export async function action({ params, request }) {
+export async function action({ request }) {
   const formData = await request.formData()
 
   const doc = {
-    titulo: formData.get("titulo"),
-    descripcion: formData.get("descripcion"),
+    serie: formData.get("serie"),
   }
 
   if (formData.has("imagen")) {
@@ -37,8 +38,8 @@ export async function action({ params, request }) {
     doc.imagenRef = ref
   }
   const id = formData.get("id")
-  await update(params.serie, id, doc)
+  await update("obras", id, doc)
 
-  queryClient.invalidateQueries({ queryKey: [params.serie] })
-  return redirect(`/obra/${params.serie}`)
+  queryClient.invalidateQueries({ queryKey: ["obras"] })
+  return redirect(`/`)
 }

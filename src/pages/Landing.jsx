@@ -7,9 +7,16 @@ import Premios from "../components/Premios"
 import { ScrollRestoration } from "react-router-dom"
 import Animacion from "../components/Animacion"
 import Slider from "../components/Slider"
+import { useQuery } from "@tanstack/react-query"
+import { fetchAll } from "../http"
 
 function Landing() {
   const [showMenu, setShowMenu] = useState(false)
+
+  const { data: obraData } = useQuery({
+    queryKey: ["obras"],
+    queryFn: () => fetchAll("obras"),
+  })
 
   useEffect(() => {
     const timeout = setTimeout(() => {
@@ -34,7 +41,7 @@ function Landing() {
         className={`portrait:absolute portrait:top-[100dvh] landscape:block portrait:inset-x-0 portrait:z-19`}
       >
         <div className="bg-white pb-8 pt-[2rem] text-xs">
-          <ObraMenu />
+          {obraData && <ObraMenu data={obraData} />}
         </div>
         <div className="bg-neutral-800 text-neutral-400 pt-[2rem] pb-4 text-xs w-screen">
           <About />

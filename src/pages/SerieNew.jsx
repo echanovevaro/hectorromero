@@ -1,6 +1,6 @@
 import { add, uploadFile } from "../../firebase/config"
 import { ScrollRestoration, redirect } from "react-router-dom"
-import ObraForm from "../components/ObraForm"
+import SerieForm from "../components/SerieForm"
 import { queryClient } from "../http"
 import MainNavigation from "../components/MainNavigation"
 
@@ -9,7 +9,7 @@ function SerieNew() {
     <>
       <ScrollRestoration />
       <MainNavigation />
-      <ObraForm />
+      <SerieForm />
     </>
   )
 }
