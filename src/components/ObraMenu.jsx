@@ -107,7 +107,7 @@ const ObraMenu = ({ data }) => {
             to={`/obra/${data[0].serie}`}
             className="absolute top-0 right-0 lg:text-sm capitalize"
           >
-            {data[0].serie}
+            {data[0].serie === "animaciones" ? "animación" : data[0].serie}
           </Link>
         </div>
         <div
@@ -158,7 +158,7 @@ const ObraMenu = ({ data }) => {
             to={`/obra/${data[1].serie}`}
             className="absolute bottom-0 right-0 lg:text-sm capitalize"
           >
-            {data[1].serie}
+            {data[1].serie === "animaciones" ? "animación" : data[1].serie}
           </Link>
         </div>
         <div
@@ -209,7 +209,7 @@ const ObraMenu = ({ data }) => {
             to={`/obra/${data[2].serie}`}
             className="absolute top-0 left-0 lg:text-sm capitalize"
           >
-            {data[2].serie}
+            {data[2].serie === "animaciones" ? "animación" : data[2].serie}
           </Link>
         </div>
         <div
@@ -259,7 +259,7 @@ const ObraMenu = ({ data }) => {
             to={`/obra/${data[3].serie}`}
             className="absolute bottom-0 left-0 lg:text-sm capitalize"
           >
-            {data[3].serie}
+            {data[3].serie === "animaciones" ? "animación" : data[3].serie}
           </Link>
         </div>
         <div
@@ -325,7 +325,7 @@ const ObraMenu = ({ data }) => {
             to={`/obra/${data[4].serie}`}
             className="absolute top-0 right-0 lg:text-sm capitalize"
           >
-            {data[4].serie}
+            {data[4].serie === "animaciones" ? "animación" : data[4].serie}
           </Link>
         </div>
       </div>
