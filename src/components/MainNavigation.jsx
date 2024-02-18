@@ -314,7 +314,7 @@ export default function MainNavigation() {
               <ul className="obra-dropdown hidden z-10 absolute bg-white border border-gray-100 p-4 lowercase">
                 <motion.li
                   whileTap={{ scale: 1.1 }}
-                  className="p-1"
+                  className="p-1 block"
                 >
                   {pathname !== "/obra/bloques" ? (
                     <Link to="/obra/bloques">bloques</Link>
@@ -324,7 +324,7 @@ export default function MainNavigation() {
                 </motion.li>
                 <motion.li
                   whileTap={{ scale: 1.1 }}
-                  className="p-1"
+                  className="p-1 block"
                 >
                   {pathname !== "/obra/wood" ? (
                     <Link to="/obra/wood">wood</Link>
@@ -335,7 +335,7 @@ export default function MainNavigation() {
 
                 <motion.li
                   whileTap={{ scale: 1.1 }}
-                  className="p-1"
+                  className="p-1 block"
                 >
                   {pathname !== "/obra/wire" ? (
                     <Link to="/obra/wire">wire</Link>
@@ -345,7 +345,7 @@ export default function MainNavigation() {
                 </motion.li>
                 <motion.li
                   whileTap={{ scale: 1.1 }}
-                  className="p-1"
+                  className="p-1 block"
                 >
                   {pathname !== "/obra/iluminados" ? (
                     <Link to="/obra/iluminados">iluminados</Link>
@@ -355,7 +355,7 @@ export default function MainNavigation() {
                 </motion.li>
                 <motion.li
                   whileTap={{ scale: 1.1 }}
-                  className="p-1"
+                  className="p-1 block"
                 >
                   {pathname !== "/obra/animaciones" ? (
                     <Link to="/obra/animaciones">animaciones</Link>
