@@ -276,15 +276,15 @@ export default function MainNavigation() {
               <span className="text-neutral-300 ml-1"> ADMIN MODE</span>
             )}
           </motion.h1>
-          <ul className="hidden lg:flex text-sm">
-            <motion.li whileTap={{ scale: 1.1 }}>
+          <ul className="hidden lg:flex text-sm h-full">
+            <li>
               {pathname !== "/" ? (
                 <Link to="/">INICIO</Link>
               ) : (
-                <span>INICIO</span>
+                <motion.span whileTap={{ scale: 1.1 }}>INICIO</motion.span>
               )}
-            </motion.li>
-            <li className="menu-obra inline-block">
+            </li>
+            <li className="menu-obra">
               <motion.button
                 whileTap={{ scale: 1.1 }}
                 className="flex items-center gap-2"
