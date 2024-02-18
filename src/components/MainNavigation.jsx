@@ -263,7 +263,7 @@ export default function MainNavigation() {
         transition={{ duration: 0.5 }}
       >
         <nav
-          className={`px-4 lg:px-[4rem] py-6 flex justify-between items-center bg-white shadow-md uppercase h-[4rem]`}
+          className={`px-4 lg:px-[4rem] flex justify-between items-center bg-white shadow-md uppercase h-[4rem]`}
         >
           <motion.h1>
             <Link to="/">
@@ -277,7 +277,7 @@ export default function MainNavigation() {
             )}
           </motion.h1>
           <ul className="hidden lg:flex text-sm h-full">
-            <li>
+            <li className="py-5">
               {pathname !== "/" ? (
                 <Link to="/">INICIO</Link>
               ) : (
@@ -287,7 +287,7 @@ export default function MainNavigation() {
             <li className="menu-obra">
               <motion.button
                 whileTap={{ scale: 1.1 }}
-                className="flex items-center gap-2"
+                className="flex items-center gap-2 py-5"
                 onClick={() => {
                   if (pathname !== "/obra") {
                     navigate("/obra")
@@ -311,7 +311,7 @@ export default function MainNavigation() {
                   />
                 </svg>
               </motion.button>
-              <ul className="obra-dropdown hidden z-10 absolute bg-white border border-gray-100 p-4 lowercase">
+              <ul className="obra-dropdown hidden z-[-1] absolute bg-white border border-gray-100 p-4 lowercase">
                 <motion.li
                   whileTap={{ scale: 1.1 }}
                   className="p-1 block"
@@ -366,17 +366,26 @@ export default function MainNavigation() {
               </ul>
             </li>
 
-            <motion.li whileTap={{ scale: 1.1 }}>
+            <motion.li
+              className="py-5"
+              whileTap={{ scale: 1.1 }}
+            >
               <span>EXPOSICIONES</span>
             </motion.li>
-            <motion.li whileTap={{ scale: 1.1 }}>
+            <motion.li
+              className="py-5"
+              whileTap={{ scale: 1.1 }}
+            >
               {pathname !== "/premios" ? (
                 <Link to="/premios">PREMIOS</Link>
               ) : (
                 <span>PREMIOS</span>
               )}
             </motion.li>
-            <motion.li whileTap={{ scale: 1.1 }}>
+            <motion.li
+              className="py-5"
+              whileTap={{ scale: 1.1 }}
+            >
               {pathname !== "/sobre-mi" ? (
                 <Link to="/sobre-mi">SOBRE MÍ</Link>
               ) : (
