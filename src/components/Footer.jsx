@@ -1,19 +1,16 @@
-import { motion } from "framer-motion"
-import { Link } from "react-router-dom"
+import { motion } from "framer-motion";
+import { Link } from "react-router-dom";
 
 const Footer = () => {
   return (
     <footer className="text-xs">
-      <div className="square-footer opacity-[0.7]">
+      <div className="square-footer">
         <div className="brand">
           <Link
             to="/"
             className="flex items-center justify-center lg:items-start lg:justify-start lg:max-w-fit"
           >
-            <img
-              src="/faviconweb.png"
-              alt="hector romero"
-            />
+            <img src="/faviconweb.png" alt="hector romero" />
           </Link>
         </div>
         <ul className="legal">
@@ -157,7 +154,7 @@ const Footer = () => {
         </ul>
       </div>
     </footer>
-  )
-}
+  );
+};
 
-export default Footer
+export default Footer;
