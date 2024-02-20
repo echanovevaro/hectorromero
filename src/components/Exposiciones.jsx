@@ -112,9 +112,16 @@ const Exposiciones = () => {
             </ul>
           </motion.li>
           <motion.li
-            className="flex gap-4 justify-center items-start"
+            className="flex gap-4 justify-center items-start cursor-pointer"
             variants={liVariants}
             initial={liVariants.closed}
+            whileHover={{ scale: 1.1 }}
+            onClick={() => {
+              window.open(
+                "https://www.madsgallery.art/item/4eef4467-6045-4335-a2d9-a58fa51aef2c/artist/he%CC%81ctor-romero",
+                "_blank"
+              )
+            }}
           >
             <img
               src="/exposiciones/Hector-Romero-1024x1024.jpg"
@@ -128,9 +135,16 @@ const Exposiciones = () => {
             </ul>
           </motion.li>
           <motion.li
-            className="flex gap-4 justify-center items-start"
+            className="flex gap-4 justify-center items-start cursor-pointer"
             variants={liVariants}
             initial={liVariants.closed}
+            whileHover={{ scale: 1.1 }}
+            onClick={() => {
+              window.open(
+                "https://www.montsequi.com/exp_09_2020.html",
+                "_blank"
+              )
+            }}
           >
             <img
               src="/exposiciones/escaparate.jpg"
@@ -216,9 +230,16 @@ const Exposiciones = () => {
             </ul>
           </motion.li>
           <motion.li
-            className="flex gap-4 justify-center items-start"
+            className="flex gap-4 justify-center items-start cursor-pointer"
             variants={liVariants}
             initial={liVariants.closed}
+            whileHover={{ scale: 1.1 }}
+            onClick={() => {
+              window.open(
+                "https://www.jucaclaret.com/es/hector-romero",
+                "_blank"
+              )
+            }}
           >
             <img
               src="/exposiciones/20200306_192922.jpg"
@@ -232,9 +253,13 @@ const Exposiciones = () => {
             </ul>
           </motion.li>
           <motion.li
-            className="flex gap-4 justify-center items-start"
+            className="flex gap-4 justify-center items-start cursor-pointer"
             variants={liVariants}
             initial={liVariants.closed}
+            whileHover={{ scale: 1.1 }}
+            onClick={() => {
+              window.open("https://www.abartium.com/galeria-de-arte/", "_blank")
+            }}
           >
             <img
               src="/exposiciones/abartium.jpg"
@@ -248,9 +273,16 @@ const Exposiciones = () => {
             </ul>
           </motion.li>
           <motion.li
-            className="flex gap-4 justify-center items-start"
+            className="flex gap-4 justify-center items-start cursor-pointer"
             variants={liVariants}
             initial={liVariants.closed}
+            whileHover={{ scale: 1.1 }}
+            onClick={() => {
+              window.open(
+                "https://www.montsequi.com/exp_01_2020.html",
+                "_blank"
+              )
+            }}
           >
             <img
               src="/exposiciones/2020-1c.jpg"

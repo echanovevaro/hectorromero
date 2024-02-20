@@ -8,7 +8,7 @@ const ExposicionesPage = () => {
     <>
       <ScrollRestoration />
       <MainNavigation />
-      <div className="pb-32 pt-[6rem] text-xs overflow-hidden w-screen">
+      <div className="pb-16 pt-[6rem] text-xs overflow-hidden w-screen">
         <Exposiciones />
       </div>
       <Footer />
