@@ -206,7 +206,11 @@ export default function MainNavigation() {
                   variants={liVariants}
                   whileTap={{ scale: 1.1 }}
                 >
-                  <span>EXPOSICIONES</span>
+                  {pathname !== "/exposiciones" ? (
+                    <Link to="/exposiciones">EXPOSICIONES</Link>
+                  ) : (
+                    <span onClick={toggleOpen}>EXPOSICIONES</span>
+                  )}
                 </motion.li>
                 <motion.li
                   initial={liVariants.closed}
