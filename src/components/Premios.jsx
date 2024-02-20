@@ -93,7 +93,7 @@ const Premios = () => {
           ref={ref}
           initial={ulVariants.closed}
           animate={isInView ? "open" : "closed"}
-          className="flex flex-col gap-[0.5rem] items-center md:items-start flex-nowrap whitespace-nowrap"
+          className="flex flex-col gap-[0.5rem] items-center lg:items-start flex-nowrap whitespace-nowrap"
         >
           <motion.li
             className="cursor-pointer"
