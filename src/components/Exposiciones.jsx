@@ -115,7 +115,7 @@ const Exposiciones = () => {
             className="flex gap-4 justify-center items-start cursor-pointer"
             variants={liVariants}
             initial={liVariants.closed}
-            whileHover={{ scale: 1.1 }}
+            whileHover={{ scale: 1.05 }}
             onClick={() => {
               window.open(
                 "https://www.madsgallery.art/item/4eef4467-6045-4335-a2d9-a58fa51aef2c/artist/he%CC%81ctor-romero",
@@ -138,7 +138,7 @@ const Exposiciones = () => {
             className="flex gap-4 justify-center items-start cursor-pointer"
             variants={liVariants}
             initial={liVariants.closed}
-            whileHover={{ scale: 1.1 }}
+            whileHover={{ scale: 1.05 }}
             onClick={() => {
               window.open(
                 "https://www.montsequi.com/exp_09_2020.html",
@@ -177,6 +177,13 @@ const Exposiciones = () => {
             className="flex gap-4 justify-center items-start"
             variants={liVariants}
             initial={liVariants.closed}
+            whileHover={{ scale: 1.05 }}
+            onClick={() => {
+              window.open(
+                "https://www.montsequi.com/exp_09_2020.html",
+                "_blank"
+              )
+            }}
           >
             <img
               src="/exposiciones/montsequi2021.jpg"
@@ -233,7 +240,7 @@ const Exposiciones = () => {
             className="flex gap-4 justify-center items-start cursor-pointer"
             variants={liVariants}
             initial={liVariants.closed}
-            whileHover={{ scale: 1.1 }}
+            whileHover={{ scale: 1.05 }}
             onClick={() => {
               window.open(
                 "https://www.jucaclaret.com/es/hector-romero",
@@ -256,7 +263,7 @@ const Exposiciones = () => {
             className="flex gap-4 justify-center items-start cursor-pointer"
             variants={liVariants}
             initial={liVariants.closed}
-            whileHover={{ scale: 1.1 }}
+            whileHover={{ scale: 1.05 }}
             onClick={() => {
               window.open("https://www.abartium.com/galeria-de-arte/", "_blank")
             }}
@@ -276,7 +283,7 @@ const Exposiciones = () => {
             className="flex gap-4 justify-center items-start cursor-pointer"
             variants={liVariants}
             initial={liVariants.closed}
-            whileHover={{ scale: 1.1 }}
+            whileHover={{ scale: 1.05 }}
             onClick={() => {
               window.open(
                 "https://www.montsequi.com/exp_01_2020.html",
