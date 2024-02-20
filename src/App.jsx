@@ -20,6 +20,7 @@ import LandingUpdate, {
   action as updateLandingAction,
 } from "./pages/LandingUpdate"
 import ObraUpdate, { action as updateObraAction } from "./pages/ObraUpdate"
+import ExposicionesPage from "./pages/ExposicionesPage"
 
 function App() {
   const router = createBrowserRouter([
@@ -71,6 +72,10 @@ function App() {
         {
           path: "premios",
           element: <PremiosPage />,
+        },
+        {
+          path: "exposiciones",
+          element: <ExposicionesPage />,
         },
         {
           path: "legal",

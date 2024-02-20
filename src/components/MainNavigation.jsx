@@ -370,7 +370,11 @@ export default function MainNavigation() {
               className="py-5"
               whileTap={{ scale: 1.1 }}
             >
-              <span>EXPOSICIONES</span>
+              {pathname !== "/exposiciones" ? (
+                <Link to="/exposiciones">EXPOSICIONES</Link>
+              ) : (
+                <span>EXPOSICIONES</span>
+              )}
             </motion.li>
             <motion.li
               className="py-5"
