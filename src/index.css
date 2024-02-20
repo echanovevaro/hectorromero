@@ -496,8 +496,7 @@ footer {
 }
 
 .square-responsive img:hover,
-.div4 img,
-.div1 img {
+.div4 img {
   filter: grayscale(0%) !important;
 }
 

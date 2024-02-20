@@ -96,14 +96,14 @@ const Exposiciones = () => {
           className="flex flex-col gap-[1rem] lg:gap-[0.5rem] items-start flex-nowrap"
         >
           <motion.li
-            className="flex gap-4 justify-center items-start"
+            className="flex gap-2 justify-center items-start flex-col md:flex-row"
             variants={liVariants}
             initial={liVariants.closed}
           >
             <img
               src="/exposiciones/menduina.jpg"
               alt="Menduina & Schneider"
-              className="w-20 h-20 object-cover grayscale hover:grayscale-0 hidden md:block"
+              className="w-20 h-20 object-cover grayscale hover:grayscale-0"
             />
             <ul className="flex flex-col">
               <span>Menduina & Schneider Art Gallery</span>
@@ -112,7 +112,7 @@ const Exposiciones = () => {
             </ul>
           </motion.li>
           <motion.li
-            className="flex gap-4 justify-center items-start cursor-pointer"
+            className="flex gap-2 justify-center items-start cursor-pointer flex-col md:flex-row"
             variants={liVariants}
             initial={liVariants.closed}
             whileHover={{ scale: 1.05 }}
@@ -126,7 +126,7 @@ const Exposiciones = () => {
             <img
               src="/exposiciones/Hector-Romero-1024x1024.jpg"
               alt="Mads Milano"
-              className="w-20 h-20 object-cover grayscale hover:grayscale-0 hidden md:block"
+              className="w-20 h-20 object-cover grayscale hover:grayscale-0"
             />
             <ul className="flex flex-col">
               <span>Galería de arte Mads Milano</span>
@@ -135,7 +135,7 @@ const Exposiciones = () => {
             </ul>
           </motion.li>
           <motion.li
-            className="flex gap-4 justify-center items-start cursor-pointer"
+            className="flex gap-2 justify-center items-start cursor-pointer flex-col md:flex-row"
             variants={liVariants}
             initial={liVariants.closed}
             whileHover={{ scale: 1.05 }}
@@ -149,7 +149,7 @@ const Exposiciones = () => {
             <img
               src="/exposiciones/escaparate.jpg"
               alt="Montsequi"
-              className="w-20 h-20 object-cover grayscale hover:grayscale-0 hidden md:block"
+              className="w-20 h-20 object-cover grayscale hover:grayscale-0"
             />
             <ul className="flex flex-col">
               <span>Galería de arte Montsequi</span>
@@ -158,14 +158,14 @@ const Exposiciones = () => {
             </ul>
           </motion.li>
           <motion.li
-            className="flex gap-4 justify-center items-start"
+            className="flex gap-2 justify-center items-start flex-col md:flex-row"
             variants={liVariants}
             initial={liVariants.closed}
           >
             <img
               src="/exposiciones/Van-gogh.jpg"
               alt="Feria de arte en Monaco"
-              className="w-20 h-20 object-cover grayscale hover:grayscale-0 hidden md:block"
+              className="w-20 h-20 object-cover grayscale hover:grayscale-0"
             />
             <ul className="flex flex-col">
               <span>Feria de arte en Monaco</span>
@@ -174,7 +174,7 @@ const Exposiciones = () => {
             </ul>
           </motion.li>
           <motion.li
-            className="flex gap-4 justify-center items-start"
+            className="flex gap-2 justify-center items-start flex-col md:flex-row"
             variants={liVariants}
             initial={liVariants.closed}
             whileHover={{ scale: 1.05 }}
@@ -188,7 +188,7 @@ const Exposiciones = () => {
             <img
               src="/exposiciones/montsequi2021.jpg"
               alt="Montsequi"
-              className="w-20 h-20 object-cover grayscale hover:grayscale-0 hidden md:block"
+              className="w-20 h-20 object-cover grayscale hover:grayscale-0"
             />
             <ul className="flex flex-col">
               <span>Galería de arte Montsequi</span>
@@ -198,14 +198,14 @@ const Exposiciones = () => {
             </ul>
           </motion.li>
           <motion.li
-            className="flex gap-4 justify-center items-start"
+            className="flex gap-2 justify-center items-start flex-col md:flex-row"
             variants={liVariants}
             initial={liVariants.closed}
           >
             <img
               src="/exposiciones/HR-arb1.jpg"
               alt="Pere Casaldáliga de la Claret"
-              className="w-20 h-20 object-cover grayscale hover:grayscale-0 hidden md:block"
+              className="w-20 h-20 object-cover grayscale hover:grayscale-0"
             />
             <ul className="flex flex-col">
               <span>
@@ -218,14 +218,14 @@ const Exposiciones = () => {
             </ul>
           </motion.li>
           <motion.li
-            className="flex gap-4 justify-center items-start"
+            className="flex gap-2 justify-center items-start flex-col md:flex-row"
             variants={liVariants}
             initial={liVariants.closed}
           >
             <img
               src="/exposiciones/xxxviii_muestra_mont_marzo.jpg"
               alt="Montesquiu"
-              className="w-20 h-20 object-cover grayscale hover:grayscale-0 hidden md:block"
+              className="w-20 h-20 object-cover grayscale hover:grayscale-0"
             />
             <ul className="flex flex-col">
               <span>
@@ -237,7 +237,7 @@ const Exposiciones = () => {
             </ul>
           </motion.li>
           <motion.li
-            className="flex gap-4 justify-center items-start cursor-pointer"
+            className="flex gap-2 justify-center items-start cursor-pointer flex-col md:flex-row"
             variants={liVariants}
             initial={liVariants.closed}
             whileHover={{ scale: 1.05 }}
@@ -251,7 +251,7 @@ const Exposiciones = () => {
             <img
               src="/exposiciones/20200306_192922.jpg"
               alt="Juca Claret"
-              className="w-20 h-20 object-cover grayscale hover:grayscale-0 hidden md:block"
+              className="w-20 h-20 object-cover grayscale hover:grayscale-0"
             />
             <ul className="flex flex-col">
               <span>Galería de arte Juca Claret</span>
@@ -260,7 +260,7 @@ const Exposiciones = () => {
             </ul>
           </motion.li>
           <motion.li
-            className="flex gap-4 justify-center items-start cursor-pointer"
+            className="flex gap-2 justify-center items-start cursor-pointer flex-col md:flex-row"
             variants={liVariants}
             initial={liVariants.closed}
             whileHover={{ scale: 1.05 }}
@@ -271,7 +271,7 @@ const Exposiciones = () => {
             <img
               src="/exposiciones/abartium.jpg"
               alt="Abartium"
-              className="w-20 h-20 object-cover grayscale hover:grayscale-0 hidden md:block"
+              className="w-20 h-20 object-cover grayscale hover:grayscale-0"
             />
             <ul className="flex flex-col">
               <span>Galería de arte Abartium</span>
@@ -280,7 +280,7 @@ const Exposiciones = () => {
             </ul>
           </motion.li>
           <motion.li
-            className="flex gap-4 justify-center items-start cursor-pointer"
+            className="flex gap-2 justify-center items-start cursor-pointer flex-col md:flex-row"
             variants={liVariants}
             initial={liVariants.closed}
             whileHover={{ scale: 1.05 }}
@@ -294,7 +294,7 @@ const Exposiciones = () => {
             <img
               src="/exposiciones/2020-1c.jpg"
               alt="Montsequi"
-              className="w-20 h-20 object-cover grayscale hover:grayscale-0 hidden md:block"
+              className="w-20 h-20 object-cover grayscale hover:grayscale-0"
             />
             <ul className="flex flex-col">
               <span>Galería de arte Montsequi</span>
@@ -303,14 +303,14 @@ const Exposiciones = () => {
             </ul>
           </motion.li>
           <motion.li
-            className="flex gap-4 justify-center items-start"
+            className="flex gap-2 justify-center items-start flex-col md:flex-row"
             variants={liVariants}
             initial={liVariants.closed}
           >
             <img
               src="/exposiciones/biblioretiro.jpg"
               alt="Biblioteca (Parque de El Retiro)"
-              className="w-20 h-20 object-cover grayscale hover:grayscale-0 hidden md:block"
+              className="w-20 h-20 object-cover grayscale hover:grayscale-0"
             />
             <ul className="flex flex-col">
               <span>Biblioteca (Parque de El Retiro)</span>
@@ -320,14 +320,14 @@ const Exposiciones = () => {
             </ul>
           </motion.li>
           <motion.li
-            className="flex gap-4 justify-center items-start"
+            className="flex gap-2 justify-center items-start flex-col md:flex-row"
             variants={liVariants}
             initial={liVariants.closed}
           >
             <img
               src="/exposiciones/perspectivadual.jpg"
               alt="Perspectiva Dual"
-              className="w-20 h-20 object-cover grayscale hover:grayscale-0 hidden md:block"
+              className="w-20 h-20 object-cover grayscale hover:grayscale-0"
             />
             <ul className="flex flex-col">
               <span>Biblioteca (Parque de El Retiro) Perspectiva Dual</span>
@@ -337,14 +337,14 @@ const Exposiciones = () => {
             </ul>
           </motion.li>
           <motion.li
-            className="flex gap-4 justify-center items-start"
+            className="flex gap-2 justify-center items-start flex-col md:flex-row"
             variants={liVariants}
             initial={liVariants.closed}
           >
             <img
               src="/exposiciones/invasion.jpg"
               alt="Invasión"
-              className="w-20 h-20 object-cover grayscale hover:grayscale-0 hidden md:block"
+              className="w-20 h-20 object-cover grayscale hover:grayscale-0"
             />
             <ul className="flex flex-col">
               <span>Galería de arte Theredoom</span>
@@ -353,14 +353,14 @@ const Exposiciones = () => {
             </ul>
           </motion.li>
           <motion.li
-            className="flex gap-4 justify-center items-start"
+            className="flex gap-2 justify-center items-start flex-col md:flex-row"
             variants={liVariants}
             initial={liVariants.closed}
           >
             <img
               src="/exposiciones/Foto0085.jpg"
               alt="Exposición colectiva seleccionados pintura rápida parque de El Retiro"
-              className="w-20 h-20 object-cover grayscale hover:grayscale-0 hidden md:block"
+              className="w-20 h-20 object-cover grayscale hover:grayscale-0"
             />
             <ul className="flex flex-col">
               <span>
@@ -376,14 +376,14 @@ const Exposiciones = () => {
             </ul>
           </motion.li>
           <motion.li
-            className="flex gap-4 justify-center items-start"
+            className="flex gap-2 justify-center items-start flex-col md:flex-row"
             variants={liVariants}
             initial={liVariants.closed}
           >
             <img
               src="/exposiciones/h2.jpg"
               alt="Exposición colectiva seleccionados pintura rápida parque de El Retiro"
-              className="w-20 h-20 object-cover grayscale hover:grayscale-0 hidden md:block"
+              className="w-20 h-20 object-cover grayscale hover:grayscale-0"
             />
             <ul className="flex flex-col">
               <span>
