@@ -9,6 +9,7 @@ import Animacion from "../components/Animacion"
 import Slider from "../components/Slider"
 import { useQuery } from "@tanstack/react-query"
 import { fetchAll } from "../http"
+import Exposiciones from "../components/Exposiciones"
 
 function Landing() {
   const [showMenu, setShowMenu] = useState(false)
@@ -45,6 +46,9 @@ function Landing() {
         </div>
         <div className="bg-neutral-800 text-neutral-400 pt-[2rem] pb-4 text-xs w-screen">
           <About />
+        </div>
+        <div className="pb-6 pt-[2rem] bg-gray-100">
+          <Exposiciones />
         </div>
         <div className="pb-12 pt-[2rem] bg-white">
           <Premios />

@@ -64,7 +64,7 @@ const Exposiciones = () => {
             initial="hidden"
             animate="visible"
             exit="hidden"
-            transition={{ duration: 0.8, type: "spring", bounce: 0.1 }}
+            transition={{ duration: 1.2, type: "spring", bounce: 0.1 }}
             onPanStart={onDetallePanStart}
             onPanEnd={onDetallePanEnd}
             className={`bg-white fixed z-[100] inset-x-0 bottom-0 w-screen h-screen touch-pinch-zoom overflow-hidden`}
@@ -84,7 +84,7 @@ const Exposiciones = () => {
           </motion.div>
         )}
       </AnimatePresence>
-      <div className="bg-white px-[1rem] lg:px-[4rem] text-xs w-screen lg:text-sm">
+      <div className="px-[1rem] lg:px-[4rem] text-xs w-screen lg:text-sm">
         <h1 className="pb-[1rem] uppercase text-base opacity-[0.7]">
           exposiciones
         </h1>

@@ -492,7 +492,6 @@ footer {
   height: 100%;
   object-fit: cover;
   filter: grayscale(100%) !important;
-  /* border-radius: 3px; */
   transition: all 3s;
 }
 
@@ -563,9 +562,4 @@ footer {
 .div4-label a:hover,
 .div5-label a:hover {
   scale: 1.1;
-}
-
-.stop-scrolling {
-  height: 100%;
-  overflow: hidden;
 }
