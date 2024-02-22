@@ -3,7 +3,9 @@ import { useRef } from "react"
 
 const Exposiciones = () => {
   const ref = useRef(null)
-  const isInView = useInView(ref, { once: true, amount: 0.1 })
+  const refProx = useRef(null)
+  const isInView = useInView(ref, { once: true, amount: 0.2 })
+  const isInViewProx = useInView(refProx, { once: true, amount: 0.2 })
 
   const ulVariants = {
     open: {
@@ -44,9 +46,18 @@ const Exposiciones = () => {
       </h1>
       <section className="mb-[1.5rem]">
         <h2 className="pb-[0.5rem] text-base">Próximamente</h2>
-        <ul className="flex flex-col gap-[1rem] lg:gap-[0.5rem] items-start flex-nowrap">
-          <li
-            className="flex gap-4 justify-center items-start"
+        <motion.ul
+          variants={ulVariants}
+          ref={refProx}
+          initial={ulVariants.closed}
+          animate={isInViewProx ? "open" : "closed"}
+          className="flex flex-col gap-[1rem] lg:gap-[0.5rem] items-start flex-nowrap"
+        >
+          <motion.li
+            className="flex gap-4 justify-center items-start cursor-pointer"
+            variants={liVariants}
+            initial={liVariants.closed}
+            whileHover={{ scale: 1.05 }}
             onClick={() => {
               window.open(
                 "https://www.jucaclaret.com/es/hector-romero",
@@ -65,8 +76,8 @@ const Exposiciones = () => {
               <li>7 - 10 marzo Palacio Neptuno (Madrid)</li>
               <li>Stand E7 Luca Claret</li>
             </ul>
-          </li>
-        </ul>
+          </motion.li>
+        </motion.ul>
       </section>
       <section>
         <h2 className="pb-[0.5rem] text-base">Finalizadas</h2>
