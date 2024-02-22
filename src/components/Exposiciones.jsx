@@ -57,15 +57,13 @@ const Exposiciones = () => {
             <img
               src="/bd6c7264-a48f-4b54-a009-2bc793e44177.jpeg"
               alt="Próximas exposiciones"
-              className="w-20 h-auto"
+              className="w-20 h-auto hidden md:block"
             />
             <ul>
               <li>JUSTMAD 2024</li>
               <li>Contemporary Art Fair</li>
-              <li className="text-base">
-                7 - 10 marzo Palacio Neptuno (Madrid)
-              </li>
-              <li className="text-base">Stand E7 Luca Claret</li>
+              <li>7 - 10 marzo Palacio Neptuno (Madrid)</li>
+              <li>Stand E7 Luca Claret</li>
             </ul>
           </li>
         </ul>
