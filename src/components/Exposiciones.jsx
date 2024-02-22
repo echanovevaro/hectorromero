@@ -57,7 +57,7 @@ const Exposiciones = () => {
             <img
               src="/bd6c7264-a48f-4b54-a009-2bc793e44177.jpeg"
               alt="Próximas exposiciones"
-              className="w-20 h-auto hidden md:block"
+              className="w-20 h-20 object-cover hidden md:block"
             />
             <ul>
               <li>JUSTMAD 2024</li>
