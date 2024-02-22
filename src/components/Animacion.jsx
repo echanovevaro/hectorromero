@@ -1,5 +1,6 @@
 import { motion } from "framer-motion"
 import { useParallax } from "react-scroll-parallax"
+import classes from "./Slider.module.css"
 function Animacion({ showMenu }) {
   const parallax = useParallax({
     speed: -50,
@@ -11,6 +12,25 @@ function Animacion({ showMenu }) {
     >
       <div className="background" />
       <div className="blur" />
+      {showMenu && (
+        <motion.div
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          className="text-white absolute top-[20%] left-[2rem] font-normal"
+        >
+          <a
+            href="https://www.jucaclaret.com/es/hector-romero"
+            target="_blank"
+            rel="noreferrer"
+          >
+            <h1 className="text-xl text-neutral-400">Próximas exposiciones</h1>
+            <h2 className="text-xl">JUSTMAD 2024</h2>
+            <h3 className="text-base">Contemporary Art Fair</h3>
+            <h3 className="text-base">7 - 10 marzo Palacio Neptuno (Madrid)</h3>
+            <h3 className="text-base">Stand E7 Luca Claret</h3>
+          </a>
+        </motion.div>
+      )}
       {showMenu && (
         <motion.button
           type="button"

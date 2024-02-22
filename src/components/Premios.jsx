@@ -143,8 +143,14 @@ const Premios = () => {
             1er Premio Pintura Rápida Plaza Dalí (2010)
           </motion.li>
           <motion.li
+            className="cursor-pointer"
             variants={liVariants}
             initial={liVariants.closed}
+            whileTap={{ scale: 1.1 }}
+            onClick={() => {
+              setObraUrl("/retiro-2009.jpg")
+              setFullPage(true)
+            }}
           >
             Selección pintura rápida Retiro (2009)
           </motion.li>

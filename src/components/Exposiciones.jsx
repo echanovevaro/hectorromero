@@ -1,22 +1,9 @@
-import { AnimatePresence, motion, useInView } from "framer-motion"
-import { useRef, useState } from "react"
+import { motion, useInView } from "framer-motion"
+import { useRef } from "react"
 
 const Exposiciones = () => {
-  const [fullPage, setFullPage] = useState(false)
-  const [obraUrl, setObraUrl] = useState()
-  const detalleRef = useRef(0)
   const ref = useRef(null)
   const isInView = useInView(ref, { once: true, amount: 0.1 })
-
-  function onDetallePanStart(_, info) {
-    detalleRef.current = info.point.y
-  }
-
-  function onDetallePanEnd(_, info) {
-    if (info.point.y < detalleRef.current) {
-      setFullPage(false)
-    }
-  }
 
   const ulVariants = {
     open: {
@@ -51,43 +38,40 @@ const Exposiciones = () => {
   }
 
   return (
-    <>
-      <AnimatePresence>
-        {fullPage && (
-          <motion.div
-            variants={{
-              hidden: {
-                y: " -100dvh",
-              },
-              visible: { y: 0 },
+    <div className="px-[1rem] lg:px-[4rem] text-xs w-screen lg:text-sm">
+      <h1 className="pb-[1rem] uppercase text-base opacity-[0.7]">
+        exposiciones
+      </h1>
+      <section className="mb-[1.5rem]">
+        <h2 className="pb-[0.5rem] text-base">Próximamente</h2>
+        <ul className="flex flex-col gap-[1rem] lg:gap-[0.5rem] items-start flex-nowrap">
+          <li
+            className="flex gap-4 justify-center items-start"
+            onClick={() => {
+              window.open(
+                "https://www.jucaclaret.com/es/hector-romero",
+                "_blank"
+              )
             }}
-            initial="hidden"
-            animate="visible"
-            exit="hidden"
-            transition={{ duration: 1.2, type: "spring", bounce: 0.1 }}
-            onPanStart={onDetallePanStart}
-            onPanEnd={onDetallePanEnd}
-            className={`bg-white fixed z-[100] inset-x-0 bottom-0 w-screen h-screen touch-pinch-zoom overflow-hidden`}
           >
-            <motion.div
-              onPanStart={onDetallePanStart}
-              onPanEnd={onDetallePanEnd}
-              transition={{ duration: 0.8, type: "spring", bounce: 0.1 }}
-              className={`w-full h-full bg-contain bg-no-repeat bg-center bg-white landscape:-top-[3.5rem] landscape:bottom-[3.5rem] touch-pinch-zoom`}
-              style={{
-                backgroundImage: `url(${obraUrl})`,
-              }}
-              onClick={() => {
-                setFullPage(false)
-              }}
+            <img
+              src="/bd6c7264-a48f-4b54-a009-2bc793e44177.jpeg"
+              alt="Próximas exposiciones"
+              className="w-20 h-auto"
             />
-          </motion.div>
-        )}
-      </AnimatePresence>
-      <div className="px-[1rem] lg:px-[4rem] text-xs w-screen lg:text-sm">
-        <h1 className="pb-[1rem] uppercase text-base opacity-[0.7]">
-          exposiciones
-        </h1>
+            <ul>
+              <li>JUSTMAD 2024</li>
+              <li>Contemporary Art Fair</li>
+              <li className="text-base">
+                7 - 10 marzo Palacio Neptuno (Madrid)
+              </li>
+              <li className="text-base">Stand E7 Luca Claret</li>
+            </ul>
+          </li>
+        </ul>
+      </section>
+      <section>
+        <h2 className="pb-[0.5rem] text-base">Finalizadas</h2>
         <motion.ul
           variants={ulVariants}
           ref={ref}
@@ -396,8 +380,8 @@ const Exposiciones = () => {
             </ul>
           </motion.li>
         </motion.ul>
-      </div>
-    </>
+      </section>
+    </div>
   )
 }
 

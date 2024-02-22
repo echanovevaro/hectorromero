@@ -101,15 +101,27 @@ function Slider() {
                     </div>
                   )}
 
-                  {/* <div className={classes.textBox}>
-                      <h1 className="text-lg">
-                        Lorem ipsum dolor sit amet consectetur
+                  <motion.div
+                    initial={{ opacity: 0 }}
+                    animate={{ opacity: 1 }}
+                    className="text-white absolute top-[20%] left-[2rem] font-normal"
+                  >
+                    <a
+                      href="https://www.jucaclaret.com/es/hector-romero"
+                      target="_blank"
+                      rel="noreferrer"
+                    >
+                      <h1 className="text-xl text-neutral-400">
+                        Próximas exposiciones
                       </h1>
-                      <p className="text-sm">
-                        Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                        Quos voluptatem, quidem, doloremque, dolores quae{" "}
-                      </p>
-                    </div> */}
+                      <h2 className="text-xl">JUSTMAD 2024</h2>
+                      <h3 className="text-base">Contemporary Art Fair</h3>
+                      <h3 className="text-base">
+                        7 - 10 marzo Palacio Neptuno (Madrid)
+                      </h3>
+                      <h3 className="text-base">Stand E7 Luca Claret</h3>
+                    </a>
+                  </motion.div>
                 </section>
                 <section className="grid grid-cols-[4fr_1fr_1fr] text-xs lg:text-sm text-neutral-400 pt-2">
                   <div className="col-start-1 col-end-2 flex flex-col">

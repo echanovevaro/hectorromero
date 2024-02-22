@@ -563,3 +563,24 @@ footer {
 .div5-label a:hover {
   scale: 1.1;
 }
+
+/* .expos img {
+  animation: resalt-img 5s ease-in-out;
+  animation-timeline: view();
+
+  animation-range: 300px 450px;
+} */
+
+
+
+@keyframes resalt-img {
+  from {
+    filter: grayscale(100%);
+    scale: 1;
+  }
+
+  to {
+    filter: grayscale(30%);
+    scale: 1.07;
+  }
+}
