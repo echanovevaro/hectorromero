@@ -130,7 +130,7 @@ function Slider() {
                       {slide.descripcion}
                     </span>
                   </div>
-                  <span className="col-start-2 col-end-3">
+                  <span className="col-start-2 col-end-3 capitalize">
                     Serie {slide.serie}
                   </span>
                   <span className="col-start-3 col-end-4">
