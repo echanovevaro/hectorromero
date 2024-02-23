@@ -8,7 +8,7 @@ const About = () => {
   const isInView = useInView(ref, { once: true, amount: 0.2 })
 
   return (
-    <div>
+    <div className="max-w-screen-xl mx-auto">
       <h1 className="uppercase pb-[1rem] text-base opacity-[0.7] ms-[1rem] lg:ms-[4rem]">
         sobre mí
       </h1>

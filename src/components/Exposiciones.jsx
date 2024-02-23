@@ -40,7 +40,7 @@ const Exposiciones = () => {
   }
 
   return (
-    <div className="px-[1rem] lg:px-[4rem] text-xs w-full lg:text-sm">
+    <div className="px-[1rem] lg:px-[4rem] text-xs max-w-screen-xl mx-auto lg:text-sm">
       <h1 className="pb-[1rem] uppercase text-base opacity-[0.7]">
         exposiciones
       </h1>

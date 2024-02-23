@@ -35,7 +35,7 @@ function LandingMovilForm({ data }) {
   }
 
   return (
-    <section className="min-h-screen bg-gray-50 pt-[1rem]">
+    <section className="min-h-screen bg-gray-50 pt-[1rem] max-w-screen-xl mx-auto">
       <div className="flex flex-col items-center justify-center px-6 py-8 mx-auto">
         {error?.message && (
           <div

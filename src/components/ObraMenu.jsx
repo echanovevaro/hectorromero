@@ -33,7 +33,7 @@ const ObraMenu = ({ data }) => {
   }, [data])
 
   return (
-    <>
+    <div className="max-w-screen-xl mx-auto">
       <h1 className="uppercase text-base opacity-[0.7] ms-[1rem] lg:ms-[4rem]">
         obra
       </h1>
@@ -329,7 +329,7 @@ const ObraMenu = ({ data }) => {
           </Link>
         </div>
       </div>
-    </>
+    </div>
   )
 }
 

@@ -28,11 +28,6 @@ html {
   z-index: 0;
 }
 
-body {
-  max-width: 1280px;
-  margin: 0 auto;
-}
-
 :root {
   --foreground-rgb: 0, 0, 0;
   --background-start-rgb: 214, 219, 220;
@@ -195,7 +190,6 @@ nav li {
 }
 
 .square-footer {
-  padding: 2rem;
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   grid-template-rows: 2fr 1fr;
@@ -400,7 +394,6 @@ footer {
 
 @media screen and (min-width: 768px) {
   .square-footer {
-    padding: 4rem;
     grid-template-columns: repeat(4, 2fr) repeat(2, 3fr) !important;
     grid-template-rows: 1fr;
   }

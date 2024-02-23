@@ -60,7 +60,7 @@ function Slider() {
 
   return (
     <div className="bg-gray-100 h-full p-2">
-      <div className="bg-white m-[1rem] lg:mx-[4rem] mt-[5rem] p-[1rem]">
+      <div className="bg-white my-[1rem] lg:mx-[4rem] mt-[5rem] p-[1rem] max-w-[1152px] xl:mx-auto">
         {currentUser && (
           <div className="mb-[1rem]">
             <Link
@@ -89,7 +89,7 @@ function Slider() {
           <div key={index}>
             {index === current && (
               <>
-                <section className={classes.banner}>
+                <section className={`${classes.banner} h-[70dvh] xl:h-[50dvh]`}>
                   <motion.img
                     variants={{
                       hidden: { opacity: 0 },
