@@ -57,7 +57,7 @@ function Landing() {
         <Slider />
       </div>
       <section
-        className={`portrait:absolute portrait:top-[100dvh] landscape:block portrait:inset-x-0 portrait:z-19`}
+        className={`portrait:absolute portrait:top-[100dvh] landscape:block portrait:inset-x-0 portrait:z-19 pb-[15rem]`}
       >
         <div className="bg-white pb-8 pt-[2rem] text-xs">
           {obraData && <ObraMenu data={obraData} />}

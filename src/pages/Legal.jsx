@@ -10,7 +10,7 @@ const Legal = () => {
       <h1 className="uppercase mt-[6rem] text-base opacity-[0.7] self-start ms-[1rem] justify-self-start">
         AVISO LEGAL
       </h1>
-      <div className="p-[3rem] pt-[1rem]">
+      <div className="p-[3rem] pt-[1rem] pb-[15rem]">
         <ol className="list-decimal">
           <li className="mb-[1rem]">OBJETO Y ACEPTACIÓN</li>
           <p>

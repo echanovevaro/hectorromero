@@ -15,7 +15,7 @@ const PremiosPage = () => {
     <>
       <ScrollRestoration />
       <MainNavigation />
-      <div className="pb-16 pt-[6rem] text-xs overflow-hidden w-full">
+      <div className="pb-[15rem] pt-[6rem] text-xs overflow-hidden w-full">
         {data && <Premios data={data} />}
       </div>
       <Footer />

@@ -8,7 +8,7 @@ const AboutPage = () => {
     <>
       <ScrollRestoration />
       <MainNavigation />
-      <div className="pb-8 pt-[6rem] text-xs lg:text-sm">
+      <div className="pt-[6rem] text-xs lg:text-sm pb-[15rem]">
         <About />
       </div>
       <Footer />

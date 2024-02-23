@@ -261,13 +261,13 @@ export default function MainNavigation() {
         </AnimatePresence>
       </nav>
       <motion.div
-        className="fixed top-0 max-w-screen-xl w-full z-20 h-[4rem]"
+        className="fixed top-0 left-0 w-screen z-20 h-[4rem] shadow-md bg-white"
         initial={{ y: -60 }}
         animate={{ y: 0 }}
         transition={{ duration: 0.5 }}
       >
         <nav
-          className={`px-4 lg:px-[4rem] flex justify-between items-center bg-white shadow-md uppercase h-[4rem]`}
+          className={`px-4 lg:px-[4rem] max-w-screen-xl m-auto flex justify-between items-center bg-white uppercase h-[4rem]`}
         >
           <motion.h1>
             <Link to="/">

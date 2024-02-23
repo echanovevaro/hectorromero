@@ -3,8 +3,8 @@ import { Link } from "react-router-dom"
 
 const Footer = () => {
   return (
-    <footer className="text-xs opacity-80">
-      <div className="square-footer">
+    <footer className="text-xs w-screen fixed bottom-0 left-0">
+      <div className="square-footer max-w-screen-xl m-auto">
         <div className="brand">
           <Link
             to="/"
