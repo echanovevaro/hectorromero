@@ -100,7 +100,7 @@ function Animacion({ showMenu, background }) {
               behavior: "smooth",
             })
           }}
-          className="w-screen h-full flex justify-end flex-col items-center pb-[3rem] gap-1 font-normal text-white z-[10] text-lg"
+          className="w-full h-full flex justify-end flex-col items-center pb-[3rem] gap-1 font-normal text-white z-[10] text-lg"
         >
           <span className="z-[500]">scroll</span>
           <svg

@@ -28,7 +28,10 @@ html {
   z-index: 0;
 }
 
-
+body {
+  max-width: 1280px;
+  margin: 0 auto;
+}
 
 :root {
   --foreground-rgb: 0, 0, 0;

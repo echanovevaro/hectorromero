@@ -62,7 +62,7 @@ function Landing() {
         <div className="bg-white pb-8 pt-[2rem] text-xs">
           {obraData && <ObraMenu data={obraData} />}
         </div>
-        <div className="bg-neutral-800 text-neutral-400 pt-[2rem] pb-4 text-xs w-screen">
+        <div className="bg-neutral-800 text-neutral-400 pt-[2rem] pb-4 text-xs w-full">
           <About />
         </div>
         <div className="pb-6 pt-[2rem] bg-gray-100">
@@ -71,7 +71,7 @@ function Landing() {
         <div className="pb-12 pt-[2rem] bg-white">
           {premiosData && <Premios data={premiosData} />}
         </div>
-        <div className="text-xs w-screen">
+        <div className="text-xs w-full">
           <Footer />
         </div>
       </section>

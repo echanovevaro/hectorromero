@@ -106,7 +106,7 @@ export default function Gallery({ coleccion }) {
                 transition={{ duration: 0.8, type: "spring", bounce: 0.1 }}
                 onPanStart={onDetallePanStart}
                 onPanEnd={onDetallePanEnd}
-                className="bg-white fixed w-screen z-[600] h-screen inset-0 touch-pinch-zoom"
+                className="bg-white fixed w-full z-[600] h-screen inset-0 touch-pinch-zoom"
               >
                 <motion.div
                   variants={{

@@ -113,7 +113,7 @@ const Premios = ({ data }) => {
             transition={{ duration: 0.8, type: "spring", bounce: 0.1 }}
             onPanStart={onDetallePanStart}
             onPanEnd={onDetallePanEnd}
-            className={`bg-white fixed z-[100] inset-x-0 bottom-0 w-screen h-screen touch-pinch-zoom overflow-hidden`}
+            className={`bg-white fixed z-[100] inset-x-0 bottom-0 w-full h-screen touch-pinch-zoom overflow-hidden`}
           >
             <motion.div
               onPanStart={onDetallePanStart}
@@ -130,7 +130,7 @@ const Premios = ({ data }) => {
           </motion.div>
         )}
       </AnimatePresence>
-      <div className="bg-white px-[1rem] lg:px-[4rem] text-xs w-screen lg:text-sm">
+      <div className="bg-white px-[1rem] lg:px-[4rem] text-xs w-full lg:text-sm">
         <h1 className="pb-[1rem] uppercase text-base opacity-[0.7]">
           premios y menciones
         </h1>

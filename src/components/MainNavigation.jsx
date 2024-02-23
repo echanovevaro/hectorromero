@@ -261,7 +261,7 @@ export default function MainNavigation() {
         </AnimatePresence>
       </nav>
       <motion.div
-        className="fixed top-0 left-0 right-0 z-20 h-[4rem]"
+        className="fixed top-0 max-w-screen-xl w-full z-20 h-[4rem]"
         initial={{ y: -60 }}
         animate={{ y: 0 }}
         transition={{ duration: 0.5 }}

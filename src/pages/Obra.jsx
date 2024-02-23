@@ -15,7 +15,7 @@ function Obra() {
     <>
       <ScrollRestoration />
       <MainNavigation />
-      <div className="bg-white w-screen z-10 pt-[6rem] pb-8 landscape:h-full min-h-[70dvh] text-xs">
+      <div className="bg-white w-full z-10 pt-[6rem] pb-8 landscape:h-full min-h-[70dvh] text-xs">
         {data && <ObraMenu data={data} />}
       </div>
       <Footer />
