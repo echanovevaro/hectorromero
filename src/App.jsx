@@ -21,6 +21,9 @@ import LandingUpdate, {
 } from "./pages/LandingUpdate"
 import ObraUpdate, { action as updateObraAction } from "./pages/ObraUpdate"
 import ExposicionesPage from "./pages/ExposicionesPage"
+import LandingMovilUpdate, {
+  action as updateLandingMovilAction,
+} from "./pages/LandingMovilUpdate"
 
 function App() {
   const router = createBrowserRouter([
@@ -36,6 +39,11 @@ function App() {
         {
           path: "obra/:serie",
           element: <Serie />,
+        },
+        {
+          path: "landing/:id/edit",
+          element: <LandingMovilUpdate />,
+          action: updateLandingMovilAction,
         },
         {
           path: ":id/edit",

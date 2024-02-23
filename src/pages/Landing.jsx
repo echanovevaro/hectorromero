@@ -19,6 +19,14 @@ function Landing() {
     queryFn: () => fetchAll("obras"),
   })
 
+  const { data: obrasLandingMovil } = useQuery({
+    queryKey: ["landingMovil"],
+    queryFn: () => fetchAll("landingMovil"),
+  })
+
+  console.log(obrasLandingMovil)
+  console.log(obraData)
+
   useEffect(() => {
     const timeout = setTimeout(() => {
       setShowMenu(true)
@@ -33,7 +41,12 @@ function Landing() {
       <ScrollRestoration />
       {showMenu && <MainNavigation />}
       <div className="landscape:hidden w-full h-screen absolute inset-0">
-        <Animacion showMenu={showMenu} />
+        {obrasLandingMovil && (
+          <Animacion
+            showMenu={showMenu}
+            background={obrasLandingMovil[0]}
+          />
+        )}
       </div>
       <div className="portrait:hidden w-full min-h-[90dvh]">
         <Slider />

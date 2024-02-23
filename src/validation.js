@@ -69,3 +69,18 @@ export const obraMenuSchema = z.object({
       "Sólo .jpg, .jpeg .gif o .png son válidos."
     ),
 })
+
+export const obraLandingMovilSchema = z.object({
+  imagen: z
+    .instanceof(FileList)
+    .refine((files) => !!files?.[0], `Imagen obligatoria.`)
+    .refine(
+      (files) => !files?.[0] || files?.[0]?.size <= MAX_FILE_SIZE,
+      `Tamaño máximo 5MB.`
+    )
+    .refine(
+      (files) =>
+        !files?.[0] || ACCEPTED_IMAGE_MIME_TYPES.includes(files?.[0]?.type),
+      "Sólo .jpg, .jpeg .gif o .png son válidos."
+    ),
+})

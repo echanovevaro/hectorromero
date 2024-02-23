@@ -404,7 +404,10 @@ export default function MainNavigation() {
               <span>CONTACTO</span>
             </motion.li> */}
             {currentUser && (
-              <motion.li whileTap={{ scale: 1.1 }}>
+              <motion.li
+                whileTap={{ scale: 1.1 }}
+                className="py-5"
+              >
                 <RouterForm
                   method="post"
                   action="/logout"
