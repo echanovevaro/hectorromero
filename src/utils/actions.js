@@ -31,6 +31,22 @@ export async function deleteAction({ params, request }) {
     console.log(error)
     throw new Error("An error ocurred while deleting obra", { status: 500 })
   }
-  queryClient.invalidateQueries({ queryKey: ["bloques"] })
+  queryClient.invalidateQueries({ queryKey: [`${serie}`] })
   return redirect(`/obra/${serie}`)
+}
+
+export async function deletePremioAction({ params, request }) {
+  const formData = await request.formData()
+  const { id } = params
+  try {
+    if (formData.has("ref")) {
+      await deleteFile(formData.get("ref"))
+    }
+    await remove("premios", id)
+  } catch (error) {
+    console.log(error)
+    throw new Error("An error ocurred while deleting premio", { status: 500 })
+  }
+  queryClient.invalidateQueries({ queryKey: ["premios"] })
+  return redirect(`/premios`)
 }

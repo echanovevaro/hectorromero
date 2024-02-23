@@ -337,6 +337,22 @@ footer {
     grid-template-rows: 5fr 3fr repeat(2, 5fr) 3fr 5fr !important;
   }
 
+  .div5a {
+    grid-area: 4 / 8 / 6 / 9 !important;
+  }
+
+  .div5b {
+    grid-area: 4 / 9 / 6 / 10 !important;
+  }
+
+  .div5-label {
+    grid-area: 4 / 10 / 5 / 11 !important;
+  }
+
+  .div-text {
+    grid-area: 1 / 8 / 4 / 11 !important;
+  }
+
   footer {
     border-radius: 0px;
     box-shadow: inset -2px -2px 6px rgba(255, 255, 255, .7),
@@ -429,7 +445,7 @@ footer {
   }
 }
 
-@media screen and (orientation: landscape) and (min-width: 1280px) {
+@media screen and (min-width: 1280px) {
 
 
   .square-responsive {
@@ -454,7 +470,7 @@ footer {
   }
 }
 
-@media screen and (orientation: landscape) and (max-width: 1023px) {
+@media screen and (orientation: landscape) and (max-width: 1024px) {
 
 
   .square-responsive {

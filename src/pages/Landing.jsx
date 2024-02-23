@@ -19,6 +19,11 @@ function Landing() {
     queryFn: () => fetchAll("obras"),
   })
 
+  const { data: premiosData } = useQuery({
+    queryKey: ["premios"],
+    queryFn: () => fetchAll("premios"),
+  })
+
   const { data: obrasLandingMovil } = useQuery({
     queryKey: ["landingMovil"],
     queryFn: () => fetchAll("landingMovil"),
@@ -64,7 +69,7 @@ function Landing() {
           <Exposiciones />
         </div>
         <div className="pb-12 pt-[2rem] bg-white">
-          <Premios />
+          {premiosData && <Premios data={premiosData} />}
         </div>
         <div className="text-xs w-screen">
           <Footer />

@@ -4,7 +4,11 @@ import Root from "./pages/Root"
 import Landing from "./pages/Landing"
 import Login, { action as loginAction } from "./pages/Login"
 import { AuthProvider } from "./context/authContext"
-import { logOutWithRedirect, deleteAction } from "./utils/actions"
+import {
+  logOutWithRedirect,
+  deleteAction,
+  deletePremioAction,
+} from "./utils/actions"
 import SerieNew, { action as newAction } from "./pages/SerieNew"
 import { queryClient } from "./http"
 import SerieUpdate, { action as updateAction } from "./pages/SerieUpdate"
@@ -24,6 +28,10 @@ import ExposicionesPage from "./pages/ExposicionesPage"
 import LandingMovilUpdate, {
   action as updateLandingMovilAction,
 } from "./pages/LandingMovilUpdate"
+import PremiosNew, { action as premiosNewAction } from "./pages/PremiosNew"
+import PremiosUpdate, {
+  action as premiosUpdateAction,
+} from "./pages/PremiosUpdate"
 
 function App() {
   const router = createBrowserRouter([
@@ -80,6 +88,20 @@ function App() {
         {
           path: "premios",
           element: <PremiosPage />,
+        },
+        {
+          path: "premios/new",
+          element: <PremiosNew />,
+          action: premiosNewAction,
+        },
+        {
+          path: "premios/:id/edit",
+          element: <PremiosUpdate />,
+          action: premiosUpdateAction,
+        },
+        {
+          path: "premios/:id/delete",
+          action: deletePremioAction,
         },
         {
           path: "exposiciones",

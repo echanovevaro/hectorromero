@@ -1,25 +1,35 @@
 import { useActionData, useNavigation, useSubmit } from "react-router-dom"
-import { obraEditSchema, obraSchema } from "../validation"
+import { premioSchema } from "../validation"
 import { useForm } from "react-hook-form"
 import { zodResolver } from "@hookform/resolvers/zod"
 import { useState } from "react"
 
-function SerieForm({ obra }) {
+function PremiosForm({ premio }) {
   const [imagePreview, setImagePreview] = useState(null)
   const error = useActionData()
   const navigation = useNavigation()
   const submit = useSubmit()
   const isSubmitting = navigation.state === "submitting"
+  let fechaStr = ""
+  if (premio) {
+    const fechaDate = new Date(premio?.fecha)
+    fechaStr =
+      fechaDate.getFullYear() +
+      "-" +
+      ("0" + (fechaDate.getMonth() + 1)).substr(-2) +
+      "-" +
+      ("0" + fechaDate.getDate()).substr(-2)
+  }
 
   const {
     register,
     handleSubmit,
     formState: { errors },
   } = useForm({
-    resolver: zodResolver(obra ? obraEditSchema : obraSchema),
+    resolver: zodResolver(premioSchema),
     defaultValues: {
-      titulo: obra?.titulo || "",
-      descripcion: obra?.descripcion || "",
+      titulo: premio?.titulo || "",
+      fecha: fechaStr,
       imagen: undefined,
     },
   })
@@ -27,12 +37,14 @@ function SerieForm({ obra }) {
   const onSubmit = (data) => {
     const formData = new FormData()
     formData.append("titulo", data.titulo)
-    formData.append("descripcion", data.descripcion)
-    if (obra) {
-      formData.append("id", obra.id)
-      formData.append("imagenRef", obra.imagenRef)
+    formData.append("fecha", data.fecha)
+    if (premio) {
+      formData.append("id", premio.id)
+      if (premio.imagenRef) {
+        formData.append("imagenRef", premio.imagenRef)
+      }
     }
-    if (!obra || data.imagen[0]) {
+    if (data.imagen[0]) {
       formData.append("imagen", data.imagen[0])
     }
     submit(formData, { method: "POST", encType: "multipart/form-data" })
@@ -40,7 +52,7 @@ function SerieForm({ obra }) {
 
   return (
     <section className="bg-gray-50 py-[5rem]">
-      <div className="min-h-screen flex flex-col items-center justify-center px-6 py-8 mx-auto md:h-screen lg:py-0">
+      <div className="flex flex-col items-center justify-center px-6 py-8 mx-auto md:h-screen lg:py-0">
         {error?.message && (
           <div
             className="bg-red-100 border-t border-b border-red-400 text-red-700 px-4 py-3 mb-2"
@@ -77,14 +89,14 @@ function SerieForm({ obra }) {
 
               <div>
                 <label
-                  htmlFor="descripcion"
+                  htmlFor="fecha"
                   className="block mb-2 text-sm font-medium text-gray-900"
                 >
-                  Descripción
+                  Fecha (no visible, para ordenación cronológica)
                 </label>
-                <textarea
-                  {...register("descripcion")}
-                  placeholder="Descripción de la obra"
+                <input
+                  type="date"
+                  {...register("fecha")}
                   className="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-sky-600 focus:border-sky-600 block w-full p-2.5"
                   required
                 />
@@ -106,16 +118,15 @@ function SerieForm({ obra }) {
                   type="file"
                   {...register("imagen")}
                   className="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-sky-600 focus:border-sky-600 block w-full p-2.5"
-                  required={!obra}
                   onChange={(e) =>
                     e.target.files?.[0]
                       ? setImagePreview(URL.createObjectURL(e.target.files[0]))
                       : null
                   }
                 />
-                {(imagePreview || obra) && (
+                {(imagePreview || premio?.imagenURL) && (
                   <img
-                    src={imagePreview || obra.imagenURL}
+                    src={imagePreview || premio.imagenURL}
                     alt="preview"
                     className="mt-2"
                   />
@@ -140,4 +151,4 @@ function SerieForm({ obra }) {
     </section>
   )
 }
-export default SerieForm
+export default PremiosForm
