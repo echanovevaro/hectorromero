@@ -32,12 +32,16 @@ const ExposicionesPage = () => {
       <ScrollRestoration />
       <MainNavigation />
       <div className="pb-16 pt-[6rem] text-xs overflow-hidden w-full">
-        {data && (
+        {/* {data && (
           <Exposiciones
             finalizadas={exposicionesFinalizadas}
             proximas={exposicionesProximas}
           />
-        )}
+        )} */}
+        <Exposiciones
+          finalizadas={exposicionesFinalizadas}
+          proximas={exposicionesProximas}
+        />
       </div>
       <Footer />
     </>
