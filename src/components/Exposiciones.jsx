@@ -97,7 +97,7 @@ const Exposiciones = ({ finalizadas, proximas }) => {
           </div>
         )}
         <section className="mb-[1.5rem]">
-          {proximas.length > 0 && (
+          {proximas?.length > 0 && (
             <h2 className="pb-[0.5rem] text-base">Próximamente</h2>
           )}
           <motion.ul
@@ -190,7 +190,7 @@ const Exposiciones = ({ finalizadas, proximas }) => {
           </motion.ul>
         </section>
         <section>
-          {finalizadas.length > 0 && (
+          {finalizadas?.length > 0 && (
             <h2 className="pb-[0.5rem] text-base">Finalizadas</h2>
           )}
           <motion.ul
