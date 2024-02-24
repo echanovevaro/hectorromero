@@ -39,7 +39,7 @@ const About = () => {
               <a
                 href="https://www.volteointeriorismo.com/"
                 target="volteo"
-                className="cursor-pointer"
+                className="cursor-pointer underline"
               >
                 VOLTEO
               </a>
