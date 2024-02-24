@@ -89,7 +89,7 @@ function Slider() {
           <div key={index}>
             {index === current && (
               <>
-                <section className={`${classes.banner} h-[70dvh] xl:h-[50dvh]`}>
+                <section className={`${classes.banner} h-[60dvh] xl:h-[70dvh]`}>
                   <motion.img
                     variants={{
                       hidden: { opacity: 0 },

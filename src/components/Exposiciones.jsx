@@ -51,7 +51,7 @@ const Exposiciones = () => {
           ref={refProx}
           initial={ulVariants.closed}
           animate={isInViewProx ? "open" : "closed"}
-          className="flex flex-col gap-[1rem] lg:gap-[0.5rem] items-start flex-nowrap"
+          className="flex flex-col gap-[1rem] items-start flex-nowrap"
         >
           <motion.li
             className="flex gap-4 justify-center items-start cursor-pointer"
@@ -86,7 +86,7 @@ const Exposiciones = () => {
           ref={ref}
           initial={ulVariants.closed}
           animate={isInView ? "open" : "closed"}
-          className="flex flex-col gap-[1rem] lg:gap-[0.5rem] items-start flex-nowrap"
+          className="flex flex-col gap-[1rem] items-start flex-nowrap"
         >
           <motion.li
             className="flex gap-4 justify-center items-start"
@@ -96,7 +96,7 @@ const Exposiciones = () => {
             <img
               src="/exposiciones/menduina.jpg"
               alt="Menduina & Schneider"
-              className="w-20 h-20 object-cover grayscale hover:grayscale-0 hidden md:block"
+              className="w-20 h-20 lg:h-30 lg:w-30 object-cover grayscale hover:grayscale-0 hidden md:block"
             />
             <ul className="flex flex-col">
               <span>Menduina & Schneider Art Gallery</span>
