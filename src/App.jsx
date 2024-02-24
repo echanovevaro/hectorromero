@@ -115,17 +115,17 @@ function App() {
           element: <ExposicionesPage />,
         },
         {
-          path: "exposiciones/:tipo/new",
+          path: "exposiciones/new",
           element: <ExposicionesNew />,
           action: exposicionesNewAction,
         },
         {
-          path: "exposiciones/:tipo/:id/edit",
+          path: "exposiciones/:id/edit",
           element: <ExposicionesUpdate />,
           action: exposicionesUpdateAction,
         },
         {
-          path: "exposiciones/:tipo/:id/delete",
+          path: "exposiciones/:id/delete",
           action: deleteExposicionAction,
         },
         {

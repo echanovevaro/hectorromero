@@ -7,20 +7,12 @@ import Modal from "./Modal"
 const Exposiciones = ({ finalizadas, proximas }) => {
   const [isDeleting, setIsDeleting] = useState(false)
   const [exposicionToDelete, setExposicionToDelete] = useState()
-  const [tipoToDelete, setTipoToDelete] = useState()
   const ref = useRef(null)
   const refProx = useRef(null)
   const isInView = useInView(ref, { once: true })
   const isInViewProx = useInView(refProx, { once: true })
   const { currentUser } = useAuthContext()
   const submit = useSubmit()
-
-  const orederedFinalizadas = finalizadas.sort(
-    (a, b) => new Date(b.fecha).getTime() - new Date(a.fecha).getTime()
-  )
-  const orederedProximas = proximas.sort(
-    (a, b) => new Date(a.fecha).getTime() - new Date(b.fecha).getTime()
-  )
 
   function handleDelete() {
     const formData = new FormData()
@@ -29,9 +21,8 @@ const Exposiciones = ({ finalizadas, proximas }) => {
     setExposicionToDelete(null)
     submit(formData, {
       method: "delete",
-      action: `/exposiciones/${tipoToDelete}/${exposicionToDelete.id}/delete`,
+      action: `/exposiciones/${exposicionToDelete.id}/delete`,
     })
-    setTipoToDelete(null)
   }
 
   const ulVariants = {
@@ -95,19 +86,19 @@ const Exposiciones = ({ finalizadas, proximas }) => {
         <h1 className="pb-[1rem] uppercase text-base opacity-[0.7]">
           exposiciones
         </h1>
+        {currentUser && (
+          <div className="mb-4">
+            <Link
+              to="/exposiciones/new"
+              className="text-sky-400 font-medium"
+            >
+              Añadir exposición
+            </Link>
+          </div>
+        )}
         <section className="mb-[1.5rem]">
-          {(orederedProximas.length > 0 || currentUser) && (
+          {proximas.length > 0 && (
             <h2 className="pb-[0.5rem] text-base">Próximamente</h2>
-          )}
-          {currentUser && (
-            <div className="mb-4">
-              <Link
-                to="/exposiciones/proximas/new"
-                className="text-sky-400 font-medium"
-              >
-                Añadir próxima exposición
-              </Link>
-            </div>
           )}
           <motion.ul
             variants={ulVariants}
@@ -116,7 +107,7 @@ const Exposiciones = ({ finalizadas, proximas }) => {
             animate={isInViewProx ? "open" : "closed"}
             className="flex flex-col gap-[1rem] items-start flex-nowrap"
           >
-            {orederedProximas?.map((exposicion) => (
+            {proximas?.map((exposicion) => (
               <motion.li
                 key={exposicion.id}
                 className={`flex gap-4 justify-center items-start ${
@@ -152,7 +143,7 @@ const Exposiciones = ({ finalizadas, proximas }) => {
                 {currentUser && (
                   <div className="flex gap-1 mt-1">
                     <Link
-                      to={`/exposiciones/proximas/${exposicion.id}/edit`}
+                      to={`/exposiciones/${exposicion.id}/edit`}
                       className="text-sky-400"
                     >
                       <svg
@@ -175,7 +166,6 @@ const Exposiciones = ({ finalizadas, proximas }) => {
                       onClick={() => {
                         setIsDeleting(true)
                         setExposicionToDelete(exposicion)
-                        setTipoToDelete("proximas")
                       }}
                     >
                       <svg
@@ -200,18 +190,8 @@ const Exposiciones = ({ finalizadas, proximas }) => {
           </motion.ul>
         </section>
         <section>
-          {(orederedFinalizadas.length > 0 || currentUser) && (
+          {finalizadas.length > 0 && (
             <h2 className="pb-[0.5rem] text-base">Finalizadas</h2>
-          )}
-          {currentUser && (
-            <div className="mb-4">
-              <Link
-                to="/exposiciones/finalizadas/new"
-                className="text-sky-400 font-medium"
-              >
-                Añadir exposición finalizada
-              </Link>
-            </div>
           )}
           <motion.ul
             variants={ulVariants}
@@ -220,7 +200,7 @@ const Exposiciones = ({ finalizadas, proximas }) => {
             animate={isInView ? "open" : "closed"}
             className="flex flex-col gap-[1rem] items-start flex-nowrap"
           >
-            {orederedFinalizadas?.map((exposicion) => (
+            {finalizadas?.map((exposicion) => (
               <motion.li
                 key={exposicion.id}
                 className={`flex gap-4 justify-center items-start ${
@@ -257,7 +237,7 @@ const Exposiciones = ({ finalizadas, proximas }) => {
                 {currentUser && (
                   <div className="flex gap-1 mt-1">
                     <Link
-                      to={`/exposiciones/finalizadas/${exposicion.id}/edit`}
+                      to={`/exposiciones/${exposicion.id}/edit`}
                       className="text-sky-400"
                     >
                       <svg
@@ -280,7 +260,6 @@ const Exposiciones = ({ finalizadas, proximas }) => {
                       onClick={() => {
                         setIsDeleting(true)
                         setExposicionToDelete(exposicion)
-                        setTipoToDelete("finalizadas")
                       }}
                     >
                       <svg

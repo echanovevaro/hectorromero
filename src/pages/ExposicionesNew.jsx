@@ -15,7 +15,7 @@ function ExposicionesNew() {
 }
 export default ExposicionesNew
 
-export async function action({ params, request }) {
+export async function action({ request }) {
   const formData = await request.formData()
 
   const doc = {
@@ -42,11 +42,8 @@ export async function action({ params, request }) {
     doc.enlace = formData.get("enlace").trim()
   }
 
-  const tabla =
-    "exposiciones" + params.tipo[0].toUpperCase() + params.tipo.slice(1)
+  await add("exposiciones", doc)
 
-  await add(tabla, doc)
-
-  queryClient.invalidateQueries({ queryKey: [tabla] })
+  queryClient.invalidateQueries({ queryKey: ["exposiciones"] })
   return redirect(`/exposiciones`)
 }

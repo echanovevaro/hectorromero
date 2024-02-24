@@ -53,17 +53,16 @@ export async function deletePremioAction({ params, request }) {
 
 export async function deleteExposicionAction({ params, request }) {
   const formData = await request.formData()
-  const { id, tipo } = params
-  const tabla = "exposiciones" + tipo[0].toUpperCase() + tipo.slice(1)
+  const { id } = params
   try {
     await deleteFile(formData.get("ref"))
-    await remove(tabla, id)
+    await remove("exposiciones", id)
   } catch (error) {
     console.log(error)
     throw new Error("An error ocurred while deleting exposicion", {
       status: 500,
     })
   }
-  queryClient.invalidateQueries({ queryKey: [tabla] })
+  queryClient.invalidateQueries({ queryKey: ["exposiciones"] })
   return redirect(`/exposiciones`)
 }

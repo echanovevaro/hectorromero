@@ -28,14 +28,26 @@ function Landing() {
     queryKey: ["landingMovil"],
     queryFn: () => fetchAll("landingMovil"),
   })
-  const { data: exposicionesFinalizadas } = useQuery({
-    queryKey: ["exposicionesFinalizadas"],
-    queryFn: () => fetchAll("exposicionesFinalizadas"),
+  const { data: exposiciones } = useQuery({
+    queryKey: ["exposiciones"],
+    queryFn: () => fetchAll("exposiciones"),
   })
-  const { data: exposicionesProximas } = useQuery({
-    queryKey: ["exposicionesProximas"],
-    queryFn: () => fetchAll("exposicionesProximas"),
-  })
+
+  const exposicionesFinalizadas = exposiciones
+    ?.filter((exposicion) => {
+      const fecha = new Date(exposicion.fecha)
+      const hoy = new Date()
+      return fecha < hoy
+    })
+    .sort((a, b) => new Date(b.fecha) - new Date(a.fecha))
+
+  const exposicionesProximas = exposiciones
+    ?.filter((exposicion) => {
+      const fecha = new Date(exposicion.fecha)
+      const hoy = new Date()
+      return fecha >= hoy
+    })
+    .sort((a, b) => new Date(b.fecha) - new Date(a.fecha))
 
   useEffect(() => {
     const timeout = setTimeout(() => {
@@ -71,7 +83,7 @@ function Landing() {
           <About />
         </div>
         <div className="pb-6 pt-[2rem] bg-gray-100">
-          {exposicionesFinalizadas && exposicionesProximas && (
+          {exposiciones && (
             <Exposiciones
               finalizadas={exposicionesFinalizadas}
               proximas={exposicionesProximas}

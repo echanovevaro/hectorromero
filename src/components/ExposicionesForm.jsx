@@ -159,7 +159,8 @@ function ExposicionesForm({ exposicion }) {
                   htmlFor="fecha"
                   className="block mb-2 text-sm font-medium text-gray-900"
                 >
-                  Fecha (no visible, para ordenación cronológica)
+                  Fecha Fin (no visible, para ordenación cronológica y
+                  separación)
                 </label>
                 <input
                   type="date"

@@ -6,20 +6,33 @@ import { fetchAll } from "../http"
 import { useQuery } from "@tanstack/react-query"
 
 const ExposicionesPage = () => {
-  const { data: exposicionesFinalizadas } = useQuery({
-    queryKey: ["exposicionesFinalizadas"],
-    queryFn: () => fetchAll("exposicionesFinalizadas"),
+  const { data } = useQuery({
+    queryKey: ["exposiciones"],
+    queryFn: () => fetchAll("exposiciones"),
   })
-  const { data: exposicionesProximas } = useQuery({
-    queryKey: ["exposicionesProximas"],
-    queryFn: () => fetchAll("exposicionesProximas"),
-  })
+
+  const exposicionesFinalizadas = data
+    ?.filter((exposicion) => {
+      const fecha = new Date(exposicion.fecha)
+      const hoy = new Date()
+      return fecha < hoy
+    })
+    .sort((a, b) => new Date(b.fecha) - new Date(a.fecha))
+
+  const exposicionesProximas = data
+    ?.filter((exposicion) => {
+      const fecha = new Date(exposicion.fecha)
+      const hoy = new Date()
+      return fecha >= hoy
+    })
+    .sort((a, b) => new Date(b.fecha) - new Date(a.fecha))
+
   return (
     <>
       <ScrollRestoration />
       <MainNavigation />
       <div className="pb-16 pt-[6rem] text-xs overflow-hidden w-full">
-        {exposicionesFinalizadas && exposicionesProximas && (
+        {data && (
           <Exposiciones
             finalizadas={exposicionesFinalizadas}
             proximas={exposicionesProximas}

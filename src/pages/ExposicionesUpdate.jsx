@@ -6,11 +6,10 @@ import ExposicionesForm from "../components/ExposicionesForm"
 import { useQuery } from "@tanstack/react-query"
 
 function ExposicionesUpdate() {
-  let { id, tipo } = useParams()
-  const tabla = "exposiciones" + tipo[0].toUpperCase() + tipo.slice(1)
+  let { id } = useParams()
   const { data } = useQuery({
-    queryKey: [tabla, id],
-    queryFn: () => fetchOne(tabla, id),
+    queryKey: ["exposiciones", id],
+    queryFn: () => fetchOne("exposiciones", id),
   })
   return (
     <>
@@ -22,7 +21,7 @@ function ExposicionesUpdate() {
 }
 export default ExposicionesUpdate
 
-export async function action({ params, request }) {
+export async function action({ request }) {
   const formData = await request.formData()
 
   const doc = {
@@ -54,11 +53,8 @@ export async function action({ params, request }) {
 
   const id = formData.get("id")
 
-  const tabla =
-    "exposiciones" + params.tipo[0].toUpperCase() + params.tipo.slice(1)
+  await update("exposiciones", id, doc)
 
-  await update(tabla, id, doc)
-
-  queryClient.invalidateQueries({ queryKey: [tabla] })
+  queryClient.invalidateQueries({ queryKey: ["exposiciones"] })
   return redirect(`/exposiciones`)
 }
