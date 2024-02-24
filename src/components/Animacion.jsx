@@ -64,29 +64,34 @@ function Animacion({ showMenu, background, exposiciones }) {
           </Link>
         </div>
       )}
-      {showMenu &&
-        exposiciones?.map((exposicion) => (
-          <motion.div
-            key={exposicion.id}
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            className="text-white absolute top-[20%] left-[2rem] font-normal"
+      {showMenu && exposiciones?.length > 0 && (
+        <motion.div
+          key={exposiciones[exposiciones.length - 1].id}
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          className="text-white absolute top-[20%] left-[2rem] font-normal"
+        >
+          <a
+            href="https://www.jucaclaret.com/es/hector-romero"
+            target="_blank"
+            rel="noreferrer"
           >
-            <a
-              href="https://www.jucaclaret.com/es/hector-romero"
-              target="_blank"
-              rel="noreferrer"
-            >
-              <h1 className="text-xl text-neutral-400">
-                Próximas exposiciones
-              </h1>
-              <h2 className="text-xl">{exposicion.titulo}</h2>
-              <h3 className="text-base">{exposicion.linea2}</h3>
-              <h3 className="text-base">{exposicion.linea3}</h3>
-              <h3 className="text-base">{exposicion.linea4}</h3>
-            </a>
-          </motion.div>
-        ))}
+            <h1 className="text-xl text-neutral-400">Próxima exposición</h1>
+            <h2 className="text-xl">
+              {exposiciones[exposiciones.length - 1].titulo}
+            </h2>
+            <h3 className="text-base">
+              {exposiciones[exposiciones.length - 1].linea2}
+            </h3>
+            <h3 className="text-base">
+              {exposiciones[exposiciones.length - 1].linea3}
+            </h3>
+            <h3 className="text-base">
+              {exposiciones[exposiciones.length - 1].linea4}
+            </h3>
+          </a>
+        </motion.div>
+      )}
       {showMenu && (
         <motion.button
           type="button"

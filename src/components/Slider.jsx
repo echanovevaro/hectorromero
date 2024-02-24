@@ -124,9 +124,9 @@ function Slider({ exposiciones }) {
                       </Link>
                     </div>
                   )}
-                  {exposiciones?.map((exposicion) => (
+                  {exposiciones?.length > 0 && (
                     <motion.div
-                      key={exposicion.id}
+                      key={exposiciones[exposiciones.length - 1].id}
                       initial={{ opacity: 0 }}
                       animate={{ opacity: 1 }}
                       className="text-white absolute top-[20%] left-[2rem] font-normal"
@@ -137,15 +137,23 @@ function Slider({ exposiciones }) {
                         rel="noreferrer"
                       >
                         <h1 className="text-xl text-neutral-400">
-                          Próximas exposiciones
+                          Próxima exposición
                         </h1>
-                        <h2 className="text-xl">{exposicion.titulo}</h2>
-                        <h3 className="text-base">{exposicion.linea2}</h3>
-                        <h3 className="text-base">{exposicion.linea3}</h3>
-                        <h3 className="text-base">{exposicion.linea4}</h3>
+                        <h2 className="text-xl">
+                          {exposiciones[exposiciones.length - 1].titulo}
+                        </h2>
+                        <h3 className="text-base">
+                          {exposiciones[exposiciones.length - 1].linea2}
+                        </h3>
+                        <h3 className="text-base">
+                          {exposiciones[exposiciones.length - 1].linea3}
+                        </h3>
+                        <h3 className="text-base">
+                          {exposiciones[exposiciones.length - 1].linea4}
+                        </h3>
                       </a>
                     </motion.div>
-                  ))}
+                  )}
                 </section>
                 <section className="grid grid-cols-[4fr_1fr_1fr] text-xs lg:text-sm text-neutral-400 pt-2">
                   <div className="col-start-1 col-end-2 flex flex-col">
