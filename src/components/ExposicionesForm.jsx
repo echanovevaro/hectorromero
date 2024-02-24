@@ -64,7 +64,7 @@ function ExposicionesForm({ exposicion }) {
 
   return (
     <section className="bg-gray-50 py-[8rem]">
-      <div className="flex flex-col items-center justify-center px-6 py-8 mx-auto md:h-screen lg:py-0">
+      <div className="flex flex-col items-center justify-center px-6 py-8 mx-auto lg:py-0">
         {error?.message && (
           <div
             className="bg-red-100 border-t border-b border-red-400 text-red-700 px-4 py-3 mb-2"
@@ -110,7 +110,6 @@ function ExposicionesForm({ exposicion }) {
                   {...register("linea2")}
                   className="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-sky-600 focus:border-sky-600 block w-full p-2.5"
                   placeholder="Línea 2"
-                  required
                 />
                 {errors.linea2 && (
                   <span className="text-red-700">{errors.linea2?.message}</span>
@@ -128,7 +127,6 @@ function ExposicionesForm({ exposicion }) {
                   {...register("linea3")}
                   className="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-sky-600 focus:border-sky-600 block w-full p-2.5"
                   placeholder="Línea 3"
-                  required
                 />
                 {errors.linea3 && (
                   <span className="text-red-700">{errors.linea3?.message}</span>
@@ -146,7 +144,6 @@ function ExposicionesForm({ exposicion }) {
                   {...register("linea4")}
                   className="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-sky-600 focus:border-sky-600 block w-full p-2.5"
                   placeholder="Línea 4"
-                  required
                 />
                 {errors.linea4 && (
                   <span className="text-red-700">{errors.linea4?.message}</span>
@@ -181,7 +178,6 @@ function ExposicionesForm({ exposicion }) {
                   type="url"
                   {...register("enlace")}
                   className="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-sky-600 focus:border-sky-600 block w-full p-2.5"
-                  required
                 />
                 {errors.enlace && (
                   <span className="text-red-700">{errors.enlace?.message}</span>

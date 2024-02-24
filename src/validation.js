@@ -106,7 +106,7 @@ export const exposicionSchema = z.object({
   linea3: z.string().max(160, "Máximo 160 caracteres"),
   linea4: z.string().max(160, "Máximo 160 caracteres"),
   fecha: z.coerce.date({ required_error: "Fecha obligatoria" }),
-  enlace: z.string().url({ message: "URL no válida" }),
+  enlace: z.string().trim().url({ message: "URL no válida" }).or(z.literal("")),
   imagen: z
     .instanceof(FileList)
     .refine((files) => !!files?.[0], `Imagen obligatoria.`)
