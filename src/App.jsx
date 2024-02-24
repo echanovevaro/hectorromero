@@ -8,6 +8,7 @@ import {
   logOutWithRedirect,
   deleteAction,
   deletePremioAction,
+  deleteExposicionAction,
 } from "./utils/actions"
 import SerieNew, { action as newAction } from "./pages/SerieNew"
 import { queryClient } from "./http"
@@ -35,6 +36,9 @@ import PremiosUpdate, {
 import ExposicionesNew, {
   action as exposicionesNewAction,
 } from "./pages/ExposicionesNew"
+import ExposicionesUpdate, {
+  action as exposicionesUpdateAction,
+} from "./pages/ExposicionesUpdate"
 
 function App() {
   const router = createBrowserRouter([
@@ -114,6 +118,15 @@ function App() {
           path: "exposiciones/:tipo/new",
           element: <ExposicionesNew />,
           action: exposicionesNewAction,
+        },
+        {
+          path: "exposiciones/:tipo/:id/edit",
+          element: <ExposicionesUpdate />,
+          action: exposicionesUpdateAction,
+        },
+        {
+          path: "exposiciones/:tipo/:id/delete",
+          action: deleteExposicionAction,
         },
         {
           path: "legal",

@@ -35,6 +35,7 @@ function ExposicionesForm({ exposicion }) {
       linea3: exposicion?.linea3 || "",
       linea4: exposicion?.linea4 || "",
       fecha: fechaStr,
+      enlace: exposicion?.enlace || "",
       imagen: undefined,
     },
   })
@@ -58,6 +59,9 @@ function ExposicionesForm({ exposicion }) {
     }
     if (data.imagen[0]) {
       formData.append("imagen", data.imagen[0])
+    }
+    if (data.enlace) {
+      formData.append("enlace", data.enlace)
     }
     submit(formData, { method: "POST", encType: "multipart/form-data" })
   }

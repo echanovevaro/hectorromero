@@ -1,19 +1,26 @@
-import { add, uploadFile } from "../../firebase/config"
-import { ScrollRestoration, redirect } from "react-router-dom"
-import { queryClient } from "../http"
+import { deleteFile, update, uploadFile } from "../../firebase/config"
+import { ScrollRestoration, redirect, useParams } from "react-router-dom"
+import { fetchOne, queryClient } from "../http"
 import MainNavigation from "../components/MainNavigation"
 import ExposicionesForm from "../components/ExposicionesForm"
+import { useQuery } from "@tanstack/react-query"
 
-function ExposicionesNew() {
+function ExposicionesUpdate() {
+  let { id, tipo } = useParams()
+  const tabla = "exposiciones" + tipo[0].toUpperCase() + tipo.slice(1)
+  const { data } = useQuery({
+    queryKey: [tabla, id],
+    queryFn: () => fetchOne(tabla, id),
+  })
   return (
     <>
       <ScrollRestoration />
       <MainNavigation />
-      <ExposicionesForm />
+      {data && <ExposicionesForm exposicion={data} />}
     </>
   )
 }
-export default ExposicionesNew
+export default ExposicionesUpdate
 
 export async function action({ params, request }) {
   const formData = await request.formData()
@@ -21,13 +28,16 @@ export async function action({ params, request }) {
   const doc = {
     titulo: formData.get("titulo").trim(),
     fecha: formData.get("fecha"),
-    createdAt: new Date().toISOString(),
   }
 
-  const image = formData.get("imagen")
-  const { url, ref } = await uploadFile(image)
-  doc.imagenURL = url
-  doc.imagenRef = ref
+  if (formData.has("imagen")) {
+    const imageRef = formData.get("imagenRef")
+    await deleteFile(imageRef)
+    const image = formData.get("imagen")
+    const { url, ref } = await uploadFile(image)
+    doc.imagenURL = url
+    doc.imagenRef = ref
+  }
 
   if (formData.has("linea2")) {
     doc.linea2 = formData.get("linea2").trim()
@@ -42,10 +52,12 @@ export async function action({ params, request }) {
     doc.enlace = formData.get("enlace").trim()
   }
 
+  const id = formData.get("id")
+
   const tabla =
     "exposiciones" + params.tipo[0].toUpperCase() + params.tipo.slice(1)
 
-  await add(tabla, doc)
+  await update(tabla, id, doc)
 
   queryClient.invalidateQueries({ queryKey: [tabla] })
   return redirect(`/exposiciones`)

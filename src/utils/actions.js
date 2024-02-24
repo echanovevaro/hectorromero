@@ -50,3 +50,20 @@ export async function deletePremioAction({ params, request }) {
   queryClient.invalidateQueries({ queryKey: ["premios"] })
   return redirect(`/premios`)
 }
+
+export async function deleteExposicionAction({ params, request }) {
+  const formData = await request.formData()
+  const { id, tipo } = params
+  const tabla = "exposiciones" + tipo[0].toUpperCase() + tipo.slice(1)
+  try {
+    await deleteFile(formData.get("ref"))
+    await remove(tabla, id)
+  } catch (error) {
+    console.log(error)
+    throw new Error("An error ocurred while deleting exposicion", {
+      status: 500,
+    })
+  }
+  queryClient.invalidateQueries({ queryKey: [tabla] })
+  return redirect(`/exposiciones`)
+}

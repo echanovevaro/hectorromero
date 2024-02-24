@@ -1,14 +1,36 @@
 import { motion, useInView } from "framer-motion"
-import { useRef } from "react"
+import { useRef, useState } from "react"
 import { useAuthContext } from "../context/authContext"
 import { Link } from "react-router-dom"
+import Modal from "./Modal"
 
 const Exposiciones = ({ finalizadas, proximas }) => {
+  const [isDeleting, setIsDeleting] = useState(false)
+  const [exposicionToDelete, setExposicionToDelete] = useState()
+  const [tipoToDelete, setTipoToDelete] = useState()
   const ref = useRef(null)
   const refProx = useRef(null)
-  const isInView = useInView(ref, { once: true, amount: 0.2 })
-  const isInViewProx = useInView(refProx, { once: true, amount: 0.2 })
+  const isInView = useInView(ref, { once: true })
+  const isInViewProx = useInView(refProx, { once: true })
   const { currentUser } = useAuthContext()
+  const orederedFinalizadas = finalizadas.sort(
+    (a, b) => new Date(b.fecha).getTime() - new Date(a.fecha).getTime()
+  )
+  const orederedProximas = proximas.sort(
+    (a, b) => new Date(a.fecha).getTime() - new Date(b.fecha).getTime()
+  )
+
+  function handleDelete() {
+    const formData = new FormData()
+    formData.append("ref", exposicionToDelete.imagenRef)
+    setIsDeleting(false)
+    setExposicionToDelete(null)
+    submit(formData, {
+      method: "delete",
+      action: `/exposiciones/${tipoToDelete}/${exposicionToDelete.id}/delete`,
+    })
+    setTipoToDelete(null)
+  }
 
   const ulVariants = {
     open: {
@@ -43,379 +65,245 @@ const Exposiciones = ({ finalizadas, proximas }) => {
   }
 
   return (
-    <div className="px-[1rem] lg:px-[4rem] text-xs max-w-screen-xl mx-auto lg:text-sm">
-      <h1 className="pb-[1rem] uppercase text-base opacity-[0.7]">
-        exposiciones
-      </h1>
-      <section className="mb-[1.5rem]">
-        <h2 className="pb-[0.5rem] text-base">Próximamente</h2>
-        {currentUser && (
-          <div className="mb-4">
-            <Link
-              to="/exposiciones/proximas/new"
-              className="text-sky-400 font-medium"
+    <>
+      {isDeleting && (
+        <Modal onClose={() => setIsDeleting(false)}>
+          <h5 className="mt-2 mb-0 text-neutral-600">
+            Seguro que quieres eliminar este premio?
+          </h5>
+          <div className="flex items-center justify-end gap-2 my-4">
+            <button
+              type="button"
+              className="text-gray-900 hover:text-white border border-gray-800 hover:bg-gray-900 focus:ring-4 focus:outline-none focus:ring-gray-300 font-medium rounded-lg text-sm px-5 py-2 text-center dark:border-gray-600 dark:text-gray-400 dark:hover:text-white dark:hover:bg-gray-600 dark:focus:ring-gray-800"
+              onClick={() => setIsDeleting(false)}
             >
-              Añadir próxima exposición
-            </Link>
+              Cancelar
+            </button>
+            <button
+              type="button"
+              className="text-red-700 hover:text-white border border-red-700 hover:bg-red-800 focus:ring-4 focus:outline-none focus:ring-red-300 font-medium rounded-lg text-sm px-5 py-2 text-center dark:border-red-500 dark:text-red-500 dark:hover:text-white dark:hover:bg-red-600 dark:focus:ring-red-900"
+              onClick={() => handleDelete()}
+            >
+              Eliminar
+            </button>
           </div>
-        )}
-        <motion.ul
-          variants={ulVariants}
-          ref={refProx}
-          initial={ulVariants.closed}
-          animate={isInViewProx ? "open" : "closed"}
-          className="flex flex-col gap-[1rem] items-start flex-nowrap"
-        >
-          {proximas?.map((exposicion) => (
-            <motion.li
-              key={exposicion.id}
-              className={`flex gap-4 justify-center items-start ${
-                exposicion.enlace ? "cursor-pointer" : ""
-              }`}
-              variants={liVariants}
-              initial={liVariants.closed}
-              whileHover={{ scale: 1.05 }}
-              onClick={() => {
-                window.open(exposicion.enlace, "_blank")
-              }}
-            >
-              <img
-                src={exposicion.imagenURL}
-                alt={exposicion.titulo}
-                className="w-20 h-20 object-cover hidden md:block"
-              />
-              <ul>
-                <li>{exposicion.titulo}</li>
-                <li>{exposicion.linea2}</li>
-                <li>{exposicion.linea3}</li>
-                <li>{exposicion.linea4}</li>
-              </ul>
-            </motion.li>
-          ))}
-        </motion.ul>
-      </section>
-      <section>
-        <h2 className="pb-[0.5rem] text-base">Finalizadas</h2>
-        {currentUser && (
-          <div className="mb-4">
-            <Link
-              to="/exposiciones/finalizadas/new"
-              className="text-sky-400 font-medium"
-            >
-              Añadir exposición finalizada
-            </Link>
-          </div>
-        )}
-        <motion.ul
-          variants={ulVariants}
-          ref={ref}
-          initial={ulVariants.closed}
-          animate={isInView ? "open" : "closed"}
-          className="flex flex-col gap-[1rem] items-start flex-nowrap"
-        >
-          <motion.li
-            className="flex gap-4 justify-center items-start"
-            variants={liVariants}
-            initial={liVariants.closed}
+        </Modal>
+      )}
+      <div className="px-[1rem] lg:px-[4rem] text-xs max-w-screen-xl mx-auto lg:text-sm">
+        <h1 className="pb-[1rem] uppercase text-base opacity-[0.7]">
+          exposiciones
+        </h1>
+        <section className="mb-[1.5rem]">
+          {(orederedProximas.length > 0 || currentUser) && (
+            <h2 className="pb-[0.5rem] text-base">Próximamente</h2>
+          )}
+          {currentUser && (
+            <div className="mb-4">
+              <Link
+                to="/exposiciones/proximas/new"
+                className="text-sky-400 font-medium"
+              >
+                Añadir próxima exposición
+              </Link>
+            </div>
+          )}
+          <motion.ul
+            variants={ulVariants}
+            ref={refProx}
+            initial={ulVariants.closed}
+            animate={isInViewProx ? "open" : "closed"}
+            className="flex flex-col gap-[1rem] items-start flex-nowrap"
           >
-            <img
-              src="/exposiciones/menduina.jpg"
-              alt="Menduina & Schneider"
-              className="w-20 h-20 lg:h-30 lg:w-30 object-cover grayscale hover:grayscale-0 hidden md:block"
-            />
-            <ul className="flex flex-col">
-              <span>Menduina & Schneider Art Gallery</span>
-              <span>Los Ángeles, California</span>
-              <span>2022</span>
-            </ul>
-          </motion.li>
-          <motion.li
-            className="flex gap-4 justify-center items-start cursor-pointer"
-            variants={liVariants}
-            initial={liVariants.closed}
-            whileHover={{ scale: 1.05 }}
-            onClick={() => {
-              window.open(
-                "https://www.madsgallery.art/item/4eef4467-6045-4335-a2d9-a58fa51aef2c/artist/he%CC%81ctor-romero",
-                "_blank"
-              )
-            }}
+            {orederedProximas?.map((exposicion) => (
+              <motion.li
+                key={exposicion.id}
+                className={`flex gap-4 justify-center items-start ${
+                  exposicion.enlace ? "cursor-pointer" : ""
+                }`}
+                variants={liVariants}
+                initial={liVariants.closed}
+              >
+                <img
+                  src={exposicion.imagenURL}
+                  alt={exposicion.titulo}
+                  className="w-32 h-32 object-cover hidden md:block border"
+                />
+                <ul>
+                  <li>
+                    {!exposicion.enlace ? (
+                      exposicion.titulo
+                    ) : (
+                      <a
+                        className="underline cursor-pointer"
+                        href={exposicion.enlace}
+                        target="_blank"
+                        rel="noreferrer"
+                      >
+                        {exposicion.titulo}
+                      </a>
+                    )}
+                  </li>
+                  <li>{exposicion.linea2}</li>
+                  <li>{exposicion.linea3}</li>
+                  <li>{exposicion.linea4}</li>
+                </ul>
+                {currentUser && (
+                  <div className="flex gap-1 mt-1">
+                    <Link
+                      to={`/exposiciones/proximas/${exposicion.id}/edit`}
+                      className="text-sky-400"
+                    >
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        fill="none"
+                        viewBox="0 0 24 24"
+                        strokeWidth={1.5}
+                        stroke="currentColor"
+                        className="w-4 h-4"
+                      >
+                        <path
+                          strokeLinecap="round"
+                          strokeLinejoin="round"
+                          d="m16.862 4.487 1.687-1.688a1.875 1.875 0 1 1 2.652 2.652L10.582 16.07a4.5 4.5 0 0 1-1.897 1.13L6 18l.8-2.685a4.5 4.5 0 0 1 1.13-1.897l8.932-8.931Zm0 0L19.5 7.125M18 14v4.75A2.25 2.25 0 0 1 15.75 21H5.25A2.25 2.25 0 0 1 3 18.75V8.25A2.25 2.25 0 0 1 5.25 6H10"
+                        />
+                      </svg>
+                    </Link>
+                    <button
+                      className="text-sky-400"
+                      onClick={() => {
+                        setIsDeleting(true)
+                        setExposicionToDelete(exposicion)
+                        setTipoToDelete("proximas")
+                      }}
+                    >
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        fill="none"
+                        viewBox="0 0 24 24"
+                        strokeWidth={1.5}
+                        stroke="currentColor"
+                        className="w-4 h-4"
+                      >
+                        <path
+                          strokeLinecap="round"
+                          strokeLinejoin="round"
+                          d="m14.74 9-.346 9m-4.788 0L9.26 9m9.968-3.21c.342.052.682.107 1.022.166m-1.022-.165L18.16 19.673a2.25 2.25 0 0 1-2.244 2.077H8.084a2.25 2.25 0 0 1-2.244-2.077L4.772 5.79m14.456 0a48.108 48.108 0 0 0-3.478-.397m-12 .562c.34-.059.68-.114 1.022-.165m0 0a48.11 48.11 0 0 1 3.478-.397m7.5 0v-.916c0-1.18-.91-2.164-2.09-2.201a51.964 51.964 0 0 0-3.32 0c-1.18.037-2.09 1.022-2.09 2.201v.916m7.5 0a48.667 48.667 0 0 0-7.5 0"
+                        />
+                      </svg>
+                    </button>
+                  </div>
+                )}
+              </motion.li>
+            ))}
+          </motion.ul>
+        </section>
+        <section>
+          {(orederedFinalizadas.length > 0 || currentUser) && (
+            <h2 className="pb-[0.5rem] text-base">Finalizadas</h2>
+          )}
+          {currentUser && (
+            <div className="mb-4">
+              <Link
+                to="/exposiciones/finalizadas/new"
+                className="text-sky-400 font-medium"
+              >
+                Añadir exposición finalizada
+              </Link>
+            </div>
+          )}
+          <motion.ul
+            variants={ulVariants}
+            ref={ref}
+            initial={ulVariants.closed}
+            animate={isInView ? "open" : "closed"}
+            className="flex flex-col gap-[1rem] items-start flex-nowrap"
           >
-            <img
-              src="/exposiciones/Hector-Romero-1024x1024.jpg"
-              alt="Mads Milano"
-              className="w-20 h-20 object-cover grayscale hover:grayscale-0 hidden md:block"
-            />
-            <ul className="flex flex-col">
-              <span>Galería de arte Mads Milano</span>
-              <span>Milán</span>
-              <span>Marzo 2021</span>
-            </ul>
-          </motion.li>
-          <motion.li
-            className="flex gap-4 justify-center items-start cursor-pointer"
-            variants={liVariants}
-            initial={liVariants.closed}
-            whileHover={{ scale: 1.05 }}
-            onClick={() => {
-              window.open(
-                "https://www.montsequi.com/exp_09_2020.html",
-                "_blank"
-              )
-            }}
-          >
-            <img
-              src="/exposiciones/escaparate.jpg"
-              alt="Montsequi"
-              className="w-20 h-20 object-cover grayscale hover:grayscale-0 hidden md:block"
-            />
-            <ul className="flex flex-col">
-              <span>Galería de arte Montsequi</span>
-              <span>Madrid</span>
-              <span>Enero 2021</span>
-            </ul>
-          </motion.li>
-          <motion.li
-            className="flex gap-4 justify-center items-start"
-            variants={liVariants}
-            initial={liVariants.closed}
-          >
-            <img
-              src="/exposiciones/Van-gogh.jpg"
-              alt="Feria de arte en Monaco"
-              className="w-20 h-20 object-cover grayscale hover:grayscale-0 hidden md:block"
-            />
-            <ul className="flex flex-col">
-              <span>Feria de arte en Monaco</span>
-              <span>Exposición colectiva</span>
-              <span>2021</span>
-            </ul>
-          </motion.li>
-          <motion.li
-            className="flex gap-4 justify-center items-start"
-            variants={liVariants}
-            initial={liVariants.closed}
-            whileHover={{ scale: 1.05 }}
-            onClick={() => {
-              window.open(
-                "https://www.montsequi.com/exp_09_2020.html",
-                "_blank"
-              )
-            }}
-          >
-            <img
-              src="/exposiciones/montsequi2021.jpg"
-              alt="Montsequi"
-              className="w-20 h-20 object-cover grayscale hover:grayscale-0 hidden md:block"
-            />
-            <ul className="flex flex-col">
-              <span>Galería de arte Montsequi</span>
-              <span>Exposición colectiva</span>
-              <span>Madrid</span>
-              <span>2021</span>
-            </ul>
-          </motion.li>
-          <motion.li
-            className="flex gap-4 justify-center items-start"
-            variants={liVariants}
-            initial={liVariants.closed}
-          >
-            <img
-              src="/exposiciones/HR-arb1.jpg"
-              alt="Pere Casaldáliga de la Claret"
-              className="w-20 h-20 object-cover grayscale hover:grayscale-0 hidden md:block"
-            />
-            <ul className="flex flex-col">
-              <span>
-                XXXIX Muestra internacional y multidisciplinar de arte
-                contemporáneo
-              </span>
-              <span>Sala Pere Casaldáliga de la Claret</span>
-              <span>Barcelona</span>
-              <span>Abril 2020</span>
-            </ul>
-          </motion.li>
-          <motion.li
-            className="flex gap-4 justify-center items-start"
-            variants={liVariants}
-            initial={liVariants.closed}
-          >
-            <img
-              src="/exposiciones/xxxviii_muestra_mont_marzo.jpg"
-              alt="Montesquiu"
-              className="w-20 h-20 object-cover grayscale hover:grayscale-0 hidden md:block"
-            />
-            <ul className="flex flex-col">
-              <span>
-                XXXVIII Muestra internacional y multidisciplinar de arte
-                contemporáneo
-              </span>
-              <span>Barcelona</span>
-              <span>Marzo 2020</span>
-            </ul>
-          </motion.li>
-          <motion.li
-            className="flex gap-4 justify-center items-start cursor-pointer"
-            variants={liVariants}
-            initial={liVariants.closed}
-            whileHover={{ scale: 1.05 }}
-            onClick={() => {
-              window.open(
-                "https://www.jucaclaret.com/es/hector-romero",
-                "_blank"
-              )
-            }}
-          >
-            <img
-              src="/exposiciones/20200306_192922.jpg"
-              alt="Juca Claret"
-              className="w-20 h-20 object-cover grayscale hover:grayscale-0 hidden md:block"
-            />
-            <ul className="flex flex-col">
-              <span>Galería de arte Juca Claret</span>
-              <span>Madrid</span>
-              <span>Marzo 2020</span>
-            </ul>
-          </motion.li>
-          <motion.li
-            className="flex gap-4 justify-center items-start cursor-pointer"
-            variants={liVariants}
-            initial={liVariants.closed}
-            whileHover={{ scale: 1.05 }}
-            onClick={() => {
-              window.open("https://www.abartium.com/galeria-de-arte/", "_blank")
-            }}
-          >
-            <img
-              src="/exposiciones/abartium.jpg"
-              alt="Abartium"
-              className="w-20 h-20 object-cover grayscale hover:grayscale-0 hidden md:block"
-            />
-            <ul className="flex flex-col">
-              <span>Galería de arte Abartium</span>
-              <span>Barcelona</span>
-              <span>Febrero 2020</span>
-            </ul>
-          </motion.li>
-          <motion.li
-            className="flex gap-4 justify-center items-start cursor-pointer"
-            variants={liVariants}
-            initial={liVariants.closed}
-            whileHover={{ scale: 1.05 }}
-            onClick={() => {
-              window.open(
-                "https://www.montsequi.com/exp_01_2020.html",
-                "_blank"
-              )
-            }}
-          >
-            <img
-              src="/exposiciones/2020-1c.jpg"
-              alt="Montsequi"
-              className="w-20 h-20 object-cover grayscale hover:grayscale-0 hidden md:block"
-            />
-            <ul className="flex flex-col">
-              <span>Galería de arte Montsequi</span>
-              <span>Madrid</span>
-              <span>Enero 2020</span>
-            </ul>
-          </motion.li>
-          <motion.li
-            className="flex gap-4 justify-center items-start"
-            variants={liVariants}
-            initial={liVariants.closed}
-          >
-            <img
-              src="/exposiciones/biblioretiro.jpg"
-              alt="Biblioteca (Parque de El Retiro)"
-              className="w-20 h-20 object-cover grayscale hover:grayscale-0 hidden md:block"
-            />
-            <ul className="flex flex-col">
-              <span>Biblioteca (Parque de El Retiro)</span>
-              <span>Madrid</span>
-              <span>Exposición colectiva</span>
-              <span>2019</span>
-            </ul>
-          </motion.li>
-          <motion.li
-            className="flex gap-4 justify-center items-start"
-            variants={liVariants}
-            initial={liVariants.closed}
-          >
-            <img
-              src="/exposiciones/perspectivadual.jpg"
-              alt="Perspectiva Dual"
-              className="w-20 h-20 object-cover grayscale hover:grayscale-0 hidden md:block"
-            />
-            <ul className="flex flex-col">
-              <span>Biblioteca (Parque de El Retiro) Perspectiva Dual</span>
-              <span>Madrid</span>
-              <span>Exposición colectiva</span>
-              <span>2019</span>
-            </ul>
-          </motion.li>
-          <motion.li
-            className="flex gap-4 justify-center items-start"
-            variants={liVariants}
-            initial={liVariants.closed}
-          >
-            <img
-              src="/exposiciones/invasion.jpg"
-              alt="Invasión"
-              className="w-20 h-20 object-cover grayscale hover:grayscale-0 hidden md:block"
-            />
-            <ul className="flex flex-col">
-              <span>Galería de arte Theredoom</span>
-              <span>“Invasión” (intervención artística real/virtual)</span>
-              <span>2018</span>
-            </ul>
-          </motion.li>
-          <motion.li
-            className="flex gap-4 justify-center items-start"
-            variants={liVariants}
-            initial={liVariants.closed}
-          >
-            <img
-              src="/exposiciones/Foto0085.jpg"
-              alt="Exposición colectiva seleccionados pintura rápida parque de El Retiro"
-              className="w-20 h-20 object-cover grayscale hover:grayscale-0 hidden md:block"
-            />
-            <ul className="flex flex-col">
-              <span>
-                Exposición colectiva seleccionados pintura rápida parque de El
-                Retiro
-              </span>
-              <span>
-                Sala Exposiciones Junta Distrito, Daoiz y Velarde y Casa de
-                Vacas (Parque de El Retiro)
-              </span>
-              <span>Madrid</span>
-              <span>2011</span>
-            </ul>
-          </motion.li>
-          <motion.li
-            className="flex gap-4 justify-center items-start"
-            variants={liVariants}
-            initial={liVariants.closed}
-          >
-            <img
-              src="/exposiciones/h2.jpg"
-              alt="Exposición colectiva seleccionados pintura rápida parque de El Retiro"
-              className="w-20 h-20 object-cover grayscale hover:grayscale-0 hidden md:block"
-            />
-            <ul className="flex flex-col">
-              <span>
-                Exposición colectiva seleccionados pintura rápida parque de El
-                Retiro
-              </span>
-              <span>Casa de Vacas (Parque de El Retiro)</span>
-              <span>Madrid</span>
-              <span>2009</span>
-            </ul>
-          </motion.li>
-        </motion.ul>
-      </section>
-    </div>
+            {orederedFinalizadas?.map((exposicion) => (
+              <motion.li
+                key={exposicion.id}
+                className={`flex gap-4 justify-center items-start ${
+                  exposicion.enlace ? "cursor-pointer" : ""
+                }`}
+                variants={liVariants}
+                initial={liVariants.closed}
+              >
+                <img
+                  src={exposicion.imagenURL}
+                  alt={exposicion.titulo}
+                  className="w-32 h-32 object-cover hidden md:block border grayscale hover:grayscale-0 relative"
+                />
+
+                <ul>
+                  <li>
+                    {!exposicion.enlace ? (
+                      exposicion.titulo
+                    ) : (
+                      <a
+                        className="underline cursor-pointer"
+                        href={exposicion.enlace}
+                        target="_blank"
+                        rel="noreferrer"
+                      >
+                        {exposicion.titulo}
+                      </a>
+                    )}
+                  </li>
+                  <li>{exposicion.linea2}</li>
+                  <li>{exposicion.linea3}</li>
+                  <li>{exposicion.linea4}</li>
+                </ul>
+                {currentUser && (
+                  <div className="flex gap-1 mt-1">
+                    <Link
+                      to={`/exposiciones/finalizadas/${exposicion.id}/edit`}
+                      className="text-sky-400"
+                    >
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        fill="none"
+                        viewBox="0 0 24 24"
+                        strokeWidth={1.5}
+                        stroke="currentColor"
+                        className="w-4 h-4"
+                      >
+                        <path
+                          strokeLinecap="round"
+                          strokeLinejoin="round"
+                          d="m16.862 4.487 1.687-1.688a1.875 1.875 0 1 1 2.652 2.652L10.582 16.07a4.5 4.5 0 0 1-1.897 1.13L6 18l.8-2.685a4.5 4.5 0 0 1 1.13-1.897l8.932-8.931Zm0 0L19.5 7.125M18 14v4.75A2.25 2.25 0 0 1 15.75 21H5.25A2.25 2.25 0 0 1 3 18.75V8.25A2.25 2.25 0 0 1 5.25 6H10"
+                        />
+                      </svg>
+                    </Link>
+                    <button
+                      className="text-sky-400"
+                      onClick={() => {
+                        setIsDeleting(true)
+                        setExposicionToDelete(exposicion)
+                        setTipoToDelete("finalizadas")
+                      }}
+                    >
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        fill="none"
+                        viewBox="0 0 24 24"
+                        strokeWidth={1.5}
+                        stroke="currentColor"
+                        className="w-4 h-4"
+                      >
+                        <path
+                          strokeLinecap="round"
+                          strokeLinejoin="round"
+                          d="m14.74 9-.346 9m-4.788 0L9.26 9m9.968-3.21c.342.052.682.107 1.022.166m-1.022-.165L18.16 19.673a2.25 2.25 0 0 1-2.244 2.077H8.084a2.25 2.25 0 0 1-2.244-2.077L4.772 5.79m14.456 0a48.108 48.108 0 0 0-3.478-.397m-12 .562c.34-.059.68-.114 1.022-.165m0 0a48.11 48.11 0 0 1 3.478-.397m7.5 0v-.916c0-1.18-.91-2.164-2.09-2.201a51.964 51.964 0 0 0-3.32 0c-1.18.037-2.09 1.022-2.09 2.201v.916m7.5 0a48.667 48.667 0 0 0-7.5 0"
+                        />
+                      </svg>
+                    </button>
+                  </div>
+                )}
+              </motion.li>
+            ))}
+          </motion.ul>
+        </section>
+      </div>
+    </>
   )
 }
 
