@@ -1,7 +1,7 @@
 import { motion, useInView } from "framer-motion"
 import { useRef, useState } from "react"
 import { useAuthContext } from "../context/authContext"
-import { Link } from "react-router-dom"
+import { Link, useSubmit } from "react-router-dom"
 import Modal from "./Modal"
 
 const Exposiciones = ({ finalizadas, proximas }) => {
@@ -13,6 +13,8 @@ const Exposiciones = ({ finalizadas, proximas }) => {
   const isInView = useInView(ref, { once: true })
   const isInViewProx = useInView(refProx, { once: true })
   const { currentUser } = useAuthContext()
+  const submit = useSubmit()
+
   const orederedFinalizadas = finalizadas.sort(
     (a, b) => new Date(b.fecha).getTime() - new Date(a.fecha).getTime()
   )
