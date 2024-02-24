@@ -160,8 +160,8 @@ const Premios = ({ data }) => {
               variants={liVariants}
               initial={liVariants.closed}
             >
-              <motion.span
-                whileTap={{ scale: premio.imagenURL ? 1.1 : 1 }}
+              <span
+                className={`${premio.imagenURL ? "underline" : ""}`}
                 onClick={() => {
                   if (premio.imagenURL) {
                     setObraUrl(premio.imagenURL)
@@ -170,7 +170,7 @@ const Premios = ({ data }) => {
                 }}
               >
                 {premio.titulo}
-              </motion.span>
+              </span>
               {currentUser && (
                 <Link
                   to={`/premios/${premio.id}/edit `}

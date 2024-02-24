@@ -67,11 +67,12 @@ function Landing() {
           <Animacion
             showMenu={showMenu}
             background={obrasLandingMovil[0]}
+            exposiciones={exposicionesProximas}
           />
         )}
       </div>
       <div className="portrait:hidden w-full">
-        <Slider />
+        <Slider exposiciones={exposicionesProximas} />
       </div>
       <section
         className={`portrait:absolute portrait:top-[100dvh] landscape:block portrait:inset-x-0 portrait:z-19`}

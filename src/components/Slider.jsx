@@ -6,7 +6,7 @@ import { motion } from "framer-motion"
 import { useAuthContext } from "../context/authContext"
 import { Link } from "react-router-dom"
 
-function Slider() {
+function Slider({ exposiciones }) {
   const [current, setCurrent] = useState(0)
   const timeout = useRef(null)
   const { currentUser } = useAuthContext()
@@ -124,28 +124,28 @@ function Slider() {
                       </Link>
                     </div>
                   )}
-
-                  <motion.div
-                    initial={{ opacity: 0 }}
-                    animate={{ opacity: 1 }}
-                    className="text-white absolute top-[20%] left-[2rem] font-normal"
-                  >
-                    <a
-                      href="https://www.jucaclaret.com/es/hector-romero"
-                      target="_blank"
-                      rel="noreferrer"
+                  {exposiciones?.map((exposicion) => (
+                    <motion.div
+                      key={exposicion.id}
+                      initial={{ opacity: 0 }}
+                      animate={{ opacity: 1 }}
+                      className="text-white absolute top-[20%] left-[2rem] font-normal"
                     >
-                      <h1 className="text-xl text-neutral-400">
-                        Próximas exposiciones
-                      </h1>
-                      <h2 className="text-xl">JUSTMAD 2024</h2>
-                      <h3 className="text-base">Contemporary Art Fair</h3>
-                      <h3 className="text-base">
-                        7 - 10 marzo Palacio Neptuno (Madrid)
-                      </h3>
-                      <h3 className="text-base">Stand E7 Luca Claret</h3>
-                    </a>
-                  </motion.div>
+                      <a
+                        href="https://www.jucaclaret.com/es/hector-romero"
+                        target="_blank"
+                        rel="noreferrer"
+                      >
+                        <h1 className="text-xl text-neutral-400">
+                          Próximas exposiciones
+                        </h1>
+                        <h2 className="text-xl">{exposicion.titulo}</h2>
+                        <h3 className="text-base">{exposicion.linea2}</h3>
+                        <h3 className="text-base">{exposicion.linea3}</h3>
+                        <h3 className="text-base">{exposicion.linea4}</h3>
+                      </a>
+                    </motion.div>
+                  ))}
                 </section>
                 <section className="grid grid-cols-[4fr_1fr_1fr] text-xs lg:text-sm text-neutral-400 pt-2">
                   <div className="col-start-1 col-end-2 flex flex-col">

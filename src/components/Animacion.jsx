@@ -4,7 +4,7 @@ import { useAuthContext } from "../context/authContext"
 import { Link } from "react-router-dom"
 import { useEffect } from "react"
 
-function Animacion({ showMenu, background }) {
+function Animacion({ showMenu, background, exposiciones }) {
   const parallax = useParallax({
     speed: -50,
   })
@@ -64,25 +64,29 @@ function Animacion({ showMenu, background }) {
           </Link>
         </div>
       )}
-      {showMenu && (
-        <motion.div
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          className="text-white absolute top-[20%] left-[2rem] font-normal"
-        >
-          <a
-            href="https://www.jucaclaret.com/es/hector-romero"
-            target="_blank"
-            rel="noreferrer"
+      {showMenu &&
+        exposiciones?.map((exposicion) => (
+          <motion.div
+            key={exposicion.id}
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            className="text-white absolute top-[20%] left-[2rem] font-normal"
           >
-            <h1 className="text-xl text-neutral-400">Próximas exposiciones</h1>
-            <h2 className="text-xl">JUSTMAD 2024</h2>
-            <h3 className="text-base">Contemporary Art Fair</h3>
-            <h3 className="text-base">7 - 10 marzo Palacio Neptuno (Madrid)</h3>
-            <h3 className="text-base">Stand E7 Luca Claret</h3>
-          </a>
-        </motion.div>
-      )}
+            <a
+              href="https://www.jucaclaret.com/es/hector-romero"
+              target="_blank"
+              rel="noreferrer"
+            >
+              <h1 className="text-xl text-neutral-400">
+                Próximas exposiciones
+              </h1>
+              <h2 className="text-xl">{exposicion.titulo}</h2>
+              <h3 className="text-base">{exposicion.linea2}</h3>
+              <h3 className="text-base">{exposicion.linea3}</h3>
+              <h3 className="text-base">{exposicion.linea4}</h3>
+            </a>
+          </motion.div>
+        ))}
       {showMenu && (
         <motion.button
           type="button"

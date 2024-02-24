@@ -9,8 +9,8 @@ const Exposiciones = ({ finalizadas, proximas }) => {
   const [exposicionToDelete, setExposicionToDelete] = useState()
   const ref = useRef(null)
   const refProx = useRef(null)
-  const isInView = useInView(ref, { once: true })
-  const isInViewProx = useInView(refProx, { once: true })
+  const isInView = useInView(ref, { once: true, amount: 0.1 })
+  const isInViewProx = useInView(refProx, { once: true, amount: 0.1 })
   const { currentUser } = useAuthContext()
   const submit = useSubmit()
 
