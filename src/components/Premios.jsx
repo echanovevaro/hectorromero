@@ -172,7 +172,10 @@ const Premios = ({ data }) => {
                 {premio.titulo}
               </motion.span>
               {currentUser && (
-                <Link to={`/premios/${premio.id}/edit `}>
+                <Link
+                  to={`/premios/${premio.id}/edit `}
+                  className="text-sky-400"
+                >
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
                     fill="none"
@@ -191,6 +194,7 @@ const Premios = ({ data }) => {
               )}
               {currentUser && (
                 <button
+                  className="text-sky-400"
                   onClick={() => {
                     setIsDeleting(true)
                     setPremioToDelete(premio)

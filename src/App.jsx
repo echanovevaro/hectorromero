@@ -32,6 +32,9 @@ import PremiosNew, { action as premiosNewAction } from "./pages/PremiosNew"
 import PremiosUpdate, {
   action as premiosUpdateAction,
 } from "./pages/PremiosUpdate"
+import ExposicionesNew, {
+  action as exposicionesNewAction,
+} from "./pages/ExposicionesNew"
 
 function App() {
   const router = createBrowserRouter([
@@ -106,6 +109,11 @@ function App() {
         {
           path: "exposiciones",
           element: <ExposicionesPage />,
+        },
+        {
+          path: "exposiciones/:tipo/new",
+          element: <ExposicionesNew />,
+          action: exposicionesNewAction,
         },
         {
           path: "legal",

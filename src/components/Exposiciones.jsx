@@ -1,11 +1,14 @@
 import { motion, useInView } from "framer-motion"
 import { useRef } from "react"
+import { useAuthContext } from "../context/authContext"
+import { Link } from "react-router-dom"
 
-const Exposiciones = () => {
+const Exposiciones = ({ finalizadas, proximas }) => {
   const ref = useRef(null)
   const refProx = useRef(null)
   const isInView = useInView(ref, { once: true, amount: 0.2 })
   const isInViewProx = useInView(refProx, { once: true, amount: 0.2 })
+  const { currentUser } = useAuthContext()
 
   const ulVariants = {
     open: {
@@ -46,6 +49,16 @@ const Exposiciones = () => {
       </h1>
       <section className="mb-[1.5rem]">
         <h2 className="pb-[0.5rem] text-base">Próximamente</h2>
+        {currentUser && (
+          <div className="mb-4">
+            <Link
+              to="/exposiciones/proximas/new"
+              className="text-sky-400 font-medium"
+            >
+              Añadir próxima exposición
+            </Link>
+          </div>
+        )}
         <motion.ul
           variants={ulVariants}
           ref={refProx}
@@ -53,34 +66,46 @@ const Exposiciones = () => {
           animate={isInViewProx ? "open" : "closed"}
           className="flex flex-col gap-[1rem] items-start flex-nowrap"
         >
-          <motion.li
-            className="flex gap-4 justify-center items-start cursor-pointer"
-            variants={liVariants}
-            initial={liVariants.closed}
-            whileHover={{ scale: 1.05 }}
-            onClick={() => {
-              window.open(
-                "https://www.jucaclaret.com/es/hector-romero",
-                "_blank"
-              )
-            }}
-          >
-            <img
-              src="/bd6c7264-a48f-4b54-a009-2bc793e44177.jpeg"
-              alt="Próximas exposiciones"
-              className="w-20 h-20 object-cover hidden md:block"
-            />
-            <ul>
-              <li>JUSTMAD 2024</li>
-              <li>Contemporary Art Fair</li>
-              <li>7 - 10 marzo Palacio Neptuno (Madrid)</li>
-              <li>Stand E7 Luca Claret</li>
-            </ul>
-          </motion.li>
+          {proximas?.map((exposicion) => (
+            <motion.li
+              key={exposicion.id}
+              className={`flex gap-4 justify-center items-start ${
+                exposicion.enlace ? "cursor-pointer" : ""
+              }`}
+              variants={liVariants}
+              initial={liVariants.closed}
+              whileHover={{ scale: 1.05 }}
+              onClick={() => {
+                window.open(exposicion.enlace, "_blank")
+              }}
+            >
+              <img
+                src={exposicion.imagenURL}
+                alt={exposicion.titulo}
+                className="w-20 h-20 object-cover hidden md:block"
+              />
+              <ul>
+                <li>{exposicion.titulo}</li>
+                <li>{exposicion.linea2}</li>
+                <li>{exposicion.linea3}</li>
+                <li>{exposicion.linea4}</li>
+              </ul>
+            </motion.li>
+          ))}
         </motion.ul>
       </section>
       <section>
         <h2 className="pb-[0.5rem] text-base">Finalizadas</h2>
+        {currentUser && (
+          <div className="mb-4">
+            <Link
+              to="/exposiciones/finalizadas/new"
+              className="text-sky-400 font-medium"
+            >
+              Añadir exposición finalizada
+            </Link>
+          </div>
+        )}
         <motion.ul
           variants={ulVariants}
           ref={ref}

@@ -28,9 +28,14 @@ function Landing() {
     queryKey: ["landingMovil"],
     queryFn: () => fetchAll("landingMovil"),
   })
-
-  console.log(obrasLandingMovil)
-  console.log(obraData)
+  const { data: exposicionesFinalizadas } = useQuery({
+    queryKey: ["exposicionesFinalizadas"],
+    queryFn: () => fetchAll("exposicionesFinalizadas"),
+  })
+  const { data: exposicionesProximas } = useQuery({
+    queryKey: ["exposicionesProximas"],
+    queryFn: () => fetchAll("exposicionesProximas"),
+  })
 
   useEffect(() => {
     const timeout = setTimeout(() => {
@@ -66,7 +71,12 @@ function Landing() {
           <About />
         </div>
         <div className="pb-6 pt-[2rem] bg-gray-100">
-          <Exposiciones />
+          {exposicionesFinalizadas && exposicionesProximas && (
+            <Exposiciones
+              finalizadas={exposicionesFinalizadas}
+              proximas={exposicionesProximas}
+            />
+          )}
         </div>
         <div className="pb-12 pt-[2rem] bg-white">
           {premiosData && <Premios data={premiosData} />}
