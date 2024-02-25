@@ -33,8 +33,8 @@ const ObraMenu = ({ data }) => {
   }, [data])
 
   return (
-    <div className="max-w-screen-xl mx-auto">
-      <h1 className="uppercase text-base opacity-[0.7] ms-[1rem] lg:ms-[4rem]">
+    <div className="max-w-[1600px] mx-auto text-xs lg:text-sm xl:text-base">
+      <h1 className="uppercase text-base opacity-[0.7] ms-[1rem] lg:ms-[4rem] lg:text-xl xl:text-2xl">
         obra
       </h1>
       <div
@@ -42,7 +42,7 @@ const ObraMenu = ({ data }) => {
         className="square-responsive"
       >
         <div
-          className="div-text lg:text-sm"
+          className="div-text lg:text-base"
           style={{
             opacity: isInView ? 1 : 0,
             transition: "all 0.5s cubic-bezier(0.17, 0.55, 0.55, 1) 1.25s",
@@ -105,7 +105,7 @@ const ObraMenu = ({ data }) => {
           <div className="h-full border-t border-neutral-400 "></div>
           <Link
             to={`/obra/${data[0].serie}`}
-            className="absolute top-0 right-0 lg:text-sm capitalize"
+            className="absolute top-0 right-0 capitalize"
           >
             {data[0].serie === "animaciones" ? "animación" : data[0].serie}
           </Link>
@@ -156,7 +156,7 @@ const ObraMenu = ({ data }) => {
           <div className="h-full border-b border-neutral-400"></div>
           <Link
             to={`/obra/${data[1].serie}`}
-            className="absolute bottom-0 right-0 lg:text-sm capitalize"
+            className="absolute bottom-0 right-0 capitalize"
           >
             {data[1].serie === "animaciones" ? "animación" : data[1].serie}
           </Link>
@@ -207,7 +207,7 @@ const ObraMenu = ({ data }) => {
           <div className="h-full border-t border-neutral-400"></div>
           <Link
             to={`/obra/${data[2].serie}`}
-            className="absolute top-0 left-0 lg:text-sm capitalize"
+            className="absolute top-0 left-0  capitalize"
           >
             {data[2].serie === "animaciones" ? "animación" : data[2].serie}
           </Link>
@@ -257,7 +257,7 @@ const ObraMenu = ({ data }) => {
           <div className="h-full border-b border-neutral-400"></div>
           <Link
             to={`/obra/${data[3].serie}`}
-            className="absolute bottom-0 left-0 lg:text-sm capitalize"
+            className="absolute bottom-0 left-0  capitalize"
           >
             {data[3].serie === "animaciones" ? "animación" : data[3].serie}
           </Link>
@@ -323,7 +323,7 @@ const ObraMenu = ({ data }) => {
           <div className="h-full border-t border-neutral-400"></div>
           <Link
             to={`/obra/${data[4].serie}`}
-            className="absolute top-0 right-0 lg:text-sm capitalize"
+            className="absolute top-0 right-0  capitalize"
           >
             {data[4].serie === "animaciones" ? "animación" : data[4].serie}
           </Link>

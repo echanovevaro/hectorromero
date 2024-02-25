@@ -261,26 +261,26 @@ export default function MainNavigation() {
         </AnimatePresence>
       </nav>
       <motion.div
-        className="fixed top-0 left-0 w-screen z-20 h-[4rem] shadow-md bg-white"
+        className="fixed top-0 left-0 w-screen z-20 min-h-[4rem] shadow-md bg-white"
         initial={{ y: -60 }}
         animate={{ y: 0 }}
         transition={{ duration: 0.5 }}
       >
         <nav
-          className={`px-4 lg:px-[3.5rem] max-w-screen-xl mx-auto flex justify-between items-center bg-white uppercase h-[4rem]`}
+          className={`px-4 lg:px-[4rem] max-w-[1600px] mx-auto flex justify-between items-center bg-white uppercase min-h-[4rem]`}
         >
           <motion.h1>
             <Link to="/">
               <img
                 src="/logo.png"
-                className="h-2.5 opacity-[0.5]"
+                className="h-2.5 lg:h-3 x:.h-4 opacity-[0.5]"
               />
             </Link>
             {currentUser && (
               <span className="text-neutral-300 ml-1"> ADMIN MODE</span>
             )}
           </motion.h1>
-          <ul className="hidden lg:flex text-sm h-full">
+          <ul className="hidden lg:flex text-sm lg.text-base xl:text-xl h-full">
             <li className="py-5">
               {pathname !== "/" ? (
                 <Link to="/">INICIO</Link>

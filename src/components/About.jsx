@@ -8,13 +8,13 @@ const About = () => {
   const isInView = useInView(ref, { once: true, amount: 0.2 })
 
   return (
-    <div className="max-w-screen-xl mx-auto">
-      <h1 className="uppercase pb-[1rem] text-base opacity-[0.7] ms-[1rem] lg:ms-[4rem]">
+    <div className="max-w-[1600px] mx-auto text-xs lg:text-sm xl:text-base">
+      <h1 className="uppercase pb-[1rem] text-base lg:text-xl xl:text-2xl opacity-[0.7] ms-[1rem] lg:ms-[4rem]">
         sobre mí
       </h1>
 
       <div
-        className="square-about lg:text-sm"
+        className="square-about"
         ref={ref}
         style={{
           opacity: isInView ? 1 : 0,
@@ -74,7 +74,7 @@ const About = () => {
             pathname === "/" ? "border-neutral-500" : "border-neutral-300"
           } title-about md:text-xs relative`}
         >
-          <div className="absolute top-1 right-0 text-right flex flex-col">
+          <div className="absolute top-1 right-0 text-right flex flex-col xl:text-sm">
             <span>OBRA Blo questions</span>
             <span>Interaccion</span>
           </div>
@@ -116,7 +116,7 @@ const About = () => {
             pathname === "/" ? "border-neutral-500" : "border-neutral-300"
           } title-about md:text-xs relative`}
         >
-          <div className="absolute top-1 left-0 flex flex-col">
+          <div className="absolute top-1 left-0 flex flex-col xl:text-sm">
             <span>OBRA Futuro bloque</span>
             <span>Interaccion</span>
           </div>

@@ -82,8 +82,8 @@ const Exposiciones = ({ finalizadas, proximas }) => {
           </div>
         </Modal>
       )}
-      <div className="px-[1rem] lg:px-[4rem] text-xs max-w-screen-xl mx-auto lg:text-sm">
-        <h1 className="pb-[1rem] uppercase text-base opacity-[0.7]">
+      <div className="px-[1rem] lg:px-[4rem] text-xs max-w-[1600px] lg:mx-auto lg:text-sm xl:text-base">
+        <h1 className="pb-[1rem] uppercase text-base lg:text-xl xl:text-2xl opacity-[0.7]">
           exposiciones
         </h1>
         {currentUser && (
@@ -98,7 +98,9 @@ const Exposiciones = ({ finalizadas, proximas }) => {
         )}
         <section className="mb-[1.5rem]">
           {proximas?.length > 0 && (
-            <h2 className="pb-[0.5rem] text-base">Próximamente</h2>
+            <h2 className="pb-[0.5rem] text-base lg:text-xl xl:text-xl">
+              Próximamente
+            </h2>
           )}
           <motion.ul
             variants={ulVariants}
@@ -119,7 +121,7 @@ const Exposiciones = ({ finalizadas, proximas }) => {
                 <img
                   src={exposicion.imagenURL}
                   alt={exposicion.titulo}
-                  className="w-32 h-32 object-cover hidden md:block border"
+                  className="xl:w-32 xl:h-32 lg:w-28 gl:h-20 w-20 h-20 object-cover hidden md:block border"
                 />
                 <ul>
                   <li>
@@ -191,7 +193,9 @@ const Exposiciones = ({ finalizadas, proximas }) => {
         </section>
         <section>
           {finalizadas?.length > 0 && (
-            <h2 className="pb-[0.5rem] text-base">Finalizadas</h2>
+            <h2 className="pb-[0.5rem] text-base lg:text-xl xl:text-xl">
+              Finalizadas
+            </h2>
           )}
           <motion.ul
             variants={ulVariants}
@@ -212,7 +216,7 @@ const Exposiciones = ({ finalizadas, proximas }) => {
                 <img
                   src={exposicion.imagenURL}
                   alt={exposicion.titulo}
-                  className="w-32 h-32 object-cover hidden md:block border grayscale hover:grayscale-0 relative"
+                  className="xl:w-32 xl:h-32 lg:w-28 gl:h-20 w-20 h-20 object-cover hidden md:block border grayscale hover:grayscale-0 relative"
                 />
 
                 <ul>

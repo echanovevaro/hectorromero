@@ -77,10 +77,10 @@ function Landing() {
       <section
         className={`portrait:absolute portrait:top-[100dvh] landscape:block portrait:inset-x-0 portrait:z-19`}
       >
-        <div className="bg-white pb-8 pt-[2rem] text-xs">
+        <div className="bg-white pb-8 pt-[2rem]">
           {obraData && <ObraMenu data={obraData} />}
         </div>
-        <div className="bg-neutral-800 text-neutral-400 pt-[2rem] pb-4 text-xs w-full">
+        <div className="bg-neutral-800 text-neutral-400 pt-[2rem] pb-4 w-full">
           <About />
         </div>
         <div className="pb-6 pt-[2rem] bg-gray-100">

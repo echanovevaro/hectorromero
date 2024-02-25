@@ -60,7 +60,7 @@ function Slider({ exposiciones }) {
 
   return (
     <div className="bg-gray-100 h-full p-2">
-      <div className="bg-white my-[1rem] lg:mx-[4rem] mt-[5rem] p-[1rem] max-w-[1152px] xl:mx-auto">
+      <div className="bg-white my-[1rem] lg:mx-[4rem] mt-[5rem] p-[1rem] xl:max-w-[1472px] xl:mx-auto">
         {currentUser && (
           <div className="mb-[1rem]">
             <Link
@@ -155,7 +155,7 @@ function Slider({ exposiciones }) {
                     </motion.div>
                   )}
                 </section>
-                <section className="grid grid-cols-[4fr_1fr_1fr] text-xs lg:text-sm text-neutral-400 pt-2">
+                <section className="grid grid-cols-[4fr_1fr_1fr] text-xs lg:text-sm xl:text-base text-neutral-400 pt-2">
                   <div className="col-start-1 col-end-2 flex flex-col">
                     <span>{slide.titulo}</span>
                     <span className={`${classes.textSmall} lg:text-xs`}>
