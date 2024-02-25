@@ -273,7 +273,7 @@ export default function MainNavigation() {
             <Link to="/">
               <img
                 src="/logo.png"
-                className="h-2.5 lg:h-3 x:.h-4 opacity-[0.5]"
+                className="h-2.5 opacity-[0.5]"
               />
             </Link>
             {currentUser && (
