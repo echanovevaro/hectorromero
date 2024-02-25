@@ -7,8 +7,8 @@ const Privacidad = () => {
     <>
       <ScrollRestoration />
       <MainNavigation />
-      <div className="max-w-screen-xl xl:mx-auto px-[1rem] lg:px-[4rem]">
-        <h1 className="uppercase mt-[6rem] text-base opacity-[0.7] self-start justify-self-start">
+      <div className="max-w-[1600px] xl:mx-auto px-[1rem] lg:px-[4rem] text-xs lg:text-sm xl:text-base">
+        <h1 className="uppercase mt-[6rem] text-base lg:text-xl xl:text-2xl opacity-[0.7] self-start justify-self-start">
           POLÍTICA DE PRIVACIDAD
         </h1>
         <div className="p-[3rem] pt-[1rem]">
