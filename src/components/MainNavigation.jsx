@@ -280,7 +280,7 @@ export default function MainNavigation() {
               <span className="text-neutral-300 ml-1"> ADMIN MODE</span>
             )}
           </motion.h1>
-          <ul className="hidden lg:flex text-sm lg.text-base xl:text-xl h-full">
+          <ul className="hidden lg:flex text-sm lg.text-base h-full">
             <li className="py-5">
               {pathname !== "/" ? (
                 <Link to="/">INICIO</Link>
