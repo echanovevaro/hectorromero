@@ -3,7 +3,7 @@ import { Link } from "react-router-dom"
 
 const Footer = () => {
   return (
-    <footer className="text-xs lg:text-sm xl:text-base text-neutral-400 w-full opacity-80">
+    <footer className="text-xs lg:text-sm  text-neutral-400 w-full opacity-80">
       <div className="square-footer max-w-[1472px] xl:mx-auto px-[1rem] lg:px-[4rem] py-[2rem]">
         <div className="brand">
           <Link
@@ -19,7 +19,7 @@ const Footer = () => {
         <ul className="legal">
           <li>
             <ul>
-              <li className="text-base lg:text-xl ">LEGAL</li>
+              <li className="text-base ">LEGAL</li>
               <motion.li whileTap={{ scale: 1.1 }}>
                 <Link to="/legal">aviso legal</Link>
               </motion.li>
@@ -27,7 +27,7 @@ const Footer = () => {
           </li>
         </ul>
         <ul className="contacto">
-          <li className="text-base lg:text-xl  hidden md:block">CONTACTO</li>
+          <li className="text-base  hidden md:block">CONTACTO</li>
           <li>(+34)645 97 90 39</li>
           <motion.li whileTap={{ scale: 1.1 }}>
             <a href="mailto:art@hectoromero.es">art@hectoromero.es</a>
@@ -116,7 +116,7 @@ const Footer = () => {
           </li>
         </ul>
         <ul className="mapa">
-          <li className="text-base lg:text-xl ">MAPA</li>
+          <li className="text-base ">MAPA</li>
           <motion.li whileTap={{ scale: 1.1 }}>
             <Link to="/obra">obra</Link>
           </motion.li>
@@ -131,7 +131,7 @@ const Footer = () => {
           </motion.li>
         </ul>
         <ul className="series">
-          <li className="text-base lg:text-xl ">OBRA</li>
+          <li className="text-base ">OBRA</li>
           <motion.li whileTap={{ scale: 1.1 }}>
             <Link to="/obra/bloques">bloques</Link>
           </motion.li>
@@ -146,7 +146,7 @@ const Footer = () => {
           </motion.li>
         </ul>
         <ul className="copy flex">
-          <li className="text-base lg:text-xl  hidden md:block">CRÉDITOS</li>
+          <li className="text-base  hidden md:block">CRÉDITOS</li>
           <motion.li whileTap={{ scale: 1.1 }}>
             <a
               href="https://joyful-heliotrope-2ee6a6.netlify.app"
