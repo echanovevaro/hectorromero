@@ -83,7 +83,7 @@ const Exposiciones = ({ finalizadas, proximas }) => {
         </Modal>
       )}
       <div className="px-[1rem] lg:px-[4rem] text-xs max-w-[1600px] lg:mx-auto lg:text-sm xl:text-base">
-        <h1 className="pb-[1rem] uppercase text-base lg:text-xl xl:text-2xl opacity-[0.7]">
+        <h1 className="pb-[1rem] uppercase text-base lg:text-xl  opacity-[0.7]">
           exposiciones
         </h1>
         {currentUser && (

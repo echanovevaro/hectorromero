@@ -131,7 +131,7 @@ const Premios = ({ data }) => {
         )}
       </AnimatePresence>
       <div className="bg-white px-[1rem] lg:px-[4rem] text-xs w-full lg:text-sm xl:text-base max-w-[1600px] xl:mx-auto">
-        <h1 className="pb-[1rem] uppercase text-base lg:text-xl xl:text-2xl opacity-[0.7]">
+        <h1 className="pb-[1rem] uppercase text-base lg:text-xl  opacity-[0.7]">
           premios y menciones
         </h1>
         {currentUser && (

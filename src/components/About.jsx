@@ -9,7 +9,7 @@ const About = () => {
 
   return (
     <div className="max-w-[1600px] mx-auto text-xs lg:text-sm xl:text-base">
-      <h1 className="uppercase pb-[1rem] text-base lg:text-xl xl:text-2xl opacity-[0.7] ms-[1rem] lg:ms-[4rem]">
+      <h1 className="uppercase pb-[1rem] text-base lg:text-xl  opacity-[0.7] ms-[1rem] lg:ms-[4rem]">
         sobre mí
       </h1>
 
