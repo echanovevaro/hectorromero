@@ -1,24 +1,24 @@
-import { useActionData, useNavigation, useSubmit } from "react-router-dom"
-import { exposicionSchema, exposicionUpdateSchema } from "../validation"
-import { useForm } from "react-hook-form"
-import { zodResolver } from "@hookform/resolvers/zod"
-import { useState } from "react"
+import { useActionData, useNavigation, useSubmit } from "react-router-dom";
+import { exposicionSchema, exposicionUpdateSchema } from "../validation";
+import { useForm } from "react-hook-form";
+import { zodResolver } from "@hookform/resolvers/zod";
+import { useState } from "react";
 
 function ExposicionesForm({ exposicion }) {
-  const [imagePreview, setImagePreview] = useState(null)
-  const error = useActionData()
-  const navigation = useNavigation()
-  const submit = useSubmit()
-  const isSubmitting = navigation.state === "submitting"
-  let fechaStr = ""
+  const [imagePreview, setImagePreview] = useState(null);
+  const error = useActionData();
+  const navigation = useNavigation();
+  const submit = useSubmit();
+  const isSubmitting = navigation.state === "submitting";
+  let fechaStr = "";
   if (exposicion) {
-    const fechaDate = new Date(exposicion?.fecha)
+    const fechaDate = new Date(exposicion?.fecha);
     fechaStr =
       fechaDate.getFullYear() +
       "-" +
       ("0" + (fechaDate.getMonth() + 1)).substr(-2) +
       "-" +
-      ("0" + fechaDate.getDate()).substr(-2)
+      ("0" + fechaDate.getDate()).substr(-2);
   }
 
   const {
@@ -38,33 +38,33 @@ function ExposicionesForm({ exposicion }) {
       enlace: exposicion?.enlace || "",
       imagen: undefined,
     },
-  })
+  });
 
   const onSubmit = (data) => {
-    const formData = new FormData()
-    formData.append("titulo", data.titulo)
-    formData.append("fecha", data.fecha)
+    const formData = new FormData();
+    formData.append("titulo", data.titulo);
+    formData.append("fecha", data.fecha);
     if (exposicion) {
-      formData.append("id", exposicion.id)
-      formData.append("imagenRef", exposicion.imagenRef)
+      formData.append("id", exposicion.id);
+      formData.append("imagenRef", exposicion.imagenRef);
     }
     if (data.linea2) {
-      formData.append("linea2", data.linea2)
+      formData.append("linea2", data.linea2);
     }
     if (data.linea3) {
-      formData.append("linea3", data.linea3)
+      formData.append("linea3", data.linea3);
     }
     if (data.linea4) {
-      formData.append("linea4", data.linea4)
+      formData.append("linea4", data.linea4);
     }
     if (data.imagen[0]) {
-      formData.append("imagen", data.imagen[0])
+      formData.append("imagen", data.imagen[0]);
     }
     if (data.enlace) {
-      formData.append("enlace", data.enlace)
+      formData.append("enlace", data.enlace);
     }
-    submit(formData, { method: "POST", encType: "multipart/form-data" })
-  }
+    submit(formData, { method: "POST", encType: "multipart/form-data" });
+  };
 
   return (
     <section className="bg-gray-50 py-[5rem] min-h-screen">
@@ -159,8 +159,8 @@ function ExposicionesForm({ exposicion }) {
                   htmlFor="fecha"
                   className="block mb-2 text-sm font-medium text-gray-900"
                 >
-                  Fecha Fin (no visible, para ordenación cronológica y
-                  separación)
+                  Fecha Fin (no visible, para ordenación cronológica y separar
+                  finalizadas)
                 </label>
                 <input
                   type="date"
@@ -231,6 +231,6 @@ function ExposicionesForm({ exposicion }) {
         </div>
       </div>
     </section>
-  )
+  );
 }
-export default ExposicionesForm
+export default ExposicionesForm;
