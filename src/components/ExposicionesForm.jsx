@@ -67,8 +67,8 @@ function ExposicionesForm({ exposicion }) {
   }
 
   return (
-    <section className="bg-gray-50 py-[8rem]">
-      <div className="flex flex-col items-center justify-center px-6 py-8 mx-auto lg:py-0">
+    <section className="bg-gray-50 py-[5rem] min-h-screen">
+      <div className="flex flex-col items-center justify-center">
         {error?.message && (
           <div
             className="bg-red-100 border-t border-b border-red-400 text-red-700 px-4 py-3 mb-2"

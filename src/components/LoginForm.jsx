@@ -41,8 +41,8 @@ export default function LoginForm() {
   }
 
   return (
-    <section className="bg-gray-50 py-[5rem]">
-      <div className="h-screen flex flex-col items-center justify-center px-6 py-8 mx-auto md:h-screen lg:py-0">
+    <section className="bg-gray-50 py-[5rem] min-h-screen">
+      <div className="flex flex-col items-center justify-center h-full">
         {isPasswordReset && (
           <div
             className="bg-blue-100 border-t border-b border-blue-500 text-blue-700 px-4 py-3 mb-2"
