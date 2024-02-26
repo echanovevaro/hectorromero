@@ -130,7 +130,7 @@ const Premios = ({ data }) => {
           </motion.div>
         )}
       </AnimatePresence>
-      <div className="bg-white mx-[1rem] lg:mx-[4rem] text-xs w-full lg:text-sm xl:text-base max-w-[1472px] min-[1600px]:mx-auto">
+      <div className="bg-white mx-[1rem] lg:mx-[4rem] text-xs lg:text-sm xl:text-base max-w-[1472px] min-[1600px]:mx-auto">
         <h1 className="pb-[1rem] uppercase text-base lg:text-xl  opacity-[0.7]">
           premios y menciones
         </h1>
