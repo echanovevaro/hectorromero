@@ -261,15 +261,15 @@ export default function MainNavigation() {
         </AnimatePresence>
       </nav>
       <motion.div
-        className="fixed top-0 left-0 w-screen z-20 min-h-[4rem] shadow-md bg-white"
+        className="fixed top-0 left-0 w-screen z-20 shadow-md bg-white"
         initial={{ y: -60 }}
         animate={{ y: 0 }}
         transition={{ duration: 0.5 }}
       >
         <nav
-          className={`px-[1rem] lg:px-[4rem] max-w-[1600px] min-[1600px]:mx-auto flex justify-between items-center bg-white uppercase min-h-[4rem]`}
+          className={`px-[1rem] lg:px-[4rem] max-w-[1600px] min-[1600px]:mx-auto flex justify-between items-center bg-white uppercase`}
         >
-          <motion.h1>
+          <motion.h1 className="py-5">
             <Link to="/">
               <img
                 src="/logo.png"
@@ -315,7 +315,7 @@ export default function MainNavigation() {
                   />
                 </svg>
               </motion.button>
-              <ul className="obra-dropdown hidden absolute bg-white divide-y divide-gray-100 border border-gray-100 lowercase">
+              <ul className="obra-dropdown hidden absolute z-[-1] bg-white divide-y divide-gray-100 border border-gray-100 lowercase">
                 <motion.li
                   whileTap={{ scale: 1.1 }}
                   className="px-4 py-2 block"
