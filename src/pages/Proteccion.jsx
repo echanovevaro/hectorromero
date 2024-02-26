@@ -7,7 +7,7 @@ const Proteccion = () => {
     <>
       <ScrollRestoration />
       <MainNavigation />
-      <div className="max-w-[1472px] min-[1600px]:mx-auto mx-[1rem] lg:mx-[4rem] text-xs lg:text-sm xl:text-base">
+      <div className="max-w-[1344px] min-[1600px]:mx-auto mx-[1rem] lg:mx-[8rem] text-xs lg:text-sm xl:text-base">
         <h1 className="uppercase mt-[6rem] text-base lg:text-xl  opacity-[0.7] self-start ms-[1rem] justify-self-start">
           PROTECCIÓN DE DATOS
         </h1>

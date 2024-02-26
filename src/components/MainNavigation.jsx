@@ -267,9 +267,9 @@ export default function MainNavigation() {
         transition={{ duration: 0.5 }}
       >
         <nav
-          className={`px-[1rem] lg:px-[4rem] max-w-[1600px] min-[1600px]:mx-auto flex justify-between items-center bg-white uppercase`}
+          className={`px-[1rem] lg:px-[8rem] max-w-[1600px] min-[1600px]:mx-auto flex justify-between items-center bg-white uppercase`}
         >
-          <motion.h1 className="py-5">
+          <motion.h1 className="py-4">
             <Link to="/">
               <img
                 src="/logo.png"
@@ -281,7 +281,7 @@ export default function MainNavigation() {
             )}
           </motion.h1>
           <ul className="hidden lg:flex text-sm lg.text-base h-full">
-            <li className="py-5">
+            <li className="py-4">
               {pathname !== "/" ? (
                 <Link to="/">INICIO</Link>
               ) : (
@@ -291,7 +291,7 @@ export default function MainNavigation() {
             <li className="menu-obra">
               <motion.button
                 whileTap={{ scale: 1.1 }}
-                className="flex items-center gap-2 py-5"
+                className="flex items-center gap-2 py-4"
                 onClick={() => {
                   if (pathname !== "/obra") {
                     navigate("/obra")
@@ -371,7 +371,7 @@ export default function MainNavigation() {
             </li>
 
             <motion.li
-              className="py-5"
+              className="py-4"
               whileTap={{ scale: 1.1 }}
             >
               {pathname !== "/exposiciones" ? (
@@ -381,7 +381,7 @@ export default function MainNavigation() {
               )}
             </motion.li>
             <motion.li
-              className="py-5"
+              className="py-4"
               whileTap={{ scale: 1.1 }}
             >
               {pathname !== "/premios" ? (
@@ -391,7 +391,7 @@ export default function MainNavigation() {
               )}
             </motion.li>
             <motion.li
-              className="py-5"
+              className="py-4"
               whileTap={{ scale: 1.1 }}
             >
               {pathname !== "/sobre-mi" ? (
@@ -406,7 +406,7 @@ export default function MainNavigation() {
             {currentUser && (
               <motion.li
                 whileTap={{ scale: 1.1 }}
-                className="py-5"
+                className="py-4"
               >
                 <RouterForm
                   method="post"

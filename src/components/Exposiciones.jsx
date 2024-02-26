@@ -82,7 +82,7 @@ const Exposiciones = ({ finalizadas, proximas }) => {
           </div>
         </Modal>
       )}
-      <div className="mx-[1rem] lg:mx-[4rem] text-xs max-w-[1472px] min-[1600px]:mx-auto lg:text-sm xl:text-base">
+      <div className="mx-[1rem] lg:mx-[8rem] text-xs max-w-[1344px] min-[1600px]:mx-auto lg:text-sm xl:text-base">
         <h1 className="uppercase text-base lg:text-xl opacity-[0.7] mb-[2rem]">
           exposiciones
         </h1>
