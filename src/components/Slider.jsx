@@ -60,7 +60,7 @@ function Slider({ exposiciones }) {
 
   return (
     <div className="bg-gray-100 h-full p-2">
-      <div className="bg-white my-[1rem] lg:mx-[4rem] mt-[5rem] p-[1rem] xl:max-w-[1472px] xl:mx-auto">
+      <div className="bg-white my-[1rem] mx-[1rem] lg:mx-[4rem] mt-[5rem] p-[1rem] xl:max-w-[1472px] min-[1600px]:mx-auto">
         {currentUser && (
           <div className="mb-[1rem]">
             <Link
@@ -89,7 +89,9 @@ function Slider({ exposiciones }) {
           <div key={index}>
             {index === current && (
               <>
-                <section className={`${classes.banner} h-[60dvh] xl:h-[70dvh]`}>
+                <section
+                  className={`${classes.banner} h-[calc((100dvw-32px)/2)] lg:h-[calc((100dvw-128px)/2)] min-[1600px]:h-[calc(1472px/2)]`}
+                >
                   <motion.img
                     variants={{
                       hidden: { opacity: 0 },
