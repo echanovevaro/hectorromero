@@ -14,7 +14,7 @@ const About = () => {
       </h1>
 
       <div
-        className="square-about"
+        className="square-about mt-[2rem]"
         ref={ref}
         style={{
           opacity: isInView ? 1 : 0,
