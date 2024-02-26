@@ -267,7 +267,7 @@ export default function MainNavigation() {
         transition={{ duration: 0.5 }}
       >
         <nav
-          className={`px-4 lg:px-[4rem] max-w-[1600px] mx-auto flex justify-between items-center bg-white uppercase min-h-[4rem]`}
+          className={`px-[1rem] lg:px-[4rem] max-w-[1600px] min-[1600px]:mx-auto flex justify-between items-center bg-white uppercase min-h-[4rem]`}
         >
           <motion.h1>
             <Link to="/">

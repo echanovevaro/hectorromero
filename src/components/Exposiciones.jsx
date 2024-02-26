@@ -121,7 +121,7 @@ const Exposiciones = ({ finalizadas, proximas }) => {
                 <img
                   src={exposicion.imagenURL}
                   alt={exposicion.titulo}
-                  className="xl:w-32 xl:h-32 lg:w-28 gl:h-20 w-20 h-20 object-cover hidden md:block border"
+                  className="xl:w-32 xl:h-32 lg:w-28 lg:h-28 w-20 h-20 object-cover hidden md:block border"
                 />
                 <ul>
                   <li>
@@ -216,7 +216,7 @@ const Exposiciones = ({ finalizadas, proximas }) => {
                 <img
                   src={exposicion.imagenURL}
                   alt={exposicion.titulo}
-                  className="xl:w-32 xl:h-32 lg:w-28 gl:h-20 w-20 h-20 object-cover hidden md:block border grayscale hover:grayscale-0 relative"
+                  className="xl:w-32 xl:h-32 lg:w-28 lg:h-28 w-20 h-20 object-cover hidden md:block border grayscale hover:grayscale-0 relative"
                 />
 
                 <ul>

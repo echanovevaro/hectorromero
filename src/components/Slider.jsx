@@ -59,7 +59,7 @@ function Slider({ exposiciones }) {
   }
 
   return (
-    <div className="bg-gray-100 h-full p-2">
+    <div className="bg-gray-100 p-1 w-screen">
       <div className="bg-white my-[1rem] mx-[1rem] lg:mx-[4rem] mt-[5rem] p-[1rem] xl:max-w-[1472px] min-[1600px]:mx-auto">
         {currentUser && (
           <div className="mb-[1rem]">
