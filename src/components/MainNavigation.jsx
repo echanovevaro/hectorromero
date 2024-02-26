@@ -269,7 +269,7 @@ export default function MainNavigation() {
         <nav
           className={`px-[1rem] lg:px-[8rem] max-w-[1600px] min-[1600px]:mx-auto flex justify-between items-center bg-white uppercase`}
         >
-          <motion.h1 className="py-4">
+          <motion.h1 className="py-5">
             <Link to="/">
               <img
                 src="/logo.png"
