@@ -90,7 +90,7 @@ function Slider({ exposiciones }) {
             {index === current && (
               <>
                 <section
-                  className={`${classes.banner} h-[calc((100dvw-32px)/2)] lg:h-[calc((100dvw-128px)/2)] min-[1600px]:h-[calc(1472px/2)]`}
+                  className={`${classes.banner} h-[calc((100dvw-32px)/2.5)] lg:h-[calc((100dvw-128px)/2.5)] min-[1600px]:h-[calc(1472px/2.5)]`}
                 >
                   <motion.img
                     variants={{
