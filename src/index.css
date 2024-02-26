@@ -266,7 +266,6 @@ footer {
 }
 
 .square-about {
-  padding: 1rem;
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   grid-template-rows: repeat(4, auto);
@@ -360,7 +359,6 @@ footer {
 
   .square-about {
     grid-template-columns: repeat(4, 1fr) !important;
-    padding: 1rem 4rem !important;
   }
 
   .about-8 {
@@ -377,10 +375,6 @@ footer {
     margin-top: 0 !important;
     padding: unset;
     gap: 1.8rem;
-  }
-
-  .square-responsive {
-    padding: 1rem 4rem !important;
   }
 }
 
@@ -491,7 +485,6 @@ footer {
 }
 
 .square-responsive {
-  padding: 1rem;
   display: grid;
   grid-template-columns: 5fr 3fr repeat(2, 5fr) 3fr 5fr;
   grid-template-rows: 5fr 3fr repeat(2, 5fr) 3fr repeat(2, 5fr) 3fr auto;

@@ -33,10 +33,8 @@ const ObraMenu = ({ data }) => {
   }, [data])
 
   return (
-    <div className="max-w-[1600px] mx-auto text-xs lg:text-sm xl:text-base">
-      <h1 className="uppercase text-base opacity-[0.7] ms-[1rem] lg:ms-[4rem] lg:text-xl ">
-        obra
-      </h1>
+    <div className="max-w-[1472px] min-[1600px:mx-auto mx-[1rem] lg:mx-[5rem] text-xs lg:text-sm xl:text-base">
+      <h1 className="uppercase text-base opacity-[0.7] lg:text-xl ">obra</h1>
       <div
         ref={ref}
         className="square-responsive"

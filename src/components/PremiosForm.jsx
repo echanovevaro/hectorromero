@@ -52,7 +52,7 @@ function PremiosForm({ premio }) {
 
   return (
     <section className="bg-gray-50 py-[5rem]">
-      <div className="flex flex-col items-center justify-center px-6 py-8 mx-auto lg:py-0">
+      <div className="flex flex-col items-center justify-center px-6 py-8 mx-auto">
         {error?.message && (
           <div
             className="bg-red-100 border-t border-b border-red-400 text-red-700 px-4 py-3 mb-2"
