@@ -434,7 +434,7 @@ footer {
   }
 }
 
-@media screen and (min-width: 1280px) {
+/* @media screen and (min-width: 1280px) {
 
 
   .square-responsive {
@@ -457,7 +457,7 @@ footer {
   .div-text {
     grid-area: 1 / 8 / 4 / 11 !important;
   }
-}
+} */
 
 @media screen and (orientation: landscape) and (max-width: 1024px) {
 

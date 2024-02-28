@@ -59,10 +59,43 @@ function Slider({ exposiciones }) {
   }
 
   return (
-    <div className="bg-gray-100 p-1 w-screen">
-      <div className="bg-white my-[1rem] mx-[1rem] lg:mx-[8rem] mt-[4rem] p-[1rem] xl:max-w-[1344px] min-[1600px]:mx-auto">
+    <div className="bg-gray-100 p-1 w-screen min-h-screen flex items-center justify-center">
+      <div className="bg-white w-[calc(100dvw-2rem)] lg:w-[calc(100dvw-16rem)] mt-[4rem] p-2 xl:max-w-[calc(1600px-16rem)] min-[1600px]:mx-auto my-4 relative">
+        <div className="absolute top-0 left-0 w-1/2 h-full z-10 bg-white bg-opacity-80 shadow-md border border-neutral-300">
+          {exposiciones?.length > 0 && (
+            <motion.div
+              key={exposiciones[exposiciones.length - 1].id}
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              className="flex items-center justify-center h-full"
+            >
+              <a
+                className="flex flex-col items-center justify-center gap-2 cursor-pointer border-2 border-neutral-400 bg-white bg-opacity-50 p-4"
+                href={exposiciones[exposiciones.length - 1].enlace}
+                target="_blank"
+                rel="noreferrer"
+              >
+                <h1 className="text-xs uppercase text-neutral-300">
+                  exposición
+                </h1>
+                <h2 className="text-sm font-medium">
+                  {exposiciones[exposiciones.length - 1].titulo}
+                </h2>
+                <h3 className="text-[12px] mt-[-0.5rem]">
+                  {exposiciones[exposiciones.length - 1].linea2}
+                </h3>
+                <h3 className="text-xs uppercase font-normal mt-[0.5rem]">
+                  {exposiciones[exposiciones.length - 1].linea3}
+                </h3>
+                <h3 className="text-[12px] mt-[-0.5rem]">
+                  {exposiciones[exposiciones.length - 1].linea4}
+                </h3>
+              </a>
+            </motion.div>
+          )}
+        </div>
         {currentUser && (
-          <div className="mb-[1rem]">
+          <div className="mb-[1rem] float-right">
             <Link
               to="/landing/puO8PFL8kfjRYs0ld94H/edit"
               className="text-sky-400 font-medium flex gap-2"
@@ -90,7 +123,7 @@ function Slider({ exposiciones }) {
             {index === current && (
               <>
                 <section
-                  className={`${classes.banner} h-[calc((100dvw-32px)/2.5)] lg:h-[calc((100dvw-16rem)/2.5)] min-[1600px]:h-[calc(1472px/2.5)]`}
+                  className={`${classes.banner} h-[calc((100dvw-2rem-1rem)/2)] lg:h-[calc((100dvw-16rem-1rem)/2)] min-[1600px]:[calc((1600px-16rem-1rem)/2)]`}
                 >
                   <motion.img
                     variants={{
@@ -102,6 +135,7 @@ function Slider({ exposiciones }) {
                     transition={{ duration: 2 }}
                     src={slide.imagenURL}
                     alt={slide.titulo}
+                    className="absolute top-0 right-0 h-full w-auto"
                   />
                   {currentUser && (
                     <div className="absolute top-[1rem] right-[1rem] text-white">
@@ -126,50 +160,16 @@ function Slider({ exposiciones }) {
                       </Link>
                     </div>
                   )}
-                  {exposiciones?.length > 0 && (
-                    <motion.div
-                      key={exposiciones[exposiciones.length - 1].id}
-                      initial={{ opacity: 0 }}
-                      animate={{ opacity: 1 }}
-                      className="text-white absolute top-[20%] left-[2rem] font-normal"
-                    >
-                      <a
-                        href="https://www.jucaclaret.com/es/hector-romero"
-                        target="_blank"
-                        rel="noreferrer"
-                      >
-                        <h1 className="text-xl text-neutral-400">
-                          Próxima exposición
-                        </h1>
-                        <h2 className="text-xl">
-                          {exposiciones[exposiciones.length - 1].titulo}
-                        </h2>
-                        <h3 className="text-base">
-                          {exposiciones[exposiciones.length - 1].linea2}
-                        </h3>
-                        <h3 className="text-base">
-                          {exposiciones[exposiciones.length - 1].linea3}
-                        </h3>
-                        <h3 className="text-base">
-                          {exposiciones[exposiciones.length - 1].linea4}
-                        </h3>
-                      </a>
-                    </motion.div>
-                  )}
                 </section>
-                <section className="grid grid-cols-[4fr_1fr_1fr] text-xs lg:text-sm xl:text-base text-neutral-400 pt-2">
-                  <div className="col-start-1 col-end-2 flex flex-col">
+                <section className="grid grid-cols-[1fr_1fr] text-xs lg:text-sm xl:text-base text-neutral-400 pt-2">
+                  <div className="col-start-2 col-end-3 flex items-center justify-between ps-2">
                     <span>{slide.titulo}</span>
-                    <span className={`${classes.textSmall} lg:text-xs`}>
-                      {slide.descripcion}
+
+                    <span className="capitalize">Serie {slide.serie}</span>
+                    <span>
+                      {current + 1} | {data.length}
                     </span>
                   </div>
-                  <span className="col-start-2 col-end-3 capitalize">
-                    Serie {slide.serie}
-                  </span>
-                  <span className="col-start-3 col-end-4">
-                    {current + 1} | {data.length}
-                  </span>
                 </section>
               </>
             )}
