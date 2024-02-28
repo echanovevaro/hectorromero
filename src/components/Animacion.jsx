@@ -69,6 +69,7 @@ function Animacion({ showMenu, background, exposiciones }) {
           key={exposiciones[exposiciones.length - 1].id}
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
+          transition={{ duration: 2.5, delay: 1 }}
           className="absolute top-[5rem] left-[50%] translate-x-[-50%] z-10 text-white cursor-pointer"
         >
           <a
