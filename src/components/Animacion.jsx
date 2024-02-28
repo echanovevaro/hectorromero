@@ -69,24 +69,27 @@ function Animacion({ showMenu, background, exposiciones }) {
           key={exposiciones[exposiciones.length - 1].id}
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
-          className="text-white absolute top-[20%] left-[2rem] font-normal"
+          className="absolute top-[4rem] left-[50%] translate-x-[-50%] z-10 text-white cursor-pointer"
         >
           <a
-            href="https://www.jucaclaret.com/es/hector-romero"
+            className="flex flex-col justify-center items-center gap-[0.7rem] cursor-pointer p-1  opacity-80"
+            href={exposiciones[exposiciones.length - 1].enlace}
             target="_blank"
             rel="noreferrer"
           >
-            <h1 className="text-xl text-neutral-400">Próxima exposición</h1>
-            <h2 className="text-xl">
+            {/* <h1 className="text-[13.5px]  uppercase font-semibold opacity-50">
+              próxima exposición
+            </h1> */}
+            <h2 className="text-[21px] font-medium">
               {exposiciones[exposiciones.length - 1].titulo}
             </h2>
-            <h3 className="text-base">
+            <h3 className="text-[13px] mt-[-0.7rem]">
               {exposiciones[exposiciones.length - 1].linea2}
             </h3>
-            <h3 className="text-base">
+            <h3 className="text-[13px] uppercase font-medium">
               {exposiciones[exposiciones.length - 1].linea3}
             </h3>
-            <h3 className="text-base">
+            <h3 className="text-[12px] mt-[-0.7rem]">
               {exposiciones[exposiciones.length - 1].linea4}
             </h3>
           </a>
