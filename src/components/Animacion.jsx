@@ -69,7 +69,7 @@ function Animacion({ showMenu, background, exposiciones }) {
           key={exposiciones[exposiciones.length - 1].id}
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
-          className="absolute top-[4rem] left-[50%] translate-x-[-50%] z-10 text-white cursor-pointer"
+          className="absolute top-[5rem] left-[50%] translate-x-[-50%] z-10 text-white cursor-pointer"
         >
           <a
             className="flex flex-col justify-center items-center gap-[0.7rem] cursor-pointer p-1  opacity-80"
