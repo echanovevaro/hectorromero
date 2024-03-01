@@ -1,44 +1,41 @@
-import { useInView } from "framer-motion"
-import { useEffect, useRef } from "react"
-import { Link, useNavigate } from "react-router-dom"
-import { useAuthContext } from "../context/authContext"
+import { useInView } from "framer-motion";
+import { useEffect, useRef } from "react";
+import { Link, useNavigate } from "react-router-dom";
+import { useAuthContext } from "../context/authContext";
 
 const ObraMenu = ({ data }) => {
-  const ref = useRef(null)
-  const isInView = useInView(ref, { once: true, amount: 0.2 })
-  const navigate = useNavigate()
-  const { currentUser } = useAuthContext()
+  const ref = useRef(null);
+  const isInView = useInView(ref, { once: true, amount: 0.2 });
+  const navigate = useNavigate();
+  const { currentUser } = useAuthContext();
 
   useEffect(() => {
     if (data?.length) {
       const imgLoader = function (obra) {
-        var link = document.createElement("link")
-        link.rel = "preload"
-        link.as = "image"
-        link.href = obra.imagenURL
+        var link = document.createElement("link");
+        link.rel = "preload";
+        link.as = "image";
+        link.href = obra.imagenURL;
 
-        document.head.appendChild(link)
-      }
+        document.head.appendChild(link);
+      };
       data?.forEach((obra) => {
-        imgLoader(obra)
-      })
+        imgLoader(obra);
+      });
     }
 
     return () => {
-      const links = document.querySelector('link[rel="preload"]')
+      const links = document.querySelector('link[rel="preload"]');
       if (links && links.length > 0) {
-        links.forEach((el) => el.remove())
+        links.forEach((el) => el.remove());
       }
-    }
-  }, [data])
+    };
+  }, [data]);
 
   return (
     <div className="max-w-[1344px] min-[1600px]:mx-auto mx-[1rem] lg:mx-[8rem] text-xs lg:text-sm xl:text-base pb-16">
       <h1 className="uppercase text-base opacity-[0.7] lg:text-xl ">obra</h1>
-      <div
-        ref={ref}
-        className="square-responsive mt-[2rem]"
-      >
+      <div ref={ref} className="square-responsive mt-[2rem]">
         <div
           className="div-text lg:text-base"
           style={{
@@ -71,10 +68,7 @@ const ObraMenu = ({ data }) => {
           />
           {currentUser && (
             <div className="absolute top-[0.5rem] right-[0.5rem] z-1 text-white">
-              <Link
-                className="z-10"
-                to={`/obra/${data[0].id}/edit `}
-              >
+              <Link className="z-10" to={`/obra/${data[0].id}/edit `}>
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
                   fill="none"
@@ -122,10 +116,7 @@ const ObraMenu = ({ data }) => {
           />
           {currentUser && (
             <div className="absolute top-[0.5rem] right-[0.5rem] z-1 text-white">
-              <Link
-                className="z-10"
-                to={`/obra/${data[1].id}/edit `}
-              >
+              <Link className="z-10" to={`/obra/${data[1].id}/edit `}>
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
                   fill="none"
@@ -173,10 +164,7 @@ const ObraMenu = ({ data }) => {
           />
           {currentUser && (
             <div className="absolute top-[0.5rem] right-[0.5rem] z-1 text-white">
-              <Link
-                className="z-10"
-                to={`/obra/${data[2].id}/edit `}
-              >
+              <Link className="z-10" to={`/obra/${data[2].id}/edit `}>
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
                   fill="none"
@@ -223,10 +211,7 @@ const ObraMenu = ({ data }) => {
           />
           {currentUser && (
             <div className="absolute top-[0.5rem] right-[0.5rem] z-1 text-white">
-              <Link
-                className="z-10"
-                to={`/obra/${data[3].id}/edit `}
-              >
+              <Link className="z-10" to={`/obra/${data[3].id}/edit `}>
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
                   fill="none"
@@ -263,7 +248,7 @@ const ObraMenu = ({ data }) => {
         <div
           className="div5a overflow-hidden relative cursor-pointer"
           style={{
-            transform: isInView ? "unset" : "translateX(-60px)",
+            transform: isInView ? "unset" : "translateY(60px)",
             opacity: isInView ? 1 : 0,
             transition: "all 1.25s cubic-bezier(0.17, 0.55, 0.55, 1)",
           }}
@@ -289,10 +274,7 @@ const ObraMenu = ({ data }) => {
           />
           {currentUser && (
             <div className="absolute top-[0.5rem] right-[0.5rem] z-1 text-white">
-              <Link
-                className="z-10"
-                to={`/obra/${data[4].id}/edit `}
-              >
+              <Link className="z-10" to={`/obra/${data[4].id}/edit `}>
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
                   fill="none"
@@ -328,7 +310,7 @@ const ObraMenu = ({ data }) => {
         </div>
       </div>
     </div>
-  )
-}
+  );
+};
 
-export default ObraMenu
+export default ObraMenu;

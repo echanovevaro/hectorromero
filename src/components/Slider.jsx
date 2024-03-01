@@ -165,6 +165,7 @@ function Slider({ exposiciones }) {
                     <div className="flex items-center justify-center gap-8">
                       {data.map((el, idx) => (
                         <span
+                          key={idx}
                           className={`${
                             index === idx
                               ? "text-neutral-700"
