@@ -181,7 +181,7 @@ function Slider({ exposiciones }) {
                       ))}
                     </div>
                     <span className="capitalize text-neutral-700">
-                      Serie {slide.serie}
+                      {slide.serie}
                     </span>
                     {/* <span>
                       {current + 1} | {data.length}
