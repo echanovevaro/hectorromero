@@ -158,7 +158,6 @@ const Premios = ({ data }) => {
               initial={liVariants.closed}
             >
               <span
-                className="flex items-center justify-center gap-2"
                 onClick={() => {
                   if (premio.imagenURL) {
                     setObraUrl(premio.imagenURL);
@@ -166,7 +165,7 @@ const Premios = ({ data }) => {
                   }
                 }}
               >
-                {premio.titulo}
+                {premio.titulo} &nbsp;
                 {premio.imagenURL && (
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
@@ -174,7 +173,7 @@ const Premios = ({ data }) => {
                     viewBox="0 0 24 24"
                     strokeWidth={1}
                     stroke="currentColor"
-                    className="w-3 h-3"
+                    className="w-3 h-3 inline"
                   >
                     <path
                       strokeLinecap="round"
