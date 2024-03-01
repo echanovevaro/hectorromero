@@ -161,7 +161,6 @@ const Exposiciones = ({ finalizadas, proximas }) => {
                         href={exposicion.enlace}
                         target="_blank"
                         rel="noreferrer"
-                        className="whitespace-nowrap"
                       >
                         {exposicion.titulo} &nbsp;
                         <svg
