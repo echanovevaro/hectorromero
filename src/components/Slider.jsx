@@ -1,61 +1,63 @@
-import { useEffect, useRef, useState } from "react"
-import classes from "./Slider.module.css"
-import { useQuery } from "@tanstack/react-query"
-import { fetchAll } from "../http"
-import { motion } from "framer-motion"
-import { useAuthContext } from "../context/authContext"
-import { Link } from "react-router-dom"
+import { useEffect, useRef, useState } from "react";
+import classes from "./Slider.module.css";
+import { useQuery } from "@tanstack/react-query";
+import { fetchAll } from "../http";
+import { motion } from "framer-motion";
+import { useAuthContext } from "../context/authContext";
+import { Link } from "react-router-dom";
 
 function Slider({ exposiciones }) {
-  const [current, setCurrent] = useState(0)
-  const timeout = useRef(null)
-  const { currentUser } = useAuthContext()
+  const [current, setCurrent] = useState(0);
+  const timeout = useRef(null);
+  const { currentUser } = useAuthContext();
 
   const { data } = useQuery({
     queryKey: ["landing"],
     queryFn: () => fetchAll("landing"),
-  })
+  });
 
   useEffect(() => {
     if (data?.length) {
       const nextSlide = () => {
-        setCurrent((current) => (current === data.length - 1 ? 0 : current + 1))
-      }
+        setCurrent((current) =>
+          current === data.length - 1 ? 0 : current + 1
+        );
+      };
 
-      timeout.current = setTimeout(nextSlide, 5000)
+      timeout.current = setTimeout(nextSlide, 5000);
     }
     return function () {
       if (timeout.current) {
-        clearTimeout(timeout.current)
+        clearTimeout(timeout.current);
       }
-    }
-  }, [current, data])
+    };
+  }, [current, data]);
 
   useEffect(() => {
     if (data?.length) {
       const imgLoader = function (obra) {
-        var link = document.createElement("link")
-        link.rel = "preload"
-        link.as = "image"
-        link.href = obra.imagenURL
+        var link = document.createElement("link");
+        link.rel = "preload";
+        link.as = "image";
+        link.href = obra.imagenURL;
 
-        document.head.appendChild(link)
-      }
+        document.head.appendChild(link);
+      };
       data?.forEach((obra) => {
-        imgLoader(obra)
-      })
+        imgLoader(obra);
+      });
     }
 
     return () => {
-      const links = document.querySelector('link[rel="preload"]')
+      const links = document.querySelector('link[rel="preload"]');
       if (links && links.length > 0) {
-        links.forEach((el) => el.remove())
+        links.forEach((el) => el.remove());
       }
-    }
-  }, [data])
+    };
+  }, [data]);
 
   if (!Array.isArray(data) || data.length <= 0) {
-    return null
+    return null;
   }
 
   return (
@@ -139,10 +141,7 @@ function Slider({ exposiciones }) {
                   />
                   {currentUser && (
                     <div className="absolute top-[1rem] right-[1rem] text-white">
-                      <Link
-                        className="z-10"
-                        to={`${slide.id}/edit `}
-                      >
+                      <Link className="z-10" to={`${slide.id}/edit `}>
                         <svg
                           xmlns="http://www.w3.org/2000/svg"
                           fill="none"
@@ -163,12 +162,25 @@ function Slider({ exposiciones }) {
                 </section>
                 <section className="grid grid-cols-[1fr_1fr] text-xs lg:text-sm xl:text-base text-neutral-400 pt-2">
                   <div className="col-start-2 col-end-3 flex items-center justify-between ps-2">
-                    <span>{slide.titulo}</span>
-
-                    <span className="capitalize">Serie {slide.serie}</span>
-                    <span>
-                      {current + 1} | {data.length}
+                    <div className="flex items-center justify-center gap-8">
+                      {data.map((el, idx) => (
+                        <span
+                          className={`${
+                            index === idx
+                              ? "text-neutral-700"
+                              : "text-neutral-300"
+                          }`}
+                        >
+                          {el.titulo}
+                        </span>
+                      ))}
+                    </div>
+                    <span className="capitalize text-neutral-700">
+                      Serie {slide.serie}
                     </span>
+                    {/* <span>
+                      {current + 1} | {data.length}
+                    </span> */}
                   </div>
                 </section>
               </>
@@ -177,6 +189,6 @@ function Slider({ exposiciones }) {
         ))}
       </div>
     </div>
-  )
+  );
 }
-export default Slider
+export default Slider;

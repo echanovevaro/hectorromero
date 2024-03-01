@@ -78,8 +78,6 @@ html {
   height: 100%;
 }
 
-
-
 .blur {
   position: absolute;
   inset: 0;
@@ -152,7 +150,7 @@ nav li {
   gap: 0.281rem;
 }
 
-#burguer>div {
+#burguer > div {
   background: #666;
   height: 1px;
   width: 100%;
@@ -313,34 +311,33 @@ footer {
 }
 
 @media screen and (min-width: 1024px) {
-
   .square-responsive {
-    grid-template-columns: 5fr 3fr repeat(2, 5fr) 3fr 5fr 5fr repeat(2, 8fr) 5fr !important;
+    grid-template-columns: 5fr 3fr repeat(2, 5fr) 3fr 5fr repeat(2, 8fr) 5fr 5fr !important;
     grid-template-rows: 5fr 3fr repeat(2, 5fr) 3fr 5fr !important;
   }
 
   .div5a {
-    grid-area: 4 / 8 / 6 / 9 !important;
+    grid-area: 4 / 7 / 6 / 8 !important;
   }
 
   .div5b {
-    grid-area: 4 / 9 / 6 / 10 !important;
+    grid-area: 4 / 8 / 6 / 9 !important;
   }
 
   .div5-label {
-    grid-area: 4 / 10 / 5 / 11 !important;
+    grid-area: 4 / 9 / 5 / 10 !important;
   }
 
   .div-text {
-    grid-area: 1 / 8 / 4 / 11 !important;
+    grid-area: 1 / 7 / 4 / 11 !important;
   }
 
   footer {
     border-radius: 0px;
-    box-shadow: inset -2px -2px 6px rgba(255, 255, 255, .7),
-      inset -2px -2px 4px rgba(255, 255, 255, .5),
-      inset 2px 2px 2px rgba(255, 255, 255, .075),
-      inset 2px 2px 4px rgba(0, 0, 0, .15) !important;
+    box-shadow: inset -2px -2px 6px rgba(255, 255, 255, 0.7),
+      inset -2px -2px 4px rgba(255, 255, 255, 0.5),
+      inset 2px 2px 2px rgba(255, 255, 255, 0.075),
+      inset 2px 2px 4px rgba(0, 0, 0, 0.15) !important;
   }
 
   .square-about {
@@ -433,27 +430,25 @@ footer {
 } */
 
 @media screen and (orientation: landscape) and (max-width: 1024px) {
-
-
   .square-responsive {
-    grid-template-columns: 5fr 3fr repeat(2, 5fr) 3fr 5fr 5fr repeat(2, 8fr) 5fr !important;
+    grid-template-columns: 5fr 3fr repeat(2, 5fr) 3fr 5fr repeat(2, 8fr) 5fr 5fr !important;
     grid-template-rows: 5fr 3fr repeat(2, 5fr) 3fr 5fr !important;
   }
 
   .div5a {
-    grid-area: 4 / 8 / 6 / 9 !important;
+    grid-area: 4 / 7 / 6 / 8 !important;
   }
 
   .div5b {
-    grid-area: 4 / 9 / 6 / 10 !important;
+    grid-area: 4 / 8 / 6 / 9 !important;
   }
 
   .div5-label {
-    grid-area: 4 / 10 / 5 / 11 !important;
+    grid-area: 4 / 9 / 5 / 10 !important;
   }
 
   .div-text {
-    grid-area: 1 / 8 / 4 / 11 !important;
+    grid-area: 1 / 7 / 4 / 10 !important;
   }
 }
 
@@ -482,7 +477,6 @@ footer {
 
 .div1 {
   grid-area: 1 / 1 / 4 / 4;
-
 }
 
 .div4 {
@@ -518,7 +512,7 @@ footer {
 }
 
 .div5b {
-  grid-area: 7 / 4 / 9 / 6
+  grid-area: 7 / 4 / 9 / 6;
 }
 
 .div5-label {
