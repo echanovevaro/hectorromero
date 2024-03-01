@@ -138,8 +138,8 @@ function Slider({ exposiciones }) {
                     src={slide.imagenURL}
                     alt={slide.titulo}
                     className={`${
-                      slide.full === true
-                        ? "object-cover h-full"
+                      slide.full === "true"
+                        ? "object-cover h-full w-full"
                         : "absolute top-0 right-0 h-full w-auto"
                     }`}
                   />
