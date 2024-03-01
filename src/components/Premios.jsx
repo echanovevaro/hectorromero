@@ -174,7 +174,7 @@ const Premios = ({ data }) => {
                     viewBox="0 0 24 24"
                     strokeWidth={1}
                     stroke="currentColor"
-                    className="w-3 h-3 lg:w-4 lg:h-4"
+                    className="w-3 h-3"
                   >
                     <path
                       strokeLinecap="round"
