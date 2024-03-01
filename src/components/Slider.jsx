@@ -62,7 +62,7 @@ function Slider({ exposiciones }) {
 
   return (
     <div className="bg-gray-100 p-1 w-screen flex items-center justify-center">
-      <div className="bg-white w-[calc(100dvw-2rem)] lg:w-[calc(100dvw-16rem)] mt-[4rem] p-2 xl:w-[calc(100dvw-26rem)] min-[1600px]:max-w-[calc(1600px-16rem)] my-4 relative">
+      <div className="bg-white w-[calc(100dvw-2rem)] lg:w-[calc(100dvw-16rem)] mt-[4rem] p-2 xl:w-[calc(100dvw-26rem)] min-[1800px]:w-[calc(1600px-16rem)] my-4 relative">
         <div className="absolute top-0 left-0 w-1/2 h-full z-10 bg-white bg-opacity-80 shadow-md border border-neutral-300">
           {exposiciones?.length > 0 && (
             <motion.div
