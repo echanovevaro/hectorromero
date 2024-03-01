@@ -7,7 +7,7 @@ import { useAuthContext } from "../context/authContext";
 import { Link } from "react-router-dom";
 
 function Slider({ exposiciones }) {
-  const [current, setCurrent] = useState(0);
+  const [current, setCurrent] = useState(3);
   const timeout = useRef(null);
   const { currentUser } = useAuthContext();
 
@@ -16,22 +16,22 @@ function Slider({ exposiciones }) {
     queryFn: () => fetchAll("landing"),
   });
 
-  useEffect(() => {
-    if (data?.length) {
-      const nextSlide = () => {
-        setCurrent((current) =>
-          current === data.length - 1 ? 0 : current + 1
-        );
-      };
+  // useEffect(() => {
+  //   if (data?.length) {
+  //     const nextSlide = () => {
+  //       setCurrent((current) =>
+  //         current === data.length - 1 ? 0 : current + 1
+  //       );
+  //     };
 
-      timeout.current = setTimeout(nextSlide, 5000);
-    }
-    return function () {
-      if (timeout.current) {
-        clearTimeout(timeout.current);
-      }
-    };
-  }, [current, data]);
+  //     timeout.current = setTimeout(nextSlide, 5000);
+  //   }
+  //   return function () {
+  //     if (timeout.current) {
+  //       clearTimeout(timeout.current);
+  //     }
+  //   };
+  // }, [current, data]);
 
   useEffect(() => {
     if (data?.length) {
@@ -138,7 +138,7 @@ function Slider({ exposiciones }) {
                     src={slide.imagenURL}
                     alt={slide.titulo}
                     className={`${
-                      slide.full
+                      slide.full === true
                         ? "object-cover h-full"
                         : "absolute top-0 right-0 h-full w-auto"
                     }`}

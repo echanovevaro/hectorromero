@@ -50,7 +50,7 @@ export const obraLandingSchema = obraEditSchema.extend({
     .string()
     .min(1, "debes seleccionar una serie")
     .refine((serie) => SERIES.includes(serie)),
-  full: z.boolean().optional(),
+  full: z.boolean(),
 });
 
 export const obraMenuSchema = z.object({
