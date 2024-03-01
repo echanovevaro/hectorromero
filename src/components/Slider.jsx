@@ -137,7 +137,11 @@ function Slider({ exposiciones }) {
                     transition={{ duration: 2 }}
                     src={slide.imagenURL}
                     alt={slide.titulo}
-                    className="absolute top-0 right-0 h-full w-auto"
+                    className={`${
+                      slide.full
+                        ? "object-cover h-full"
+                        : "absolute top-0 right-0 h-full w-auto"
+                    }`}
                   />
                   {currentUser && (
                     <div className="absolute top-[1rem] right-[1rem] text-white">
