@@ -136,7 +136,7 @@ const Exposiciones = ({ finalizadas, proximas }) => {
                           viewBox="0 0 24 24"
                           strokeWidth={1}
                           stroke="currentColor"
-                          className="w-2 h-2 lg:w-4 lg:h-4 mt-0.5"
+                          className="w-3 h-3 lg:w-4 lg:h-4 mt-0.5"
                         >
                           <path
                             strokeLinecap="round"
@@ -244,7 +244,7 @@ const Exposiciones = ({ finalizadas, proximas }) => {
                           viewBox="0 0 24 24"
                           strokeWidth={1}
                           stroke="currentColor"
-                          className="w-2 h-2 lg:w-4 lg:h-4 mt-0.5"
+                          className="w-3 h-3 lg:w-4 lg:h-4 mt-0.5"
                         >
                           <path
                             strokeLinecap="round"
