@@ -1,11 +1,11 @@
-import { useLocation } from "react-router-dom"
-import { useInView } from "framer-motion"
-import { useRef } from "react"
+import { useLocation } from "react-router-dom";
+import { useInView } from "framer-motion";
+import { useRef } from "react";
 
 const About = () => {
-  const { pathname } = useLocation()
-  const ref = useRef(null)
-  const isInView = useInView(ref, { once: true, amount: 0.2 })
+  const { pathname } = useLocation();
+  const ref = useRef(null);
+  const isInView = useInView(ref, { once: true, amount: 0.2 });
 
   return (
     <div className="max-w-[1344px] min-[1600px]:mx-auto text-xs lg:text-sm xl:text-base mx-[1rem] lg:mx-[8rem]">
@@ -64,10 +64,7 @@ const About = () => {
           />
         </div>
         <div className="about-3">
-          <img
-            src="/sobre-mi-1.jpg"
-            alt="sobre mí"
-          />
+          <img src="/sobre-mi-1.jpg" alt="sobre mí" />
         </div>
         <div
           className={`about-4 border-t ${
@@ -122,10 +119,7 @@ const About = () => {
           </div>
         </div>
         <div className="about-7">
-          <img
-            src="/sobre-mi-2.jpg"
-            alt="sobre mí"
-          />
+          <img src="/sobre-mi-2.jpg" alt="sobre mí" />
         </div>
         <div className="about-8 content-about md:hidden">
           <p>
@@ -156,7 +150,7 @@ const About = () => {
         </div>
       </div>
     </div>
-  )
-}
+  );
+};
 
-export default About
+export default About;
