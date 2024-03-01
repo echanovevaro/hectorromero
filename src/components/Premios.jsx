@@ -172,9 +172,9 @@ const Premios = ({ data }) => {
                     xmlns="http://www.w3.org/2000/svg"
                     fill="none"
                     viewBox="0 0 24 24"
-                    strokeWidth={1.5}
+                    strokeWidth={1}
                     stroke="currentColor"
-                    className="w-4 h-4 mt-1"
+                    className="w-2 h-2 lg:w-4 lg:h-4 mt-0.5"
                   >
                     <path
                       strokeLinecap="round"
