@@ -150,7 +150,7 @@ const Exposiciones = ({ finalizadas, proximas }) => {
                   className={`block md:flex flex-col justify-end ${
                     index % 2 === 0
                       ? "col-start-3 col-end-5 items-start row-start-1 row-end-2 md:ms-[-1rem]"
-                      : "col-start-1 col-end-3 items-end row-start-1 row-end-2 md:me-[-1rem]"
+                      : "col-start-1 col-end-3 items-end row-start-1 row-end-2 md:me-[-1rem] md:text-right"
                   }`}
                 >
                   <li>
@@ -169,7 +169,7 @@ const Exposiciones = ({ finalizadas, proximas }) => {
                           viewBox="0 0 24 24"
                           strokeWidth={1}
                           stroke="currentColor"
-                          className="w-3 h-3 mt-0.5 inline"
+                          className="w-3 h-3 inline"
                         >
                           <path
                             strokeLinecap="round"
@@ -290,7 +290,7 @@ const Exposiciones = ({ finalizadas, proximas }) => {
                   className={`block md:flex flex-col justify-end ${
                     index % 2 === 0
                       ? "col-start-3 col-end-5 items-start row-start-1 row-end-2 md:ms-[-1rem]"
-                      : "col-start-1 col-end-3 items-end row-start-1 row-end-2 md:me-[-1rem]"
+                      : "col-start-1 col-end-3 items-end row-start-1 row-end-2 md:me-[-1rem] md:text-right"
                   }`}
                 >
                   <li>
@@ -309,7 +309,7 @@ const Exposiciones = ({ finalizadas, proximas }) => {
                           viewBox="0 0 24 24"
                           strokeWidth={1}
                           stroke="currentColor"
-                          className="w-3 h-3 mt-0.5 inline"
+                          className="w-3 h-3 inline"
                         >
                           <path
                             strokeLinecap="round"
