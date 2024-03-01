@@ -1,28 +1,28 @@
-import { motion, useInView } from "framer-motion"
-import { useRef, useState } from "react"
-import { useAuthContext } from "../context/authContext"
-import { Link, useSubmit } from "react-router-dom"
-import Modal from "./Modal"
+import { motion, useInView } from "framer-motion";
+import { useRef, useState } from "react";
+import { useAuthContext } from "../context/authContext";
+import { Link, useSubmit } from "react-router-dom";
+import Modal from "./Modal";
 
 const Exposiciones = ({ finalizadas, proximas }) => {
-  const [isDeleting, setIsDeleting] = useState(false)
-  const [exposicionToDelete, setExposicionToDelete] = useState()
-  const ref = useRef(null)
-  const refProx = useRef(null)
-  const isInView = useInView(ref, { once: true, amount: 0.1 })
-  const isInViewProx = useInView(refProx, { once: true, amount: 0.1 })
-  const { currentUser } = useAuthContext()
-  const submit = useSubmit()
+  const [isDeleting, setIsDeleting] = useState(false);
+  const [exposicionToDelete, setExposicionToDelete] = useState();
+  const ref = useRef(null);
+  const refProx = useRef(null);
+  const isInView = useInView(ref, { once: true, amount: 0.1 });
+  const isInViewProx = useInView(refProx, { once: true, amount: 0.1 });
+  const { currentUser } = useAuthContext();
+  const submit = useSubmit();
 
   function handleDelete() {
-    const formData = new FormData()
-    formData.append("ref", exposicionToDelete.imagenRef)
-    setIsDeleting(false)
-    setExposicionToDelete(null)
+    const formData = new FormData();
+    formData.append("ref", exposicionToDelete.imagenRef);
+    setIsDeleting(false);
+    setExposicionToDelete(null);
     submit(formData, {
       method: "delete",
       action: `/exposiciones/${exposicionToDelete.id}/delete`,
-    })
+    });
   }
 
   const ulVariants = {
@@ -38,7 +38,7 @@ const Exposiciones = ({ finalizadas, proximas }) => {
         staggerDirection: -1,
       },
     },
-  }
+  };
 
   const liVariants = {
     open: {
@@ -55,7 +55,7 @@ const Exposiciones = ({ finalizadas, proximas }) => {
         y: { stiffness: 1000 },
       },
     },
-  }
+  };
 
   return (
     <>
@@ -88,10 +88,7 @@ const Exposiciones = ({ finalizadas, proximas }) => {
         </h1>
         {currentUser && (
           <div className="mb-4">
-            <Link
-              to="/exposiciones/new"
-              className="text-sky-400 font-medium"
-            >
+            <Link to="/exposiciones/new" className="text-sky-400 font-medium">
               Añadir exposición
             </Link>
           </div>
@@ -112,9 +109,7 @@ const Exposiciones = ({ finalizadas, proximas }) => {
             {proximas?.map((exposicion) => (
               <motion.li
                 key={exposicion.id}
-                className={`flex gap-4 justify-center items-start ${
-                  exposicion.enlace ? "cursor-pointer" : ""
-                }`}
+                className={`flex gap-4 justify-center items-start`}
                 variants={liVariants}
                 initial={liVariants.closed}
               >
@@ -129,12 +124,26 @@ const Exposiciones = ({ finalizadas, proximas }) => {
                       exposicion.titulo
                     ) : (
                       <a
-                        className="underline cursor-pointer"
                         href={exposicion.enlace}
                         target="_blank"
                         rel="noreferrer"
+                        className="flex items-center justify-start gap-1"
                       >
                         {exposicion.titulo}
+                        <svg
+                          xmlns="http://www.w3.org/2000/svg"
+                          fill="none"
+                          viewBox="0 0 24 24"
+                          strokeWidth={1.5}
+                          stroke="currentColor"
+                          className="w-4 h-4 mt-1"
+                        >
+                          <path
+                            strokeLinecap="round"
+                            strokeLinejoin="round"
+                            d="m8.25 4.5 7.5 7.5-7.5 7.5"
+                          />
+                        </svg>
                       </a>
                     )}
                   </li>
@@ -166,8 +175,8 @@ const Exposiciones = ({ finalizadas, proximas }) => {
                     <button
                       className="text-sky-400"
                       onClick={() => {
-                        setIsDeleting(true)
-                        setExposicionToDelete(exposicion)
+                        setIsDeleting(true);
+                        setExposicionToDelete(exposicion);
                       }}
                     >
                       <svg
@@ -207,9 +216,7 @@ const Exposiciones = ({ finalizadas, proximas }) => {
             {finalizadas?.map((exposicion) => (
               <motion.li
                 key={exposicion.id}
-                className={`flex gap-4 justify-center items-start ${
-                  exposicion.enlace ? "cursor-pointer" : ""
-                }`}
+                className={`flex gap-4 justify-center items-start`}
                 variants={liVariants}
                 initial={liVariants.closed}
               >
@@ -225,12 +232,26 @@ const Exposiciones = ({ finalizadas, proximas }) => {
                       exposicion.titulo
                     ) : (
                       <a
-                        className="underline cursor-pointer"
+                        className="flex items-center justify-start gap-1"
                         href={exposicion.enlace}
                         target="_blank"
                         rel="noreferrer"
                       >
                         {exposicion.titulo}
+                        <svg
+                          xmlns="http://www.w3.org/2000/svg"
+                          fill="none"
+                          viewBox="0 0 24 24"
+                          strokeWidth={1.5}
+                          stroke="currentColor"
+                          className="w-4 h-4 mt-1"
+                        >
+                          <path
+                            strokeLinecap="round"
+                            strokeLinejoin="round"
+                            d="m8.25 4.5 7.5 7.5-7.5 7.5"
+                          />
+                        </svg>
                       </a>
                     )}
                   </li>
@@ -262,8 +283,8 @@ const Exposiciones = ({ finalizadas, proximas }) => {
                     <button
                       className="text-sky-400"
                       onClick={() => {
-                        setIsDeleting(true)
-                        setExposicionToDelete(exposicion)
+                        setIsDeleting(true);
+                        setExposicionToDelete(exposicion);
                       }}
                     >
                       <svg
@@ -289,7 +310,7 @@ const Exposiciones = ({ finalizadas, proximas }) => {
         </section>
       </div>
     </>
-  )
-}
+  );
+};
 
-export default Exposiciones
+export default Exposiciones;
