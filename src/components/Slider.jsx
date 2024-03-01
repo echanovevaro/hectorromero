@@ -166,7 +166,7 @@ function Slider({ exposiciones }) {
                 </section>
                 <section className="grid grid-cols-[1fr_1fr] text-xs lg:text-sm xl:text-base text-neutral-400 pt-2">
                   <div className="col-start-2 col-end-3 flex items-center justify-between ps-2">
-                    <div className="flex items-center justify-center gap-8">
+                    <div className="flex items-center justify-center gap-4">
                       {data.map((el, idx) => (
                         <span
                           key={idx}
