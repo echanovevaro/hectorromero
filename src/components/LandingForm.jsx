@@ -1,16 +1,16 @@
-import { useActionData, useNavigation, useSubmit } from "react-router-dom";
-import { obraLandingSchema } from "../validation";
-import { useForm } from "react-hook-form";
-import { zodResolver } from "@hookform/resolvers/zod";
-import { useState } from "react";
-import { SERIES } from "../validation";
+import { useActionData, useNavigation, useSubmit } from "react-router-dom"
+import { obraLandingSchema } from "../validation"
+import { useForm } from "react-hook-form"
+import { zodResolver } from "@hookform/resolvers/zod"
+import { useState } from "react"
+import { SERIES } from "../validation"
 
 function LandingForm({ data }) {
-  const [imagePreview, setImagePreview] = useState(null);
-  const error = useActionData();
-  const navigation = useNavigation();
-  const submit = useSubmit();
-  const isSubmitting = navigation.state === "submitting";
+  const [imagePreview, setImagePreview] = useState(null)
+  const error = useActionData()
+  const navigation = useNavigation()
+  const submit = useSubmit()
+  const isSubmitting = navigation.state === "submitting"
 
   const {
     register,
@@ -20,26 +20,24 @@ function LandingForm({ data }) {
     resolver: zodResolver(obraLandingSchema),
     defaultValues: {
       titulo: data?.titulo || "",
-      descripcion: data?.descripcion || "",
       imagen: undefined,
     },
-  });
+  })
 
   const onSubmit = (form) => {
-    const formData = new FormData();
-    formData.append("titulo", form.titulo);
-    formData.append("descripcion", form.descripcion);
-    formData.append("serie", form.serie);
-    formData.append("full", form.full);
+    const formData = new FormData()
+    formData.append("titulo", form.titulo)
+    formData.append("serie", form.serie)
+    formData.append("full", form.full)
     if (data) {
-      formData.append("id", data.id);
-      formData.append("imagenRef", data.imagenRef);
+      formData.append("id", data.id)
+      formData.append("imagenRef", data.imagenRef)
     }
     if (form.imagen[0]) {
-      formData.append("imagen", form.imagen[0]);
+      formData.append("imagen", form.imagen[0])
     }
-    submit(formData, { method: "POST", encType: "multipart/form-data" });
-  };
+    submit(formData, { method: "POST", encType: "multipart/form-data" })
+  }
 
   return (
     <section className="bg-gray-50 py-[5rem] min-h-screen">
@@ -80,26 +78,6 @@ function LandingForm({ data }) {
 
               <div>
                 <label
-                  htmlFor="descripcion"
-                  className="block mb-2 text-sm font-medium text-gray-900"
-                >
-                  Descripción
-                </label>
-                <textarea
-                  {...register("descripcion")}
-                  placeholder="Descripción de la obra"
-                  className="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-sky-600 focus:border-sky-600 block w-full p-2.5"
-                  required
-                />
-                {errors.descripcion && (
-                  <span className="text-red-700">
-                    {errors.descripcion?.message}
-                  </span>
-                )}
-              </div>
-
-              <div>
-                <label
                   htmlFor="serie"
                   className="block mb-2 text-sm font-medium text-gray-900"
                 >
@@ -112,7 +90,10 @@ function LandingForm({ data }) {
                   required
                 >
                   {SERIES.map((serie) => (
-                    <option key={serie} value={serie}>
+                    <option
+                      key={serie}
+                      value={serie}
+                    >
                       {serie}
                     </option>
                   ))}
@@ -132,7 +113,7 @@ function LandingForm({ data }) {
                   type="checkbox"
                   defaultChecked={data?.full === "true"}
                   {...register("full")}
-                  className="w-fit mb-0.5 bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-sky-600 focus:border-sky-600 block w-full p-2.5"
+                  className="mb-0.5 bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-sky-600 focus:border-sky-600 block p-2.5"
                 ></input>
                 {errors.serie && (
                   <span className="text-red-700">{errors.serie?.message}</span>
@@ -181,6 +162,6 @@ function LandingForm({ data }) {
         </div>
       </div>
     </section>
-  );
+  )
 }
-export default LandingForm;
+export default LandingForm
