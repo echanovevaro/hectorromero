@@ -1,63 +1,61 @@
-import { useEffect, useRef, useState } from "react";
-import classes from "./Slider.module.css";
-import { useQuery } from "@tanstack/react-query";
-import { fetchAll } from "../http";
-import { motion } from "framer-motion";
-import { useAuthContext } from "../context/authContext";
-import { Link } from "react-router-dom";
+import { useEffect, useRef, useState } from "react"
+import classes from "./Slider.module.css"
+import { useQuery } from "@tanstack/react-query"
+import { fetchAll } from "../http"
+import { motion } from "framer-motion"
+import { useAuthContext } from "../context/authContext"
+import { Link } from "react-router-dom"
 
 function Slider({ exposiciones }) {
-  const [current, setCurrent] = useState(0);
-  const timeout = useRef(null);
-  const { currentUser } = useAuthContext();
+  const [current, setCurrent] = useState(0)
+  const timeout = useRef(null)
+  const { currentUser } = useAuthContext()
 
   const { data } = useQuery({
     queryKey: ["landing"],
     queryFn: () => fetchAll("landing"),
-  });
+  })
 
   useEffect(() => {
     if (data?.length) {
       const nextSlide = () => {
-        setCurrent((current) =>
-          current === data.length - 1 ? 0 : current + 1
-        );
-      };
+        setCurrent((current) => (current === data.length - 1 ? 0 : current + 1))
+      }
 
-      timeout.current = setTimeout(nextSlide, 5000);
+      timeout.current = setTimeout(nextSlide, 5000)
     }
     return function () {
       if (timeout.current) {
-        clearTimeout(timeout.current);
+        clearTimeout(timeout.current)
       }
-    };
-  }, [current, data]);
+    }
+  }, [current, data])
 
   useEffect(() => {
     if (data?.length) {
       const imgLoader = function (obra) {
-        var link = document.createElement("link");
-        link.rel = "preload";
-        link.as = "image";
-        link.href = obra.imagenURL;
+        var link = document.createElement("link")
+        link.rel = "preload"
+        link.as = "image"
+        link.href = obra.imagenURL
 
-        document.head.appendChild(link);
-      };
+        document.head.appendChild(link)
+      }
       data?.forEach((obra) => {
-        imgLoader(obra);
-      });
+        imgLoader(obra)
+      })
     }
 
     return () => {
-      const links = document.querySelector('link[rel="preload"]');
+      const links = document.querySelector('link[rel="preload"]')
       if (links && links.length > 0) {
-        links.forEach((el) => el.remove());
+        links.forEach((el) => el.remove())
       }
-    };
-  }, [data]);
+    }
+  }, [data])
 
   if (!Array.isArray(data) || data.length <= 0) {
-    return null;
+    return null
   }
 
   return (
@@ -66,7 +64,6 @@ function Slider({ exposiciones }) {
         <div className="absolute top-0 left-0 w-1/2 h-full z-10 bg-white bg-opacity-80 shadow-md border border-neutral-300">
           {exposiciones?.length > 0 && (
             <motion.div
-              key={exposiciones[exposiciones.length - 1].id}
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               className="flex items-center justify-center h-full"
@@ -93,6 +90,19 @@ function Slider({ exposiciones }) {
                   {exposiciones[exposiciones.length - 1].linea4}
                 </h3>
               </a>
+            </motion.div>
+          )}
+          {(!exposiciones || exposiciones.length === 0) && (
+            <motion.div
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              className="flex items-center justify-center h-full"
+            >
+              <div className="flex flex-col items-center justify-center gap-2 cursor-pointer border-2 border-neutral-400 bg-white bg-opacity-50 p-4">
+                <h2 className="text-sm px-2 py-10 font-normal">
+                  Héctor Romero
+                </h2>
+              </div>
             </motion.div>
           )}
         </div>
@@ -145,7 +155,10 @@ function Slider({ exposiciones }) {
                   />
                   {currentUser && (
                     <div className="absolute top-[1rem] right-[1rem] text-white">
-                      <Link className="z-10" to={`${slide.id}/edit `}>
+                      <Link
+                        className="z-10"
+                        to={`${slide.id}/edit `}
+                      >
                         <svg
                           xmlns="http://www.w3.org/2000/svg"
                           fill="none"
@@ -194,6 +207,6 @@ function Slider({ exposiciones }) {
         ))}
       </div>
     </div>
-  );
+  )
 }
-export default Slider;
+export default Slider
