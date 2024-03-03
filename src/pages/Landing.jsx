@@ -1,63 +1,63 @@
-import { useEffect, useState } from "react"
-import MainNavigation from "../components/MainNavigation"
-import ObraMenu from "../components/ObraMenu"
-import Footer from "../components/Footer"
-import About from "../components/About"
-import Premios from "../components/Premios"
-import { ScrollRestoration } from "react-router-dom"
-import Animacion from "../components/Animacion"
-import Slider from "../components/Slider"
-import { useQuery } from "@tanstack/react-query"
-import { fetchAll } from "../http"
-import Exposiciones from "../components/Exposiciones"
+import { useEffect, useState } from "react";
+import MainNavigation from "../components/MainNavigation";
+import ObraMenu from "../components/ObraMenu";
+import Footer from "../components/Footer";
+import About from "../components/About";
+import Premios from "../components/Premios";
+import { ScrollRestoration } from "react-router-dom";
+import Animacion from "../components/Animacion";
+import Slider from "../components/Slider";
+import { useQuery } from "@tanstack/react-query";
+import { fetchAll } from "../http";
+import Exposiciones from "../components/Exposiciones";
 
 function Landing() {
-  const [showMenu, setShowMenu] = useState(false)
+  const [showMenu, setShowMenu] = useState(false);
 
   const { data: obraData } = useQuery({
     queryKey: ["obras"],
     queryFn: () => fetchAll("obras"),
-  })
+  });
 
   const { data: premiosData } = useQuery({
     queryKey: ["premios"],
     queryFn: () => fetchAll("premios"),
-  })
+  });
 
   const { data: obrasLandingMovil } = useQuery({
     queryKey: ["landingMovil"],
     queryFn: () => fetchAll("landingMovil"),
-  })
+  });
   const { data: exposiciones } = useQuery({
     queryKey: ["exposiciones"],
     queryFn: () => fetchAll("exposiciones"),
-  })
+  });
 
   const exposicionesFinalizadas = exposiciones
     ?.filter((exposicion) => {
-      const fecha = new Date(exposicion.fecha)
-      const hoy = new Date()
-      return fecha < hoy
+      const fecha = new Date(exposicion.fecha);
+      const hoy = new Date();
+      return fecha < hoy;
     })
-    .sort((a, b) => new Date(b.fecha) - new Date(a.fecha))
+    .sort((a, b) => new Date(b.fecha) - new Date(a.fecha));
 
   const exposicionesProximas = exposiciones
     ?.filter((exposicion) => {
-      const fecha = new Date(exposicion.fecha)
-      const hoy = new Date()
-      return fecha >= hoy
+      const fecha = new Date(exposicion.fecha);
+      const hoy = new Date();
+      return fecha >= hoy;
     })
-    .sort((a, b) => new Date(b.fecha) - new Date(a.fecha))
+    .sort((a, b) => new Date(b.fecha) - new Date(a.fecha));
 
   useEffect(() => {
     const timeout = setTimeout(() => {
-      setShowMenu(true)
-    }, 2500)
+      setShowMenu(true);
+    }, 2500);
 
     return () => {
-      clearTimeout(timeout)
-    }
-  }, [])
+      clearTimeout(timeout);
+    };
+  }, []);
   return (
     <>
       <ScrollRestoration />
@@ -75,7 +75,7 @@ function Landing() {
         <Slider exposiciones={exposicionesProximas} />
       </div>
       <section
-        className={`portrait:absolute portrait:top-[100dvh] landscape:block portrait:inset-x-0 portrait:z-19`}
+        className={`portrait:absolute portrait:top-[100vh] landscape:block portrait:inset-x-0 portrait:z-19`}
       >
         <div className="bg-white pb-8 pt-[2rem]">
           {obraData && <ObraMenu data={obraData} />}
@@ -99,6 +99,6 @@ function Landing() {
         </div>
       </section>
     </>
-  )
+  );
 }
-export default Landing
+export default Landing;
