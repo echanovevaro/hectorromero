@@ -83,7 +83,7 @@ function Landing() {
         <div className="bg-neutral-800 text-neutral-400 pt-[2rem] pb-4 w-full">
           <About />
         </div>
-        <div className="pb-6 pt-[2rem] bg-gray-100">
+        <div className="pb-6 pt-[2rem] bg-gray-100 hidden md:block">
           {exposiciones && (
             <Exposiciones
               finalizadas={exposicionesFinalizadas}

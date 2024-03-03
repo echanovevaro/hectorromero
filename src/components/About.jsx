@@ -1,11 +1,11 @@
-import { useLocation } from "react-router-dom";
-import { useInView } from "framer-motion";
-import { useRef } from "react";
+import { useLocation } from "react-router-dom"
+import { useInView } from "framer-motion"
+import { useRef } from "react"
 
 const About = () => {
-  const { pathname } = useLocation();
-  const ref = useRef(null);
-  const isInView = useInView(ref, { once: true, amount: 0.2 });
+  const { pathname } = useLocation()
+  const ref = useRef(null)
+  const isInView = useInView(ref, { once: true, amount: 0.2 })
 
   return (
     <div className="max-w-[1344px] min-[1600px]:mx-auto text-xs lg:text-sm xl:text-base mx-[1rem] lg:mx-[8rem]">
@@ -26,7 +26,7 @@ const About = () => {
             Nací en Málaga, pero pronto me voy con mi familia a Madrid, donde
             resido actualmente.
           </p>
-          <p>
+          <p className="hidden md:block">
             De carácter inquieto y creativo, desde siempre tuve claro que mi
             actividad profesional tendría que estar relacionada con el diseño,
             el arte y la creatividad.
@@ -64,7 +64,10 @@ const About = () => {
           />
         </div>
         <div className="about-3">
-          <img src="/sobre-mi-1.jpg" alt="sobre mí" />
+          <img
+            src="/sobre-mi-1.jpg"
+            alt="sobre mí"
+          />
         </div>
         <div
           className={`about-4 border-t ${
@@ -119,7 +122,10 @@ const About = () => {
           </div>
         </div>
         <div className="about-7">
-          <img src="/sobre-mi-2.jpg" alt="sobre mí" />
+          <img
+            src="/sobre-mi-2.jpg"
+            alt="sobre mí"
+          />
         </div>
         <div className="about-8 content-about md:hidden">
           <p>
@@ -132,7 +138,7 @@ const About = () => {
             que deambulan pequeñas sombras, geometrías que se traicionan a si
             mismas.
           </p>
-          <p>
+          {/* <p>
             Me gusta aportar algo más a las obras. Un toque de misterio e
             ilusión óptica, al crear perspectivas forzadas con personajes en
             diferentes planos para poder observar la escena de dos puntos de
@@ -140,7 +146,7 @@ const About = () => {
             proporción a la composición. A veces, se trata de la misma persona,
             representada al mismo tiempo en el mismo lugar, pero en distinto
             punto de vista.
-          </p>
+          </p> */}
           <p className="mb-0">
             Pero más allá del pretendido juego de ilusionismo que al final
             propone todo arte, propongo una reflexión plástica tridimensional
@@ -150,7 +156,7 @@ const About = () => {
         </div>
       </div>
     </div>
-  );
-};
+  )
+}
 
-export default About;
+export default About
