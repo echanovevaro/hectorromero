@@ -100,7 +100,7 @@ function Animacion({ showMenu, background, exposiciones }) {
           whileTap={{ scale: 0.95 }}
           onClick={() => {
             let pageHeight = window.innerHeight;
-            let scroll = pageHeight - window.scrollY - 48;
+            let scroll = pageHeight - window.scrollY - 63;
             window.scrollBy({
               top: scroll,
               left: 0,
