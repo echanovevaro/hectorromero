@@ -132,7 +132,7 @@ export default function Gallery({ coleccion }) {
             )
         })}
       </AnimatePresence>
-      <div className="flex flex-col justify-start items-start gap-2 pt-[5rem] max-w-[1344px] min[1600px]:mx-auto mx-[1rem] lg:mx-[8rem]">
+      <div className="flex flex-row justify-start items-end gap-2 pt-[5rem] max-w-[1344px] min[1600px]:mx-auto mx-[1rem] lg:mx-[8rem]">
         <h1 className="uppercase text-base lg:text-xl  opacity-[0.7]">
           {serie}
         </h1>
