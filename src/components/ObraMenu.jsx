@@ -5,7 +5,7 @@ import { useAuthContext } from "../context/authContext"
 
 const ObraMenu = ({ data }) => {
   const ref = useRef(null)
-  const isInView = useInView(ref, { once: true })
+  const isInView = useInView(ref, { once: true, amount: 0.3 })
   const navigate = useNavigate()
   const { currentUser } = useAuthContext()
 
