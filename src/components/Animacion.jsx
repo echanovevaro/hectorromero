@@ -102,7 +102,7 @@ function Animacion({ showMenu, background, exposiciones }) {
             let pageHeight = window.innerHeight;
             let scroll = pageHeight - window.scrollY - 63;
             window.scrollBy({
-              top: scroll,
+              top: pageHeight,
               left: 0,
               behavior: "smooth",
             });
