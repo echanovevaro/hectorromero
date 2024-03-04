@@ -1,92 +1,92 @@
-import { AnimatePresence, motion } from "framer-motion"
-import { useEffect, useRef, useState } from "react"
-import { Link, useParams, useSubmit } from "react-router-dom"
-import { useAuthContext } from "../context/authContext"
-import Modal from "./Modal"
+import { AnimatePresence, motion } from "framer-motion";
+import { useEffect, useRef, useState } from "react";
+import { Link, useParams, useSubmit } from "react-router-dom";
+import { useAuthContext } from "../context/authContext";
+import Modal from "./Modal";
 
 export default function Gallery({ coleccion }) {
-  const submit = useSubmit()
-  const [isDeleting, setIsDeleting] = useState(false)
-  const [counter, setCounter] = useState(0)
-  const ref = useRef(0)
-  const detalleRef = useRef(0)
-  const firstImgRef = useRef(null)
-  const [loaded, setLoaded] = useState(false)
-  const { currentUser } = useAuthContext()
-  const [fullPage, setFullPage] = useState(false)
-  const { serie } = useParams()
+  const submit = useSubmit();
+  const [isDeleting, setIsDeleting] = useState(false);
+  const [counter, setCounter] = useState(0);
+  const ref = useRef(0);
+  const detalleRef = useRef(0);
+  const firstImgRef = useRef(null);
+  const [loaded, setLoaded] = useState(false);
+  const { currentUser } = useAuthContext();
+  const [fullPage, setFullPage] = useState(false);
+  const { serie } = useParams();
 
   const slideLeft = () => {
-    counter > 0 ? setCounter(counter - 1) : setCounter(coleccion.length - 1)
-    setLoaded(false)
-  }
+    counter > 0 ? setCounter(counter - 1) : setCounter(coleccion.length - 1);
+    setLoaded(false);
+  };
 
   const slideRight = () => {
-    counter < coleccion.length - 1 ? setCounter(counter + 1) : setCounter(0)
-    setLoaded(false)
-  }
+    counter < coleccion.length - 1 ? setCounter(counter + 1) : setCounter(0);
+    setLoaded(false);
+  };
 
   function onPanStart(_, info) {
-    ref.current = info.point.x
+    ref.current = info.point.x;
   }
 
   function onPanEnd(_, info) {
     if (info.point.x < ref.current) {
-      slideRight()
+      slideRight();
     } else if (info.point.x > ref.current) {
-      slideLeft()
+      slideLeft();
     }
   }
 
   function onDetallePanStart(_, info) {
-    detalleRef.current = info.point.y
+    detalleRef.current = info.point.y;
   }
 
   function onDetallePanEnd(_, info) {
     if (info.point.y < detalleRef.current) {
-      setFullPage(false)
+      setFullPage(false);
     }
   }
 
   function handleDelete(obra) {
-    const formData = new FormData()
-    formData.append("ref", obra.imagenRef)
-    setCounter(0)
-    setIsDeleting(false)
+    const formData = new FormData();
+    formData.append("ref", obra.imagenRef);
+    setCounter(0);
+    setIsDeleting(false);
     submit(formData, {
       method: "delete",
       action: `/obra/${serie}/${obra.id}/delete`,
-    })
+    });
   }
 
   useEffect(() => {
-    setCounter(0)
-    setLoaded(false)
+    setCounter(0);
+    setLoaded(false);
     if (firstImgRef.current?.complete) {
-      setLoaded(true)
+      setLoaded(true);
     }
-  }, [serie])
+  }, [serie]);
 
   useEffect(() => {
     const imgLoader = function (obra) {
-      var link = document.createElement("link")
-      link.rel = "preload"
-      link.as = "image"
-      link.href = obra.imagenURL
+      var link = document.createElement("link");
+      link.rel = "preload";
+      link.as = "image";
+      link.href = obra.imagenURL;
 
-      document.head.appendChild(link)
-    }
+      document.head.appendChild(link);
+    };
     coleccion?.forEach((obra) => {
-      imgLoader(obra)
-    })
+      imgLoader(obra);
+    });
 
     return () => {
-      const links = document.querySelector('link[rel="preload"]')
+      const links = document.querySelector('link[rel="preload"]');
       if (links && links.length > 0) {
-        links.forEach((el) => el.remove())
+        links.forEach((el) => el.remove());
       }
-    }
-  }, [coleccion])
+    };
+  }, [coleccion]);
 
   return (
     <>
@@ -96,7 +96,7 @@ export default function Gallery({ coleccion }) {
             return (
               <motion.div
                 variants={{
-                  hidden: { y: "-100dvh" },
+                  hidden: { y: "-100vh" },
                   visible: { y: window.scrollY },
                 }}
                 key={index}
@@ -110,7 +110,7 @@ export default function Gallery({ coleccion }) {
               >
                 <motion.div
                   variants={{
-                    hidden: { y: "-100dvh" },
+                    hidden: { y: "-100vh" },
                     visible: { y: 0 },
                   }}
                   initial="hidden"
@@ -125,11 +125,11 @@ export default function Gallery({ coleccion }) {
                     backgroundImage: `url(${obra.imagenURL})`,
                   }}
                   onClick={() => {
-                    setFullPage(false)
+                    setFullPage(false);
                   }}
                 />
               </motion.div>
-            )
+            );
         })}
       </AnimatePresence>
       <div className="flex flex-row justify-start items-end gap-2 pt-[5rem] max-w-[1344px] min[1600px]:mx-auto mx-[1rem] lg:mx-[8rem]">
@@ -137,10 +137,7 @@ export default function Gallery({ coleccion }) {
           {serie}
         </h1>
         {currentUser && (
-          <Link
-            className="text-sky-400 z-50"
-            to={`/obra/${serie}/new`}
-          >
+          <Link className="text-sky-400 z-50" to={`/obra/${serie}/new`}>
             Añadir
           </Link>
         )}
@@ -232,7 +229,7 @@ export default function Gallery({ coleccion }) {
                         onPanEnd={onPanEnd}
                         onLoad={() => setLoaded(true)}
                         onClick={() => {
-                          setFullPage(true)
+                          setFullPage(true);
                         }}
                       />
                       {currentUser && loaded && (
@@ -325,7 +322,7 @@ export default function Gallery({ coleccion }) {
                     <span className="text-neutral-400">{obra.descripcion}</span>
                   </div>
                 </motion.div>
-              )
+              );
           })}
         </div>
         <div className="w-[80vw]">
@@ -345,10 +342,10 @@ export default function Gallery({ coleccion }) {
                     "00" + arr.length
                   ).slice(-2)}`}</li>
                 </ul>
-              )
+              );
           })}
         </div>
       </div>
     </>
-  )
+  );
 }
