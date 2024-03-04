@@ -148,7 +148,7 @@ nav li {
   gap: 0.281rem;
 }
 
-#burguer > div {
+#burguer>div {
   background: #666;
   height: 1px;
   width: 100%;
@@ -462,6 +462,7 @@ footer {
   object-fit: cover;
   filter: grayscale(100%) !important;
   transition: all 3s;
+  width: 100%;
 }
 
 .square-responsive img:hover,
