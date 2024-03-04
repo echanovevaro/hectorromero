@@ -1,52 +1,46 @@
-import { motion } from "framer-motion"
-import { useParallax } from "react-scroll-parallax"
-import { useAuthContext } from "../context/authContext"
-import { Link } from "react-router-dom"
-import { useEffect } from "react"
+import { motion } from "framer-motion";
+import { useParallax } from "react-scroll-parallax";
+import { useAuthContext } from "../context/authContext";
+import { Link } from "react-router-dom";
+import { useEffect } from "react";
 
 function Animacion({ showMenu, background, exposiciones }) {
   const parallax = useParallax({
     speed: -50,
-  })
-  const { currentUser } = useAuthContext()
+  });
+  const { currentUser } = useAuthContext();
 
   useEffect(() => {
     if (background) {
       const imgLoader = function (obra) {
-        var link = document.createElement("link")
-        link.rel = "preload"
-        link.as = "image"
-        link.href = obra.imagenURL
+        var link = document.createElement("link");
+        link.rel = "preload";
+        link.as = "image";
+        link.href = obra.imagenURL;
 
-        document.head.appendChild(link)
-      }
-      imgLoader(background)
+        document.head.appendChild(link);
+      };
+      imgLoader(background);
     }
 
     return () => {
-      const links = document.querySelector('link[rel="preload"]')
+      const links = document.querySelector('link[rel="preload"]');
       if (links && links.length > 0) {
-        links.forEach((el) => el.remove())
+        links.forEach((el) => el.remove());
       }
-    }
-  }, [background])
+    };
+  }, [background]);
 
   return (
-    <div
-      className="wrapper"
-      ref={parallax.ref}
-    >
+    <div className="wrapper" ref={parallax.ref}>
       <div
         className="background"
         style={{ backgroundImage: `url('${background?.imagenURL}')` }}
       />
       <div className="blur" />
       {showMenu && currentUser && (
-        <div className="absolute top-[5rem] right-[1rem] text-white">
-          <Link
-            className="z-10"
-            to={`landing/${background.id}/edit`}
-          >
+        <div className="absolute top-[6rem] right-[1rem] text-white">
+          <Link className="z-10" to={`landing/${background?.id}/edit`}>
             <svg
               xmlns="http://www.w3.org/2000/svg"
               fill="none"
@@ -70,7 +64,7 @@ function Animacion({ showMenu, background, exposiciones }) {
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ duration: 2.5, delay: 1 }}
-          className="absolute top-[5rem] left-[50%] translate-x-[-50%] z-10 text-white cursor-pointer"
+          className="absolute top-[6rem] left-[50%] translate-x-[-50%] z-10 text-white cursor-pointer"
         >
           <a
             className="flex flex-col justify-center items-center gap-[0.7rem] cursor-pointer p-1  opacity-80"
@@ -105,13 +99,13 @@ function Animacion({ showMenu, background, exposiciones }) {
           }}
           whileTap={{ scale: 0.95 }}
           onClick={() => {
-            let pageHeight = window.innerHeight
-            let scroll = pageHeight - window.scrollY - 48
+            let pageHeight = window.innerHeight;
+            let scroll = pageHeight - window.scrollY - 63;
             window.scrollBy({
-              top: scroll,
+              top: pageHeight,
               left: 0,
               behavior: "smooth",
-            })
+            });
           }}
           className="w-full h-full flex justify-end flex-col items-center pb-[3rem] gap-1 font-normal text-white z-[10] text-lg"
         >
@@ -133,6 +127,6 @@ function Animacion({ showMenu, background, exposiciones }) {
         </motion.button>
       )}
     </div>
-  )
+  );
 }
-export default Animacion
+export default Animacion;

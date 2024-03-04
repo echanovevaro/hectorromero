@@ -66,14 +66,14 @@ const ObraMenu = ({ data }) => {
           // }}
         >
           <img
-            src={data[0].imagenURL}
-            onClick={() => navigate(`/obra/${data[0].serie}`)}
+            src={data[0]?.imagenURL}
+            onClick={() => navigate(`/obra/${data[0]?.serie}`)}
           />
           {currentUser && (
             <div className="absolute top-[0.3rem] right-[0.3rem] z-1 text-white">
               <Link
                 className="z-10"
-                to={`/obra/${data[0].id}/edit `}
+                to={`/obra/${data[0]?.id}/edit `}
               >
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
@@ -102,10 +102,10 @@ const ObraMenu = ({ data }) => {
         >
           <div className="h-full border-t border-neutral-400 "></div>
           <Link
-            to={`/obra/${data[0].serie}`}
+            to={`/obra/${data[0]?.serie}`}
             className="absolute top-0 right-0 capitalize"
           >
-            {data[0].serie === "animaciones" ? "animación" : data[0].serie}
+            {data[0]?.serie === "animaciones" ? "animación" : data[0]?.serie}
           </Link>
         </div>
         <div
@@ -117,14 +117,14 @@ const ObraMenu = ({ data }) => {
           // }}
         >
           <img
-            src={data[1].imagenURL}
-            onClick={() => navigate(`/obra/${data[1].serie}`)}
+            src={data[1]?.imagenURL}
+            onClick={() => navigate(`/obra/${data[1]?.serie}`)}
           />
           {currentUser && (
             <div className="absolute top-[0.5rem] right-[0.5rem] z-1 text-white">
               <Link
                 className="z-10"
-                to={`/obra/${data[1].id}/edit `}
+                to={`/obra/${data[1]?.id}/edit `}
               >
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
@@ -153,10 +153,10 @@ const ObraMenu = ({ data }) => {
         >
           <div className="h-full border-b border-neutral-400"></div>
           <Link
-            to={`/obra/${data[1].serie}`}
+            to={`/obra/${data[1]?.serie}`}
             className="absolute bottom-0 right-0 capitalize"
           >
-            {data[1].serie === "animaciones" ? "animación" : data[1].serie}
+            {data[1]?.serie === "animaciones" ? "animación" : data[1]?.serie}
           </Link>
         </div>
         <div
@@ -168,14 +168,14 @@ const ObraMenu = ({ data }) => {
           // }}
         >
           <img
-            src={data[2].imagenURL}
-            onClick={() => navigate(`/obra/${data[2].serie}`)}
+            src={data[2]?.imagenURL}
+            onClick={() => navigate(`/obra/${data[2]?.serie}`)}
           />
           {currentUser && (
             <div className="absolute top-[0.5rem] right-[0.5rem] z-1 text-white">
               <Link
                 className="z-10"
-                to={`/obra/${data[2].id}/edit `}
+                to={`/obra/${data[2]?.id}/edit `}
               >
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
@@ -204,10 +204,10 @@ const ObraMenu = ({ data }) => {
         >
           <div className="h-full border-t border-neutral-400"></div>
           <Link
-            to={`/obra/${data[2].serie}`}
+            to={`/obra/${data[2]?.serie}`}
             className="absolute top-0 left-0  capitalize"
           >
-            {data[2].serie === "animaciones" ? "animación" : data[2].serie}
+            {data[2]?.serie === "animaciones" ? "animación" : data[2]?.serie}
           </Link>
         </div>
         <div
@@ -218,14 +218,14 @@ const ObraMenu = ({ data }) => {
           // }}
         >
           <img
-            src={data[3].imagenURL}
-            onClick={() => navigate(`/obra/${data[3].serie}`)}
+            src={data[3]?.imagenURL}
+            onClick={() => navigate(`/obra/${data[3]?.serie}`)}
           />
           {currentUser && (
             <div className="absolute top-[0.5rem] right-[0.5rem] z-1 text-white">
               <Link
                 className="z-10"
-                to={`/obra/${data[3].id}/edit `}
+                to={`/obra/${data[3]?.id}/edit `}
               >
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
@@ -254,10 +254,10 @@ const ObraMenu = ({ data }) => {
         >
           <div className="h-full border-b border-neutral-400"></div>
           <Link
-            to={`/obra/${data[3].serie}`}
+            to={`/obra/${data[3]?.serie}`}
             className="absolute bottom-0 left-0  capitalize"
           >
-            {data[3].serie === "animaciones" ? "animación" : data[3].serie}
+            {data[3]?.serie === "animaciones" ? "animación" : data[3]?.serie}
           </Link>
         </div>
         <div
@@ -270,8 +270,8 @@ const ObraMenu = ({ data }) => {
         >
           <img
             className="object-left"
-            src={data[4].imagenURL}
-            onClick={() => navigate(`/obra/${data[4].serie}`)}
+            src={data[4]?.imagenURL}
+            onClick={() => navigate(`/obra/${data[4]?.serie}`)}
           />
         </div>
         <div
@@ -284,14 +284,14 @@ const ObraMenu = ({ data }) => {
         >
           <img
             className="object-right"
-            src={data[4].imagenURL}
-            onClick={() => navigate(`/obra/${data[4].serie}`)}
+            src={data[4]?.imagenURL}
+            onClick={() => navigate(`/obra/${data[4]?.serie}`)}
           />
           {currentUser && (
             <div className="absolute top-[0.5rem] right-[0.5rem] z-1 text-white">
               <Link
                 className="z-10"
-                to={`/obra/${data[4].id}/edit `}
+                to={`/obra/${data[4]?.id}/edit `}
               >
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
@@ -320,10 +320,10 @@ const ObraMenu = ({ data }) => {
         >
           <div className="h-full border-t border-neutral-400"></div>
           <Link
-            to={`/obra/${data[4].serie}`}
+            to={`/obra/${data[4]?.serie}`}
             className="absolute top-0 right-0  capitalize"
           >
-            {data[4].serie === "animaciones" ? "animación" : data[4].serie}
+            {data[4]?.serie === "animaciones" ? "animación" : data[4]?.serie}
           </Link>
         </div>
       </div>

@@ -103,7 +103,7 @@ const Premios = ({ data }) => {
           <motion.div
             variants={{
               hidden: {
-                y: " -100dvh",
+                y: " -100vh",
               },
               visible: { y: 0 },
             }}

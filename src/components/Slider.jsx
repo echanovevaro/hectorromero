@@ -1,66 +1,68 @@
-import { useEffect, useRef, useState } from "react"
-import classes from "./Slider.module.css"
-import { useQuery } from "@tanstack/react-query"
-import { fetchAll } from "../http"
-import { motion } from "framer-motion"
-import { useAuthContext } from "../context/authContext"
-import { Link } from "react-router-dom"
+import { useEffect, useRef, useState } from "react";
+import classes from "./Slider.module.css";
+import { useQuery } from "@tanstack/react-query";
+import { fetchAll } from "../http";
+import { motion } from "framer-motion";
+import { useAuthContext } from "../context/authContext";
+import { Link } from "react-router-dom";
 
 function Slider({ exposiciones }) {
-  const [current, setCurrent] = useState(0)
-  const timeout = useRef(null)
-  const { currentUser } = useAuthContext()
+  const [current, setCurrent] = useState(0);
+  const timeout = useRef(null);
+  const { currentUser } = useAuthContext();
 
   const { data } = useQuery({
     queryKey: ["landing"],
     queryFn: () => fetchAll("landing"),
-  })
+  });
 
   useEffect(() => {
     if (data?.length) {
       const nextSlide = () => {
-        setCurrent((current) => (current === data.length - 1 ? 0 : current + 1))
-      }
+        setCurrent((current) =>
+          current === data.length - 1 ? 0 : current + 1
+        );
+      };
 
-      timeout.current = setTimeout(nextSlide, 5000)
+      timeout.current = setTimeout(nextSlide, 5000);
     }
     return function () {
       if (timeout.current) {
-        clearTimeout(timeout.current)
+        clearTimeout(timeout.current);
       }
-    }
-  }, [current, data])
+    };
+  }, [current, data]);
 
   useEffect(() => {
     if (data?.length) {
       const imgLoader = function (obra) {
-        var link = document.createElement("link")
-        link.rel = "preload"
-        link.as = "image"
-        link.href = obra.imagenURL
+        var link = document.createElement("link");
+        link.rel = "preload";
+        link.as = "image";
+        link.href = obra.imagenURL;
 
-        document.head.appendChild(link)
-      }
+        document.head.appendChild(link);
+      };
       data?.forEach((obra) => {
-        imgLoader(obra)
-      })
+        imgLoader(obra);
+      });
     }
 
     return () => {
-      const links = document.querySelector('link[rel="preload"]')
+      const links = document.querySelector('link[rel="preload"]');
       if (links && links.length > 0) {
-        links.forEach((el) => el.remove())
+        links.forEach((el) => el.remove());
       }
-    }
-  }, [data])
+    };
+  }, [data]);
 
   if (!Array.isArray(data) || data.length <= 0) {
-    return null
+    return null;
   }
 
   return (
     <div className="bg-gray-100 p-1 w-screen flex items-center justify-center">
-      <div className="bg-white w-[calc(100dvw-2rem)] lg:w-[calc(100dvw-16rem)] mt-[4rem] p-2 xl:w-[calc(100dvw-26rem)] min-[1800px]:w-[calc(1600px-16rem)] my-4 relative">
+      <div className="bg-white w-[calc(100vw-2rem)] lg:w-[calc(100dw-16rem)] mt-[4rem] p-2 xl:w-[calc(100vw-26rem)] min-[1800px]:w-[calc(1600px-16rem)] my-4 relative">
         <div className="absolute top-0 left-0 w-1/2 h-full z-10 bg-white bg-opacity-80 shadow-md border border-neutral-300">
           {exposiciones?.length > 0 && (
             <motion.div
@@ -135,7 +137,7 @@ function Slider({ exposiciones }) {
             {index === current && (
               <>
                 <section
-                  className={`${classes.banner} h-[calc((100dvw-2rem-1rem)/2)] lg:h-[calc((100dvw-16rem-1rem)/2)] xl:h-[calc((100dvw-26rem-1rem)/2)] min-[1800px]:h-[calc((1600px-16rem-1rem)/2)]`}
+                  className={`${classes.banner} h-[calc((100dvw-2rem-1rem)/2)] lg:h-[calc((100vw-16rem-1rem)/2)] xl:h-[calc((100vw-26rem-1rem)/2)] min-[1800px]:h-[calc((1600px-16rem-1rem)/2)]`}
                 >
                   <motion.img
                     variants={{
@@ -155,10 +157,7 @@ function Slider({ exposiciones }) {
                   />
                   {currentUser && (
                     <div className="absolute top-[1rem] right-[1rem] text-white">
-                      <Link
-                        className="z-10"
-                        to={`${slide.id}/edit `}
-                      >
+                      <Link className="z-10" to={`${slide.id}/edit `}>
                         <svg
                           xmlns="http://www.w3.org/2000/svg"
                           fill="none"
@@ -207,6 +206,6 @@ function Slider({ exposiciones }) {
         ))}
       </div>
     </div>
-  )
+  );
 }
-export default Slider
+export default Slider;
