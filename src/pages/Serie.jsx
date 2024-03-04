@@ -16,7 +16,7 @@ export default function Serie() {
     <>
       <ScrollRestoration />
       <MainNavigation />
-      <div className="h-screen landscape:h-[120vh] relative text-xs lg:text-sm xl:text-base">
+      <div className="relative text-xs lg:text-sm xl:text-base">
         <Gallery coleccion={data} />
       </div>
       <Footer />

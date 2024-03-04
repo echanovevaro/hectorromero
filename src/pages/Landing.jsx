@@ -75,7 +75,7 @@ function Landing() {
         <Slider exposiciones={exposicionesProximas} />
       </div>
       <section
-        className={`portrait:absolute portrait:top-[100dvh] landscape:block portrait:inset-x-0 portrait:z-19`}
+        className={`portrait:absolute portrait:top-screen landscape:block portrait:inset-x-0 portrait:z-19`}
       >
         <div className="bg-white pb-8 pt-[2rem]">
           {obraData && <ObraMenu data={obraData} />}
