@@ -1,11 +1,11 @@
-// import { useInView } from "framer-motion"
+import { useInView } from "framer-motion"
 import { useEffect, useRef } from "react"
 import { Link, useNavigate } from "react-router-dom"
 import { useAuthContext } from "../context/authContext"
 
 const ObraMenu = ({ data }) => {
-  // const ref = useRef(null)
-  // const isInView = useInView(ref, { once: true })
+  const ref = useRef(null)
+  const isInView = useInView(ref, { once: true })
   const navigate = useNavigate()
   const { currentUser } = useAuthContext()
 
@@ -36,15 +36,15 @@ const ObraMenu = ({ data }) => {
     <div className="max-w-[1344px] min-[1600px]:mx-auto mx-[1rem] lg:mx-[8rem] text-xs lg:text-sm xl:text-base pb-16">
       <h1 className="uppercase text-base opacity-[0.7] lg:text-xl ">obra</h1>
       <div
-        // ref={ref}
+        ref={ref}
         className="square-responsive mt-[2rem]"
       >
         <div
           className="div-text lg:text-base"
-          // style={{
-          //   opacity: isInView ? 1 : 0,
-          //   transition: "all 0.5s cubic-bezier(0.17, 0.55, 0.55, 1) 1.25s",
-          // }}
+          style={{
+            opacity: isInView ? 1 : 0,
+            transition: "all 0.5s cubic-bezier(0.17, 0.55, 0.55, 1) 1.25s",
+          }}
         >
           <p>
             Aquí podréis ver mi obra actual centrada en la serie “Bloques” y la
@@ -59,11 +59,11 @@ const ObraMenu = ({ data }) => {
 
         <div
           className="div1 overflow-hidden relative cursor-pointer"
-          // style={{
-          //   transform: isInView ? "unset" : "translateX(-60px)",
-          //   opacity: isInView ? 1 : 0,
-          //   transition: "all 1.25s cubic-bezier(0.17, 0.55, 0.55, 1)",
-          // }}
+          style={{
+            transform: isInView ? "unset" : "translateX(-60px)",
+            opacity: isInView ? 1 : 0,
+            transition: "all 1.25s cubic-bezier(0.17, 0.55, 0.55, 1)",
+          }}
         >
           <img
             src={data[0]?.imagenURL}
@@ -95,10 +95,10 @@ const ObraMenu = ({ data }) => {
         </div>
         <div
           className="div1-label relative"
-          // style={{
-          //   opacity: isInView ? 1 : 0,
-          //   transition: "all 0.5s cubic-bezier(0.17, 0.55, 0.55, 1) 1.25s",
-          // }}
+          style={{
+            opacity: isInView ? 1 : 0,
+            transition: "all 0.5s cubic-bezier(0.17, 0.55, 0.55, 1) 1.25s",
+          }}
         >
           <div className="h-full border-t border-neutral-400 "></div>
           <Link
@@ -110,11 +110,11 @@ const ObraMenu = ({ data }) => {
         </div>
         <div
           className="div2 overflow-hidden relative cursor-pointer"
-          // style={{
-          //   transform: isInView ? "unset" : "translateY(-60px)",
-          //   opacity: isInView ? 1 : 0,
-          //   transition: "all 1.25s cubic-bezier(0.17, 0.55, 0.55, 1)",
-          // }}
+          style={{
+            transform: isInView ? "unset" : "translateY(-60px)",
+            opacity: isInView ? 1 : 0,
+            transition: "all 1.25s cubic-bezier(0.17, 0.55, 0.55, 1)",
+          }}
         >
           <img
             src={data[1]?.imagenURL}
@@ -146,10 +146,10 @@ const ObraMenu = ({ data }) => {
         </div>
         <div
           className="div2-label relative"
-          // style={{
-          //   opacity: isInView ? 1 : 0,
-          //   transition: "all 0.5s cubic-bezier(0.17, 0.55, 0.55, 1) 1.25s",
-          // }}
+          style={{
+            opacity: isInView ? 1 : 0,
+            transition: "all 0.5s cubic-bezier(0.17, 0.55, 0.55, 1) 1.25s",
+          }}
         >
           <div className="h-full border-b border-neutral-400"></div>
           <Link
@@ -161,11 +161,11 @@ const ObraMenu = ({ data }) => {
         </div>
         <div
           className="div3 overflow-hidden relative cursor-pointer"
-          // style={{
-          //   transform: isInView ? "unset" : "translateY(60px)",
-          //   opacity: isInView ? 1 : 0,
-          //   transition: "all 1.25s cubic-bezier(0.17, 0.55, 0.55, 1)",
-          // }}
+          style={{
+            transform: isInView ? "unset" : "translateY(60px)",
+            opacity: isInView ? 1 : 0,
+            transition: "all 1.25s cubic-bezier(0.17, 0.55, 0.55, 1)",
+          }}
         >
           <img
             src={data[2]?.imagenURL}
@@ -197,10 +197,10 @@ const ObraMenu = ({ data }) => {
         </div>
         <div
           className="div3-label relative"
-          // style={{
-          //   opacity: isInView ? 1 : 0,
-          //   transition: "all 0.5s cubic-bezier(0.17, 0.55, 0.55, 1) 1.25s",
-          // }}
+          style={{
+            opacity: isInView ? 1 : 0,
+            transition: "all 0.5s cubic-bezier(0.17, 0.55, 0.55, 1) 1.25s",
+          }}
         >
           <div className="h-full border-t border-neutral-400"></div>
           <Link
@@ -212,10 +212,10 @@ const ObraMenu = ({ data }) => {
         </div>
         <div
           className="div4 overflow-hidden relative cursor-pointer"
-          // style={{
-          //   opacity: isInView ? 1 : 0,
-          //   transition: "all 1.25s cubic-bezier(0.17, 0.55, 0.55, 1)",
-          // }}
+          style={{
+            opacity: isInView ? 1 : 0,
+            transition: "all 1.25s cubic-bezier(0.17, 0.55, 0.55, 1)",
+          }}
         >
           <img
             src={data[3]?.imagenURL}
@@ -247,10 +247,10 @@ const ObraMenu = ({ data }) => {
         </div>
         <div
           className="div4-label relative"
-          // style={{
-          //   opacity: isInView ? 1 : 0,
-          //   transition: "all 0.5s cubic-bezier(0.17, 0.55, 0.55, 1) 1.25s",
-          // }}
+          style={{
+            opacity: isInView ? 1 : 0,
+            transition: "all 0.5s cubic-bezier(0.17, 0.55, 0.55, 1) 1.25s",
+          }}
         >
           <div className="h-full border-b border-neutral-400"></div>
           <Link
@@ -262,11 +262,11 @@ const ObraMenu = ({ data }) => {
         </div>
         <div
           className="div5a overflow-hidden relative cursor-pointer"
-          // style={{
-          //   transform: isInView ? "unset" : "translateY(60px)",
-          //   opacity: isInView ? 1 : 0,
-          //   transition: "all 1.25s cubic-bezier(0.17, 0.55, 0.55, 1)",
-          // }}
+          style={{
+            transform: isInView ? "unset" : "translateY(60px)",
+            opacity: isInView ? 1 : 0,
+            transition: "all 1.25s cubic-bezier(0.17, 0.55, 0.55, 1)",
+          }}
         >
           <img
             className="object-left"
@@ -276,11 +276,11 @@ const ObraMenu = ({ data }) => {
         </div>
         <div
           className="div5b overflow-hidden relative cursor-pointer"
-          // style={{
-          //   transform: isInView ? "unset" : "translateX(60px)",
-          //   opacity: isInView ? 1 : 0,
-          //   transition: "all 1.25s cubic-bezier(0.17, 0.55, 0.55, 1)",
-          // }}
+          style={{
+            transform: isInView ? "unset" : "translateX(60px)",
+            opacity: isInView ? 1 : 0,
+            transition: "all 1.25s cubic-bezier(0.17, 0.55, 0.55, 1)",
+          }}
         >
           <img
             className="object-right"
@@ -313,10 +313,10 @@ const ObraMenu = ({ data }) => {
         </div>
         <div
           className="div5-label relative"
-          // style={{
-          //   opacity: isInView ? 1 : 0,
-          //   transition: "all 0.5s cubic-bezier(0.17, 0.55, 0.55, 1) 1.25s",
-          // }}
+          style={{
+            opacity: isInView ? 1 : 0,
+            transition: "all 0.5s cubic-bezier(0.17, 0.55, 0.55, 1) 1.25s",
+          }}
         >
           <div className="h-full border-t border-neutral-400"></div>
           <Link
