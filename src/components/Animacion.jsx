@@ -40,7 +40,7 @@ function Animacion({ showMenu, background, exposiciones }) {
       <div className="blur" />
       {showMenu && currentUser && (
         <div className="absolute top-[6rem] right-[1rem] text-white">
-          <Link className="z-10" to={`landing/${background.id}/edit`}>
+          <Link className="z-10" to={`landing/${background?.id}/edit`}>
             <svg
               xmlns="http://www.w3.org/2000/svg"
               fill="none"
