@@ -37,7 +37,7 @@ const ObraMenu = ({ data }) => {
       <h1 className="uppercase text-base opacity-[0.7] lg:text-xl ">obra</h1>
       <div
         ref={ref}
-        className="square-responsive mt-[2rem]"
+        className="square-responsive mt-[1rem]"
       >
         <div
           className="div-text lg:text-base"

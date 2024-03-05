@@ -528,3 +528,12 @@ footer {
 .div5-label a:hover {
   scale: 1.1;
 }
+
+.exposiciones img {
+  transition: all 1.25s cubic-bezier(0.17, 0.55, 0.55, 1),
+}
+
+.exposiciones img:hover {
+  scale: 1.1;
+  filter: grayscale(0%) !important;
+}

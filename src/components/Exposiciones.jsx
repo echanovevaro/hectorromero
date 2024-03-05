@@ -1,28 +1,28 @@
-import { motion, useInView } from "framer-motion";
-import { useRef, useState } from "react";
-import { useAuthContext } from "../context/authContext";
-import { Link, useSubmit } from "react-router-dom";
-import Modal from "./Modal";
+import { motion, useInView } from "framer-motion"
+import { useRef, useState } from "react"
+import { useAuthContext } from "../context/authContext"
+import { Link, useSubmit } from "react-router-dom"
+import Modal from "./Modal"
 
 const Exposiciones = ({ finalizadas, proximas }) => {
-  const [isDeleting, setIsDeleting] = useState(false);
-  const [exposicionToDelete, setExposicionToDelete] = useState();
-  const ref = useRef(null);
-  const refProx = useRef(null);
-  const isInView = useInView(ref, { once: true, amount: 0.1 });
-  const isInViewProx = useInView(refProx, { once: true, amount: 0.1 });
-  const { currentUser } = useAuthContext();
-  const submit = useSubmit();
+  const [isDeleting, setIsDeleting] = useState(false)
+  const [exposicionToDelete, setExposicionToDelete] = useState()
+  const ref = useRef(null)
+  const refProx = useRef(null)
+  const isInView = useInView(ref, { once: true, amount: 0.1 })
+  const isInViewProx = useInView(refProx, { once: true, amount: 0.1 })
+  const { currentUser } = useAuthContext()
+  const submit = useSubmit()
 
   function handleDelete() {
-    const formData = new FormData();
-    formData.append("ref", exposicionToDelete.imagenRef);
-    setIsDeleting(false);
-    setExposicionToDelete(null);
+    const formData = new FormData()
+    formData.append("ref", exposicionToDelete.imagenRef)
+    setIsDeleting(false)
+    setExposicionToDelete(null)
     submit(formData, {
       method: "delete",
       action: `/exposiciones/${exposicionToDelete.id}/delete`,
-    });
+    })
   }
 
   const ulVariants = {
@@ -38,7 +38,7 @@ const Exposiciones = ({ finalizadas, proximas }) => {
         staggerDirection: -1,
       },
     },
-  };
+  }
 
   const liVariants = {
     open: {
@@ -55,7 +55,7 @@ const Exposiciones = ({ finalizadas, proximas }) => {
         y: { stiffness: 1000 },
       },
     },
-  };
+  }
 
   return (
     <>
@@ -88,7 +88,10 @@ const Exposiciones = ({ finalizadas, proximas }) => {
         </h1>
         {currentUser && (
           <div className="mb-4">
-            <Link to="/exposiciones/new" className="text-sky-400 font-medium">
+            <Link
+              to="/exposiciones/new"
+              className="text-sky-400 font-medium"
+            >
               Añadir exposición
             </Link>
           </div>
@@ -104,7 +107,7 @@ const Exposiciones = ({ finalizadas, proximas }) => {
             ref={refProx}
             initial={ulVariants.closed}
             animate={isInViewProx ? "open" : "closed"}
-            className="flex flex-col gap-4 items-start md:items-center justify-center"
+            className="exposiciones flex flex-col gap-4 items-start md:items-center justify-center"
           >
             {proximas?.map((exposicion, index) => (
               <motion.li
@@ -123,11 +126,15 @@ const Exposiciones = ({ finalizadas, proximas }) => {
                   {("0" + index).substr(-2)}
                 </span>
                 {exposicion.enlace ? (
-                  <a href={exposicion.enlace} target="_blank" rel="noreferrer">
+                  <a
+                    href={exposicion.enlace}
+                    target="_blank"
+                    rel="noreferrer"
+                  >
                     <img
                       src={exposicion.imagenURL}
                       alt={exposicion.titulo}
-                      className={`xl:w-32 xl:h-32 lg:w-28 lg:h-28 w-20 h-20 object-cover hidden md:inline-flex border grayscale hover:grayscale-0 ${
+                      className={`xl:w-32 xl:h-32 lg:w-28 lg:h-28 w-20 h-20 object-cover hidden md:inline-flex border grayscale ${
                         index % 2 === 0
                           ? "col-start-2 col-end-3 row-start-1 row-end-2"
                           : "col-start-3 col-end-4 row-start-1 row-end-2"
@@ -138,7 +145,7 @@ const Exposiciones = ({ finalizadas, proximas }) => {
                   <img
                     src={exposicion.imagenURL}
                     alt={exposicion.titulo}
-                    className={`xl:w-32 xl:h-32 lg:w-28 lg:h-28 w-20 h-20 object-cover hidden md:inline-flex border grayscale hover:grayscale-0 ${
+                    className={`xl:w-32 xl:h-32 lg:w-28 lg:h-28 w-20 h-20 object-cover hidden md:inline-flex border grayscale ${
                       index % 2 === 0
                         ? "col-start-2 col-end-3 row-start-1 row-end-2"
                         : "col-start-3 col-end-4 row-start-1 row-end-2"
@@ -207,8 +214,8 @@ const Exposiciones = ({ finalizadas, proximas }) => {
                       <button
                         className="text-sky-400"
                         onClick={() => {
-                          setIsDeleting(true);
-                          setExposicionToDelete(exposicion);
+                          setIsDeleting(true)
+                          setExposicionToDelete(exposicion)
                         }}
                       >
                         <svg
@@ -244,7 +251,7 @@ const Exposiciones = ({ finalizadas, proximas }) => {
             ref={ref}
             initial={ulVariants.closed}
             animate={isInView ? "open" : "closed"}
-            className="flex flex-col gap-4 items-start md:items-center justify-center"
+            className="exposiciones flex flex-col gap-4 items-start md:items-center justify-center"
           >
             {finalizadas?.map((exposicion, index) => (
               <motion.li
@@ -262,30 +269,35 @@ const Exposiciones = ({ finalizadas, proximas }) => {
                 >
                   {("0" + index).substr(-2)}
                 </span>
-                {exposicion.enlace ? (
-                  <a href={exposicion.enlace} target="_blank" rel="noreferrer">
+                <div className="overflow-hidden">
+                  {exposicion.enlace ? (
+                    <a
+                      href={exposicion.enlace}
+                      target="_blank"
+                      rel="noreferrer"
+                    >
+                      <img
+                        src={exposicion.imagenURL}
+                        alt={exposicion.titulo}
+                        className={`xl:w-32 xl:h-32 lg:w-28 lg:h-28 w-20 h-20 object-cover hidden md:inline-flex border grayscale ${
+                          index % 2 === 0
+                            ? "col-start-2 col-end-3 row-start-1 row-end-2"
+                            : "col-start-3 col-end-4 row-start-1 row-end-2"
+                        }`}
+                      />
+                    </a>
+                  ) : (
                     <img
                       src={exposicion.imagenURL}
                       alt={exposicion.titulo}
-                      className={`xl:w-32 xl:h-32 lg:w-28 lg:h-28 w-20 h-20 object-cover hidden md:inline-flex border grayscale hover:grayscale-0 ${
+                      className={`xl:w-32 xl:h-32 lg:w-28 lg:h-28 w-20 h-20 object-cover hidden md:inline-flex border grayscale ${
                         index % 2 === 0
                           ? "col-start-2 col-end-3 row-start-1 row-end-2"
                           : "col-start-3 col-end-4 row-start-1 row-end-2"
                       }`}
                     />
-                  </a>
-                ) : (
-                  <img
-                    src={exposicion.imagenURL}
-                    alt={exposicion.titulo}
-                    className={`xl:w-32 xl:h-32 lg:w-28 lg:h-28 w-20 h-20 object-cover hidden md:inline-flex border grayscale hover:grayscale-0 ${
-                      index % 2 === 0
-                        ? "col-start-2 col-end-3 row-start-1 row-end-2"
-                        : "col-start-3 col-end-4 row-start-1 row-end-2"
-                    }`}
-                  />
-                )}
-
+                  )}
+                </div>
                 <ul
                   className={`block md:flex flex-col justify-end ${
                     index % 2 === 0
@@ -347,8 +359,8 @@ const Exposiciones = ({ finalizadas, proximas }) => {
                       <button
                         className="text-sky-400"
                         onClick={() => {
-                          setIsDeleting(true);
-                          setExposicionToDelete(exposicion);
+                          setIsDeleting(true)
+                          setExposicionToDelete(exposicion)
                         }}
                       >
                         <svg
@@ -375,7 +387,7 @@ const Exposiciones = ({ finalizadas, proximas }) => {
         </section>
       </div>
     </>
-  );
-};
+  )
+}
 
-export default Exposiciones;
+export default Exposiciones
