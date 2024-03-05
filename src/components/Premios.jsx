@@ -1,44 +1,44 @@
-import { AnimatePresence, motion, useInView } from "framer-motion";
-import { useRef, useState } from "react";
-import { useAuthContext } from "../context/authContext";
-import { Link, useSubmit } from "react-router-dom";
-import Modal from "./Modal";
+import { AnimatePresence, motion, useInView } from "framer-motion"
+import { useRef, useState } from "react"
+import { useAuthContext } from "../context/authContext"
+import { Link, useSubmit } from "react-router-dom"
+import Modal from "./Modal"
 
 const Premios = ({ data }) => {
   const orederedData = data.sort(
     (a, b) => new Date(b.fecha).getTime() - new Date(a.fecha).getTime()
-  );
-  const [isDeleting, setIsDeleting] = useState(false);
-  const [premioToDelete, setPremioToDelete] = useState();
-  const [fullPage, setFullPage] = useState(false);
-  const [obraUrl, setObraUrl] = useState();
-  const detalleRef = useRef(0);
-  const ref = useRef(null);
-  const isInView = useInView(ref, { once: true, amount: 0.4 });
-  const { currentUser } = useAuthContext();
-  const submit = useSubmit();
+  )
+  const [isDeleting, setIsDeleting] = useState(false)
+  const [premioToDelete, setPremioToDelete] = useState()
+  const [fullPage, setFullPage] = useState(false)
+  const [obraUrl, setObraUrl] = useState()
+  const detalleRef = useRef(0)
+  const ref = useRef(null)
+  const isInView = useInView(ref, { once: true, amount: 0.4 })
+  const { currentUser } = useAuthContext()
+  const submit = useSubmit()
 
   function onDetallePanStart(_, info) {
-    detalleRef.current = info.point.y;
+    detalleRef.current = info.point.y
   }
 
   function onDetallePanEnd(_, info) {
     if (info.point.y < detalleRef.current) {
-      setFullPage(false);
+      setFullPage(false)
     }
   }
 
   function handleDelete() {
-    const formData = new FormData();
+    const formData = new FormData()
     if (premioToDelete.imagenRef) {
-      formData.append("ref", premioToDelete.imagenRef);
+      formData.append("ref", premioToDelete.imagenRef)
     }
-    setIsDeleting(false);
-    setPremioToDelete(null);
+    setIsDeleting(false)
+    setPremioToDelete(null)
     submit(formData, {
       method: "delete",
       action: `/premios/${premioToDelete.id}/delete`,
-    });
+    })
   }
 
   const ulVariants = {
@@ -54,7 +54,7 @@ const Premios = ({ data }) => {
         staggerDirection: -1,
       },
     },
-  };
+  }
 
   const liVariants = {
     open: {
@@ -71,7 +71,7 @@ const Premios = ({ data }) => {
         y: { stiffness: 1000 },
       },
     },
-  };
+  }
 
   return (
     <>
@@ -124,7 +124,7 @@ const Premios = ({ data }) => {
                 backgroundImage: `url(${obraUrl})`,
               }}
               onClick={() => {
-                setFullPage(false);
+                setFullPage(false)
               }}
             />
           </motion.div>
@@ -136,7 +136,10 @@ const Premios = ({ data }) => {
         </h1>
         {currentUser && (
           <div className="mb-4">
-            <Link to="/premios/new" className="text-sky-400 font-medium">
+            <Link
+              to="/premios/new"
+              className="text-sky-400 font-medium"
+            >
               Añadir premio
             </Link>
           </div>
@@ -146,7 +149,7 @@ const Premios = ({ data }) => {
           ref={ref}
           initial={ulVariants.closed}
           animate={isInView ? "open" : "closed"}
-          className="flex flex-col gap-[0.5rem] items-center lg:items-start flex-nowrap whitespace-nowrap"
+          className="flex flex-col gap-[0.5rem] items-center lg:items-start text-center lg:text-left"
         >
           {orederedData.map((premio) => (
             <motion.li
@@ -160,8 +163,8 @@ const Premios = ({ data }) => {
               <span
                 onClick={() => {
                   if (premio.imagenURL) {
-                    setObraUrl(premio.imagenURL);
-                    setFullPage(true);
+                    setObraUrl(premio.imagenURL)
+                    setFullPage(true)
                   }
                 }}
               >
@@ -208,8 +211,8 @@ const Premios = ({ data }) => {
                 <button
                   className="text-sky-400"
                   onClick={() => {
-                    setIsDeleting(true);
-                    setPremioToDelete(premio);
+                    setIsDeleting(true)
+                    setPremioToDelete(premio)
                   }}
                 >
                   <svg
@@ -233,7 +236,7 @@ const Premios = ({ data }) => {
         </motion.ul>
       </div>
     </>
-  );
-};
+  )
+}
 
-export default Premios;
+export default Premios
