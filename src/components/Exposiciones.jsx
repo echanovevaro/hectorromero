@@ -170,20 +170,10 @@ const Exposiciones = ({ finalizadas, proximas }) => {
                         rel="noreferrer"
                       >
                         {exposicion.titulo} &nbsp;
-                        <svg
-                          xmlns="http://www.w3.org/2000/svg"
-                          fill="none"
-                          viewBox="0 0 24 24"
-                          strokeWidth={1}
-                          stroke="currentColor"
-                          className="w-3 h-3 inline"
-                        >
-                          <path
-                            strokeLinecap="round"
-                            strokeLinejoin="round"
-                            d="m8.25 4.5 7.5 7.5-7.5 7.5"
-                          />
-                        </svg>
+                        <div className="w-8 relative inline-block align-middle">
+                          <div className="arrow arrow-first" />
+                          <div className="arrow arrow-second" />
+                        </div>
                       </a>
                     )}
                   </li>
@@ -315,20 +305,10 @@ const Exposiciones = ({ finalizadas, proximas }) => {
                         rel="noreferrer"
                       >
                         {exposicion.titulo} &nbsp;
-                        <svg
-                          xmlns="http://www.w3.org/2000/svg"
-                          fill="none"
-                          viewBox="0 0 24 24"
-                          strokeWidth={1}
-                          stroke="currentColor"
-                          className="w-3 h-3 inline"
-                        >
-                          <path
-                            strokeLinecap="round"
-                            strokeLinejoin="round"
-                            d="m8.25 4.5 7.5 7.5-7.5 7.5"
-                          />
-                        </svg>
+                        <div className="w-8 relative inline-block align-middle">
+                          <div className="arrow arrow-first" />
+                          <div className="arrow arrow-second" />
+                        </div>
                       </a>
                     )}
                   </li>

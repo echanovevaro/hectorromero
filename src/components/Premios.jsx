@@ -156,7 +156,7 @@ const Premios = ({ data }) => {
               key={premio.id}
               className={`${
                 premio.imagenURL ? "cursor-pointer" : ""
-              } flex items-center gap-2`}
+              } flex items-center justify-center gap-2`}
               variants={liVariants}
               initial={liVariants.closed}
             >
@@ -170,20 +170,10 @@ const Premios = ({ data }) => {
               >
                 {premio.titulo} &nbsp;
                 {premio.imagenURL && (
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    fill="none"
-                    viewBox="0 0 24 24"
-                    strokeWidth={1}
-                    stroke="currentColor"
-                    className="w-3 h-3 inline"
-                  >
-                    <path
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      d="m8.25 4.5 7.5 7.5-7.5 7.5"
-                    />
-                  </svg>
+                  <div className="w-8 relative inline-block align-middle">
+                    <div className="arrow arrow-first" />
+                    <div className="arrow arrow-second" />
+                  </div>
                 )}
               </span>
               {currentUser && (
