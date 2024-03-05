@@ -1,31 +1,31 @@
-import { useEffect, useRef, useState } from "react";
-import { AnimatePresence, motion } from "framer-motion";
+import { useEffect, useRef, useState } from "react"
+import { AnimatePresence, motion } from "framer-motion"
 import {
   Form as RouterForm,
   Link,
   useLocation,
   useNavigate,
-} from "react-router-dom";
-import { useAuthContext } from "../context/authContext";
+} from "react-router-dom"
+import { useAuthContext } from "../context/authContext"
 
 export default function MainNavigation() {
-  const { currentUser } = useAuthContext();
-  const [isOpen, setIsOpen] = useState(false);
-  const { pathname } = useLocation();
-  const navigate = useNavigate();
-  const panRef = useRef(0);
+  const { currentUser } = useAuthContext()
+  const [isOpen, setIsOpen] = useState(false)
+  const { pathname } = useLocation()
+  const navigate = useNavigate()
+  const panRef = useRef(0)
 
   function toggleOpen() {
-    setIsOpen(!isOpen);
+    setIsOpen(!isOpen)
   }
 
   function onPanStart(_, info) {
-    panRef.current = info.point.y;
+    panRef.current = info.point.y
   }
 
   function onPanEnd(_, info) {
     if (info.point.y < panRef.current) {
-      setIsOpen(false);
+      setIsOpen(false)
     }
   }
 
@@ -35,7 +35,7 @@ export default function MainNavigation() {
       y: "-100vh",
       transition: { duration: 0.5, delay: 0.7 },
     },
-  };
+  }
 
   const ulVariants = {
     open: {
@@ -50,7 +50,7 @@ export default function MainNavigation() {
         staggerDirection: -1,
       },
     },
-  };
+  }
 
   const liVariants = {
     open: {
@@ -67,15 +67,15 @@ export default function MainNavigation() {
         y: { stiffness: 1000 },
       },
     },
-  };
+  }
 
   useEffect(() => {
     if (isOpen) {
-      document.getElementById("burguer").classList.add("open");
+      document.getElementById("burguer").classList.add("open")
     } else {
-      document.getElementById("burguer").classList.remove("open");
+      document.getElementById("burguer").classList.remove("open")
     }
-  }, [isOpen]);
+  }, [isOpen])
 
   return (
     <>
@@ -92,7 +92,10 @@ export default function MainNavigation() {
               onPanEnd={onPanEnd}
               className="z-[19] fixed top-0 inset-x-0 h-screen bg-white text-base touch-pinch-zoom"
             >
-              <motion.ul variants={ulVariants} className="opacity-[0.7]">
+              <motion.ul
+                variants={ulVariants}
+                className="opacity-[0.7]"
+              >
                 <motion.li
                   variants={liVariants}
                   initial={liVariants.closed}
@@ -113,9 +116,9 @@ export default function MainNavigation() {
                     className="flex items-center gap-2"
                     onClick={() => {
                       if (pathname !== "/obra") {
-                        navigate("/obra");
+                        navigate("/obra")
                       } else {
-                        toggleOpen();
+                        toggleOpen()
                       }
                     }}
                   >
@@ -244,8 +247,14 @@ export default function MainNavigation() {
                     variants={liVariants}
                     whileTap={{ scale: 1.1 }}
                   >
-                    <RouterForm method="post" action="/logout">
-                      <button type="submit" onClick={toggleOpen}>
+                    <RouterForm
+                      method="post"
+                      action="/logout"
+                    >
+                      <button
+                        type="submit"
+                        onClick={toggleOpen}
+                      >
                         DESCONECTAR
                       </button>
                     </RouterForm>
@@ -267,7 +276,10 @@ export default function MainNavigation() {
         >
           <motion.h1 className="py-5">
             <Link to="/">
-              <img src="/logo.png" className="h-2.5 opacity-[0.5] inline" />
+              <img
+                src="/logo.png"
+                className="h-2.5 opacity-[0.5] inline"
+              />
             </Link>
             {currentUser && (
               <span className="text-neutral-300 ml-1"> ADMIN MODE</span>
@@ -287,7 +299,7 @@ export default function MainNavigation() {
                 className="flex items-center gap-2 py-4"
                 onClick={() => {
                   if (pathname !== "/obra") {
-                    navigate("/obra");
+                    navigate("/obra")
                   }
                 }}
               >
@@ -308,7 +320,7 @@ export default function MainNavigation() {
                   />
                 </svg>
               </motion.button>
-              <ul className="obra-dropdown hidden absolute z-[-1] bg-white divide-y divide-gray-100 border border-gray-100 lowercase">
+              <ul className="obra-dropdown hidden absolute bg-white divide-y divide-gray-100 border border-gray-100 lowercase">
                 <motion.li
                   whileTap={{ scale: 1.1 }}
                   className="px-4 py-2 block"
@@ -363,21 +375,30 @@ export default function MainNavigation() {
               </ul>
             </li>
 
-            <motion.li className="py-4" whileTap={{ scale: 1.1 }}>
+            <motion.li
+              className="py-4"
+              whileTap={{ scale: 1.1 }}
+            >
               {pathname !== "/exposiciones" ? (
                 <Link to="/exposiciones">EXPOSICIONES</Link>
               ) : (
                 <span>EXPOSICIONES</span>
               )}
             </motion.li>
-            <motion.li className="py-4" whileTap={{ scale: 1.1 }}>
+            <motion.li
+              className="py-4"
+              whileTap={{ scale: 1.1 }}
+            >
               {pathname !== "/premios" ? (
                 <Link to="/premios">PREMIOS</Link>
               ) : (
                 <span>PREMIOS</span>
               )}
             </motion.li>
-            <motion.li className="py-4" whileTap={{ scale: 1.1 }}>
+            <motion.li
+              className="py-4"
+              whileTap={{ scale: 1.1 }}
+            >
               {pathname !== "/sobre-mi" ? (
                 <Link to="/sobre-mi">SOBRE MÍ</Link>
               ) : (
@@ -388,8 +409,14 @@ export default function MainNavigation() {
               <span>CONTACTO</span>
             </motion.li> */}
             {currentUser && (
-              <motion.li whileTap={{ scale: 1.1 }} className="py-4">
-                <RouterForm method="post" action="/logout">
+              <motion.li
+                whileTap={{ scale: 1.1 }}
+                className="py-4"
+              >
+                <RouterForm
+                  method="post"
+                  action="/logout"
+                >
                   <button type="submit">DESCONECTAR</button>
                 </RouterForm>
               </motion.li>
@@ -398,7 +425,7 @@ export default function MainNavigation() {
           <button
             id="burguer"
             onClick={() => {
-              toggleOpen();
+              toggleOpen()
             }}
           >
             <div></div>
@@ -408,5 +435,5 @@ export default function MainNavigation() {
         </nav>
       </motion.div>
     </>
-  );
+  )
 }

@@ -174,7 +174,7 @@ export default function Gallery({ coleccion }) {
                 </svg>
               </button>
             </div>
-            <div className="w-full">
+            <div className="w-fullxº">
               {coleccion?.map((obra, index) => (
                 <div
                   key={obra.id}
@@ -330,7 +330,7 @@ export default function Gallery({ coleccion }) {
                 )
             })}
           </div>
-          <div className="w-[80vw]">
+          <div className="w-full">
             {coleccion?.map((_, index, arr) => {
               if (counter === index)
                 return (
