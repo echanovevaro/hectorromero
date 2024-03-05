@@ -76,7 +76,7 @@ const About = () => {
         >
           <div className="text-right flex flex-col xl:text-sm">
             <span>OBRA Blo questions</span>
-            <span>Interaccion</span>
+            <span>Interacción</span>
           </div>
         </div>
         <div className="about-5 content-about flex flex-col justify-end">
@@ -118,7 +118,7 @@ const About = () => {
         >
           <div className="absolute top-1 left-0 flex flex-col xl:text-sm">
             <span>OBRA Futuro bloque</span>
-            <span>Interaccion</span>
+            <span>Interacción</span>
           </div>
         </div>
         <div className="about-7">
