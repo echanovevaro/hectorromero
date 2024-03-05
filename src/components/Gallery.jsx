@@ -174,7 +174,7 @@ export default function Gallery({ coleccion }) {
                 </svg>
               </button>
             </div>
-            <div className="w-fullxº">
+            <div className="w-full">
               {coleccion?.map((obra, index) => (
                 <div
                   key={obra.id}
