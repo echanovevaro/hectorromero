@@ -74,7 +74,7 @@ const About = () => {
             pathname === "/" ? "border-neutral-500" : "border-neutral-300"
           } title-about md:text-xs relative`}
         >
-          <div className="absolute top-1 right-0 text-right flex flex-col xl:text-sm">
+          <div className="text-right flex flex-col xl:text-sm">
             <span>OBRA Blo questions</span>
             <span>Interaccion</span>
           </div>
