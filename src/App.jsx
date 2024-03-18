@@ -1,4 +1,4 @@
-import { RouterProvider, createBrowserRouter } from "react-router-dom"
+import { RouterProvider, createBrowserRouter, Navigate } from "react-router-dom"
 import { QueryClientProvider } from "@tanstack/react-query"
 import Root from "./pages/Root"
 import Landing from "./pages/Landing"
@@ -50,6 +50,15 @@ function App() {
         {
           index: true,
           element: <Landing />,
+        },
+        {
+          path: "obras",
+          element: (
+            <Navigate
+              to="/"
+              replace={true}
+            />
+          ),
         },
         {
           path: "obra/:serie",
