@@ -149,7 +149,7 @@ const Footer = () => {
           <li className="text-base  hidden md:block">CRÉDITOS</li>
           <motion.li whileTap={{ scale: 1.1 }}>
             <a
-              href="https://joyful-heliotrope-2ee6a6.netlify.app"
+              href="https://portfolio-alvaro-echanove.netlify.app/"
               target="_black"
             >
               web álvaro riaño
