@@ -64,6 +64,11 @@ function App() {
           path: "obra/:serie",
           element: <Serie />,
         },
+
+        {
+          path: "obra/:serie/:id",
+          element: <Serie />,
+        },
         {
           path: "landing/:id/edit",
           element: <LandingMovilUpdate />,

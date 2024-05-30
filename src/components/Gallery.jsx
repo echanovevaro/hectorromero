@@ -14,7 +14,7 @@ export default function Gallery({ coleccion }) {
   const [loaded, setLoaded] = useState(false)
   const { currentUser } = useAuthContext()
   const [fullPage, setFullPage] = useState(false)
-  const { serie } = useParams()
+  const { serie, id } = useParams()
 
   const slideLeft = () => {
     counter > 0 ? setCounter(counter - 1) : setCounter(coleccion.length - 1)
@@ -79,6 +79,7 @@ export default function Gallery({ coleccion }) {
     coleccion?.forEach((obra) => {
       imgLoader(obra)
     })
+    if (id) setCounter(coleccion?.findIndex((obra) => obra.id === id))
 
     return () => {
       const links = document.querySelector('link[rel="preload"]')
